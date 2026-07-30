@@ -27,8 +27,8 @@
 
 # Dashboard Links
 
-- [Deploy Pipeline Dashboard](https://app.datadoghq.com/forge-labs/dashboard/deploy-pipeline) - Real-time monitoring
-- [One-Click Deploy Feature Board](https://app.mode.com/forge-labs/reports/one-click-deploy) - Weekly metrics review
+- [Deploy Pipeline Dashboard](https://app.datadoghq.com/example_product-labs/dashboard/deploy-pipeline) - Real-time monitoring
+- [One-Click Deploy Feature Board](https://app.mode.com/example_product-labs/reports/one-click-deploy) - Weekly metrics review
 
 ## Related Queries
 

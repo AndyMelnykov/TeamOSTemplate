@@ -10,7 +10,7 @@
 
 ## Summary
 
-Build the data pipeline to ingest version history events from the Forge application database into Snowflake, producing a fact table (`fact_version_events`) for analytics queries and a dimension table (`dim_project_versions`) for enriched reporting. This pipeline supports the metrics, dashboards, and investigations defined in the version history analytics docs.
+Build the data pipeline to ingest version history events from the example_product application database into Snowflake, producing a fact table (`fact_version_events`) for analytics queries and a dimension table (`dim_project_versions`) for enriched reporting. This pipeline supports the metrics, dashboards, and investigations defined in the version history analytics docs.
 
 ## Motivation
 
@@ -25,19 +25,19 @@ Without a dedicated pipeline, the analytics team would need to query the product
 
 ### Source
 
-Version events originate from the `project_versions` table in the Forge application PostgreSQL database. Each insert to this table triggers a Debezium CDC event that lands in Kafka topic `forge.public.project_versions`.
+Version events originate from the `project_versions` table in the example_product application PostgreSQL database. Each insert to this table triggers a Debezium CDC event that lands in Kafka topic `example_product.public.project_versions`.
 
 ### Pipeline Architecture
 
 ```
 PostgreSQL (project_versions)
   --> Debezium CDC
-    --> Kafka (forge.public.project_versions)
+    --> Kafka (example_product.public.project_versions)
       --> Snowpipe (near real-time)
-        --> raw.forge.project_versions_raw
+        --> raw.example_product.project_versions_raw
           --> dbt transform
-            --> analytics.forge.fact_version_events
-            --> analytics.forge.dim_project_versions
+            --> analytics.example_product.fact_version_events
+            --> analytics.example_product.dim_project_versions
 ```
 
 ### Fact Table: `fact_version_events`
@@ -45,7 +45,7 @@ PostgreSQL (project_versions)
 Grain: one row per version event. This is the primary table for metrics queries.
 
 ```sql
-CREATE TABLE analytics.forge.fact_version_events (
+CREATE TABLE analytics.example_product.fact_version_events (
     event_id            VARCHAR(36)     NOT NULL,
     version_id          VARCHAR(36)     NOT NULL,
     project_id          VARCHAR(36)     NOT NULL,
@@ -93,7 +93,7 @@ CREATE TABLE analytics.forge.fact_version_events (
 Grain: one row per project-version combination. Enriched with project and user attributes for dashboard joins.
 
 ```sql
-CREATE TABLE analytics.forge.dim_project_versions (
+CREATE TABLE analytics.example_product.dim_project_versions (
     version_id              VARCHAR(36)     NOT NULL,
     project_id              VARCHAR(36)     NOT NULL,
     project_name            VARCHAR(255),

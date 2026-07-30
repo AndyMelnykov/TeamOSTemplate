@@ -7,7 +7,7 @@
 | Status | Complete |
 | Playbook | [Cross-Browser Issue Triage](https://playbooks.internal/cross-browser) |
 | Google Doc | [Investigation: Safari Preview Blank](https://docs.google.com/document/d/1stu-safari-preview) |
-| Related Tickets | FORGE-1015, FORGE-1019 |
+| Related Tickets | EXAMPLE_PRODUCT-1015, EXAMPLE_PRODUCT-1019 |
 
 ## Objective
 Investigate why template previews render as blank white iframes in Safari (macOS and iOS) while working correctly in Chrome and Firefox.

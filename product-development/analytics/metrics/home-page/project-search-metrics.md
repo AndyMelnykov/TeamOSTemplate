@@ -24,16 +24,16 @@
 
 # Data Sources
 
-- **`search_events`** -- Primary event table in Snowflake (`analytics.forge.search_events`), populated via Segment -> Snowpipe pipeline
+- **`search_events`** -- Primary event table in Snowflake (`analytics.example_product.search_events`), populated via Segment -> Snowpipe pipeline
 - **`daily_active_users`** -- DAU table derived from session events, used as denominator for usage rate
 - **`project_open_events`** -- Downstream event tracking project opens, joined by `user_id` and time window
 - **`users`** -- User profile data for segmentation by tier, signup date, org membership
 
 # Dashboard Links
 
-- [Search Health Dashboard](https://app.sigmacomputing.com/forge-labs/workbook/search-health) -- Real-time search usage, zero-results rate, latency percentiles (Sigma)
-- [Search Experiments](https://analytics.amplitude.com/forge-labs/dashboard/search-experiments) -- A/B test results and feature flag rollout metrics (Amplitude)
-- [Search Funnel](https://app.mode.com/forge-labs/reports/search-funnel) -- Detailed funnel analysis from modal open to project engagement (Mode)
+- [Search Health Dashboard](https://app.sigmacomputing.com/example_product-labs/workbook/search-health) -- Real-time search usage, zero-results rate, latency percentiles (Sigma)
+- [Search Experiments](https://analytics.amplitude.com/example_product-labs/dashboard/search-experiments) -- A/B test results and feature flag rollout metrics (Amplitude)
+- [Search Funnel](https://app.mode.com/example_product-labs/reports/search-funnel) -- Detailed funnel analysis from modal open to project engagement (Mode)
 
 ## Related Queries
 

@@ -5,7 +5,7 @@ description: Run the onboarding workflow for a new team member. Identifies their
 
 # Onboarding Agent
 
-Help a new team member get set up at Forge by walking them through the onboarding process.
+Help a new team member get set up at example_product by walking them through the onboarding process.
 
 ## Workflow
 

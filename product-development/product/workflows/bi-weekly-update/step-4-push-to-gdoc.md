@@ -19,12 +19,12 @@ If any section is missing, stop and flag to the PM before pushing.
 
 ### 2. Locate the target Google Doc
 
-The Forge Bi-Weekly Google Doc ID should be stored in the workflow config. If not available, search for it:
+The example_product Bi-Weekly Google Doc ID should be stored in the workflow config. If not available, search for it:
 
 ```
 mcp__google_workspace__search_docs({
-  user_google_email: "pm@forgelabs.dev",
-  query: "Forge Bi-Weekly Update"
+  user_google_email: "pm@example_productlabs.dev",
+  query: "example_product Bi-Weekly Update"
 })
 ```
 
@@ -43,7 +43,7 @@ Use the Google Workspace MCP to update the document:
 **Option A: Append to existing doc (default)**
 ```
 mcp__google_workspace__inspect_doc_structure({
-  user_google_email: "pm@forgelabs.dev",
+  user_google_email: "pm@example_productlabs.dev",
   document_id: "<DOC_ID>"
 })
 ```
@@ -52,7 +52,7 @@ Then insert the new bi-weekly content at the appropriate position (typically at 
 
 ```
 mcp__google_workspace__modify_doc_text({
-  user_google_email: "pm@forgelabs.dev",
+  user_google_email: "pm@example_productlabs.dev",
   document_id: "<DOC_ID>",
   start_index: <insertion_point>,
   text: "<formatted_content>"
@@ -62,8 +62,8 @@ mcp__google_workspace__modify_doc_text({
 **Option B: Create new doc per cycle**
 ```
 mcp__google_workspace__create_doc({
-  user_google_email: "pm@forgelabs.dev",
-  title: "Forge Bi-Weekly - YYYY-MM-DD",
+  user_google_email: "pm@example_productlabs.dev",
+  title: "example_product Bi-Weekly - YYYY-MM-DD",
   content: "<full_content>"
 })
 ```
@@ -76,7 +76,7 @@ After inserting raw text, apply formatting in a batch:
 
 ```
 mcp__google_workspace__batch_update_doc({
-  user_google_email: "pm@forgelabs.dev",
+  user_google_email: "pm@example_productlabs.dev",
   document_id: "<DOC_ID>",
   operations: [
     { "type": "update_paragraph_style", "start_index": X, "end_index": Y, "heading_level": 1 },
@@ -92,7 +92,7 @@ After pushing, retrieve and present the doc link:
 
 ```
 mcp__google_workspace__get_drive_shareable_link({
-  user_google_email: "pm@forgelabs.dev",
+  user_google_email: "pm@example_productlabs.dev",
   file_id: "<DOC_ID>"
 })
 ```

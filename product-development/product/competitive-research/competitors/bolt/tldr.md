@@ -23,8 +23,8 @@ Solo founders, small teams, non-technical builders. Similar to Lovable's target 
 ## Pricing
 Freemium with usage-based tiers. Starting at ~$20/mo.
 
-## Forge Differentiation
-Forge wins on enterprise features, customization depth, and production-readiness. Bolt wins on speed and simplicity for simple apps. Similar dynamic to Lovable but Bolt is more full-stack.
+## example_product Differentiation
+example_product wins on enterprise features, customization depth, and production-readiness. Bolt wins on speed and simplicity for simple apps. Similar dynamic to Lovable but Bolt is more full-stack.
 
 ## Bottom Line
 Direct competitor for the SMB segment. Strong on speed and simplicity, weak on enterprise and customization. Growing fast — watch their feature velocity.

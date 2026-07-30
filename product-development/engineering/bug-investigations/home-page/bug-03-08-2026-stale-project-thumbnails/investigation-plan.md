@@ -7,7 +7,7 @@
 | Status | Complete |
 | Playbook | [Asset Pipeline Debugging](https://playbooks.internal/asset-pipeline) |
 | Google Doc | [Investigation: Stale Thumbnails](https://docs.google.com/document/d/1def-stale-thumbnails) |
-| Related Tickets | FORGE-987, FORGE-1003 |
+| Related Tickets | EXAMPLE_PRODUCT-987, EXAMPLE_PRODUCT-1003 |
 
 ## Objective
 Investigate why project card thumbnails on the home page show outdated screenshots that don't reflect recent edits, even after multiple generations.

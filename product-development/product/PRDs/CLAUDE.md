@@ -1,7 +1,7 @@
 # PRDs
 
 ## Purpose
-Product Requirement Documents for Forge features.
+Product Requirement Documents for example_product features.
 
 ---
 
@@ -39,7 +39,7 @@ PRDs are organized by product area:
 Use the `/prd` command to create new PRDs. The command will:
 1. Load the PRD writing style
 2. Guide you through required sections
-3. Format according to Forge Labs standards
+3. Format according to example_product Labs standards
 
 ---
 

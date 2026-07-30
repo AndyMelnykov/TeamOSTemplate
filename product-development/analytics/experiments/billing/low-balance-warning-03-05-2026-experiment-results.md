@@ -135,7 +135,7 @@ Follow-up work:
 
 ## Data Sources
 
-- `analytics.forge.credit_transactions` -- credit balance tracking
+- `analytics.example_product.credit_transactions` -- credit balance tracking
 - Amplitude experiment results -- variant assignment and metric computation
 - `analytics.stripe.subscriptions` -- upgrade event detection
-- `analytics.forge.dim_users` -- churn classification
+- `analytics.example_product.dim_users` -- churn classification

@@ -1,6 +1,6 @@
 # Onboarding: Design
 
-Design-specific setup and orientation for designers joining Forge.
+Design-specific setup and orientation for designers joining example_product.
 
 ## Setup
 
@@ -12,7 +12,7 @@ See [General Onboarding](onboarding-general.md#shared-tools-everyone-gets-these)
 
 | Tool | Purpose | Access |
 |------|---------|--------|
-| Figma | Design files (edit access) | `Forge Labs` workspace - request edit from Emily Zhao |
+| Figma | Design files (edit access) | `example_product Labs` workspace - request edit from Emily Zhao |
 | Amplitude | Product analytics for design decisions | Request access from Grace Lin |
 | Maze | Usability testing | Team license - request from manager |
 
@@ -20,31 +20,31 @@ See [General Onboarding](onboarding-general.md#shared-tools-everyone-gets-these)
 
 | Repo | Why |
 |------|-----|
-| `forge-product` | PRDs, design patterns, component library docs |
-| `forge-app` | Understand frontend implementation of designs |
+| `example_product-product` | PRDs, design patterns, component library docs |
+| `example_product-app` | Understand frontend implementation of designs |
 
 ### Environment Setup
 
 1. Complete [General Onboarding](onboarding-general.md) setup first
-2. Get Figma edit access and explore the `Forge Labs` workspace
-3. Review the [design patterns and component library](../product/PRDs/forge/design-patterns/CLAUDE.md)
+2. Get Figma edit access and explore the `example_product Labs` workspace
+3. Review the [design patterns and component library](../product/PRDs/example_product/design-patterns/CLAUDE.md)
 4. Get Amplitude access for usage data context
 
 ## Key Documents
 
-- [Design Patterns](../product/PRDs/forge/design-patterns/CLAUDE.md) - components, copy library, screen inventory
+- [Design Patterns](../product/PRDs/example_product/design-patterns/CLAUDE.md) - components, copy library, screen inventory
 - [Frontend CLAUDE.md](../frontend/CLAUDE.md) - dev conventions and design system implementation
 - [Product CLAUDE.md](../product/CLAUDE.md) - product context, pillars, user segments
-- [Customer Insights](../product/customers/forge/CLAUDE.md) - user research, verbatims
+- [Customer Insights](../product/customers/example_product/CLAUDE.md) - user research, verbatims
 
 ## Slack Channels
 
 | Channel | Purpose |
 |---------|---------|
-| `#forge-design` | Design reviews, feedback, design system updates |
-| `#forge-product` | Product discussions, customer feedback |
-| `#forge-general` | Team-wide announcements |
-| `#forge-eng` | Stay close to implementation discussions |
+| `#example_product-design` | Design reviews, feedback, design system updates |
+| `#example_product-product` | Product discussions, customer feedback |
+| `#example_product-general` | Team-wide announcements |
+| `#example_product-eng` | Stay close to implementation discussions |
 
 ## People to Meet
 

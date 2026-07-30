@@ -11,26 +11,26 @@ Build the search events data pipeline to move Project Search (Cmd+K) interaction
 ## Steps
 
 1. Create Snowflake tables and staging infrastructure
-   - Create `analytics.forge.raw_search_events` staging table with VARIANT column for raw JSON
-   - Create `analytics.forge.fact_search_events` fact table per RFC schema
-   - Create `analytics.forge.dim_search_results` dimension table per RFC schema
-   - Create the S3 external stage `analytics.forge.segment_s3_stage` pointing to `s3://segment-forge-events/search/`
+   - Create `analytics.example_product.raw_search_events` staging table with VARIANT column for raw JSON
+   - Create `analytics.example_product.fact_search_events` fact table per RFC schema
+   - Create `analytics.example_product.dim_search_results` dimension table per RFC schema
+   - Create the S3 external stage `analytics.example_product.segment_s3_stage` pointing to `s3://segment-example_product-events/search/`
    - Grant appropriate roles: `ANALYTICS_LOADER` for Snowpipe writes, `ANALYTICS_READER` for dbt and BI tools
    - Verify table creation with `DESCRIBE TABLE` and confirm clustering keys
 
 2. Configure Segment tracking events
    - Add `Search Executed` track call in `src/components/search/SearchModal.tsx` with all required properties (event_id, query_text, query_length, result_count, result_count_projects, result_count_templates, result_count_actions, filters_applied, search_latency_ms, is_zero_results, search_results array)
    - Add `Search Result Clicked` track call with properties (event_id, clicked_result_id, clicked_result_type, clicked_position, time_to_click_ms)
-   - Configure Segment S3 destination to route search events to `s3://segment-forge-events/search/` prefix with date partitioning
+   - Configure Segment S3 destination to route search events to `s3://segment-example_product-events/search/` prefix with date partitioning
    - Validate events are flowing to S3 using Segment debugger and S3 console
    - Confirm JSON structure matches expected schema
 
 3. Set up Snowpipe auto-ingest
    - Create SQS queue for S3 event notifications on the `search/` prefix
-   - Create Snowpipe `analytics.forge.pipe_search_events` with AUTO_INGEST = TRUE
+   - Create Snowpipe `analytics.example_product.pipe_search_events` with AUTO_INGEST = TRUE
    - Configure the S3 bucket notification to send PUT events to the SQS queue
    - Test end-to-end: emit a test event from staging, verify it appears in `raw_search_events` within 2 minutes
-   - Monitor Snowpipe status with `SELECT SYSTEM$PIPE_STATUS('analytics.forge.pipe_search_events')`
+   - Monitor Snowpipe status with `SELECT SYSTEM$PIPE_STATUS('analytics.example_product.pipe_search_events')`
 
 4. Build dbt models
    - Create `models/staging/stg_search_events.sql`: parse raw JSON, deduplicate by event_id, join Search Executed with Search Result Clicked events, enrich with subscription_tier from users table
@@ -45,6 +45,6 @@ Build the search events data pipeline to move Project Search (Cmd+K) interaction
    - Add freshness monitoring: alert if `raw_search_events` has no new rows for 30+ minutes
    - Add duplicate detection: daily check that event_id is unique in fact table
    - Add enum validation: subscription_tier and clicked_result_type match expected values
-   - Configure Slack alerts to `#forge-data-alerts` for pipeline failures and quality check violations
+   - Configure Slack alerts to `#example_product-data-alerts` for pipeline failures and quality check violations
    - Run full pipeline in staging environment with synthetic data before enabling in production
    - Document runbook for common failure modes (Snowpipe lag, S3 delivery delay, dbt model failure)

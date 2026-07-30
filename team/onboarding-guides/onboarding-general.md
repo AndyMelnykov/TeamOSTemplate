@@ -1,6 +1,6 @@
 # Onboarding: General
 
-This guide covers setup and orientation common to all new Forge team members. Role-specific guides are linked at the bottom.
+This guide covers setup and orientation common to all new example_product team members. Role-specific guides are linked at the bottom.
 
 ## Setup
 
@@ -8,11 +8,11 @@ This guide covers setup and orientation common to all new Forge team members. Ro
 
 | Tool | Purpose | Access |
 |------|---------|--------|
-| GitHub | Code, PRs, CI/CD | `forge-labs` org invite |
-| Linear / Jira / Asana | Issue tracking, sprints | `Forge` team invite |
-| Slack | Communication | Forge Labs workspace invite |
+| GitHub | Code, PRs, CI/CD | `example_product-labs` org invite |
+| Linear / Jira / Asana | Issue tracking, sprints | `example_product` team invite |
+| Slack | Communication | example_product Labs workspace invite |
 | Google Workspace | Docs, email, calendar | Auto-provisioned |
-| Figma | Design files, prototypes (view access) | `Forge Labs` workspace invite |
+| Figma | Design files, prototypes (view access) | `example_product Labs` workspace invite |
 
 ### Function-Specific Tools
 
@@ -22,34 +22,34 @@ See your role-specific onboarding guide for additional tools.
 
 | Repo | Description |
 |------|-------------|
-| `forge-app` | Main application (frontend + backend API) |
-| `forge-ai` | AI generation pipeline and model serving |
-| `forge-infra` | Terraform, Kubernetes configs, CI/CD |
-| `forge-docs` | Public documentation site |
-| `forge-product` | This repo - product docs, PRDs, strategy |
+| `example_product-app` | Main application (frontend + backend API) |
+| `example_product-ai` | AI generation pipeline and model serving |
+| `example_product-infra` | Terraform, Kubernetes configs, CI/CD |
+| `example_product-docs` | Public documentation site |
+| `example_product-product` | This repo - product docs, PRDs, strategy |
 
 ### Environment Setup
 
 1. Get laptop provisioned and accounts set up (IT will walk you through this)
-2. Accept invitations to GitHub (`forge-labs` org), Linear / Jira / Asana (`Forge` team), Slack, and Google Workspace
+2. Accept invitations to GitHub (`example_product-labs` org), Linear / Jira / Asana (`example_product` team), Slack, and Google Workspace
 3. Set up local development environment (follow `CONTRIBUTING.md` in the main repo)
 4. Complete a test generation on staging and deploy it
 
 ## Key Documents
 
-- [Platform Overview](../product/product-context/forge-platform-overview.md) - what Forge does
-- [Business Info](../product/strategy/business-context/forge-business-info.md) - company context
+- [Platform Overview](../product/product-context/example_product-platform-overview.md) - what example_product does
+- [Business Info](../product/strategy/business-context/example_product-business-info.md) - company context
 
 ## Slack Channels
 
 | Channel | Purpose |
 |---------|---------|
-| `#forge-general` | Team-wide announcements and discussion |
-| `#forge-eng` | Engineering discussion, architecture decisions |
-| `#forge-eng-standup` | Daily async standup posts |
-| `#forge-product` | Product discussions, customer feedback, roadmap |
-| `#forge-incidents` | Production incidents and on-call alerts |
-| `#forge-deploys` | Automated deploy notifications |
+| `#example_product-general` | Team-wide announcements and discussion |
+| `#example_product-eng` | Engineering discussion, architecture decisions |
+| `#example_product-eng-standup` | Daily async standup posts |
+| `#example_product-product` | Product discussions, customer feedback, roadmap |
+| `#example_product-incidents` | Production incidents and on-call alerts |
+| `#example_product-deploys` | Automated deploy notifications |
 
 ## People to Meet
 

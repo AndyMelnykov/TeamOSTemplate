@@ -1,6 +1,6 @@
 # Engineering
 
-Engineering plans, RFCs, and bug investigations for Forge. All organized by product area.
+Engineering plans, RFCs, and bug investigations for example_product. All organized by product area.
 
 ## Folders
 

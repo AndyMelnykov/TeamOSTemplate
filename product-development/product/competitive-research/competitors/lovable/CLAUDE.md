@@ -1,6 +1,6 @@
 # Lovable
 
-Full-stack AI app builder focused on design quality. Direct competitor — closest feature overlap with Forge.
+Full-stack AI app builder focused on design quality. Direct competitor — closest feature overlap with example_product.
 
 ## Doc Index
 | File | Description |

@@ -1,9 +1,9 @@
-# Schema: `analytics.forge.template_forks`
+# Schema: `analytics.example_product.template_forks`
 
 Event-level table capturing every template fork action in the Community Marketplace. One row per fork event (a user creating a new project from a published template).
 
 **Database:** `ANALYTICS`
-**Schema:** `FORGE`
+**Schema:** `EXAMPLE_PRODUCT`
 **Table:** `TEMPLATE_FORKS`
 **Refresh:** Streaming (near real-time via Snowpipe)
 **Retention:** 2 years

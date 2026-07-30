@@ -16,17 +16,17 @@ Process a customer call transcript by:
 ## Step 1: Determine Product Area
 
 Ask the user which product area this call relates to (or infer from context):
-- **Forge** (AI Prototyping)
-- **Forge Studio**
-- **Forge Deploy**
-- **Forge Analytics**
+- **example_product** (AI Prototyping)
+- **example_product Studio**
+- **example_product Deploy**
+- **example_product Analytics**
 
 Base paths for customer calls:
 ```
-product areas/AI Prototyping (Forge)/customers/calls/
-product areas/Forge Studio/customer-calls/
-product areas/Forge Deploy/customer-calls/
-product areas/Forge Analytics/customer-calls/
+product areas/AI Prototyping (example_product)/customers/calls/
+product areas/example_product Studio/customer-calls/
+product areas/example_product Deploy/customer-calls/
+product areas/example_product Analytics/customer-calls/
 ```
 
 ## Step 1.5: Granola Connectivity Check
@@ -170,10 +170,10 @@ Launch ONE Task agent **in the background** to update the feature requests track
 
 **Prompt the agent with:**
 - The list of feature requests identified in Step 4 (customer name, feature name, context, which section of feature-requests.md they belong in)
-- The target file: `product/customers/forge/feature-requests/feature-requests.md`
+- The target file: `product/customers/example_product/feature-requests/feature-requests.md`
 
 **The agent should:**
-1. Read `product/customers/forge/feature-requests/feature-requests.md`
+1. Read `product/customers/example_product/feature-requests/feature-requests.md`
 2. For each feature request: add/update in the appropriate section
 3. Update Section 4 (customer index) with any new entries
 4. Update the "Last updated" date
@@ -194,7 +194,7 @@ Present the Slack summary draft (prepared in Step 4) to the user for review. Fol
 The summary should be detailed enough that someone who wasn't on the call understands the full picture. Include specific examples and context, capture the "why" behind insights, use real examples mentioned in the call, and note blockers and dependencies. See the example in the skill folder for the expected level of detail.
 
 ### Action Item Management
-Action items tables live at the TOP of the summary file (before any meetings), split by Forge Labs and Customer ownership. Each meeting: review existing items, ask about unclear status, update tables, add new items. When moving to Completed, add the completion date. See SKILL.md for the table format.
+Action items tables live at the TOP of the summary file (before any meetings), split by example_product Labs and Customer ownership. Each meeting: review existing items, ask about unclear status, update tables, add new items. When moving to Completed, add the completion date. See SKILL.md for the table format.
 
 ### Anchor Links
 - Standard markdown auto-generates anchors from heading text

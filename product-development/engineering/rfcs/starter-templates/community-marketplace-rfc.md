@@ -24,18 +24,18 @@
 
 ## Summary
 
-The Community Marketplace is a platform feature that enables Forge users to publish their projects as reusable templates and discover templates created by other users. The marketplace surfaces ratings and usage statistics to help users find high-quality starting points for their projects. This creates a user-generated content flywheel where the template catalog grows organically without requiring internal effort for every new template.
+The Community Marketplace is a platform feature that enables example_product users to publish their projects as reusable templates and discover templates created by other users. The marketplace surfaces ratings and usage statistics to help users find high-quality starting points for their projects. This creates a user-generated content flywheel where the template catalog grows organically without requiring internal effort for every new template.
 
 ## Motivation
 
-Today, all templates in the Forge template library are created and maintained internally by the Forge team. This creates several problems:
+Today, all templates in the example_product template library are created and maintained internally by the example_product team. This creates several problems:
 
 1. **Limited catalog size.** The internal team can only produce a handful of templates per quarter, leaving gaps in coverage for niche use cases (e.g., restaurant ordering systems, nonprofit donor portals, fitness tracking apps).
 2. **Users want to share.** In customer calls and feature requests, users consistently ask for a way to publish their projects as templates so others can benefit from their work. Approximately 34% of feature requests in Q1 2026 referenced template sharing or discovery.
 3. **No network effects.** The current template system is a static asset. A marketplace transforms it into a network where each new published template increases the value of the platform for all users.
 4. **Quality signal is missing.** Without community ratings and usage data, there is no way to surface which templates are genuinely useful versus which simply exist.
 
-The Community Marketplace addresses all of these by allowing any Forge user to publish a template, browse and fork community templates, and rate them after use.
+The Community Marketplace addresses all of these by allowing any example_product user to publish a template, browse and fork community templates, and rate them after use.
 
 ## Proposed Design
 
@@ -101,7 +101,7 @@ The `preview_images` JSONB column stores an array of objects with the structure:
 ```json
 [
   {
-    "url": "https://cdn.forgelabs.dev/templates/abc123/preview-1.png",
+    "url": "https://cdn.example_productlabs.dev/templates/abc123/preview-1.png",
     "alt": "Dashboard overview screen",
     "order": 1
   }
@@ -176,10 +176,10 @@ Browse published templates with filtering and sorting.
       "author": {
         "id": "user-456",
         "username": "janedoe",
-        "avatar_url": "https://cdn.forgelabs.dev/avatars/user-456.jpg"
+        "avatar_url": "https://cdn.example_productlabs.dev/avatars/user-456.jpg"
       },
       "preview_images": [
-        { "url": "https://cdn.forgelabs.dev/templates/abc-123/preview-1.png", "alt": "Dashboard overview", "order": 1 }
+        { "url": "https://cdn.example_productlabs.dev/templates/abc-123/preview-1.png", "alt": "Dashboard overview", "order": 1 }
       ],
       "fork_count": 142,
       "avg_rating": 4.6,
@@ -219,11 +219,11 @@ Get full details for a single published template.
   "author": {
     "id": "user-456",
     "username": "janedoe",
-    "avatar_url": "https://cdn.forgelabs.dev/avatars/user-456.jpg"
+    "avatar_url": "https://cdn.example_productlabs.dev/avatars/user-456.jpg"
   },
   "preview_images": [
-    { "url": "https://cdn.forgelabs.dev/templates/abc-123/preview-1.png", "alt": "Dashboard overview", "order": 1 },
-    { "url": "https://cdn.forgelabs.dev/templates/abc-123/preview-2.png", "alt": "User management page", "order": 2 }
+    { "url": "https://cdn.example_productlabs.dev/templates/abc-123/preview-1.png", "alt": "Dashboard overview", "order": 1 },
+    { "url": "https://cdn.example_productlabs.dev/templates/abc-123/preview-2.png", "alt": "User management page", "order": 2 }
   ],
   "source_project_id": "proj-789",
   "fork_count": 142,
@@ -257,7 +257,7 @@ Publish a project as a community template. Requires authentication.
   "description": "A complete admin dashboard with user management, analytics charts, and settings panels.",
   "category": "saas",
   "preview_images": [
-    { "url": "https://cdn.forgelabs.dev/templates/abc-123/preview-1.png", "alt": "Dashboard overview", "order": 1 }
+    { "url": "https://cdn.example_productlabs.dev/templates/abc-123/preview-1.png", "alt": "Dashboard overview", "order": 1 }
   ]
 }
 ```
@@ -508,13 +508,13 @@ All published templates go through a manual review process before appearing in t
 ### Phase 1: Internal Beta (Week 9)
 
 - Deploy behind the `marketplace-beta` feature flag
-- Enable for internal Forge team members and 20 invited beta users
+- Enable for internal example_product team members and 20 invited beta users
 - Seed marketplace with 15-20 high-quality templates from the internal library
 - Monitor review queue volume, fork success rate, and page load performance
 
 ### Phase 2: Limited GA (Week 10)
 
-- Enable for all Forge Pro and Teams users
+- Enable for all example_product Pro and Teams users
 - Publish announcement in-app and via email
 - Monitor for abuse patterns and review queue throughput
 - Collect feedback on discovery and publishing UX
@@ -523,5 +523,5 @@ All published templates go through a manual review process before appearing in t
 
 - Enable for all users including free tier
 - Add marketplace link to main navigation
-- Feature top community templates on the Forge homepage
+- Feature top community templates on the example_product homepage
 - Launch "Template of the Week" editorial spotlight

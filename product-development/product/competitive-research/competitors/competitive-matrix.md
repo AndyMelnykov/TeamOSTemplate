@@ -10,7 +10,7 @@ Last updated: 2026-03-22
 
 ## Generation Quality
 
-| Feature | Forge | Lovable | Google Stitch | v0 | Replit | Figma Make | Bolt |
+| Feature | example_product | Lovable | Google Stitch | v0 | Replit | Figma Make | Bolt |
 |---------|-------|---------|---------------|-----|--------|------------|------|
 | UI component quality | Yes | Yes | Partial | Yes | Partial | Yes | Yes |
 | Responsive design | Yes | Yes | Partial | Yes | Partial | Yes | Yes |
@@ -22,7 +22,7 @@ Last updated: 2026-03-22
 
 ## Deployment
 
-| Feature | Forge | Lovable | Google Stitch | v0 | Replit | Figma Make | Bolt |
+| Feature | example_product | Lovable | Google Stitch | v0 | Replit | Figma Make | Bolt |
 |---------|-------|---------|---------------|-----|--------|------------|------|
 | One-click deploy | Yes | Yes | Partial | Partial | Yes | No | Yes |
 | Custom domain support | Yes | Yes | No | No | Yes | No | Partial |
@@ -33,7 +33,7 @@ Last updated: 2026-03-22
 
 ## Collaboration
 
-| Feature | Forge | Lovable | Google Stitch | v0 | Replit | Figma Make | Bolt |
+| Feature | example_product | Lovable | Google Stitch | v0 | Replit | Figma Make | Bolt |
 |---------|-------|---------|---------------|-----|--------|------------|------|
 | Real-time multiplayer editing | Yes | No | Partial | No | Yes | Yes | No |
 | Team workspaces | Yes | Partial | Yes | Partial | Yes | Yes | Partial |
@@ -44,7 +44,7 @@ Last updated: 2026-03-22
 
 ## Enterprise Features
 
-| Feature | Forge | Lovable | Google Stitch | v0 | Replit | Figma Make | Bolt |
+| Feature | example_product | Lovable | Google Stitch | v0 | Replit | Figma Make | Bolt |
 |---------|-------|---------|---------------|-----|--------|------------|------|
 | SSO / SAML | Yes | No | Yes | No | Partial | Yes | No |
 | Audit logging | Yes | No | Yes | No | Partial | Partial | No |
@@ -56,7 +56,7 @@ Last updated: 2026-03-22
 
 ## Pricing
 
-| Feature | Forge | Lovable | Google Stitch | v0 | Replit | Figma Make | Bolt |
+| Feature | example_product | Lovable | Google Stitch | v0 | Replit | Figma Make | Bolt |
 |---------|-------|---------|---------------|-----|--------|------------|------|
 | Free tier | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
 | Per-seat pricing | Yes | Yes | No | Yes | Yes | Yes | Yes |
@@ -66,7 +66,7 @@ Last updated: 2026-03-22
 
 ## Integrations
 
-| Feature | Forge | Lovable | Google Stitch | v0 | Replit | Figma Make | Bolt |
+| Feature | example_product | Lovable | Google Stitch | v0 | Replit | Figma Make | Bolt |
 |---------|-------|---------|---------------|-----|--------|------------|------|
 | Git (GitHub/GitLab) | Yes | Partial | Partial | Yes | Yes | No | Partial |
 | Database connectors | Yes | Partial | Partial | No | Yes | No | Partial |
@@ -77,7 +77,7 @@ Last updated: 2026-03-22
 
 ## Customization
 
-| Feature | Forge | Lovable | Google Stitch | v0 | Replit | Figma Make | Bolt |
+| Feature | example_product | Lovable | Google Stitch | v0 | Replit | Figma Make | Bolt |
 |---------|-------|---------|---------------|-----|--------|------------|------|
 | Tech stack selection | Yes | Partial | Partial | No | Yes | No | Partial |
 | Architecture patterns | Yes | No | Partial | No | Partial | No | No |
@@ -88,7 +88,7 @@ Last updated: 2026-03-22
 
 ## Summary Scorecard
 
-| Category | Forge | Lovable | Google Stitch | v0 | Replit | Figma Make | Bolt |
+| Category | example_product | Lovable | Google Stitch | v0 | Replit | Figma Make | Bolt |
 |----------|-------|---------|---------------|-----|--------|------------|------|
 | Generation Quality | 5 | 4 | 3 | 4 | 3 | 2 | 4 |
 | Deployment | 5 | 4 | 2 | 2 | 4 | 1 | 4 |

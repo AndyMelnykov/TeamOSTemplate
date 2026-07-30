@@ -10,11 +10,11 @@
 
 ## Overview
 
-Project Search introduces a global search modal (Cmd+K / Ctrl+K) that lets users instantly find projects, templates, and recent actions from anywhere in Forge. As users accumulate projects and explore templates, the current browse-only navigation becomes a bottleneck. A keyboard-driven search modal is the most requested navigation improvement and a table-stakes feature for power users coming from tools like VS Code, Notion, and Linear.
+Project Search introduces a global search modal (Cmd+K / Ctrl+K) that lets users instantly find projects, templates, and recent actions from anywhere in example_product. As users accumulate projects and explore templates, the current browse-only navigation becomes a bottleneck. A keyboard-driven search modal is the most requested navigation improvement and a table-stakes feature for power users coming from tools like VS Code, Notion, and Linear.
 
 ## Problem Statement
 
-Forge users have no way to search across their projects, templates, or recent activity. The home page displays projects in a grid sorted by last-modified date, but offers no search, filtering, or quick-jump capability. This creates three specific pain points:
+example_product users have no way to search across their projects, templates, or recent activity. The home page displays projects in a grid sorted by last-modified date, but offers no search, filtering, or quick-jump capability. This creates three specific pain points:
 
 1. **Project discovery degrades with scale.** Free-tier users average 5-8 projects and can scan visually. Pro users average 25+ projects; Teams and Enterprise accounts can have 100+. Scrolling through a grid is not viable at this scale.
 
@@ -33,17 +33,17 @@ Forge users have no way to search across their projects, templates, or recent ac
 - The home page redesign (Q1 2026) established the layout foundation. Search is the next logical investment in the home page surface.
 - Customer escalations around project discovery have increased 3x quarter-over-quarter as average project counts grow.
 - Competitors Lovable and v0 both shipped global search in the past 6 months. Users switching from those tools explicitly cite search as an expected capability.
-- The prompt suggestions experiment (FORGE-1040) validated that surfacing relevant content on the home page increases engagement. Search extends this principle to user-initiated discovery.
+- The prompt suggestions experiment (EXAMPLE_PRODUCT-1040) validated that surfacing relevant content on the home page increases engagement. Search extends this principle to user-initiated discovery.
 
 ## Customer Requests
 
 | Customer | Tier | Verbatim |
 |----------|------|----------|
 | Acme Corp | Enterprise | "I have 80 projects and no way to find the one I worked on last Tuesday. I end up using browser history which is embarrassing." |
-| Bright Studios | Teams | "We need Cmd+K. Every tool I use has it. I keep pressing it in Forge and nothing happens." |
+| Bright Studios | Teams | "We need Cmd+K. Every tool I use has it. I keep pressing it in example_product and nothing happens." |
 | Solo Dev (free-tier) | Free | "I tried a bunch of templates last week and now I can't remember which one had the e-commerce layout." |
 | DataFlow Inc | Pro | "Our team shares 40+ projects. Finding the right one takes longer than it should." |
-| NovaTech | Enterprise | "Search is the #1 thing blocking us from recommending Forge to more teams internally." |
+| NovaTech | Enterprise | "Search is the #1 thing blocking us from recommending example_product to more teams internally." |
 
 ---
 
@@ -51,7 +51,7 @@ Forge users have no way to search across their projects, templates, or recent ac
 
 ### Goals
 
-1. Give every Forge user a fast, keyboard-driven way to find any project, template, or recent action in under 3 seconds.
+1. Give every example_product user a fast, keyboard-driven way to find any project, template, or recent action in under 3 seconds.
 2. Reduce the navigation overhead for power users with large project portfolios.
 3. Capture search behavior data to inform template strategy and content gaps.
 
@@ -77,12 +77,12 @@ Forge users have no way to search across their projects, templates, or recent ac
 ## User Stories
 
 ### US-1: Find a project by name
-**As a** Forge user with many projects,
+**As a** example_product user with many projects,
 **I want to** press Cmd+K and type a project name,
 **So that** I can navigate directly to it without scrolling through the project grid.
 
 **Acceptance criteria:**
-- Cmd+K opens the search modal from any page in Forge.
+- Cmd+K opens the search modal from any page in example_product.
 - Typing a project name shows matching projects within 300ms.
 - Pressing Enter on a highlighted project navigates to it.
 - The modal closes after navigation.
@@ -177,7 +177,7 @@ Forge users have no way to search across their projects, templates, or recent ac
 
 | Phase | Audience | Duration | Entry Criteria |
 |-------|----------|----------|----------------|
-| Internal dogfood | Forge Labs team | 1 week | Feature complete, passing tests |
+| Internal dogfood | example_product Labs team | 1 week | Feature complete, passing tests |
 | Beta | 10% of Pro and Teams users | 2 weeks | No P0/P1 bugs from dogfood, p95 < 200ms |
 | GA | All authenticated users | Ongoing | Beta success metrics met, security review passed |
 

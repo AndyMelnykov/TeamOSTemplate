@@ -7,7 +7,7 @@
 -- depletion at the current burn rate.
 --
 -- Platform: Snowflake
--- Source table: analytics.forge.credit_transactions
+-- Source table: analytics.example_product.credit_transactions
 -- Recommended schedule: Daily, 06:00 UTC
 --
 -- Related metrics: metrics/billing/credit-usage-metrics.md
@@ -20,7 +20,7 @@ WITH user_daily_usage AS (
         ct.subscription_tier,
         DATE(ct.created_at) AS usage_date,
         SUM(ct.amount) AS daily_credits_used
-    FROM analytics.forge.credit_transactions ct
+    FROM analytics.example_product.credit_transactions ct
     WHERE ct.type = 'debit'
         AND ct.created_at >= DATEADD('day', -7, CURRENT_DATE())
         AND ct.created_at < CURRENT_DATE()
@@ -44,10 +44,10 @@ current_balance AS (
     SELECT
         user_id,
         balance_after AS current_balance
-    FROM analytics.forge.credit_transactions
+    FROM analytics.example_product.credit_transactions
     WHERE (user_id, created_at) IN (
         SELECT user_id, MAX(created_at)
-        FROM analytics.forge.credit_transactions
+        FROM analytics.example_product.credit_transactions
         GROUP BY user_id
     )
 ),

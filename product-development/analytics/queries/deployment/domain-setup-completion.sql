@@ -7,7 +7,7 @@
 -- Related schema: schemas/deployment/domain_certificates.md
 --
 -- Platform: Snowflake
--- Source tables: analytics.forge.custom_domains, analytics.forge.custom_domain_events, analytics.forge.domain_certificates
+-- Source tables: analytics.example_product.custom_domains, analytics.example_product.custom_domain_events, analytics.example_product.domain_certificates
 -- Recommended schedule: Daily, 06:00 UTC
 
 -- =============================================================================
@@ -38,8 +38,8 @@ WITH domain_funnel_events AS (
             WHEN cde.event_type = 'live' THEN cde.created_at
         END) AS step_live_at
 
-    FROM analytics.forge.custom_domains cd
-    LEFT JOIN analytics.forge.custom_domain_events cde
+    FROM analytics.example_product.custom_domains cd
+    LEFT JOIN analytics.example_product.custom_domain_events cde
         ON cde.domain_id = cd.id
     WHERE cd.created_at >= DATEADD('day', -90, CURRENT_DATE())
     GROUP BY cd.id, cd.user_id, cd.domain, cd.project_id, cd.created_at
@@ -52,7 +52,7 @@ user_tiers AS (
     SELECT DISTINCT
         user_id,
         tier AS subscription_tier
-    FROM analytics.forge.subscriptions
+    FROM analytics.example_product.subscriptions
     WHERE status = 'active'
 ),
 

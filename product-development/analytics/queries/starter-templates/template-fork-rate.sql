@@ -20,7 +20,7 @@ WITH daily_forks AS (
         COUNT(*) AS total_forks,
         COUNT(DISTINCT tf.user_id) AS unique_forkers,
         COUNT(DISTINCT tf.template_id) AS unique_templates_forked
-    FROM analytics.forge.template_forks tf
+    FROM analytics.example_product.template_forks tf
     WHERE tf.created_at >= DATEADD('day', -30, CURRENT_DATE())
     GROUP BY 1
 ),
@@ -28,7 +28,7 @@ daily_marketplace_views AS (
     SELECT
         DATE_TRUNC('day', event_timestamp) AS view_date,
         COUNT(*) AS marketplace_page_views
-    FROM analytics.forge.segment_events
+    FROM analytics.example_product.segment_events
     WHERE event_name = 'marketplace.viewed'
       AND event_timestamp >= DATEADD('day', -30, CURRENT_DATE())
     GROUP BY 1
@@ -60,11 +60,11 @@ SELECT
     COUNT(tf.fork_id) AS forks_last_30d,
     pt.fork_count AS forks_all_time,
     pt.rating_count
-FROM analytics.forge.published_templates pt
-JOIN analytics.forge.template_forks tf
+FROM analytics.example_product.published_templates pt
+JOIN analytics.example_product.template_forks tf
     ON tf.template_id = pt.template_id
     AND tf.created_at >= DATEADD('day', -30, CURRENT_DATE())
-JOIN analytics.forge.users u
+JOIN analytics.example_product.users u
     ON u.user_id = pt.author_id
 WHERE pt.status = 'approved'
 GROUP BY 1, 2, 3, 4, 5, 6, 8, 9
@@ -87,8 +87,8 @@ WITH forked_projects AS (
         tf.customizations_applied,
         tf.created_at AS fork_created_at,
         pt.category AS template_category
-    FROM analytics.forge.template_forks tf
-    JOIN analytics.forge.published_templates pt
+    FROM analytics.example_product.template_forks tf
+    JOIN analytics.example_product.published_templates pt
         ON pt.template_id = tf.template_id
     WHERE tf.created_at >= DATEADD('day', -30, CURRENT_DATE())
 ),
@@ -102,7 +102,7 @@ fork_deploy_status AS (
         MIN(de.created_at) AS first_deploy_at,
         DATEDIFF('minute', fp.fork_created_at, MIN(de.created_at)) AS minutes_to_first_deploy
     FROM forked_projects fp
-    LEFT JOIN analytics.forge.deploy_events de
+    LEFT JOIN analytics.example_product.deploy_events de
         ON de.project_id = fp.project_id
     GROUP BY 1, 2, 3, 4, fp.fork_created_at
 )
@@ -137,8 +137,8 @@ WITH forked_projects AS (
         tf.project_id,
         pt.category AS template_category,
         tf.created_at AS fork_created_at
-    FROM analytics.forge.template_forks tf
-    JOIN analytics.forge.published_templates pt
+    FROM analytics.example_product.template_forks tf
+    JOIN analytics.example_product.published_templates pt
         ON pt.template_id = tf.template_id
     WHERE tf.created_at >= DATEADD('day', -30, CURRENT_DATE())
 ),
@@ -148,7 +148,7 @@ fork_deploy_status AS (
         fp.template_category,
         MAX(CASE WHEN de.status = 'completed' THEN 1 ELSE 0 END) AS was_deployed
     FROM forked_projects fp
-    LEFT JOIN analytics.forge.deploy_events de
+    LEFT JOIN analytics.example_product.deploy_events de
         ON de.project_id = fp.project_id
     GROUP BY 1, 2
 )

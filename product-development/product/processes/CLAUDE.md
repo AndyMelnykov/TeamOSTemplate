@@ -1,7 +1,7 @@
 # Processes
 
 ## Purpose
-Operational processes and how-to guides for Forge.
+Operational processes and how-to guides for example_product.
 
 ---
 
@@ -9,7 +9,7 @@ Operational processes and how-to guides for Forge.
 
 | File | Description |
 |------|-------------|
-| `customer-onboarding-checklist.md` | Step-by-step checklist for onboarding new Forge customers |
+| `customer-onboarding-checklist.md` | Step-by-step checklist for onboarding new example_product customers |
 
 ---
 

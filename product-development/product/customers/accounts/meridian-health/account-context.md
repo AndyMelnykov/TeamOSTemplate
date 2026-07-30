@@ -1,13 +1,13 @@
 # Meridian Health - Account Context
 
-## What They Use Forge For
+## What They Use example_product For
 
-Healthcare technology company with a 35-person engineering team. Uses Forge for internal tools and patient-facing application prototyping. Running 22 active projects - one of the highest project counts across all accounts.
+Healthcare technology company with a 35-person engineering team. Uses example_product for internal tools and patient-facing application prototyping. Running 22 active projects - one of the highest project counts across all accounts.
 
 ## Goals and Success Criteria
 
-- Scale Forge usage across additional engineering teams
-- Achieve HIPAA compliance certification for Forge-deployed applications
+- Scale example_product usage across additional engineering teams
+- Achieve HIPAA compliance certification for example_product-deployed applications
 - Reduce prototype-to-production cycle time
 
 ## Relationship Context
@@ -27,5 +27,5 @@ Healthcare technology company with a 35-person engineering team. Uses Forge for 
 > "We went from three weeks to three days for prototype-to-production. That's not incremental — that's transformational. But we need the compliance infrastructure to keep up with the speed."
 > - Anil Gupta, Head of Engineering (March 2026, feature review)
 >
-> "I need to be able to pull a report that shows every user who accessed a patient-facing prototype, what data it queried, and when. If I can't produce that report during an audit, we can't use Forge for anything that touches PHI. Period."
+> "I need to be able to pull a report that shows every user who accessed a patient-facing prototype, what data it queried, and when. If I can't produce that report during an audit, we can't use example_product for anything that touches PHI. Period."
 > - Dr. Sarah Pham, Chief Medical Informatics Officer (March 2026, feature review)

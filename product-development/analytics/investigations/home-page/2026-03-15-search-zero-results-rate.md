@@ -5,8 +5,8 @@
 | Run Date | 2026-03-15 |
 | Author | Casey Nguyen, Analytics |
 | Status | Complete |
-| Related Tickets | FORGE-1055 |
-| Dashboard | [Search Health](https://app.sigmacomputing.com/forge-labs/workbook/search-health) |
+| Related Tickets | EXAMPLE_PRODUCT-1055 |
+| Dashboard | [Search Health](https://app.sigmacomputing.com/example_product-labs/workbook/search-health) |
 
 ---
 
@@ -99,7 +99,7 @@ When a search returns zero results, show a "Did you mean: [suggestion]?" prompt 
 
 ### R4: Track zero-result queries for template gap analysis (Priority: P1)
 
-Pipe zero-result queries that fall into the "non-existent content" bucket (11%) into a weekly report for the product team. Queries like "mobile app", "flutter template", and "iOS" signal demand for content types Forge does not yet support.
+Pipe zero-result queries that fall into the "non-existent content" bucket (11%) into a weekly report for the product team. Queries like "mobile app", "flutter template", and "iOS" signal demand for content types example_product does not yet support.
 
 ---
 
@@ -113,7 +113,7 @@ SELECT
     COUNT(*) AS total_searches,
     COUNT_IF(is_zero_results = TRUE) AS zero_result_searches,
     ROUND(COUNT_IF(is_zero_results = TRUE) * 100.0 / COUNT(*), 2) AS zero_results_rate_pct
-FROM analytics.forge.search_events
+FROM analytics.example_product.search_events
 WHERE created_at BETWEEN '2026-03-01' AND '2026-03-15'
 GROUP BY 1
 ORDER BY 1;
@@ -127,7 +127,7 @@ WITH zero_result_queries AS (
         LOWER(TRIM(query_text)) AS normalized_query,
         COUNT(*) AS frequency,
         COUNT(DISTINCT user_id) AS unique_users
-    FROM analytics.forge.search_events
+    FROM analytics.example_product.search_events
     WHERE created_at BETWEEN '2026-03-01' AND '2026-03-15'
       AND is_zero_results = TRUE
     GROUP BY 1

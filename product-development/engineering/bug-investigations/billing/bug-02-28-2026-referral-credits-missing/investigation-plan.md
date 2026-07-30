@@ -7,7 +7,7 @@
 | Status | Complete |
 | Playbook | [Referral Program Debugging](https://playbooks.internal/referral-program) |
 | Google Doc | [Investigation: Missing Referral Credits](https://docs.google.com/document/d/1jkl-referral-credits) |
-| Related Tickets | FORGE-965, FORGE-971 |
+| Related Tickets | EXAMPLE_PRODUCT-965, EXAMPLE_PRODUCT-971 |
 
 ## Objective
 Investigate why referrers are not receiving their 100-credit bonus when referred users convert to paid plans, despite the referral being correctly attributed at signup.

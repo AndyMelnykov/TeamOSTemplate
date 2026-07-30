@@ -102,7 +102,7 @@ Build the credit transaction data model in Snowflake to power the Credit Usage D
 
 - Build the "Credit Usage Health" workbook in Sigma connected to the metric models.
 - Views: daily consumption stacked area chart, utilization by tier histogram, at-risk users table, burn rate trends.
-- Share with `forge-product` and `forge-analytics` groups.
+- Share with `example_product-product` and `example_product-analytics` groups.
 - Document dashboard in `product/analytics/dashboards/billing/credit-usage-dashboards.md`.
 
 ### 10. Validate end-to-end pipeline
@@ -120,9 +120,9 @@ Build the credit transaction data model in Snowflake to power the Credit Usage D
 |------------|-------|--------|
 | Supabase `credit_transactions` table exists with production data | Engineering | Complete |
 | Fivetran Supabase connector is provisioned | Data Engineering | Complete |
-| Snowflake `analytics` database and `forge` schema exist | Data Engineering | Complete |
+| Snowflake `analytics` database and `example_product` schema exist | Data Engineering | Complete |
 | dbt project has `billing` model directory | Data Engineering | To do |
-| Sigma workspace access for `forge-product` group | Data Engineering | Complete |
+| Sigma workspace access for `example_product-product` group | Data Engineering | Complete |
 | Engineering RFC approved | Riley Patel | In review |
 
 ## Timeline

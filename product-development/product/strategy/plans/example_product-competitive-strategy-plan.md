@@ -1,10 +1,10 @@
-# Write Forge Product Vision & Competitive Strategy Document
+# Write example_product Product Vision & Competitive Strategy Document
 
 ## Context
-Leadership needs a comprehensive product vision and competitive strategy document that articulates why Forge is differentiated in the AI prototyping space, maps the competitive landscape, and makes the case for why Forge is uniquely positioned to win. The document will be used for exec reviews, board prep, and strategic planning.
+Leadership needs a comprehensive product vision and competitive strategy document that articulates why example_product is differentiated in the AI prototyping space, maps the competitive landscape, and makes the case for why example_product is uniquely positioned to win. The document will be used for exec reviews, board prep, and strategic planning.
 
 ## Output
-Single markdown file: `product-development/product/strategy/vision/forge-competitive-strategy-2026.md`
+Single markdown file: `product-development/product/strategy/vision/example_product-competitive-strategy-2026.md`
 
 ## Temp folder
 Agents write to `product-development/product/strategy/vision/.tmp/` during execution. Assembly pass merges into the final file and deletes the temp folder.
@@ -34,9 +34,9 @@ vision/.tmp/
 
 ### Product context
 - `product-development/product/CLAUDE.md` — five core pillars, terminology, product overview
-- `product-development/product/strategy/vision/forge-platform-vision.md` — existing vision doc
-- `product-development/product/strategy/business-context/forge-business-info.md` — business context and metrics
-- `product-development/product/strategy/business-context/forge-jtbd-and-users.md` — jobs to be done and personas
+- `product-development/product/strategy/vision/example_product-platform-vision.md` — existing vision doc
+- `product-development/product/strategy/business-context/example_product-business-info.md` — business context and metrics
+- `product-development/product/strategy/business-context/example_product-jtbd-and-users.md` — jobs to be done and personas
 
 ### Customer evidence
 - `product-development/product/customers/accounts/*/account-context.md` — per-customer context
@@ -51,12 +51,12 @@ Read the following files and prepare a context block that will be passed to all 
 - `product-development/product/CLAUDE.md` (pillars, modules, terminology)
 - `product-development/product/competitive-research/CLAUDE.md` (competitor list, positioning, key takeaways)
 - `product-development/product/competitive-research/competitors/competitive-matrix.md` (feature comparison)
-- `product-development/product/strategy/business-context/forge-business-info.md` (business metrics)
+- `product-development/product/strategy/business-context/example_product-business-info.md` (business metrics)
 
 Condense into a briefing covering:
-- What Forge is and its 5 pillars
+- What example_product is and its 5 pillars
 - The 6 competitors and their positioning (1-2 sentences each)
-- Forge's current state per pillar
+- example_product's current state per pillar
 - Key business metrics
 
 ### Step 2: Launch agents
@@ -74,7 +74,7 @@ Step 3:  Assembly (after all agents complete)
 Prompt:
 
 ```
-You are writing sections of a product vision and competitive strategy document for Forge, an AI prototyping platform.
+You are writing sections of a product vision and competitive strategy document for example_product, an AI prototyping platform.
 
 WRITING GUIDE: Read `.claude-user/skills/writing-guide-strategy/SKILL.md` before writing anything. Follow the voice principles, argument construction pattern, and evidence toolkit exactly.
 
@@ -82,8 +82,8 @@ SHARED CONTEXT:
 [Insert shared context briefing from Step 1]
 
 SOURCE FILES TO READ:
-- `product-development/product/strategy/vision/forge-platform-vision.md` — existing vision
-- `product-development/product/strategy/business-context/forge-jtbd-and-users.md` — user personas and JTBD
+- `product-development/product/strategy/vision/example_product-platform-vision.md` — existing vision
+- `product-development/product/strategy/business-context/example_product-jtbd-and-users.md` — user personas and JTBD
 - `product-development/product/strategy/vision/.tmp/agent4-customer-research.md` — customer research synthesis (from Agent 4, read after it completes)
 
 WRITE THE FOLLOWING SECTIONS:
@@ -103,11 +103,11 @@ Organize around two themes:
 - Pull 2-3 real customer quotes from the call summaries
 - Reference specific competitor limitations by name
 
-## Section 2: Mission, Vision, and Why Forge Can Do Better
+## Section 2: Mission, Vision, and Why example_product Can Do Better
 
 Three parts:
-1. Mission/Vision/North Star — draft crisp, bold statements specific to Forge
-2. Why Forge can do better — structural advantages (full-stack generation, one-click deploy, enterprise features, template marketplace)
+1. Mission/Vision/North Star — draft crisp, bold statements specific to example_product
+2. Why example_product can do better — structural advantages (full-stack generation, one-click deploy, enterprise features, template marketplace)
 3. The Five Pillars — brief overview referencing the pillar definitions from product/CLAUDE.md
 
 ## Section 3: Executive Summary
@@ -127,7 +127,7 @@ OUTPUT: Write to `product-development/product/strategy/vision/.tmp/agent1-vision
 Prompt:
 
 ```
-You are writing sections of a product vision and competitive strategy document for Forge, an AI prototyping platform.
+You are writing sections of a product vision and competitive strategy document for example_product, an AI prototyping platform.
 
 WRITING GUIDE: Read `.claude-user/skills/writing-guide-strategy/SKILL.md` before writing anything. Follow the voice principles, argument construction pattern, and evidence toolkit exactly.
 
@@ -154,7 +154,7 @@ WRITE THE FOLLOWING SECTIONS:
 ## Section 4: Competitive Landscape Matrix
 
 Build a matrix with:
-- Rows: Forge + all 6 competitors
+- Rows: example_product + all 6 competitors
 - Columns: the 5 pillars (Generation Quality, Developer Experience, Deployment, Collaboration, Enterprise) + a "Pillar Count" column
 - Cells: Full / Partial / None (pulled from competitive-matrix.md)
 - Key insight line: "No single competitor covers all 5 pillars."
@@ -175,7 +175,7 @@ For each of the 6 competitors, use this exact structure:
 
 **Pricing:** [From their pricing.md]
 
-**Why Forge wins against them:**
+**Why example_product wins against them:**
 - [Structural advantages — not features we've shipped, but why we'll be better once built]
 
 OUTPUT: Write to `product-development/product/strategy/vision/.tmp/agent2-competitors.md`
@@ -186,7 +186,7 @@ OUTPUT: Write to `product-development/product/strategy/vision/.tmp/agent2-compet
 Prompt:
 
 ```
-You are writing sections of a product vision and competitive strategy document for Forge, an AI prototyping platform.
+You are writing sections of a product vision and competitive strategy document for example_product, an AI prototyping platform.
 
 WRITING GUIDE: Read `.claude-user/skills/writing-guide-strategy/SKILL.md` before writing anything. Follow the voice principles, argument construction pattern, and evidence toolkit exactly.
 
@@ -199,15 +199,15 @@ SOURCE FILES TO READ:
 
 WRITE THE FOLLOWING SECTIONS:
 
-## Section 6: Forge vs Competitors Per Pillar
+## Section 6: example_product vs Competitors Per Pillar
 
 One comparison table per pillar (5 tables). For each table:
 - Rows: key features in that pillar
-- Columns: Forge + 3-4 most relevant competitors for that pillar
+- Columns: example_product + 3-4 most relevant competitors for that pillar
 - After each table, include:
-  1. Summary: "Forge covers X of Y features. Key gaps: [specific gaps]."
+  1. Summary: "example_product covers X of Y features. Key gaps: [specific gaps]."
   2. Honest assessment: 1-2 sentences
-  3. "Why Forge wins" callout with structural advantages
+  3. "Why example_product wins" callout with structural advantages
 
 ## Section 7: Head-to-Head Investment Roadmap
 
@@ -224,7 +224,7 @@ For each major competitor (Lovable, Google Stitch, Replit, Bolt):
 
 Table with columns: Competitor, Starting Price, Model (per-seat/usage/flat), Free Tier, Enterprise Pricing
 - Note which prices are confirmed vs estimated
-- Include a "customer savings" comparison: buying 3-4 separate tools vs Forge
+- Include a "customer savings" comparison: buying 3-4 separate tools vs example_product
 
 OUTPUT: Write to `product-development/product/strategy/vision/.tmp/agent3-features-pricing.md`
 ```
@@ -234,7 +234,7 @@ OUTPUT: Write to `product-development/product/strategy/vision/.tmp/agent3-featur
 Prompt:
 
 ```
-You are writing a customer research synthesis section for a product vision and competitive strategy document for Forge, an AI prototyping platform.
+You are writing a customer research synthesis section for a product vision and competitive strategy document for example_product, an AI prototyping platform.
 
 WRITING GUIDE: Read `.claude-user/skills/writing-guide-strategy/SKILL.md` before writing anything. Follow the voice principles, argument construction pattern, and evidence toolkit exactly.
 
@@ -290,7 +290,7 @@ OUTPUT: Write to `product-development/product/strategy/vision/.tmp/agent4-custom
 
 After all 4 agents complete, the orchestrating agent:
 1. Reads all 4 files from `product-development/product/strategy/vision/.tmp/`
-2. Merges into `product-development/product/strategy/vision/forge-competitive-strategy-2026.md` with proper section numbering
+2. Merges into `product-development/product/strategy/vision/example_product-competitive-strategy-2026.md` with proper section numbering
 3. Writes Section 3 (Executive Summary) — the orchestrator has the full document in context, so it can distill the 1-pager
 4. Inserts exec summary at the top
 5. Deletes `.tmp/` folder

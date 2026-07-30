@@ -32,8 +32,8 @@
 
 ## Dashboard Links
 
-- [Version History Feature Board](https://app.mode.com/forge-labs/reports/version-history) - Weekly metrics review
-- [Version History Health](https://app.sigmacomputing.com/forge-labs/workbook/version-history-health) - Real-time restore success rate and error monitoring
+- [Version History Feature Board](https://app.mode.com/example_product-labs/reports/version-history) - Weekly metrics review
+- [Version History Health](https://app.sigmacomputing.com/example_product-labs/workbook/version-history-health) - Real-time restore success rate and error monitoring
 
 ## Related Queries
 

@@ -12,7 +12,7 @@ Each meeting type has its own folder with up to three subdirectories:
 
 ## Naming Convention
 
-Files in `docs/` follow `YYYY-MM-DD-<meeting-name>-<topic>.md` (e.g., `2026-03-04-forge-bi-weekly-review.md`).
+Files in `docs/` follow `YYYY-MM-DD-<meeting-name>-<topic>.md` (e.g., `2026-03-04-example_product-bi-weekly-review.md`).
 
 ## Meeting Types
 

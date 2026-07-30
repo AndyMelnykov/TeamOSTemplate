@@ -1,4 +1,4 @@
-# Forge Platform Vision
+# example_product Platform Vision
 
 **Author:** Alex Chen, Head of Product
 **Status:** Draft

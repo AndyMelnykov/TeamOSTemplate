@@ -1,6 +1,6 @@
 # Customer Onboarding Checklist
 
-Operational checklist for onboarding a new customer to the Forge platform. Used by Sales, PM, and Customer Success.
+Operational checklist for onboarding a new customer to the example_product platform. Used by Sales, PM, and Customer Success.
 
 # Pre-Onboarding (Before Kickoff)
 
@@ -12,7 +12,7 @@ Operational checklist for onboarding a new customer to the Forge platform. Used 
 
 # Kickoff Meeting
 
-- [ ] Introductions - customer team meets Forge team
+- [ ] Introductions - customer team meets example_product team
 - [ ] Walk through customer's primary use case and goals
 - [ ] Agree on success criteria for the first 30 days
 - [ ] Review pricing tier and included features

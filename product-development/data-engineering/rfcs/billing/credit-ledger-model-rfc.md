@@ -25,9 +25,9 @@ This RFC defines the data model for the credit transaction ledger in Snowflake. 
 
 ## Motivation
 
-The Credit Usage Dashboard (FORGE-1028) requires reliable, low-latency access to credit transaction data for both real-time API queries and analytical workloads. Today, credit data lives only in the Supabase production database with no analytics replica. This creates two problems:
+The Credit Usage Dashboard (EXAMPLE_PRODUCT-1028) requires reliable, low-latency access to credit transaction data for both real-time API queries and analytical workloads. Today, credit data lives only in the Supabase production database with no analytics replica. This creates two problems:
 
-1. **No analytical access**: Analysts cannot query credit data without risking production database performance. Ad-hoc investigations (like the depletion-churn analysis in FORGE-1030) require engineering to run queries and export results manually.
+1. **No analytical access**: Analysts cannot query credit data without risking production database performance. Ad-hoc investigations (like the depletion-churn analysis in EXAMPLE_PRODUCT-1030) require engineering to run queries and export results manually.
 2. **No historical aggregations**: The production schema is optimized for transactional writes, not for the aggregated reads that dashboards and metrics require. Building dbt models on top of a replicated copy allows us to pre-compute burn rates, utilization metrics, and projections without impacting production.
 
 ## Data Model
@@ -37,7 +37,7 @@ The Credit Usage Dashboard (FORGE-1028) requires reliable, low-latency access to
 The core fact table. One row per credit transaction event. Append-only -- no updates or deletes.
 
 ```sql
-CREATE TABLE analytics.forge.fact_credit_transactions (
+CREATE TABLE analytics.example_product.fact_credit_transactions (
     transaction_id      VARCHAR(36) NOT NULL PRIMARY KEY,
     user_id             VARCHAR(36) NOT NULL,
     org_id              VARCHAR(36),
@@ -68,7 +68,7 @@ CREATE TABLE analytics.forge.fact_credit_transactions (
 Reference table for subscription plan attributes. Maintained as a dbt seed file and updated manually when plans change.
 
 ```sql
-CREATE TABLE analytics.forge.dim_subscription_plans (
+CREATE TABLE analytics.example_product.dim_subscription_plans (
     tier                VARCHAR(20) NOT NULL PRIMARY KEY,  -- 'free', 'pro', 'team', 'business', 'enterprise'
     display_name        VARCHAR(50) NOT NULL,
     monthly_credits     INTEGER NOT NULL,
@@ -139,7 +139,7 @@ Supabase PostgreSQL (source of truth)
 | Setting | Value |
 |---------|-------|
 | Connector | PostgreSQL |
-| Source host | Supabase project `forge-prod` |
+| Source host | Supabase project `example_product-prod` |
 | Destination schema | `raw.supabase` |
 | Sync frequency | 15 minutes |
 | Sync mode | Incremental append (using `created_at` as cursor) |
@@ -152,11 +152,11 @@ Supabase PostgreSQL (source of truth)
 | Model | Materialization | Schema | Description |
 |-------|----------------|--------|-------------|
 | `stg_credit_transactions` | View | `staging` | Cleaned and typed staging model |
-| `fact_credit_transactions` | Incremental | `analytics.forge` | Core fact table with derived fields |
-| `dim_subscription_plans` | Table (seed) | `analytics.forge` | Plan reference data |
-| `credit_utilization` | Incremental | `analytics.forge_metrics` | Daily utilization rate per user |
-| `credit_burn_rate` | Incremental | `analytics.forge_metrics` | 7-day rolling burn rate per user |
-| `credit_upgrade_funnel` | Table | `analytics.forge_metrics` | Weekly cohort funnel: low balance → upgrade |
+| `fact_credit_transactions` | Incremental | `analytics.example_product` | Core fact table with derived fields |
+| `dim_subscription_plans` | Table (seed) | `analytics.example_product` | Plan reference data |
+| `credit_utilization` | Incremental | `analytics.example_product_metrics` | Daily utilization rate per user |
+| `credit_burn_rate` | Incremental | `analytics.example_product_metrics` | 7-day rolling burn rate per user |
+| `credit_upgrade_funnel` | Table | `analytics.example_product_metrics` | Weekly cohort funnel: low balance → upgrade |
 
 ## Key Queries
 
@@ -167,7 +167,7 @@ SELECT
     DATE(created_at) AS usage_date,
     category,
     SUM(amount) AS total_credits
-FROM analytics.forge.fact_credit_transactions
+FROM analytics.example_product.fact_credit_transactions
 WHERE user_id = :user_id
     AND type = 'debit'
     AND created_at >= :start_date
@@ -193,13 +193,13 @@ FROM (
         subscription_tier,
         billing_cycle_id,
         SUM(CASE WHEN type = 'debit' THEN amount ELSE 0 END) AS total_used
-    FROM analytics.forge.fact_credit_transactions
+    FROM analytics.example_product.fact_credit_transactions
     WHERE created_at >= DATEADD('month', -1, CURRENT_DATE())
     GROUP BY 1, 2, 3
 ) cycle_usage
-JOIN analytics.forge.fact_credit_transactions f
+JOIN analytics.example_product.fact_credit_transactions f
     ON cycle_usage.user_id = f.user_id
-JOIN analytics.forge.dim_subscription_plans d
+JOIN analytics.example_product.dim_subscription_plans d
     ON f.subscription_tier = d.tier
 WHERE d.is_active = TRUE
 GROUP BY 1, 2
@@ -213,7 +213,7 @@ WITH burn_rates AS (
     SELECT
         user_id,
         SUM(amount) / 7.0 AS daily_burn_rate
-    FROM analytics.forge.fact_credit_transactions
+    FROM analytics.example_product.fact_credit_transactions
     WHERE type = 'debit'
         AND created_at >= DATEADD('day', -7, CURRENT_DATE())
     GROUP BY user_id
@@ -225,7 +225,7 @@ latest_balance AS (
             PARTITION BY user_id ORDER BY created_at
             ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING
         ) AS current_balance
-    FROM analytics.forge.fact_credit_transactions
+    FROM analytics.example_product.fact_credit_transactions
 )
 SELECT
     lb.user_id,
@@ -269,7 +269,7 @@ SELECT
     balance_after AS actual_balance,
     LAG(balance_after) OVER (PARTITION BY user_id ORDER BY created_at) +
         CASE WHEN type = 'credit' THEN amount ELSE -amount END AS expected_balance
-FROM analytics.forge.fact_credit_transactions
+FROM analytics.example_product.fact_credit_transactions
 HAVING actual_balance != expected_balance
 ```
 

@@ -25,11 +25,11 @@
 
 ## Summary
 
-This RFC proposes a global search modal triggered by Cmd+K (Ctrl+K on Windows/Linux) that allows users to quickly find projects, templates, and recent actions from anywhere in the Forge application. The search system will consist of a full-text search index backed by PostgreSQL, a lightweight API endpoint optimized for typeahead latency, and a keyboard-navigable modal component rendered as a global overlay.
+This RFC proposes a global search modal triggered by Cmd+K (Ctrl+K on Windows/Linux) that allows users to quickly find projects, templates, and recent actions from anywhere in the example_product application. The search system will consist of a full-text search index backed by PostgreSQL, a lightweight API endpoint optimized for typeahead latency, and a keyboard-navigable modal component rendered as a global overlay.
 
 ## Motivation
 
-Forge users accumulate projects quickly. Power users on our Teams and Enterprise tiers regularly maintain 50+ active projects, and template exploration is a core part of the onboarding flow. Today, finding a specific project requires scrolling through the home page project grid or relying on browser history. There is no way to search across templates or jump to recent actions (e.g., last deployment, last edited project).
+example_product users accumulate projects quickly. Power users on our Teams and Enterprise tiers regularly maintain 50+ active projects, and template exploration is a core part of the onboarding flow. Today, finding a specific project requires scrolling through the home page project grid or relying on browser history. There is no way to search across templates or jump to recent actions (e.g., last deployment, last edited project).
 
 Customer interviews surface this pain consistently:
 
@@ -248,7 +248,7 @@ SearchModal
 
 **Result Sections:**
 
-1. **Recent Searches** -- Displayed when the input is empty. Pulled from localStorage (`forge:recent-searches`). Stores the last 5 queries as an array of `{ query: string, timestamp: number }` objects.
+1. **Recent Searches** -- Displayed when the input is empty. Pulled from localStorage (`example_product:recent-searches`). Stores the last 5 queries as an array of `{ query: string, timestamp: number }` objects.
 2. **Projects** -- Shows project name, framework badge, last-accessed timestamp, and deploy count.
 3. **Templates** -- Shows template name, category tag, and popularity indicator.
 4. **Actions** -- Shows action description, action type icon (deploy, edit, generate), and relative timestamp.
@@ -263,7 +263,7 @@ interface RecentSearch {
   timestamp: number;
 }
 
-// Key: 'forge:recent-searches'
+// Key: 'example_product:recent-searches'
 // Max entries: 5
 // Written on search execution (Enter key or result click)
 // Read on modal open when input is empty
@@ -369,7 +369,7 @@ WHERE created_at < NOW() - INTERVAL '90 days';
 
 | Phase | Scope | Timeline | Feature Flag |
 |-------|-------|----------|--------------|
-| 1 | Internal dogfooding -- Forge Labs team only | Week 1 | `search_modal_internal` |
+| 1 | Internal dogfooding -- example_product Labs team only | Week 1 | `search_modal_internal` |
 | 2 | Beta -- 10% of Pro and Teams users | Week 2-3 | `search_modal_beta` |
 | 3 | GA -- All authenticated users | Week 4 | `search_modal_enabled` (default on) |
 

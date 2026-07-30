@@ -1,6 +1,6 @@
 # Competitors
 
-Per-competitor research profiles and website audits for Forge competitors.
+Per-competitor research profiles and website audits for example_product competitors.
 
 ---
 
@@ -15,7 +15,7 @@ Per-competitor research profiles and website audits for Forge competitors.
 
 ## Competitor Index
 
-| Folder | Type | Focus | Forge Relevance |
+| Folder | Type | Focus | example_product Relevance |
 |--------|------|-------|-----------------|
 | `lovable/` | Website audit | Full-stack AI app builder with instant deployment | Direct competitor - closest feature overlap |
 | `google-stitch/` | Website audit | Google's AI prototyping tool, deep integration with Google Cloud | Direct competitor (enterprise) |

@@ -7,7 +7,7 @@
 | Status | Complete |
 | Playbook | [Preview Environment Debugging](https://playbooks.internal/preview-envs) |
 | Google Doc | [Investigation: Preview 403 Errors](https://docs.google.com/document/d/1bcd-preview-403) |
-| Related Tickets | FORGE-990, FORGE-994 |
+| Related Tickets | EXAMPLE_PRODUCT-990, EXAMPLE_PRODUCT-994 |
 
 ## Objective
 Investigate why password-protected preview links return a 403 Forbidden error instead of showing the password entry page, making it impossible for stakeholders to access shared previews.

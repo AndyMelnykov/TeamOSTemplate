@@ -22,8 +22,8 @@ Frontend developers, React/Next.js teams. Competes for the component generation 
 ## Pricing
 Free tier with paid plans for higher usage. Starting at ~$20/mo.
 
-## Forge Differentiation
-Forge generates full applications (frontend + backend + database + auth), not just components. v0 is a great component tool but not a competitor for the full-stack use case.
+## example_product Differentiation
+example_product generates full applications (frontend + backend + database + auth), not just components. v0 is a great component tool but not a competitor for the full-stack use case.
 
 ## Bottom Line
 Strong in its lane (React components) but limited scope. Not a direct threat for full-app generation. Risk is that Vercel expands v0 into full-stack territory.

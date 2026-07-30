@@ -1,6 +1,6 @@
 # Strategy
 
-Roadmaps, vision documents, and business context for Forge product strategy.
+Roadmaps, vision documents, and business context for example_product product strategy.
 
 ## Doc Index
 

@@ -1,9 +1,9 @@
-# Schema: `analytics.forge.project_versions`
+# Schema: `analytics.example_product.project_versions`
 
-Event-level table capturing every version snapshot created on the Forge platform. One row per version event (automatic snapshot, manual save, or restore).
+Event-level table capturing every version snapshot created on the example_product platform. One row per version event (automatic snapshot, manual save, or restore).
 
 **Database:** `ANALYTICS`
-**Schema:** `FORGE`
+**Schema:** `EXAMPLE_PRODUCT`
 **Table:** `PROJECT_VERSIONS`
 **Refresh:** Streaming (near real-time via Snowpipe)
 **Retention:** 2 years

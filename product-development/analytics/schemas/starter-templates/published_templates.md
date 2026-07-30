@@ -1,9 +1,9 @@
-# Schema: `analytics.forge.published_templates`
+# Schema: `analytics.example_product.published_templates`
 
 Dimension table tracking all templates published to the Community Marketplace. One row per published template submission. Includes both approved and rejected templates for funnel analysis.
 
 **Database:** `ANALYTICS`
-**Schema:** `FORGE`
+**Schema:** `EXAMPLE_PRODUCT`
 **Table:** `PUBLISHED_TEMPLATES`
 **Refresh:** Streaming (near real-time via Snowpipe)
 **Retention:** Indefinite

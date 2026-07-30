@@ -16,26 +16,26 @@ Build the analytics data pipeline for the Community Marketplace feature. This in
 
 ### 1. Set up Snowpipe ingestion for raw tables
 
-- Create `raw.forge.published_templates` table in Snowflake matching the application DB schema
-- Create `raw.forge.template_forks` table in Snowflake matching the application DB schema
+- Create `raw.example_product.published_templates` table in Snowflake matching the application DB schema
+- Create `raw.example_product.template_forks` table in Snowflake matching the application DB schema
 - Configure Snowpipe to stream CDC events from the application database into both raw tables
 - Validate data lands within 60 seconds of application writes
-- Add Snowpipe error alerting to the `#forge-eng` Slack channel
+- Add Snowpipe error alerting to the `#example_product-eng` Slack channel
 
 ### 2. Write dbt staging models
 
-- Create `models/staging/forge/stg_forge__published_templates.sql` to clean and type-cast raw published templates
-- Create `models/staging/forge/stg_forge__template_forks.sql` to clean and type-cast raw fork events
+- Create `models/staging/example_product/stg_example_product__published_templates.sql` to clean and type-cast raw published templates
+- Create `models/staging/example_product/stg_example_product__template_forks.sql` to clean and type-cast raw fork events
 - Add `schema.yml` with column-level tests (not_null, unique, accepted_values)
 - Run `dbt test` locally and verify all tests pass
 
 ### 3. Write dbt mart models
 
-- Create `models/marts/forge/dim_published_templates.sql` with the following enrichments:
+- Create `models/marts/example_product/dim_published_templates.sql` with the following enrichments:
   - Join `users` for `author_username` and `author_subscription_tier`
   - Compute `is_approved` boolean from status
   - Compute `review_hours` as `DATEDIFF('hour', published_at, approved_at)`
-- Create `models/marts/forge/fact_template_forks.sql` with the following enrichments:
+- Create `models/marts/example_product/fact_template_forks.sql` with the following enrichments:
   - Denormalize `author_id` and `template_category` from `dim_published_templates`
   - Join `users` for `user_subscription_tier`
   - Join `deploy_events` to compute `was_deployed`, `first_deploy_at`, and `minutes_to_first_deploy`
@@ -43,7 +43,7 @@ Build the analytics data pipeline for the Community Marketplace feature. This in
 
 ### 4. Deploy dbt models to production
 
-- Add both models to the `forge_marketplace_models` dbt Cloud job
+- Add both models to the `example_product_marketplace_models` dbt Cloud job
 - Set schedule to hourly
 - Run initial full refresh and validate row counts against raw tables
 - Verify clustering keys are applied: `(fork_created_at, template_category)` for fact, `(published_at, category)` for dim
@@ -63,7 +63,7 @@ Build the analytics data pipeline for the Community Marketplace feature. This in
   - Submissions per week, approval rate, top contributors
 - Create "Review Queue Operations" dashboard:
   - Pending count, median review time, approval/rejection breakdown
-- Share all dashboards with the `forge-product` and `forge-eng` Sigma teams
+- Share all dashboards with the `example_product-product` and `example_product-eng` Sigma teams
 
 ### 6. Set up data quality monitoring
 
@@ -71,7 +71,7 @@ Build the analytics data pipeline for the Community Marketplace feature. This in
 - Add Snowflake alert: `dim_published_templates` freshness exceeds 3 hours
 - Add daily reconciliation query: `fork_count` on dim matches `COUNT(*)` from fact
 - Add daily reconciliation query: `was_deployed` on fact matches `deploy_events` status
-- Route all alerts to `#forge-eng` Slack channel
+- Route all alerts to `#example_product-eng` Slack channel
 
 ### 7. Backfill historical data from internal template library
 

@@ -10,11 +10,11 @@
 
 # Business Opportunity
 
-Custom domains transform Forge from a prototyping tool into a production deployment platform. Today, every deployed project lives on a `*.forgeapp.dev` subdomain, which signals "demo" to anyone who sees the URL. For users building client deliverables, launching MVPs, or shipping internal tools, a branded domain is non-negotiable.
+Custom domains transform example_product from a prototyping tool into a production deployment platform. Today, every deployed project lives on a `*.example_productapp.dev` subdomain, which signals "demo" to anyone who sees the URL. For users building client deliverables, launching MVPs, or shipping internal tools, a branded domain is non-negotiable.
 
-**Professional presentation drives paid conversion.** Users on the Free tier prototype and experiment. The moment they want to share something externally -- with a client, an investor, a user base -- they need a real URL. Custom domains are a natural upgrade trigger to Forge Pro.
+**Professional presentation drives paid conversion.** Users on the Free tier prototype and experiment. The moment they want to share something externally -- with a client, an investor, a user base -- they need a real URL. Custom domains are a natural upgrade trigger to example_product Pro.
 
-**Table stakes for business users.** In every Enterprise and Teams sales conversation, custom domains come up in the first call. Procurement teams will not approve a platform where customer-facing applications are served from a third-party subdomain. Without custom domains, Forge is excluded from production use cases entirely.
+**Table stakes for business users.** In every Enterprise and Teams sales conversation, custom domains come up in the first call. Procurement teams will not approve a platform where customer-facing applications are served from a third-party subdomain. Without custom domains, example_product is excluded from production use cases entirely.
 
 | Conversion lever | Impact |
 |-----------------|--------|
@@ -26,19 +26,19 @@ Custom domains transform Forge from a prototyping tool into a production deploym
 
 Custom domains is the **number one requested deployment feature** across all feedback channels:
 
-- **Feature request volume:** 47 unique requests in the last 90 days (FORGE-980, FORGE-1012, FORGE-1044 and related threads).
+- **Feature request volume:** 47 unique requests in the last 90 days (EXAMPLE_PRODUCT-980, EXAMPLE_PRODUCT-1012, EXAMPLE_PRODUCT-1044 and related threads).
 - **Customer calls:** Mentioned unprompted in 8 of the last 12 Enterprise prospect calls.
-- **Competitive pressure:** Vercel, Netlify, Render, and Railway all offer custom domains on their lowest paid tiers. Lovable launched custom domain support in February 2026. Forge is now the only major AI prototyping platform without it.
+- **Competitive pressure:** Vercel, Netlify, Render, and Railway all offer custom domains on their lowest paid tiers. Lovable launched custom domain support in February 2026. example_product is now the only major AI prototyping platform without it.
 - **Revenue at risk:** Three active pipeline deals totaling ~$180K ARR have flagged custom domains as a requirement for signing.
 
 # Customer Requests
 
 | Source | Customer/Segment | Verbatim |
 |--------|-----------------|----------|
-| Feature request (FORGE-980) | Pro user, freelance developer | "I love building with Forge but I can't send clients a forgeapp.dev link. They'd never take it seriously." |
-| Sales call, 2026-03-05 | Enterprise prospect, fintech | "We need our compliance portal on our own domain. If Forge can't do that, we'll have to look at alternatives." |
-| Support ticket | Teams user, agency | "We're building client projects in Forge. Each one needs to live on the client's domain. This is a dealbreaker for us." |
-| NPS comment | Pro user, startup founder | "Forge is amazing for prototyping. The second I want to go live, I have to move everything to Vercel for a real domain. Fix this and I'll never leave." |
+| Feature request (EXAMPLE_PRODUCT-980) | Pro user, freelance developer | "I love building with example_product but I can't send clients a example_productapp.dev link. They'd never take it seriously." |
+| Sales call, 2026-03-05 | Enterprise prospect, fintech | "We need our compliance portal on our own domain. If example_product can't do that, we'll have to look at alternatives." |
+| Support ticket | Teams user, agency | "We're building client projects in example_product. Each one needs to live on the client's domain. This is a dealbreaker for us." |
+| NPS comment | Pro user, startup founder | "example_product is amazing for prototyping. The second I want to go live, I have to move everything to Vercel for a real domain. Fix this and I'll never leave." |
 | Customer call, 2026-02-28 | Enterprise pilot, healthcare | "Our legal team won't approve anything that doesn't run on our corporate domain. Period." |
 
 # Goals
@@ -55,7 +55,7 @@ Custom domains is the **number one requested deployment feature** across all fee
 
 ## Freelance Developer (Pro)
 
-**As a** freelance developer building client projects in Forge, **I want to** connect my client's domain to the deployed project **so that** the deliverable looks professional and the client sees their own brand in the URL.
+**As a** freelance developer building client projects in example_product, **I want to** connect my client's domain to the deployed project **so that** the deliverable looks professional and the client sees their own brand in the URL.
 
 **Acceptance criteria:**
 - I can add a custom domain from the project's deployment settings.
@@ -65,16 +65,16 @@ Custom domains is the **number one requested deployment feature** across all fee
 
 ## Startup Founder (Pro)
 
-**As a** startup founder who prototyped my MVP in Forge, **I want to** launch it on my own domain **so that** early users and investors see a legitimate product, not a demo link.
+**As a** startup founder who prototyped my MVP in example_product, **I want to** launch it on my own domain **so that** early users and investors see a legitimate product, not a demo link.
 
 **Acceptance criteria:**
-- I can add my startup's domain (e.g., `app.mystartup.com`) to my Forge project.
+- I can add my startup's domain (e.g., `app.mystartup.com`) to my example_product project.
 - SSL is provisioned automatically -- I don't need to manage certificates.
 - The domain stays live and certificates auto-renew without my intervention.
 
 ## Agency Lead (Teams)
 
-**As an** agency lead managing multiple client projects, **I want to** connect a different custom domain to each project **so that** each client gets a branded deployment without leaving Forge.
+**As an** agency lead managing multiple client projects, **I want to** connect a different custom domain to each project **so that** each client gets a branded deployment without leaving example_product.
 
 **Acceptance criteria:**
 - Each project in my Teams workspace can have its own custom domain.
@@ -83,7 +83,7 @@ Custom domains is the **number one requested deployment feature** across all fee
 
 ## Enterprise Admin (Enterprise)
 
-**As an** IT administrator at an enterprise customer, **I want to** deploy Forge-built internal tools on our corporate domain **so that** they comply with our security and branding policies.
+**As an** IT administrator at an enterprise customer, **I want to** deploy example_product-built internal tools on our corporate domain **so that** they comply with our security and branding policies.
 
 **Acceptance criteria:**
 - Domains are verified through DNS to prove ownership.
@@ -127,7 +127,7 @@ Custom domains is the **number one requested deployment feature** across all fee
 ## Phase 1: Internal Dogfood (Week 1-2)
 
 - Deploy behind `custom-domains` feature flag.
-- Forge team tests with internal projects and personal domains.
+- example_product team tests with internal projects and personal domains.
 - Validate end-to-end flow: add domain, configure DNS, verify, SSL provision, serve traffic, remove.
 - Fix any issues found before external exposure.
 

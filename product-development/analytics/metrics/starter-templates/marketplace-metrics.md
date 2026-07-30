@@ -43,8 +43,8 @@
 
 ## Dashboard Links
 
-- [Community Marketplace Dashboard](https://app.sigma.com/forge-labs/dashboard/community-marketplace) - Weekly metrics review
-- [Marketplace Health Monitor](https://app.datadoghq.com/forge-labs/dashboard/marketplace-health) - Real-time performance and error monitoring
+- [Community Marketplace Dashboard](https://app.sigma.com/example_product-labs/dashboard/community-marketplace) - Weekly metrics review
+- [Marketplace Health Monitor](https://app.datadoghq.com/example_product-labs/dashboard/marketplace-health) - Real-time performance and error monitoring
 
 ## Related Queries
 

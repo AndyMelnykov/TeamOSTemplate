@@ -2,7 +2,7 @@
 
 **Author:** Casey Nguyen, Analytics
 **Date:** 2026-03-18
-**Linear / Jira / Asana:** FORGE-1070
+**Linear / Jira / Asana:** EXAMPLE_PRODUCT-1070
 **Status:** Complete
 
 ---
@@ -28,7 +28,7 @@ Custom domains entered closed beta on 2026-03-04 with 50 Pro and Teams users. Af
 |------|-------|-----------------------------|
 | 1. Domain Added | 73 (100%) | -- |
 | 2. DNS Instructions Viewed | 70 (96%) | 4% |
-| 3. DNS Record Configured (left Forge to registrar) | 58 (79%) | 17% |
+| 3. DNS Record Configured (left example_product to registrar) | 58 (79%) | 17% |
 | 4. DNS Verified | 47 (64%) | 19% |
 | 5. SSL Provisioned | 46 (63%) | 2% |
 | 6. Live (serving traffic) | 45 (62%) | 2% |
@@ -41,8 +41,8 @@ Breakdown of DNS configuration drop-off:
 
 | Cause | Users affected | % of drop-offs |
 |-------|---------------|----------------|
-| User viewed instructions but never left Forge (abandoned) | 12 | 43% |
-| User left Forge but DNS record was misconfigured (wrong value, wrong record type) | 9 | 32% |
+| User viewed instructions but never left example_product (abandoned) | 12 | 43% |
+| User left example_product but DNS record was misconfigured (wrong value, wrong record type) | 9 | 32% |
 | User configured DNS correctly but did not wait for propagation (assumed it failed) | 5 | 18% |
 | User hit registrar-specific confusion (could not find DNS settings page) | 2 | 7% |
 
@@ -50,7 +50,7 @@ Breakdown of DNS configuration drop-off:
 
 - **Copy-paste friction:** 8 of 12 users who abandoned were observed manually trying to type the CNAME target value (a 40+ character hash). Several made typos and did not realize it.
 - **Registrar mismatch:** The beta DNS instructions were generic. Users on GoDaddy and Namecheap spent significant time trying to map generic instructions to their registrar's UI.
-- **Propagation anxiety:** 5 users configured DNS correctly but returned to Forge within 2 minutes, saw "Pending DNS," and assumed it was broken. They did not notice the "DNS changes can take up to 48 hours" messaging.
+- **Propagation anxiety:** 5 users configured DNS correctly but returned to example_product within 2 minutes, saw "Pending DNS," and assumed it was broken. They did not notice the "DNS changes can take up to 48 hours" messaging.
 
 # Segmentation
 
@@ -70,7 +70,7 @@ Breakdown of DNS configuration drop-off:
 
 3. **Add an inline propagation status indicator with estimated time.** Replace the static "up to 48 hours" text with a live "Checking DNS... last checked 10 seconds ago" message. This reassures users that the system is actively working. Estimated impact: reduces premature abandonment by ~18%.
 
-4. **Send a push notification or email when DNS is verified.** Users who leave Forge to configure DNS may not return promptly. A notification closes the loop. Estimated impact: recovers ~10% of users who configured DNS correctly but did not return.
+4. **Send a push notification or email when DNS is verified.** Users who leave example_product to configure DNS may not return promptly. A notification closes the loop. Estimated impact: recovers ~10% of users who configured DNS correctly but did not return.
 
 # Impact Estimate
 
@@ -79,7 +79,7 @@ If recommendations 1-3 are implemented, projected domain setup completion rate i
 # Next Steps
 
 - Recommendations shared with Morgan Wu (engineering) and Taylor Brooks (design) on 2026-03-18.
-- Copy-to-clipboard and registrar tabs are being added in the next sprint (FORGE-1075, FORGE-1076).
+- Copy-to-clipboard and registrar tabs are being added in the next sprint (EXAMPLE_PRODUCT-1075, EXAMPLE_PRODUCT-1076).
 - Propagation indicator design review scheduled for 2026-03-20.
 - Will re-run this funnel analysis two weeks after changes ship.
 

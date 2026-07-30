@@ -10,7 +10,7 @@
 
 ## Business Opportunity
 
-The Community Marketplace transforms the Forge template library from a static, internally managed asset into a user-generated content platform with compounding network effects.
+The Community Marketplace transforms the example_product template library from a static, internally managed asset into a user-generated content platform with compounding network effects.
 
 **Network effects flywheel:**
 
@@ -21,13 +21,13 @@ The Community Marketplace transforms the Forge template library from a static, i
 
 **Revenue impact:**
 
-- Templates published by Pro and Teams users showcase what is possible on Forge, serving as organic marketing for paid tiers.
+- Templates published by Pro and Teams users showcase what is possible on example_product, serving as organic marketing for paid tiers.
 - Users who fork templates and deploy them are prime upgrade candidates. Template forkers convert to paid at an estimated 2x the rate of users who start from blank projects.
-- A thriving marketplace differentiates Forge from competitors (Lovable, v0, Replit) that lack community-driven template ecosystems.
+- A thriving marketplace differentiates example_product from competitors (Lovable, v0, Replit) that lack community-driven template ecosystems.
 
 ## Why Now
 
-1. **Template catalog is small.** Forge currently has 12 internally created templates. Competitors like Lovable offer 30+ and v0 is expanding rapidly. We cannot scale internal template creation fast enough to keep up.
+1. **Template catalog is small.** example_product currently has 12 internally created templates. Competitors like Lovable offer 30+ and v0 is expanding rapidly. We cannot scale internal template creation fast enough to keep up.
 2. **Users are asking for this.** 34% of feature requests in Q1 2026 referenced template sharing or discovery. In 6 of the last 10 customer calls, users asked some version of "Can I share my project as a template?"
 3. **Deployment maturity.** With one-click deploy now stable, users are completing projects at a higher rate, creating a pool of deploy-worthy projects that would make excellent templates.
 4. **Competitive moat.** A community marketplace is a defensible asset. Every published template increases switching costs. Moving first on this builds a content advantage that compounds over time.
@@ -41,7 +41,7 @@ The Community Marketplace transforms the Forge template library from a static, i
 | Feature request (Canny) | "Marketplace for user templates with ratings - I want to find the best SaaS dashboard template without trying 5 different ones." | 2026-02-15 |
 | Feature request (Canny) | "Let me publish my portfolio template. I've gotten compliments on it and want others to use it." | 2026-02-20 |
 | Support ticket | "Is there a way to share my project setup with my team so they can clone it? I keep rebuilding the same base." | 2026-03-05 |
-| NPS verbatim | "Forge would be 10x better if I could browse templates from other users, not just the default ones." | 2026-03-10 |
+| NPS verbatim | "example_product would be 10x better if I could browse templates from other users, not just the default ones." | 2026-03-10 |
 
 ## Goals
 
@@ -61,20 +61,20 @@ The Community Marketplace transforms the Forge template library from a static, i
 
 ### Template Publisher
 
-- As a Forge user who has built a successful project, I want to publish it as a template so that others can benefit from my work and I can build a reputation in the community.
+- As a example_product user who has built a successful project, I want to publish it as a template so that others can benefit from my work and I can build a reputation in the community.
 - As a template publisher, I want to see how many people have forked and rated my template so that I understand its impact and can improve it.
 - As a template publisher, I want to add a title, description, category, and preview screenshots so that potential users can evaluate my template before forking.
 
 ### Template Consumer
 
-- As a new Forge user, I want to browse community templates by category so that I can find a relevant starting point instead of building from scratch.
+- As a new example_product user, I want to browse community templates by category so that I can find a relevant starting point instead of building from scratch.
 - As a user looking for a template, I want to search by keyword and filter by category so that I can quickly find what I need.
 - As a user evaluating templates, I want to see ratings, fork counts, and preview images so that I can choose the highest-quality option.
 - As a user who forked a template, I want to rate it after trying it so that I can help future users make better choices.
 
 ### Template Reviewer (Internal)
 
-- As a Forge team member, I want to review submitted templates before they appear in the marketplace so that we maintain quality and prevent abuse.
+- As a example_product team member, I want to review submitted templates before they appear in the marketplace so that we maintain quality and prevent abuse.
 - As a reviewer, I want to approve or reject templates with a single click and optional note so that the review process is fast and authors get feedback.
 
 ## Requirements
@@ -120,7 +120,7 @@ The Community Marketplace transforms the Forge template library from a static, i
 
 ### Phase 2: Limited GA (Week 10)
 
-- Enable for all Forge Pro and Forge Teams users
+- Enable for all example_product Pro and example_product Teams users
 - In-app announcement banner and email notification to eligible users
 - Monitor key metrics: publish rate, fork rate, review queue throughput, abuse reports
 - Iterate on UX based on beta feedback

@@ -32,8 +32,8 @@
 
 # Dashboard Links
 
-- [Custom Domains Health Dashboard](https://app.sigmacomputing.com/forge-labs/workbook/custom-domains-health) -- Real-time SSL status, verification rates, active domain count
-- [Custom Domains Feature Board](https://app.mode.com/forge-labs/reports/custom-domains) -- Weekly metrics review, funnel analysis, conversion impact
+- [Custom Domains Health Dashboard](https://app.sigmacomputing.com/example_product-labs/workbook/custom-domains-health) -- Real-time SSL status, verification rates, active domain count
+- [Custom Domains Feature Board](https://app.mode.com/example_product-labs/reports/custom-domains) -- Weekly metrics review, funnel analysis, conversion impact
 
 ## Related Queries
 

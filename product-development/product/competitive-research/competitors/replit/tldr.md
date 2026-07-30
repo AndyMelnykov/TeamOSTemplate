@@ -17,13 +17,13 @@ AI-powered collaborative coding platform. Full-stack development with real-time 
 - Partial SSO and audit logging (not enterprise-grade)
 
 ## ICP Overlap
-Student developers, hackathon teams, rapid prototyping shops. Less overlap with Forge's enterprise targets but competes for the "full-stack AI builder" narrative.
+Student developers, hackathon teams, rapid prototyping shops. Less overlap with example_product's enterprise targets but competes for the "full-stack AI builder" narrative.
 
 ## Pricing
 Free tier, paid plans for compute and collaboration features. Starting at ~$25/mo.
 
-## Forge Differentiation
-Forge wins on design quality, enterprise features, and production-readiness. Replit wins on collaboration (multiplayer) and being a full IDE. Different target markets but converging.
+## example_product Differentiation
+example_product wins on design quality, enterprise features, and production-readiness. Replit wins on collaboration (multiplayer) and being a full IDE. Different target markets but converging.
 
 ## Bottom Line
 Most feature-complete competitor outside enterprise. Strong on collaboration and full-stack, weak on design and enterprise. Watch for their push upmarket.

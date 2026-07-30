@@ -22,9 +22,9 @@ WITH expiring_certs AS (
         dc.last_renewal_attempt AS last_renewal_attempt,
         dc.status               AS cert_status,
         DATEDIFF('day', CURRENT_TIMESTAMP(), dc.expires_at) AS days_until_expiry
-    FROM analytics.forge.domain_certificates dc
-    JOIN analytics.forge.custom_domains cd ON cd.id = dc.domain_id
-    JOIN analytics.forge.users u ON u.id = cd.user_id
+    FROM analytics.example_product.domain_certificates dc
+    JOIN analytics.example_product.custom_domains cd ON cd.id = dc.domain_id
+    JOIN analytics.example_product.users u ON u.id = cd.user_id
     WHERE dc.status = 'active'
       AND dc.expires_at <= DATEADD('day', 30, CURRENT_TIMESTAMP())
       AND dc.expires_at > CURRENT_TIMESTAMP()
@@ -44,7 +44,7 @@ renewal_stats AS (
             / NULLIF(COUNT(*), 0),
             2
         ) AS renewal_success_rate_pct
-    FROM analytics.forge.domain_certificates dc
+    FROM analytics.example_product.domain_certificates dc
     WHERE dc.last_renewal_attempt >= DATEADD('day', -90, CURRENT_TIMESTAMP())
       AND dc.last_renewal_attempt IS NOT NULL
 ),
@@ -61,8 +61,8 @@ provision_times AS (
             ORDER BY DATEDIFF('second', cd.updated_at, dc.issued_at)
         ) AS p95_provision_seconds,
         COUNT(*) AS total_provisions
-    FROM analytics.forge.domain_certificates dc
-    JOIN analytics.forge.custom_domains cd ON cd.id = dc.domain_id
+    FROM analytics.example_product.domain_certificates dc
+    JOIN analytics.example_product.custom_domains cd ON cd.id = dc.domain_id
     WHERE dc.issued_at IS NOT NULL
       AND cd.dns_status = 'verified'
       AND dc.issued_at >= DATEADD('day', -90, CURRENT_TIMESTAMP())

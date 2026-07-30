@@ -35,15 +35,15 @@ No enterprise tier currently available. Product is in beta/experimental phase un
 - **Minimum commitment:** N/A
 - **Notable terms:** Given Google's enterprise distribution through Google Cloud and Workspace, enterprise pricing is likely once the product matures. Integration with Google Cloud's existing enterprise agreements (committed spend, EDAs) would be the natural path.
 
-## Comparison to Forge
+## Comparison to example_product
 
-| Dimension | Google Stitch | Forge | Advantage |
+| Dimension | Google Stitch | example_product | Advantage |
 |-----------|---------------|-------|-----------|
 | Entry price | $0 (free beta) | Free tier available, paid tiers for more | Stitch (no cost at all) |
 | Per-seat cost | $0 | Per-seat pricing | Stitch (for now) |
 | Free tier generosity | 350 generations/mo | More features at free tier | Depends on usage pattern |
-| Enterprise flexibility | None (no enterprise tier) | SSO, audit logs, team mgmt, compliance | Forge |
+| Enterprise flexibility | None (no enterprise tier) | SSO, audit logs, team mgmt, compliance | example_product |
 
-**Summary:** Google Stitch is free, which undercuts all competitors on price. However, it is an experimental product with significant limitations compared to Forge's production-ready platform. No deployment pipeline, no team collaboration features, no enterprise capabilities (SSO, audit logs, etc.). Stitch generates prototype-quality UI code (HTML/CSS), not production-ready full-stack applications.
+**Summary:** Google Stitch is free, which undercuts all competitors on price. However, it is an experimental product with significant limitations compared to example_product's production-ready platform. No deployment pipeline, no team collaboration features, no enterprise capabilities (SSO, audit logs, etc.). Stitch generates prototype-quality UI code (HTML/CSS), not production-ready full-stack applications.
 
-The primary risk is Google's distribution power. If Stitch is integrated into Google Cloud or Google Workspace, it could become a default tool for enterprises already in the Google ecosystem. Forge's advantages -- production-ready output, full-stack generation, one-click deployment, enterprise features, and platform maturity -- are the key differentiators that justify Forge's pricing against a free competitor.
+The primary risk is Google's distribution power. If Stitch is integrated into Google Cloud or Google Workspace, it could become a default tool for enterprises already in the Google ecosystem. example_product's advantages -- production-ready output, full-stack generation, one-click deployment, enterprise features, and platform maturity -- are the key differentiators that justify example_product's pricing against a free competitor.

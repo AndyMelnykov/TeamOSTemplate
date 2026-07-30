@@ -1,12 +1,12 @@
-# Forge Product Context
+# example_product Product Context
 
 ## Overview
 
-Forge is Forge Labs' AI prototyping platform that enables developers and teams to turn ideas into production-ready applications through intelligent code generation, real-time collaboration, and one-click deployment.
+example_product is example_product Labs' AI prototyping platform that enables developers and teams to turn ideas into production-ready applications through intelligent code generation, real-time collaboration, and one-click deployment.
 
 **North Star:** Build the most reliable AI-powered development platform - empowering customers to go from concept to production by improving generation quality, developer experience, and deployment velocity.
 
-**New to Forge?** See the [Onboarding Guide](../../team/onboarding-guides/onboarding-general.md) for a comprehensive introduction.
+**New to example_product?** See the [Onboarding Guide](../../team/onboarding-guides/onboarding-general.md) for a comprehensive introduction.
 
 ---
 
@@ -18,7 +18,7 @@ product/
 │   └── competitors/          # Competitor audits and feature matrices
 ├── customers/                # Account context, calls, feature requests
 ├── strategy/                 # Roadmaps, vision, business context
-├── product-context/          # Reference docs for Forge systems
+├── product-context/          # Reference docs for example_product systems
 ├── PRDs/                     # Product requirement documents
 ├── launch-emails/            # Launch communications
 ├── sales-enablement/         # Sales-facing docs, onboarding
@@ -49,28 +49,28 @@ Each folder has its own `CLAUDE.md` with folder-specific context.
 
 | Purpose | Path |
 |---------|------|
-| Full Business Context | `strategy/business-context/forge-business-info.md` |
+| Full Business Context | `strategy/business-context/example_product-business-info.md` |
 | Product Roadmap | `strategy/roadmaps/q2-2026-roadmap.md` |
 | Competitive Research | `competitive-research/CLAUDE.md` |
 | Competitive Feature Matrix | `competitive-research/competitors/competitive-matrix.md` |
 | Competitor Teardowns | `competitive-research/competitors/CLAUDE.md` (6 competitor audits, product + website) |
-| Users & JTBD | `strategy/business-context/forge-jtbd-and-users.md` |
+| Users & JTBD | `strategy/business-context/example_product-jtbd-and-users.md` |
 | Customer Accounts | `customers/CLAUDE.md` (named accounts, segments, data source pointers) |
 | PRDs | `PRDs/CLAUDE.md` |
 | Analytics | `../analytics/CLAUDE.md` |
 
 ---
 
-## Forge Labs Terminology
+## example_product Labs Terminology
 
 | Term | Definition |
 |------|------------|
-| Forge Pro | Forge Pro tier - always capitalized (product name) |
-| Forge Teams | Forge Teams tier - always capitalized (product name) |
-| Forge Enterprise | Forge Enterprise tier - always capitalized (product name) |
+| example_product Pro | example_product Pro tier - always capitalized (product name) |
+| example_product Teams | example_product Teams tier - always capitalized (product name) |
+| example_product Enterprise | example_product Enterprise tier - always capitalized (product name) |
 | Dashboard | Customer-facing project dashboard - always capitalized when referring to the product surface |
 
-## Forge Product Terminology
+## example_product Product Terminology
 
 | Term | Definition |
 |------|------------|

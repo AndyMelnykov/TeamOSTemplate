@@ -7,7 +7,7 @@
 | Status | Complete |
 | Playbook | [Billing Incident Response](https://playbooks.internal/billing-incidents) |
 | Google Doc | [Investigation: Double Credit Charge](https://docs.google.com/document/d/1ghi-double-charge) |
-| Related Tickets | FORGE-1025, FORGE-1031, FORGE-1033 |
+| Related Tickets | EXAMPLE_PRODUCT-1025, EXAMPLE_PRODUCT-1031, EXAMPLE_PRODUCT-1033 |
 
 ## Objective
 Investigate reports of users being charged credits twice for a single AI generation when the request times out and the client retries automatically.

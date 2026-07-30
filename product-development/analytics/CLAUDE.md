@@ -1,15 +1,15 @@
-# Forge Analytics
+# example_product Analytics
 
-Analytics resources for the Forge AI prototyping platform.
+Analytics resources for the example_product AI prototyping platform.
 
 ## Contents
 
 | Folder/File | Description |
 |-------------|-------------|
 | `queries/` | SQL query patterns organized by product area |
-| `schemas/` | Table documentation for Forge data sources, organized by product area |
+| `schemas/` | Table documentation for example_product data sources, organized by product area |
 | `metrics/` | Metric definitions organized by product area |
-| `dashboards.md` | Links to Forge-related dashboards (Sigma, Mode, etc.) |
+| `dashboards.md` | Links to example_product-related dashboards (Sigma, Mode, etc.) |
 | `dashboards/` | Dashboard docs organized by product area |
 | `experiments/` | Experiment results organized by product area |
 | `investigations/` | Ad hoc investigations organized by product area |
@@ -63,7 +63,7 @@ Queries are stored in `queries/` and named by metric:
 
 | Dashboard | Tool | Description |
 |-----------|------|-------------|
-| Forge Health | Sigma | Real-time GSR, TTD, error rates, deploy volume |
+| example_product Health | Sigma | Real-time GSR, TTD, error rates, deploy volume |
 | Growth & Retention | Amplitude | Signup funnel, activation, D7/D30 retention |
 | Revenue | Sigma | MRR, plan distribution, expansion, churn |
 | Generation Quality | Mode | Error taxonomy, framework-level success rates, iteration patterns |

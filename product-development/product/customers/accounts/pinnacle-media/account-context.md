@@ -1,8 +1,8 @@
 # Pinnacle Media - Account Context
 
-## What They Use Forge For
+## What They Use example_product For
 
-Media company with a 9-person team. Uses Forge for web development projects. Running 7 active projects.
+Media company with a 9-person team. Uses example_product for web development projects. Running 7 active projects.
 
 ## Goals and Success Criteria
 
@@ -21,8 +21,8 @@ Media company with a 9-person team. Uses Forge for web development projects. Run
 
 ## Notable Quotes
 
-> "I'm going to be straight with you — I've been evaluating Lovable for the past three weeks because they're further along on design-to-code. But their generated code is garbage compared to Forge. I want to stay. Give me a reason to."
+> "I'm going to be straight with you — I've been evaluating Lovable for the past three weeks because they're further along on design-to-code. But their generated code is garbage compared to example_product. I want to stay. Give me a reason to."
 > - Leo Martinez, Lead Developer (March 2026, QBR)
 >
-> "What I love about Forge is that the UIs actually look good. Other AI tools generate things that look like a developer designed them. Forge gives me layouts with proper spacing, typography hierarchy, and responsive breakpoints. If you add Figma import on top of that quality, it's game over for everyone else."
+> "What I love about example_product is that the UIs actually look good. Other AI tools generate things that look like a developer designed them. example_product gives me layouts with proper spacing, typography hierarchy, and responsive breakpoints. If you add Figma import on top of that quality, it's game over for everyone else."
 > - Sofia Huang, Creative Director (March 2026, QBR)

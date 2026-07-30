@@ -4,7 +4,7 @@
 |-------|-------|
 | **Author** | Casey Nguyen (Analytics) |
 | **Date** | 2026-03-10 |
-| **Linear / Jira / Asana Ticket** | FORGE-1030 |
+| **Linear / Jira / Asana Ticket** | EXAMPLE_PRODUCT-1030 |
 | **Status** | Complete |
 
 ---
@@ -15,7 +15,7 @@ Is there a statistically significant relationship between credit depletion (reac
 
 ## Background
 
-The billing support queue has been dominated by complaints from users who were surprised by hitting their credit limit. PM hypothesized that this surprise depletion experience is a meaningful driver of churn, but we had not previously quantified the relationship. This investigation was requested to put hard numbers behind the hypothesis and inform the priority of the Credit Usage Dashboard feature (FORGE-1028).
+The billing support queue has been dominated by complaints from users who were surprised by hitting their credit limit. PM hypothesized that this surprise depletion experience is a meaningful driver of churn, but we had not previously quantified the relationship. This investigation was requested to put hard numbers behind the hypothesis and inform the priority of the Credit Usage Dashboard feature (EXAMPLE_PRODUCT-1028).
 
 ## Methodology
 
@@ -81,8 +81,8 @@ Based on these findings:
 
 ## Data Sources
 
-- `analytics.forge.credit_transactions` -- credit depletion events
-- `analytics.forge.dim_users` -- subscription tier, account age, churn status
+- `analytics.example_product.credit_transactions` -- credit depletion events
+- `analytics.example_product.dim_users` -- subscription tier, account age, churn status
 - `analytics.stripe.subscriptions` -- renewal and cancellation events
 
 ## Related

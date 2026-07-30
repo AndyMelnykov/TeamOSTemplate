@@ -10,7 +10,7 @@
 
 ## Problem Statement
 
-Forge users have no reliable way to recover previous project states when AI generations go wrong. The current single-step undo only reverts the most recent change, which is insufficient when users want to roll back multiple iterations or compare how their project evolved over time.
+example_product users have no reliable way to recover previous project states when AI generations go wrong. The current single-step undo only reverts the most recent change, which is insufficient when users want to roll back multiple iterations or compare how their project evolved over time.
 
 This creates three compounding problems:
 
@@ -29,7 +29,7 @@ Version history directly addresses the abandonment-after-bad-generation problem,
 
 **Expected impact:**
 - Reducing post-bad-generation abandonment by even 30% would lift PCR by approximately 3 percentage points
-- Users who complete projects are 4.2x more likely to upgrade to Forge Pro
+- Users who complete projects are 4.2x more likely to upgrade to example_product Pro
 - Estimated revenue impact: $180K-$240K incremental ARR in the first 6 months based on improved PCR-to-conversion flow
 
 ## Why Now
@@ -49,11 +49,11 @@ Three factors make this the right time to build version history:
 | In-app feedback | 2026-03-15 | "I accidentally made my app worse with a prompt and now I can't go back. This is incredibly frustrating." |
 | In-app feedback | 2026-03-08 | "Please add version history. I need to be able to see what changed and roll back." |
 | Customer call - Meridian Corp | 2026-02-22 | "Version control is table stakes for us. We can't adopt a tool where one bad generation wipes out an hour of work." |
-| Customer call - DataStack | 2026-02-18 | "Lovable has rollback. If Forge doesn't, that's a dealbreaker for our team." |
+| Customer call - DataStack | 2026-02-18 | "Lovable has rollback. If example_product doesn't, that's a dealbreaker for our team." |
 | Support ticket #4821 | 2026-03-01 | "Is there any way to undo multiple generations? I need to go back 3 steps." |
 | Support ticket #4903 | 2026-03-10 | "I lost my entire project layout after a generation. Ctrl+Z only undoes the last change. I need full version history." |
 | NPS survey (detractor) | 2026-02-28 | "Love the AI but terrified to use it aggressively because there's no safety net." |
-| Slack community #forge-feedback | 2026-03-12 | "Any ETA on version history? This is the one thing keeping me on Lovable for serious projects." |
+| Slack community #example_product-feedback | 2026-03-12 | "Any ETA on version history? This is the one thing keeping me on Lovable for serious projects." |
 
 ## Goals
 
@@ -123,12 +123,12 @@ Three factors make this the right time to build version history:
 
 ### Phase 1: Internal dogfood (Week 1)
 - Deploy behind `version_history_internal` feature flag
-- Forge Labs team uses the feature on internal projects
+- example_product Labs team uses the feature on internal projects
 - Collect UX feedback, identify edge cases, validate snapshot reliability
 - Success gate: zero data loss incidents, team feedback is positive
 
 ### Phase 2: Beta (Weeks 2-3)
-- Expand to Forge Pro and Teams customers behind `version_history_beta` flag
+- Expand to example_product Pro and Teams customers behind `version_history_beta` flag
 - Opt-in via settings panel
 - Monitor restore success rate, storage growth, and performance metrics
 - Run onboarding tooltip experiment (see experiment doc)

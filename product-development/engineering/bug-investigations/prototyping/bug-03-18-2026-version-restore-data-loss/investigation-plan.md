@@ -7,7 +7,7 @@
 | Status | In Progress |
 | Playbook | [Data Integrity Triage](https://playbooks.internal/data-integrity) |
 | Google Doc | [Investigation: Version Restore Data Loss](https://docs.google.com/document/d/1mno-version-restore) |
-| Related Tickets | FORGE-1071, FORGE-1075, FORGE-1082 |
+| Related Tickets | EXAMPLE_PRODUCT-1071, EXAMPLE_PRODUCT-1075, EXAMPLE_PRODUCT-1082 |
 
 ## Objective
 Investigate why restoring a previous project version removes custom components that were saved to the user's component library, even though the library is supposed to be independent of project versions.

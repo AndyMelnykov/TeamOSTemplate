@@ -20,7 +20,7 @@ WITH daily_generations AS (
         AVG(generation_time_ms) AS avg_generation_time_ms,
         PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY generation_time_ms) AS p50_generation_time_ms,
         PERCENTILE_CONT(0.95) WITHIN GROUP (ORDER BY generation_time_ms) AS p95_generation_time_ms
-    FROM analytics.forge.project_generations
+    FROM analytics.example_product.project_generations
     WHERE created_at >= DATEADD('day', -30, CURRENT_DATE())
     GROUP BY 1
 )

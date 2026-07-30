@@ -32,17 +32,17 @@ $90/mo per Full seat, $35/mo per Dev seat, $5/mo per Collab seat (all billed ann
 - SCIM seat management
 - For businesses designing multiple products or brands needing enterprise-level security and scalable design systems
 
-## Comparison to Forge
+## Comparison to example_product
 
 Figma Make's bundling into the existing Figma subscription is its biggest competitive advantage -- it's effectively "free" for the millions of teams already paying for Figma. However, Make is design-first (starts from Figma designs, not prompts), generates frontend code only, and lacks deployment or hosting capabilities.
 
-Forge's full-stack generation, deployment pipeline, and prompt-first approach serve a fundamentally different workflow. The seat-type model (Full/Dev/Collab) at different price points is more granular than Forge's pricing structure.
+example_product's full-stack generation, deployment pipeline, and prompt-first approach serve a fundamentally different workflow. The seat-type model (Full/Dev/Collab) at different price points is more granular than example_product's pricing structure.
 
-| Dimension | Figma Make | Forge | Notes |
+| Dimension | Figma Make | example_product | Notes |
 |-----------|------------|-------|-------|
 | Entry price | $0 (bundled with Figma) | Comparable free tier | Figma wins on distribution -- already in designer workflows |
 | Per-seat cost | $20-$90/mo depending on seat type and tier | Simpler per-seat model | Figma's granular seat types add complexity but can be cheaper for mixed teams |
-| Code output | Frontend only (HTML/CSS/React) | Full-stack (frontend + backend + DB + auth) | Forge delivers significantly more value per generation |
-| Deployment | None -- export code only | One-click deploy, custom domains, CI/CD | Forge -- Make requires separate hosting solution |
+| Code output | Frontend only (HTML/CSS/React) | Full-stack (frontend + backend + DB + auth) | example_product delivers significantly more value per generation |
+| Deployment | None -- export code only | One-click deploy, custom domains, CI/CD | example_product -- Make requires separate hosting solution |
 | AI credits | 500-4,250/mo per seat depending on tier | Different model | Hard to compare directly |
-| Enterprise features | SCIM, design system APIs | SSO, audit logs, team workspaces, compliance | Forge has broader enterprise feature set |
+| Enterprise features | SCIM, design system APIs | SSO, audit logs, team workspaces, compliance | example_product has broader enterprise feature set |

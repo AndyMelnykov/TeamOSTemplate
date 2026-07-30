@@ -1,6 +1,6 @@
 # Data Engineering
 
-Data pipeline plans and RFCs for Forge. Organized by product area.
+Data pipeline plans and RFCs for example_product. Organized by product area.
 
 ## Folders
 

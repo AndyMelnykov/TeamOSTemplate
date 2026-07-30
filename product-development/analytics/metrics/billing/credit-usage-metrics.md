@@ -112,19 +112,19 @@ refund_rate = (SUM(amount WHERE category = 'refund') / SUM(amount WHERE type = '
 
 | Source | Table / System | Sync Frequency | Notes |
 |--------|---------------|----------------|-------|
-| Credit transactions | `analytics.forge.credit_transactions` | 15 min (Fivetran) | Primary ledger. See schema doc. |
-| User profiles | `analytics.forge.dim_users` | 15 min (Fivetran) | Current tier, signup date, email. |
-| Subscription plans | `analytics.forge.dim_subscription_plans` | Daily (dbt seed) | Credit allocations per tier. |
+| Credit transactions | `analytics.example_product.credit_transactions` | 15 min (Fivetran) | Primary ledger. See schema doc. |
+| User profiles | `analytics.example_product.dim_users` | 15 min (Fivetran) | Current tier, signup date, email. |
+| Subscription plans | `analytics.example_product.dim_subscription_plans` | Daily (dbt seed) | Credit allocations per tier. |
 | Stripe events | `analytics.stripe.charges` | 1 hour (Fivetran) | Revenue tie-out and upgrade event detection. |
-| Generation events | `analytics.forge.fact_generations` | 15 min (Fivetran) | Generation type and metadata for per-type credit analysis. |
+| Generation events | `analytics.example_product.fact_generations` | 15 min (Fivetran) | Generation type and metadata for per-type credit analysis. |
 
 ## Dashboard Links
 
 | Dashboard | Platform | Link |
 |-----------|----------|------|
-| Credit Usage Health | Sigma | [Credit Usage Health Dashboard](https://app.sigmacomputing.com/forge/workbook/credit-usage-health) |
-| Credit Utilization by Tier | Sigma | [Utilization by Tier](https://app.sigmacomputing.com/forge/workbook/credit-utilization-tier) |
-| Billing Experiments | Amplitude | [Billing Experiments](https://app.amplitude.com/forge/dashboard/billing-experiments) |
+| Credit Usage Health | Sigma | [Credit Usage Health Dashboard](https://app.sigmacomputing.com/example_product/workbook/credit-usage-health) |
+| Credit Utilization by Tier | Sigma | [Utilization by Tier](https://app.sigmacomputing.com/example_product/workbook/credit-utilization-tier) |
+| Billing Experiments | Amplitude | [Billing Experiments](https://app.amplitude.com/example_product/dashboard/billing-experiments) |
 | Revenue Impact | Stripe | [Stripe Billing Dashboard](https://dashboard.stripe.com/billing) |
 
 ## Related Queries
