@@ -9,13 +9,13 @@
 
 **Alex:** What's the impact on the March 24 beta target?
 
-**Jordan:** It's tight but I think we can make it. The custom domain piece isn't a blocker for the initial beta - we can launch with Forge-managed subdomains first and add custom domains in a fast follow. The bigger concern is error handling. Sam, where are we on that?
+**Jordan:** It's tight but I think we can make it. The custom domain piece isn't a blocker for the initial beta - we can launch with example_product-managed subdomains first and add custom domains in a fast follow. The bigger concern is error handling. Sam, where are we on that?
 
 **Sam Torres:** We've got the happy path covered. Where we need more work is graceful handling of build failures, timeout scenarios, and the retry flow. I'd estimate about a week of focused work.
 
 **Alex:** OK, let's make sure that's prioritized this sprint. Priya, can you give us the latency update?
 
-**Priya Patel:** Yeah, so the good news is forge-gen-3.2 quality scores are up 12% across our eval suite. The bad news is P95 latency went from 7.5 seconds to 11 seconds. The model is just heavier. Streaming helps with perceived performance but the raw numbers need to come down.
+**Priya Patel:** Yeah, so the good news is example_product-gen-3.2 quality scores are up 12% across our eval suite. The bad news is P95 latency went from 7.5 seconds to 11 seconds. The model is just heavier. Streaming helps with perceived performance but the raw numbers need to come down.
 
 **Alex:** What are our options?
 

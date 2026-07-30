@@ -1,6 +1,6 @@
 # Axiom Logistics - Account Context
 
-## What They Use Forge For
+## What They Use example_product For
 
 Logistics company with a 28-person team. Power user of deployment features - running 16 active projects with heavy production deployment usage.
 
@@ -12,7 +12,7 @@ Logistics company with a 28-person team. Power user of deployment features - run
 
 ## Relationship Context
 
-- **Champion:** Deepa Patel (CTO) - hands-on with Forge, drives adoption across the org
+- **Champion:** Deepa Patel (CTO) - hands-on with example_product, drives adoption across the org
 - One of the most active Enterprise accounts by deployment volume
 
 ## Open Risks and Blockers

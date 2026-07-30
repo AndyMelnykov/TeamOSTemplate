@@ -1,6 +1,6 @@
 # Product Development
 
-All product development artifacts for Forge - product, engineering, analytics, data engineering, and design.
+All product development artifacts for example_product - product, engineering, analytics, data engineering, and design.
 
 ## Doc Index
 

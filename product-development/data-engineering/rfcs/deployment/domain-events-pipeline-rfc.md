@@ -46,7 +46,7 @@ The custom domains feature generates events across multiple backend services: th
 ## `fact_domain_events`
 
 ```sql
-CREATE TABLE analytics.forge.fact_domain_events (
+CREATE TABLE analytics.example_product.fact_domain_events (
     event_id            VARCHAR(36)     NOT NULL,
     event_type          VARCHAR(50)     NOT NULL,
     domain_id           VARCHAR(36)     NOT NULL,
@@ -87,7 +87,7 @@ CREATE TABLE analytics.forge.fact_domain_events (
 ## `dim_custom_domains`
 
 ```sql
-CREATE TABLE analytics.forge.dim_custom_domains (
+CREATE TABLE analytics.example_product.dim_custom_domains (
     domain_key          INTEGER         NOT NULL AUTOINCREMENT,
     domain_id           VARCHAR(36)     NOT NULL,
     project_id          VARCHAR(36)     NOT NULL,

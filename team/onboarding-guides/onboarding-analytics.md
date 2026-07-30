@@ -1,6 +1,6 @@
 # Onboarding: Analytics
 
-Analytics-specific setup and orientation for analysts joining Forge.
+Analytics-specific setup and orientation for analysts joining example_product.
 
 ## Setup
 
@@ -15,14 +15,14 @@ See [General Onboarding](onboarding-general.md#shared-tools-everyone-gets-these)
 | Snowflake | Data warehouse, SQL queries | Request access from Grace Lin |
 | Amplitude | Product analytics, funnels, retention | Request access from Grace Lin |
 | Mode / Sigma | Data dashboards and reporting | Links in [dashboards.md](../product/analytics/dashboards.md) |
-| dbt | Data transformations (read access) | Access via `forge-data` repo |
+| dbt | Data transformations (read access) | Access via `example_product-data` repo |
 
 ### Repos
 
 | Repo | Why |
 |------|-----|
-| `forge-product` | Analytics docs, metric definitions, dashboard specs |
-| `forge-data` | dbt models, pipeline configs, schema definitions |
+| `example_product-product` | Analytics docs, metric definitions, dashboard specs |
+| `example_product-data` | dbt models, pipeline configs, schema definitions |
 
 ### Environment Setup
 
@@ -37,22 +37,22 @@ See [General Onboarding](onboarding-general.md#shared-tools-everyone-gets-these)
 - [Analytics CLAUDE.md](../product/analytics/CLAUDE.md) - metrics glossary, data sources, common queries, RFCs
 - [Dashboards](../product/analytics/dashboards.md) - existing dashboards and links
 - [Product CLAUDE.md](../product/CLAUDE.md) - product context, pillars, segments
-- [Customer Insights](../product/customers/forge/CLAUDE.md) - qualitative data to pair with quantitative
+- [Customer Insights](../product/customers/example_product/CLAUDE.md) - qualitative data to pair with quantitative
 
 ## Slack Channels
 
 | Channel | Purpose |
 |---------|---------|
-| `#forge-product` | Product discussions where data questions arise |
-| `#forge-general` | Team-wide announcements |
-| `#forge-eng` | Engineering context for instrumentation questions |
+| `#example_product-product` | Product discussions where data questions arise |
+| `#example_product-general` | Team-wide announcements |
+| `#example_product-eng` | Engineering context for instrumentation questions |
 
 ## People to Meet
 
 | Person | Why |
 |--------|-----|
 | Grace Lin | Analytics lead - metrics, dashboards, data access |
-| Casey Nguyen | Analytics partner for Forge - current projects and context |
+| Casey Nguyen | Analytics partner for example_product - current projects and context |
 | Hannah Stulberg | PM - product priorities, what metrics matter most |
 | Drew Martinez | Strategy & Ops - business metrics and reporting |
 

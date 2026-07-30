@@ -1,6 +1,6 @@
 # Onboarding: Engineering
 
-Engineering-specific setup and orientation for developers joining Forge.
+Engineering-specific setup and orientation for developers joining example_product.
 
 ## Setup
 
@@ -14,44 +14,44 @@ See [General Onboarding](onboarding-general.md#shared-tools-everyone-gets-these)
 |------|---------|--------|
 | Datadog | Monitoring, alerting, APM | Request access from Sam Torres |
 | PagerDuty | On-call rotation and incident management | Added by EM after first month |
-| Vercel | Frontend deployments | `forge-labs` org |
+| Vercel | Frontend deployments | `example_product-labs` org |
 | AWS Console | Infrastructure (read access initially) | Request from Sam Torres |
 
 ### Repos
 
 | Repo | Why |
 |------|-----|
-| `forge-app` | Main application - frontend (React/Next.js) + backend API |
-| `forge-ai` | AI generation pipeline and model serving |
-| `forge-infra` | Terraform, Kubernetes configs, CI/CD pipelines |
-| `forge-docs` | Public documentation site |
-| `forge-product` | PRDs and specs for feature context |
+| `example_product-app` | Main application - frontend (React/Next.js) + backend API |
+| `example_product-ai` | AI generation pipeline and model serving |
+| `example_product-infra` | Terraform, Kubernetes configs, CI/CD pipelines |
+| `example_product-docs` | Public documentation site |
+| `example_product-product` | PRDs and specs for feature context |
 
 ### Environment Setup
 
 1. Complete [General Onboarding](onboarding-general.md) setup first
-2. Clone `forge-app`, `forge-ai`, and `forge-infra`
-3. Follow `CONTRIBUTING.md` in `forge-app` for local dev setup
+2. Clone `example_product-app`, `example_product-ai`, and `example_product-infra`
+3. Follow `CONTRIBUTING.md` in `example_product-app` for local dev setup
 4. Run the test suite locally and verify it passes
 5. Complete a test generation on staging and deploy it
-6. Set up Datadog and bookmark the [Forge service dashboard](https://app.datadoghq.com)
+6. Set up Datadog and bookmark the [example_product service dashboard](https://app.datadoghq.com)
 
 ## Key Documents
 
 - [Frontend CLAUDE.md](../frontend/CLAUDE.md) - dev conventions, design system, React patterns
 - [Engineering TDDs](../engineering/tdds/) - technical design documents
-- [Product Context](../product/product-context/forge/CLAUDE.md) - system reference docs
-- [Platform Overview](../product/product-context/forge-platform-overview.md) - what Forge does end-to-end
+- [Product Context](../product/product-context/example_product/CLAUDE.md) - system reference docs
+- [Platform Overview](../product/product-context/example_product-platform-overview.md) - what example_product does end-to-end
 
 ## Slack Channels
 
 | Channel | Purpose |
 |---------|---------|
-| `#forge-eng` | Engineering discussion, architecture decisions |
-| `#forge-eng-standup` | Daily async standup posts |
-| `#forge-incidents` | Production incidents and on-call alerts |
-| `#forge-deploys` | Automated deploy notifications |
-| `#forge-general` | Team-wide announcements |
+| `#example_product-eng` | Engineering discussion, architecture decisions |
+| `#example_product-eng-standup` | Daily async standup posts |
+| `#example_product-incidents` | Production incidents and on-call alerts |
+| `#example_product-deploys` | Automated deploy notifications |
+| `#example_product-general` | Team-wide announcements |
 
 ## People to Meet
 

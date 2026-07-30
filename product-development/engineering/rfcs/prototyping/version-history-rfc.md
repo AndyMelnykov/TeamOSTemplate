@@ -28,7 +28,7 @@ Let users browse and restore previous project versions with diff views. Every AI
 
 ## Motivation
 
-Today, Forge users have no reliable way to undo or roll back when an AI generation takes a project in the wrong direction. The only recovery option is a single-step undo that reverts the most recent change, which is inadequate when users want to go back multiple steps or compare how the project evolved across several generations.
+Today, example_product users have no reliable way to undo or roll back when an AI generation takes a project in the wrong direction. The only recovery option is a single-step undo that reverts the most recent change, which is inadequate when users want to go back multiple steps or compare how the project evolved across several generations.
 
 This leads to real pain:
 
@@ -88,7 +88,7 @@ CREATE INDEX idx_project_versions_user_id ON project_versions (user_id, created_
   },
   "metadata": {
     "generation_id": "uuid",
-    "model_version": "forge-gen-3.2"
+    "model_version": "example_product-gen-3.2"
   }
 }
 ```
@@ -336,8 +336,8 @@ WHERE project_id = :project_id;
 
 | Phase | Scope | Flag | Timeline |
 |-------|-------|------|----------|
-| 1 - Internal dogfood | Forge Labs internal projects only | `version_history_internal` | Week 1 |
-| 2 - Beta | Forge Pro and Teams customers, opt-in | `version_history_beta` | Weeks 2-3 |
+| 1 - Internal dogfood | example_product Labs internal projects only | `version_history_internal` | Week 1 |
+| 2 - Beta | example_product Pro and Teams customers, opt-in | `version_history_beta` | Weeks 2-3 |
 | 3 - GA | All users, enabled by default | `version_history_ga` | Week 4 |
 
 **Phase 1 goals:** Validate snapshot creation reliability, measure storage impact, gather UX feedback from internal team.

@@ -7,7 +7,7 @@
 | Status | Complete |
 | Playbook | [Asset Pipeline Debugging](https://playbooks.internal/asset-pipeline) |
 | Google Doc | [Investigation: Fork Missing Assets](https://docs.google.com/document/d/1vwx-fork-assets) |
-| Related Tickets | FORGE-978, FORGE-983 |
+| Related Tickets | EXAMPLE_PRODUCT-978, EXAMPLE_PRODUCT-983 |
 
 ## Objective
 Investigate why forking a community template into a new project results in missing images — broken image placeholders appear where the original template had working images.

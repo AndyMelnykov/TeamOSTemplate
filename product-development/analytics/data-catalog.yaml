@@ -1,11 +1,11 @@
-# Forge Data Catalog
+# example_product Data Catalog
 # Registry of warehouse tables. For column-level detail, see schemas/ docs.
 
 tables:
   # --- Core entities ---
   users:
     database: ANALYTICS
-    schema: FORGE
+    schema: EXAMPLE_PRODUCT
     description: User accounts - signups, profiles, auth metadata
     owner: data-engineering
     refresh: daily
@@ -14,7 +14,7 @@ tables:
 
   organizations:
     database: ANALYTICS
-    schema: FORGE
+    schema: EXAMPLE_PRODUCT
     description: Organization accounts - team structure, plan tier, billing info
     owner: data-engineering
     refresh: daily
@@ -23,17 +23,17 @@ tables:
 
   projects:
     database: ANALYTICS
-    schema: FORGE
+    schema: EXAMPLE_PRODUCT
     description: Customer projects - metadata, creation date, framework, last activity
     owner: data-engineering
     refresh: daily
-    upstream: Forge API → Fivetran
+    upstream: example_product API → Fivetran
     used_by: [PCR, engagement, feature adoption]
 
   # --- Generation ---
   project_generations:
     database: ANALYTICS
-    schema: FORGE
+    schema: EXAMPLE_PRODUCT
     description: Every AI generation attempt - prompt, status, timing, model version, output type
     owner: data-engineering
     refresh: streaming (Snowpipe)
@@ -44,7 +44,7 @@ tables:
   # --- Deployment ---
   deployments:
     database: ANALYTICS
-    schema: FORGE
+    schema: EXAMPLE_PRODUCT
     description: Deployment events - project, environment, URL, status, duration
     owner: data-engineering
     refresh: streaming (Snowpipe)
@@ -53,7 +53,7 @@ tables:
 
   domain_certificates:
     database: ANALYTICS
-    schema: FORGE
+    schema: EXAMPLE_PRODUCT
     description: Custom domain SSL certificates - domain, status, expiry, renewal events
     owner: data-engineering
     refresh: daily
@@ -64,7 +64,7 @@ tables:
   # --- Billing ---
   subscriptions:
     database: ANALYTICS
-    schema: FORGE
+    schema: EXAMPLE_PRODUCT
     description: Subscription records - plan tier, MRR, start/end dates, trial status
     owner: data-engineering
     refresh: daily
@@ -73,7 +73,7 @@ tables:
 
   credit_transactions:
     database: ANALYTICS
-    schema: FORGE
+    schema: EXAMPLE_PRODUCT
     description: Credit ledger - purchases, usage, refunds, referral credits, balance changes
     owner: data-engineering
     refresh: daily
@@ -84,7 +84,7 @@ tables:
   # --- Home Page ---
   search_events:
     database: ANALYTICS
-    schema: FORGE
+    schema: EXAMPLE_PRODUCT
     description: Project search interactions - queries, results, clicks, filters
     owner: data-engineering
     refresh: streaming (Snowpipe)
@@ -95,7 +95,7 @@ tables:
   # --- Prototyping ---
   project_versions:
     database: ANALYTICS
-    schema: FORGE
+    schema: EXAMPLE_PRODUCT
     description: Version history snapshots - project state at each save point
     owner: data-engineering
     refresh: daily
@@ -106,7 +106,7 @@ tables:
   # --- Starter Templates ---
   published_templates:
     database: ANALYTICS
-    schema: FORGE
+    schema: EXAMPLE_PRODUCT
     description: Community-published starter templates - metadata, author, category, ratings
     owner: data-engineering
     refresh: daily
@@ -116,7 +116,7 @@ tables:
 
   template_forks:
     database: ANALYTICS
-    schema: FORGE
+    schema: EXAMPLE_PRODUCT
     description: Template fork events - which templates are used, by whom, conversion to projects
     owner: data-engineering
     refresh: daily

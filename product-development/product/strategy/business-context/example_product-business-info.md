@@ -1,9 +1,9 @@
-# Forge Labs - Business Info
+# example_product Labs - Business Info
 
 # Company Overview
 
-- **Company:** Forge Labs, Inc.
-- **Product:** Forge - AI-powered prototyping and deployment platform
+- **Company:** example_product Labs, Inc.
+- **Product:** example_product - AI-powered prototyping and deployment platform
 - **Founded:** 2024
 - **Headquarters:** San Francisco, CA
 - **Employees:** ~45 (25 engineering, 6 product & design, 5 sales, 4 marketing, 5 ops/finance)

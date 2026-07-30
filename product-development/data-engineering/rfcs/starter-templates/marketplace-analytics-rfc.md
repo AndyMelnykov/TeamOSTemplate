@@ -20,19 +20,19 @@ The Community Marketplace introduces two new entity types (published templates a
 
 ```
 Application DB (Postgres)
-    ├── published_templates  ──→  Snowpipe  ──→  raw.forge.published_templates
-    └── template_forks       ──→  Snowpipe  ──→  raw.forge.template_forks
+    ├── published_templates  ──→  Snowpipe  ──→  raw.example_product.published_templates
+    └── template_forks       ──→  Snowpipe  ──→  raw.example_product.template_forks
                                                         │
                                                    dbt transforms
                                                         │
                                                ┌────────┴────────┐
                                                │                 │
                                    dim_published_templates   fact_template_forks
-                                   (analytics.forge.dim_     (analytics.forge.fact_
+                                   (analytics.example_product.dim_     (analytics.example_product.fact_
                                     published_templates)       template_forks)
 ```
 
-Raw data lands in the `raw.forge` schema via Snowpipe (near real-time). dbt models transform and enrich the data into the `analytics.forge` schema on an hourly schedule.
+Raw data lands in the `raw.example_product` schema via Snowpipe (near real-time). dbt models transform and enrich the data into the `analytics.example_product` schema on an hourly schedule.
 
 ## Schema Design
 
@@ -41,7 +41,7 @@ Raw data lands in the `raw.forge` schema via Snowpipe (near real-time). dbt mode
 Fact table capturing every template fork event. Grain: one row per fork.
 
 ```sql
-CREATE TABLE analytics.forge.fact_template_forks (
+CREATE TABLE analytics.example_product.fact_template_forks (
     fork_id                 VARCHAR(36)     NOT NULL PRIMARY KEY,
     template_id             VARCHAR(36)     NOT NULL,
     user_id                 VARCHAR(36)     NOT NULL,
@@ -78,22 +78,22 @@ CREATE TABLE analytics.forge.fact_template_forks (
 
 **Clustering:** `(fork_created_at, template_category)`
 
-**dbt model:** `models/marts/forge/fact_template_forks.sql`
+**dbt model:** `models/marts/example_product/fact_template_forks.sql`
 
-**Refresh:** Hourly via dbt Cloud job `forge_marketplace_models`
+**Refresh:** Hourly via dbt Cloud job `example_product_marketplace_models`
 
 **Upstream dependencies:**
-- `raw.forge.template_forks` (Snowpipe)
-- `raw.forge.published_templates` (Snowpipe, for denormalized fields)
-- `analytics.forge.deploy_events` (for `was_deployed` and `first_deploy_at`)
-- `analytics.forge.users` (for `user_subscription_tier`)
+- `raw.example_product.template_forks` (Snowpipe)
+- `raw.example_product.published_templates` (Snowpipe, for denormalized fields)
+- `analytics.example_product.deploy_events` (for `was_deployed` and `first_deploy_at`)
+- `analytics.example_product.users` (for `user_subscription_tier`)
 
 ### `dim_published_templates`
 
 Dimension table for published template metadata. Grain: one row per published template. Slowly changing dimension (Type 1 -- overwrites on update).
 
 ```sql
-CREATE TABLE analytics.forge.dim_published_templates (
+CREATE TABLE analytics.example_product.dim_published_templates (
     template_id             VARCHAR(36)     NOT NULL PRIMARY KEY,
     source_project_id       VARCHAR(36)     NOT NULL,
     author_id               VARCHAR(36)     NOT NULL,
@@ -140,20 +140,20 @@ CREATE TABLE analytics.forge.dim_published_templates (
 
 **Clustering:** `(published_at, category)`
 
-**dbt model:** `models/marts/forge/dim_published_templates.sql`
+**dbt model:** `models/marts/example_product/dim_published_templates.sql`
 
-**Refresh:** Hourly via dbt Cloud job `forge_marketplace_models`
+**Refresh:** Hourly via dbt Cloud job `example_product_marketplace_models`
 
 **Upstream dependencies:**
-- `raw.forge.published_templates` (Snowpipe)
-- `analytics.forge.users` (for `author_username` and `author_subscription_tier`)
+- `raw.example_product.published_templates` (Snowpipe)
+- `analytics.example_product.users` (for `author_username` and `author_subscription_tier`)
 
 ## Testing
 
 ### dbt Tests
 
 ```yaml
-# models/marts/forge/schema.yml
+# models/marts/example_product/schema.yml
 models:
   - name: fact_template_forks
     columns:
@@ -211,7 +211,7 @@ models:
 
 1. **Week 1:** Create raw tables and Snowpipe ingestion for `published_templates` and `template_forks`
 2. **Week 1:** Write and test dbt models for `dim_published_templates` and `fact_template_forks`
-3. **Week 2:** Deploy dbt models to production, add to `forge_marketplace_models` dbt Cloud job (hourly)
+3. **Week 2:** Deploy dbt models to production, add to `example_product_marketplace_models` dbt Cloud job (hourly)
 4. **Week 2:** Build Sigma dashboard views on top of the new models
 5. **Week 3:** Add data quality alerts (Snowflake alerts for row count anomalies, freshness checks)
 6. **Ongoing:** Monitor and tune clustering keys based on actual query patterns

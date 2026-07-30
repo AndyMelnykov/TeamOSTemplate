@@ -15,12 +15,12 @@ Scan `product/customers/calls/summaries/` for files modified in the last 2 weeks
 ### 2. Categorize customers
 
 For each customer with a recent call, determine their category:
-- **Paying customer** - signed and paying for Forge
+- **Paying customer** - signed and paying for example_product
 - **Pilot** - active pilot, not yet paying
 - **Pipeline** - in pipeline, being pitched
 - **Free tier** - on free plan, potential upsell
 
-Cross-reference `product/customers/forge-customer-overview.md` if unsure about customer status.
+Cross-reference `product/customers/example_product-customer-overview.md` if unsure about customer status.
 
 ### 3. Extract from each call
 

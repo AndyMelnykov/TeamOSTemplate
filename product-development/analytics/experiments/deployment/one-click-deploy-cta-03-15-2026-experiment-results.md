@@ -2,7 +2,7 @@
 
 **Author:** Casey Nguyen, Analytics
 **Date:** 2026-03-15
-**Linear / Jira / Asana:** FORGE-1058
+**Linear / Jira / Asana:** EXAMPLE_PRODUCT-1058
 **Status:** Complete
 
 ---
@@ -59,7 +59,7 @@ The largest lift was among Pro users and users with only one prior deploy -- exa
 
 - The treatment CTA made custom domains discoverable at the moment of highest intent (deploying a project). This explains the 41% lift in domain setup initiation.
 - The 12% lift in overall deploy clicks suggests the domain-specific CTA also increases deployment motivation, even for users who do not go on to add a custom domain.
-- Domain setup completion rate was not significantly different between groups, indicating the CTA affects discovery and initiation but not the DNS configuration flow itself (which is addressed separately in FORGE-1070).
+- Domain setup completion rate was not significantly different between groups, indicating the CTA affects discovery and initiation but not the DNS configuration flow itself (which is addressed separately in EXAMPLE_PRODUCT-1070).
 - Time-to-first-domain-add dropped from 4.2 days to 1.1 days, meaning users in the treatment group discovered custom domains almost immediately rather than stumbling on it later.
 
 # Decision
@@ -75,5 +75,5 @@ Rationale:
 # Follow-up
 
 - Monitor domain setup initiation rate for 30 days post-rollout to confirm the lift holds at scale.
-- Evaluate whether the CTA should also be shown to Free-tier users as an upgrade prompt (separate experiment, FORGE-1082).
-- Combine with the DNS instruction improvements (FORGE-1075, FORGE-1076) to improve end-to-end completion.
+- Evaluate whether the CTA should also be shown to Free-tier users as an upgrade prompt (separate experiment, EXAMPLE_PRODUCT-1082).
+- Combine with the DNS instruction improvements (EXAMPLE_PRODUCT-1075, EXAMPLE_PRODUCT-1076) to improve end-to-end completion.

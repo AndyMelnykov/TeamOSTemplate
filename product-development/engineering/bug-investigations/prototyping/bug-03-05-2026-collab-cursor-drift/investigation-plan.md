@@ -7,7 +7,7 @@
 | Status | Complete |
 | Playbook | [Real-time Collaboration Debugging](https://playbooks.internal/collab-debug) |
 | Google Doc | [Investigation: Cursor Drift](https://docs.google.com/document/d/1pqr-cursor-drift) |
-| Related Tickets | FORGE-998, FORGE-1005 |
+| Related Tickets | EXAMPLE_PRODUCT-998, EXAMPLE_PRODUCT-1005 |
 
 ## Objective
 Investigate why collaborator presence cursors jump to incorrect positions in the code editor after an AI generation completes, making it appear that other users are editing different parts of the file.

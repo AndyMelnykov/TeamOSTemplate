@@ -1,18 +1,18 @@
 # Acme Corp - Account Context
 
-## What They Use Forge For
+## What They Use example_product For
 
-50-person B2B SaaS startup in Austin building workforce management software. Engineering team of 12 uses Forge for rapid prototyping of admin dashboards, data visualization tools, and customer-facing onboarding flows. Currently running 8 active projects with 35 generation runs per week and 3 production apps deployed last quarter.
+50-person B2B SaaS startup in Austin building workforce management software. Engineering team of 12 uses example_product for rapid prototyping of admin dashboards, data visualization tools, and customer-facing onboarding flows. Currently running 8 active projects with 35 generation runs per week and 3 production apps deployed last quarter.
 
 ## Goals and Success Criteria
 
 - Accelerate internal tool development (their primary use case)
-- Expand Forge usage from prototyping into production workflows
+- Expand example_product usage from prototyping into production workflows
 - Add 8 more seats to cover the full engineering team
 
 ## Relationship Context
 
-- **Champion:** Derek Liu (VP Engineering) - consistently positive about generation quality, actively advocates for Forge internally
+- **Champion:** Derek Liu (VP Engineering) - consistently positive about generation quality, actively advocates for example_product internally
 - **Power user:** Priya Nair (Lead Developer) - provides detailed technical feedback, wants shared templates and collaboration features
 - **Executive sponsor:** Tom Beckett (CTO) - involved in QBRs, focused on ROI and team productivity
 
@@ -24,11 +24,11 @@
 
 ## Notable Quotes
 
-> "The React code Forge generates is better than what half my junior engineers write. The component structure is clean, the TypeScript types are tight, and it handles edge cases I wouldn't have thought to spec."
+> "The React code example_product generates is better than what half my junior engineers write. The component structure is clean, the TypeScript types are tight, and it handles edge cases I wouldn't have thought to spec."
 > - Priya Nair, Lead Developer (March 2026 QBR)
 
-> "Forge has genuinely changed how fast we ship internal tools. What used to take a sprint now takes a morning. But the deployment story is killing us."
+> "example_product has genuinely changed how fast we ship internal tools. What used to take a sprint now takes a morning. But the deployment story is killing us."
 > - Derek Liu, VP Engineering (March 2026 QBR)
 
-> "We had a production incident last Thursday where an engineer tried to rollback to a previous version and it silently dropped three API endpoints. We were down for forty minutes before anyone noticed. Version history can't just be a nice-to-have — it needs to be rock solid. If I can't trust rollback, I can't trust Forge for production workloads."
+> "We had a production incident last Thursday where an engineer tried to rollback to a previous version and it silently dropped three API endpoints. We were down for forty minutes before anyone noticed. Version history can't just be a nice-to-have — it needs to be rock solid. If I can't trust rollback, I can't trust example_product for production workloads."
 > - Derek Liu, VP Engineering (March 2026, monthly check-in)

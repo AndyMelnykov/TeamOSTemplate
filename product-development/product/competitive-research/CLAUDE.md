@@ -1,6 +1,6 @@
 # Competitive Research
 
-Competitive intelligence for Forge — tracking competitors, feature comparisons, and market positioning.
+Competitive intelligence for example_product — tracking competitors, feature comparisons, and market positioning.
 
 ## Competitors
 
@@ -19,11 +19,11 @@ Competitive intelligence for Forge — tracking competitors, feature comparisons
 |------|-------------|--------------|
 | `competitors/competitive-matrix.md` | Feature comparison matrix across all competitors | Quick feature lookup, roadmap prioritization |
 | `competitors/{competitor}/tldr.md` | Per-competitor summary (strengths, weaknesses, differentiation) | Understanding a specific competitor |
-| `competitors/{competitor}/pricing.md` | Pricing model, tiers, and comparison to Forge | Pricing analysis for a specific competitor |
+| `competitors/{competitor}/pricing.md` | Pricing model, tiers, and comparison to example_product | Pricing analysis for a specific competitor |
 
-## Forge Competitive Positioning
+## example_product Competitive Positioning
 
-| Dimension | Forge Advantage |
+| Dimension | example_product Advantage |
 |-----------|-----------------|
 | **Production-readiness** | Only platform generating deploy-ready, enterprise-grade apps |
 | **Full-stack** | Frontend + backend + database + auth + deployment in one flow |
@@ -34,7 +34,7 @@ Competitive intelligence for Forge — tracking competitors, feature comparisons
 ## Key Takeaways
 
 1. **No single competitor covers the full stack well.** Lovable, v0, and Bolt are frontend-heavy; Replit is full-stack but design-weak; Google Stitch is ecosystem-locked; Figma Make is design-tool-bound.
-2. **Production-readiness is our moat.** Most competitors generate prototypes. Forge generates production apps.
+2. **Production-readiness is our moat.** Most competitors generate prototypes. example_product generates production apps.
 3. **Enterprise is underserved.** Only Google Stitch has enterprise credibility, but their product is early. This is our biggest opportunity.
 4. **Design quality is table stakes.** Lovable and v0 set a high bar. We must match their visual quality while delivering superior architecture.
 

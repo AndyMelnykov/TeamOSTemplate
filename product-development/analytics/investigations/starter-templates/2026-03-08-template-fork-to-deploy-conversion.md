@@ -2,7 +2,7 @@
 
 **Author:** Casey Nguyen, Analytics
 **Date:** 2026-03-08
-**Linear / Jira / Asana Ticket:** FORGE-1020
+**Linear / Jira / Asana Ticket:** EXAMPLE_PRODUCT-1020
 **Status:** Complete
 
 ## Question
@@ -22,7 +22,7 @@ The analysis uses data from the internal template library (pre-marketplace), whi
   - **Template cohort:** Projects created by forking an internal template (N = 1,247)
   - **Blank cohort:** Projects created from scratch with no template (N = 3,891)
 - **Deploy definition:** At least one `deploy_events` record with `status = 'completed'` within 30 days of project creation
-- **Excluded:** Projects from internal Forge team accounts, projects deleted within 24 hours of creation
+- **Excluded:** Projects from internal example_product team accounts, projects deleted within 24 hours of creation
 
 ## Key Findings
 
@@ -81,10 +81,10 @@ WITH projects AS (
         p.project_id,
         CASE WHEN tf.fork_id IS NOT NULL THEN 'template_fork' ELSE 'blank_project' END AS cohort,
         p.created_at AS project_created_at
-    FROM analytics.forge.projects p
-    LEFT JOIN analytics.forge.template_forks tf ON tf.project_id = p.project_id
+    FROM analytics.example_product.projects p
+    LEFT JOIN analytics.example_product.template_forks tf ON tf.project_id = p.project_id
     WHERE p.created_at BETWEEN '2026-01-01' AND '2026-03-07'
-      AND p.user_id NOT IN (SELECT user_id FROM analytics.forge.internal_users)
+      AND p.user_id NOT IN (SELECT user_id FROM analytics.example_product.internal_users)
       AND p.deleted_at IS NULL OR DATEDIFF('hour', p.created_at, p.deleted_at) > 24
 ),
 deploy_status AS (
@@ -93,7 +93,7 @@ deploy_status AS (
         pr.cohort,
         MAX(CASE WHEN de.status = 'completed' THEN 1 ELSE 0 END) AS was_deployed
     FROM projects pr
-    LEFT JOIN analytics.forge.deploy_events de
+    LEFT JOIN analytics.example_product.deploy_events de
         ON de.project_id = pr.project_id
         AND de.created_at <= DATEADD('day', 30, pr.project_created_at)
     GROUP BY 1, 2

@@ -7,7 +7,7 @@
 | Status | Complete |
 | Playbook | [Home Page Error Triage](https://playbooks.internal/home-page-errors) |
 | Google Doc | [Investigation: Suggestions 500s](https://docs.google.com/document/d/1abc-suggestions-500) |
-| Related Tickets | FORGE-1042, FORGE-1058 |
+| Related Tickets | EXAMPLE_PRODUCT-1042, EXAMPLE_PRODUCT-1058 |
 
 ## Objective
 Investigate why the prompt suggestions endpoint returns 500 errors for users with large project histories (>50 projects), causing the home page to render without personalized suggestions.

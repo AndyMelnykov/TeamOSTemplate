@@ -1,4 +1,4 @@
-# Forge - Jobs to Be Done & User Personas
+# example_product - Jobs to Be Done & User Personas
 
 # Jobs to Be Done
 
@@ -22,7 +22,7 @@
 - **Company size:** 1-5 people
 - **Goals:** Ship MVPs quickly, iterate based on feedback, minimize infrastructure overhead
 - **Frustrations:** Boilerplate setup takes too long, deploying side projects is tedious, can't afford a design team
-- **Forge usage:** Generates full-stack apps from prompts, uses one-click deploy, upgrades to Pro for custom domains
+- **example_product usage:** Generates full-stack apps from prompts, uses one-click deploy, upgrades to Pro for custom domains
 - **Tier:** Free to Pro
 
 ## Design Agency - "Agency Ava"
@@ -31,7 +31,7 @@
 - **Company size:** 10-30 people
 - **Goals:** Impress clients with interactive prototypes, reduce handoff friction with developers, win more contracts
 - **Frustrations:** Static mockups don't convey interaction, developer handoff is slow and lossy, client feedback cycles drag on
-- **Forge usage:** Generates interactive prototypes for client reviews, shares deployed previews, uses team workspaces for collaboration
+- **example_product usage:** Generates interactive prototypes for client reviews, shares deployed previews, uses team workspaces for collaboration
 - **Tier:** Teams
 
 ## Startup PM - "PM Parker"
@@ -40,7 +40,7 @@
 - **Company size:** 30-150 people
 - **Goals:** Validate ideas quickly, communicate product vision to stakeholders, reduce dependency on engineering for early exploration
 - **Frustrations:** Eng team is always at capacity, getting a prototype built takes 2-3 sprints, hard to test ideas without building them
-- **Forge usage:** Generates prototypes to test with users, shares deployed versions in stakeholder reviews, uses analytics to measure engagement
+- **example_product usage:** Generates prototypes to test with users, shares deployed versions in stakeholder reviews, uses analytics to measure engagement
 - **Tier:** Pro to Teams
 
 ## Enterprise Architect - "Architect Alex"
@@ -49,5 +49,5 @@
 - **Company size:** 500+ people
 - **Goals:** Standardize internal tool creation, reduce duplicated effort across teams, enforce design system compliance
 - **Frustrations:** Every team builds admin panels differently, no consistency in internal tooling, hard to maintain dozens of one-off tools
-- **Forge usage:** Uses shared component library, enforces org-wide templates, deploys to internal infrastructure via custom integrations
+- **example_product usage:** Uses shared component library, enforces org-wide templates, deploys to internal infrastructure via custom integrations
 - **Tier:** Enterprise

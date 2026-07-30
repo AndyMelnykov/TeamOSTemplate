@@ -1,6 +1,6 @@
 # Customer Insights
 
-Customer feedback, account context, and call notes for Forge's named accounts.
+Customer feedback, account context, and call notes for example_product's named accounts.
 
 ## Segments
 

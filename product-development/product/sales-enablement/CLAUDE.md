@@ -1,7 +1,7 @@
 # Sales Enablement
 
 ## Purpose
-Sales-facing documentation and customer onboarding materials for Forge.
+Sales-facing documentation and customer onboarding materials for example_product.
 
 ---
 

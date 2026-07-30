@@ -1,8 +1,8 @@
 # Volta Energy - Account Context
 
-## What They Use Forge For
+## What They Use example_product For
 
-Energy company with an 8-person engineering team. Uses Forge for internal tool prototyping. Running 6 active projects.
+Energy company with an 8-person engineering team. Uses example_product for internal tool prototyping. Running 6 active projects.
 
 ## Goals and Success Criteria
 
@@ -22,8 +22,8 @@ Energy company with an 8-person engineering team. Uses Forge for internal tool p
 
 ## Notable Quotes
 
-> "We built 6 internal tools in Forge last quarter but only deployed 2. The other 4 are sitting as prototypes because nobody wants to deal with the infrastructure setup."
+> "We built 6 internal tools in example_product last quarter but only deployed 2. The other 4 are sitting as prototypes because nobody wants to deal with the infrastructure setup."
 > - Nina Vasquez, Engineering Manager (February 2026, check-in call)
 
-> "The moment we can export dashboard data to PDF, we unlock an entirely new buyer inside our customers. Right now only engineers use Forge. But our energy consultants — the people who actually sell the projects — they need reports they can hand to a facilities manager. Give me PDF export and I can double our seat count by end of quarter."
+> "The moment we can export dashboard data to PDF, we unlock an entirely new buyer inside our customers. Right now only engineers use example_product. But our energy consultants — the people who actually sell the projects — they need reports they can hand to a facilities manager. Give me PDF export and I can double our seat count by end of quarter."
 > - Nina Vasquez, Engineering Manager (March 2026, monthly check-in)

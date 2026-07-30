@@ -80,7 +80,7 @@ Write updated customer sections and cross-customer summary to the dated output f
 
 ### Rewrite
 - Exec summary opening paragraph (should reflect current state)
-- "Forge Use Cases Today" if new use cases emerged
+- "example_product Use Cases Today" if new use cases emerged
 - Feature gap status if engineering progress changed the situation
 - Any section where a stronger quote replaced a weaker one
 

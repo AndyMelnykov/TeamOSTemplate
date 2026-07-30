@@ -16,13 +16,13 @@ AI-first app builder focused on design quality and visual polish.
 - No real-time multiplayer editing
 
 ## ICP Overlap
-Solo founders, early-stage startups building MVPs. Competes for the same "idea to app" use case as Forge but targets less technical users.
+Solo founders, early-stage startups building MVPs. Competes for the same "idea to app" use case as example_product but targets less technical users.
 
 ## Pricing
 Freemium with usage-based tiers. Starting at ~$20/mo.
 
-## Forge Differentiation
-Forge wins on full-stack depth (backend, database, auth), enterprise features, and production-readiness. Lovable wins on out-of-the-box design polish for simple apps.
+## example_product Differentiation
+example_product wins on full-stack depth (backend, database, auth), enterprise features, and production-readiness. Lovable wins on out-of-the-box design polish for simple apps.
 
 ## Bottom Line
 Closest direct competitor. Strong on the visual layer but shallow on everything else. We need to match their design quality while emphasizing our full-stack and enterprise advantages.

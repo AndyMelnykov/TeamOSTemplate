@@ -7,7 +7,7 @@
 | Status | In Progress |
 | Playbook | [SSL/TLS Incident Response](https://playbooks.internal/ssl-incidents) |
 | Google Doc | [Investigation: SSL Renewal Failures](https://docs.google.com/document/d/1yza-ssl-renewal) |
-| Related Tickets | FORGE-1065, FORGE-1068, FORGE-1078 |
+| Related Tickets | EXAMPLE_PRODUCT-1065, EXAMPLE_PRODUCT-1068, EXAMPLE_PRODUCT-1078 |
 
 ## Objective
 Investigate why Let's Encrypt SSL certificates for custom domains are not auto-renewing, causing deployed sites to show browser security warnings when certs expire.

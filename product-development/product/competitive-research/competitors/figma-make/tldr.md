@@ -22,8 +22,8 @@ Design teams, agencies, design-to-development handoff workflows. Adjacent compet
 ## Pricing
 Included in Figma plans. Expected premium tier.
 
-## Forge Differentiation
-Forge starts from a prompt and generates full applications. Figma Make starts from a design and generates frontend code. Different workflows, different strengths. Risk is Figma expanding into full-app generation.
+## example_product Differentiation
+example_product starts from a prompt and generates full applications. Figma Make starts from a design and generates frontend code. Different workflows, different strengths. Risk is Figma expanding into full-app generation.
 
 ## Bottom Line
 Adjacent, not direct. Different entry point (design-first vs prompt-first). The threat is Figma's massive design user base getting code generation "for free" as part of their existing tool.

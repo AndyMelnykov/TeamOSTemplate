@@ -1,6 +1,6 @@
 # Launch Emails
 
-Product launch communications for Forge features.
+Product launch communications for example_product features.
 
 ## Current Launch Emails
 

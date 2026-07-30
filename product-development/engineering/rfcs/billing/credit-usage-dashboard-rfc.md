@@ -26,11 +26,11 @@
 
 ## Summary
 
-This RFC proposes a Credit Usage Dashboard that gives Forge users full visibility into how they consume credits across generation, edit, and deploy operations. The dashboard will display a daily breakdown by category, real-time burn rate calculations, and projections for when credits will be exhausted at current consumption rates. Users will also be able to drill into per-project usage and filter by date range, category, and project.
+This RFC proposes a Credit Usage Dashboard that gives example_product users full visibility into how they consume credits across generation, edit, and deploy operations. The dashboard will display a daily breakdown by category, real-time burn rate calculations, and projections for when credits will be exhausted at current consumption rates. Users will also be able to drill into per-project usage and filter by date range, category, and project.
 
 ## Motivation
 
-Today, Forge users have no way to understand how they are spending credits until they receive a hard stop at the limit. This leads to several problems:
+Today, example_product users have no way to understand how they are spending credits until they receive a hard stop at the limit. This leads to several problems:
 
 - **Surprise limit hits**: Users in the middle of a workflow are blocked without warning when credits run out. This is the number one billing-related complaint in support (averaging 47 tickets/week in Q1 2026).
 - **No category visibility**: Users cannot tell whether their credits are going to generations, edits, or deploys. This prevents them from adjusting their workflow to stay within budget.

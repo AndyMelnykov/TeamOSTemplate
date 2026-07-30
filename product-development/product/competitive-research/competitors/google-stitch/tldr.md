@@ -21,8 +21,8 @@ Teams already on Google Cloud, enterprise innovation labs. Competes for enterpri
 ## Pricing
 Free preview. Expected to become part of Google Cloud pricing.
 
-## Forge Differentiation
-Forge is cloud-agnostic and offers superior generation quality and customization. Google Stitch has stronger enterprise credibility but a weaker product. Our window to win enterprise accounts before Google matures is now.
+## example_product Differentiation
+example_product is cloud-agnostic and offers superior generation quality and customization. Google Stitch has stronger enterprise credibility but a weaker product. Our window to win enterprise accounts before Google matures is now.
 
 ## Bottom Line
 Biggest enterprise threat long-term. Product is early and limited, but Google's brand and distribution could close that gap fast. We need to lock in enterprise customers before Stitch matures.

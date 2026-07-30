@@ -12,11 +12,11 @@
 
 ## Overview
 
-The Credit Usage Dashboard gives Forge users real-time visibility into how they consume credits across generations, edits, and deploys. It surfaces daily usage breakdowns, burn rate, projected depletion dates, and per-project spending so users can manage their credits proactively rather than being surprised by a hard stop at the limit.
+The Credit Usage Dashboard gives example_product users real-time visibility into how they consume credits across generations, edits, and deploys. It surfaces daily usage breakdowns, burn rate, projected depletion dates, and per-project spending so users can manage their credits proactively rather than being surprised by a hard stop at the limit.
 
 ## Problem Statement
 
-Forge users currently have no way to see how they are spending credits. The only signal they receive is a hard block when they hit zero. This creates three compounding problems:
+example_product users currently have no way to see how they are spending credits. The only signal they receive is a hard block when they hit zero. This creates three compounding problems:
 
 1. **Unexpected interruptions**: Users are blocked mid-workflow with no warning. They cannot plan around their credit budget because there is nothing to plan with.
 2. **Opaque consumption**: Users do not know which activities or projects consume the most credits. A user running dozens of generation iterations on one project has no idea that project is responsible for 60% of their spend.
@@ -42,7 +42,7 @@ Conservative modeling suggests that reducing credit-related churn by 15% and inc
 ## Customer Requests
 
 > "I burned through my credits in 3 days and had no idea. I was iterating on a landing page and each generation apparently costs different amounts? There's no way to see any of this."
-> -- Sara M., Pro user, support ticket FORGE-892
+> -- Sara M., Pro user, support ticket EXAMPLE_PRODUCT-892
 
 > "We have 5 people on our team plan and I have zero visibility into who's using what. I got a Stripe charge for overages I didn't even know we incurred. I need a dashboard yesterday."
 > -- David K., Team plan admin, customer call 2026-02-14
@@ -54,7 +54,7 @@ Conservative modeling suggests that reducing credit-related churn by 15% and inc
 
 ### Goals
 
-1. Give every Forge user clear, real-time visibility into their credit consumption.
+1. Give every example_product user clear, real-time visibility into their credit consumption.
 2. Reduce surprise credit depletion events by warning users before they hit zero.
 3. Create a self-serve upgrade path driven by usage data rather than sales outreach.
 
@@ -71,7 +71,7 @@ Conservative modeling suggests that reducing credit-related churn by 15% and inc
 ### Non-Goals
 
 - This project does not change credit pricing, allocation amounts, or billing cycle mechanics.
-- This project does not add the ability to purchase additional credits mid-cycle (that is a separate initiative tracked in FORGE-1105).
+- This project does not add the ability to purchase additional credits mid-cycle (that is a separate initiative tracked in EXAMPLE_PRODUCT-1105).
 - This project does not build an admin/team-level usage view for Team plan admins (planned for Phase 2).
 
 ## User Stories
@@ -146,8 +146,8 @@ Conservative modeling suggests that reducing credit-related churn by 15% and inc
 ## Launch Plan
 
 ### Phase 1: Internal Dogfood (Week 5)
-- Enable for all internal Forge team members.
-- Collect feedback via a dedicated Slack channel (#forge-billing-beta).
+- Enable for all internal example_product team members.
+- Collect feedback via a dedicated Slack channel (#example_product-billing-beta).
 - Fix any P0/P1 bugs identified.
 
 ### Phase 2: Beta (Week 6)

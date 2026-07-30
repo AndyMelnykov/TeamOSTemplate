@@ -1,9 +1,9 @@
-# Schema: `analytics.forge.search_events`
+# Schema: `analytics.example_product.search_events`
 
-Event-level table capturing every search interaction in the Forge platform. One row per search query execution. Tracks what users search for, how many results are returned, and which results (if any) are clicked.
+Event-level table capturing every search interaction in the example_product platform. One row per search query execution. Tracks what users search for, how many results are returned, and which results (if any) are clicked.
 
 **Database:** `ANALYTICS`
-**Schema:** `FORGE`
+**Schema:** `EXAMPLE_PRODUCT`
 **Table:** `SEARCH_EVENTS`
 **Refresh:** Streaming (near real-time via Snowpipe)
 **Retention:** 2 years

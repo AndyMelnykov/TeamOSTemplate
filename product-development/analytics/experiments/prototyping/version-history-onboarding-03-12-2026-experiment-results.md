@@ -2,7 +2,7 @@
 
 **Author:** Casey Nguyen, Analytics
 **Date:** 2026-03-12
-**Linear / Jira / Asana:** FORGE-1052
+**Linear / Jira / Asana:** EXAMPLE_PRODUCT-1052
 **Status:** Complete
 **Decision:** Ship
 
@@ -19,8 +19,8 @@ Users are not discovering the version history panel because it is tucked into th
 | Parameter | Value |
 |-----------|-------|
 | Experiment type | A/B test |
-| Platform | Forge web app |
-| Audience | New Forge Pro and Teams users during beta period |
+| Platform | example_product web app |
+| Audience | New example_product Pro and Teams users during beta period |
 | Allocation | 50/50 random assignment at user level |
 | Duration | 2026-03-03 to 2026-03-11 (8 days) |
 | Sample size | 1,847 users (924 control, 923 treatment) |

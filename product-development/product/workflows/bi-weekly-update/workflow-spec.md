@@ -2,7 +2,7 @@
 
 ## Overview
 
-This workflow produces a dated bi-weekly Forge update document. It runs interactively: each step has an automated part (data gathering, drafting) and an interactive part (the PM reviews, adds context, approves). Each section is written to the output file as it completes so progress is visible in real time. The final step auto-pushes the compiled document to a Google Doc via the Google Workspace MCP.
+This workflow produces a dated bi-weekly example_product update document. It runs interactively: each step has an automated part (data gathering, drafting) and an interactive part (the PM reviews, adds context, approves). Each section is written to the output file as it completes so progress is visible in real time. The final step auto-pushes the compiled document to a Google Doc via the Google Workspace MCP.
 
 ---
 

@@ -1,9 +1,9 @@
-# Schema: `analytics.forge.domain_certificates`
+# Schema: `analytics.example_product.domain_certificates`
 
-Certificate lifecycle tracking for custom domains connected to Forge projects. One row per certificate issued.
+Certificate lifecycle tracking for custom domains connected to example_product projects. One row per certificate issued.
 
 **Database:** `ANALYTICS`
-**Schema:** `FORGE`
+**Schema:** `EXAMPLE_PRODUCT`
 **Table:** `DOMAIN_CERTIFICATES`
 **Refresh:** Streaming (near real-time via Snowpipe)
 **Retention:** 2 years

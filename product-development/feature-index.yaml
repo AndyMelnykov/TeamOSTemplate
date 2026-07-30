@@ -1,4 +1,4 @@
-# Forge — Feature Index
+# example_product — Feature Index
 # Organized by product area → sub-feature → all related artifacts
 
 home-page:
@@ -8,10 +8,10 @@ home-page:
     eng-plan: engineering/plans/home-page/project-search.md
     data-eng-rfc: data-engineering/rfcs/home-page/search-events-pipeline-rfc.md
     data-eng-plan: data-engineering/plans/home-page/search-events-pipeline.md
-    figma: https://figma.com/file/forge-project-search
+    figma: https://figma.com/file/example_product-project-search
     tickets:
-      - FORGE/1042
-      - FORGE/1058
+      - EXAMPLE_PRODUCT/1042
+      - EXAMPLE_PRODUCT/1058
     table-schemas:
       - analytics/schemas/home-page/search_events.md
     queries:
@@ -28,15 +28,15 @@ home-page:
   prompt-suggestions:
     prd: product/PRDs/home-page/project-search-prd.md
     eng-plan: engineering/plans/home-page/prompt-suggestions.md
-    figma: https://figma.com/file/forge-prompt-suggestions
+    figma: https://figma.com/file/example_product-prompt-suggestions
     tickets:
-      - FORGE/1040
+      - EXAMPLE_PRODUCT/1040
 
   activity-feed:
     eng-plan: engineering/plans/home-page/activity-feed.md
-    figma: https://figma.com/file/forge-activity-feed
+    figma: https://figma.com/file/example_product-activity-feed
     tickets:
-      - FORGE/1095
+      - EXAMPLE_PRODUCT/1095
 
 billing:
   credit-usage-dashboard:
@@ -45,11 +45,11 @@ billing:
     eng-plan: engineering/plans/billing/credit-usage-dashboard.md
     data-eng-rfc: data-engineering/rfcs/billing/credit-ledger-model-rfc.md
     data-eng-plan: data-engineering/plans/billing/credit-ledger-model.md
-    figma: https://figma.com/file/forge-credit-dashboard
+    figma: https://figma.com/file/example_product-credit-dashboard
     tickets:
-      - FORGE/1025
-      - FORGE/1031
-      - FORGE/1033
+      - EXAMPLE_PRODUCT/1025
+      - EXAMPLE_PRODUCT/1031
+      - EXAMPLE_PRODUCT/1033
     table-schemas:
       - analytics/schemas/billing/credit_transactions.md
     queries:
@@ -64,25 +64,25 @@ billing:
 
   team-seat-management:
     eng-plan: engineering/plans/billing/team-seat-management.md
-    figma: https://figma.com/file/forge-team-seats
+    figma: https://figma.com/file/example_product-team-seats
     tickets:
-      - FORGE/1100
+      - EXAMPLE_PRODUCT/1100
 
   referral-tracking:
     eng-plan: engineering/plans/billing/referral-tracking.md
-    figma: https://figma.com/file/forge-referral
+    figma: https://figma.com/file/example_product-referral
     tickets:
-      - FORGE/965
-      - FORGE/971
+      - EXAMPLE_PRODUCT/965
+      - EXAMPLE_PRODUCT/971
     bug-investigations:
       - engineering/bug-investigations/billing/bug-02-28-2026-referral-credits-missing/investigation-plan.md
 
   sso-integration:
     prd: product/PRDs/sso-prd.md
     eng-rfc: engineering/rfcs/sso-rfc.md
-    figma: https://figma.com/file/forge-sso
+    figma: https://figma.com/file/example_product-sso
     tickets:
-      - FORGE/890
+      - EXAMPLE_PRODUCT/890
 
 prototyping:
   version-history:
@@ -91,11 +91,11 @@ prototyping:
     eng-plan: engineering/plans/prototyping/version-history.md
     data-eng-rfc: data-engineering/rfcs/prototyping/version-snapshots-pipeline-rfc.md
     data-eng-plan: data-engineering/plans/prototyping/version-snapshots-pipeline.md
-    figma: https://figma.com/file/forge-version-history
+    figma: https://figma.com/file/example_product-version-history
     tickets:
-      - FORGE/1071
-      - FORGE/1075
-      - FORGE/1082
+      - EXAMPLE_PRODUCT/1071
+      - EXAMPLE_PRODUCT/1075
+      - EXAMPLE_PRODUCT/1082
     table-schemas:
       - analytics/schemas/prototyping/project_versions.md
     queries:
@@ -112,28 +112,28 @@ prototyping:
   component-library:
     prd: product/PRDs/shared-components-prd.md
     eng-plan: engineering/plans/prototyping/component-library.md
-    figma: https://figma.com/file/forge-components
+    figma: https://figma.com/file/example_product-components
     tickets:
-      - FORGE/1110
+      - EXAMPLE_PRODUCT/1110
 
   real-time-collab:
     eng-plan: engineering/plans/prototyping/real-time-collab.md
-    figma: https://figma.com/file/forge-collab
+    figma: https://figma.com/file/example_product-collab
     tickets:
-      - FORGE/998
-      - FORGE/1005
+      - EXAMPLE_PRODUCT/998
+      - EXAMPLE_PRODUCT/1005
 
   ai-generation-v3:
     prd: product/PRDs/ai-gen-v3-prd.md
     eng-rfc: engineering/rfcs/gen-v3-rfc.md
-    figma: https://figma.com/file/forge-gen-v3
+    figma: https://figma.com/file/example_product-gen-v3
     table-schemas:
       - analytics/schemas/prototyping/project-generations.md
 
   team-workspaces:
     prd: product/PRDs/team-workspaces-prd.md
     eng-rfc: engineering/rfcs/workspaces-rfc.md
-    figma: https://figma.com/file/forge-workspaces
+    figma: https://figma.com/file/example_product-workspaces
 
 starter-templates:
   community-marketplace:
@@ -142,11 +142,11 @@ starter-templates:
     eng-plan: engineering/plans/starter-templates/community-marketplace.md
     data-eng-rfc: data-engineering/rfcs/starter-templates/marketplace-analytics-rfc.md
     data-eng-plan: data-engineering/plans/starter-templates/marketplace-analytics.md
-    figma: https://figma.com/file/forge-marketplace
+    figma: https://figma.com/file/example_product-marketplace
     tickets:
-      - FORGE/1015
-      - FORGE/1019
-      - FORGE/1020
+      - EXAMPLE_PRODUCT/1015
+      - EXAMPLE_PRODUCT/1019
+      - EXAMPLE_PRODUCT/1020
     table-schemas:
       - analytics/schemas/starter-templates/published_templates.md
       - analytics/schemas/starter-templates/template_forks.md
@@ -163,9 +163,9 @@ starter-templates:
 
   template-customizer:
     eng-plan: engineering/plans/starter-templates/template-customizer.md
-    figma: https://figma.com/file/forge-template-customizer
+    figma: https://figma.com/file/example_product-template-customizer
     tickets:
-      - FORGE/1050
+      - EXAMPLE_PRODUCT/1050
 
 deployment:
   custom-domains:
@@ -174,11 +174,11 @@ deployment:
     eng-plan: engineering/plans/deployment/custom-domains.md
     data-eng-rfc: data-engineering/rfcs/deployment/domain-events-pipeline-rfc.md
     data-eng-plan: data-engineering/plans/deployment/domain-events-pipeline.md
-    figma: https://figma.com/file/forge-custom-domains
+    figma: https://figma.com/file/example_product-custom-domains
     tickets:
-      - FORGE/1065
-      - FORGE/1068
-      - FORGE/1078
+      - EXAMPLE_PRODUCT/1065
+      - EXAMPLE_PRODUCT/1068
+      - EXAMPLE_PRODUCT/1078
     table-schemas:
       - analytics/schemas/deployment/domain_certificates.md
     queries:
@@ -194,14 +194,14 @@ deployment:
 
   preview-environments:
     eng-plan: engineering/plans/deployment/preview-environments.md
-    figma: https://figma.com/file/forge-previews
+    figma: https://figma.com/file/example_product-previews
     tickets:
-      - FORGE/990
-      - FORGE/994
+      - EXAMPLE_PRODUCT/990
+      - EXAMPLE_PRODUCT/994
 
   one-click-deploy:
     prd: product/PRDs/deployment/one-click-deploy-prd.md
     eng-rfc: engineering/rfcs/deployment/one-click-deploy-rfc.md
-    figma: https://figma.com/file/forge-deploy
+    figma: https://figma.com/file/example_product-deploy
     tickets:
-      - FORGE/850
+      - EXAMPLE_PRODUCT/850

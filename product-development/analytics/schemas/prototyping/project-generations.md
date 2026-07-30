@@ -1,9 +1,9 @@
-# Schema: `analytics.forge.project_generations`
+# Schema: `analytics.example_product.project_generations`
 
-Event-level table capturing every AI generation attempt on the Forge platform. One row per generation request.
+Event-level table capturing every AI generation attempt on the example_product platform. One row per generation request.
 
 **Database:** `ANALYTICS`
-**Schema:** `FORGE`
+**Schema:** `EXAMPLE_PRODUCT`
 **Table:** `PROJECT_GENERATIONS`
 **Refresh:** Streaming (near real-time via Snowpipe)
 **Retention:** 2 years
@@ -21,7 +21,7 @@ Event-level table capturing every AI generation attempt on the Forge platform. O
 | `status` | VARCHAR(20) | No | Generation outcome: `completed`, `deployed`, `failed`, `timeout`, `cancelled` |
 | `error_code` | VARCHAR(50) | Yes | Error code if status is `failed` or `timeout` |
 | `generation_time_ms` | INTEGER | Yes | Wall-clock time from request to completion in milliseconds |
-| `model_version` | VARCHAR(50) | No | AI model version used (e.g., `forge-gen-3.2`) |
+| `model_version` | VARCHAR(50) | No | AI model version used (e.g., `example_product-gen-3.2`) |
 | `output_type` | VARCHAR(20) | No | Type of output: `web_app`, `api`, `component`, `full_stack` |
 | `output_file_count` | INTEGER | Yes | Number of files generated |
 | `output_token_count` | INTEGER | Yes | Token count of the generated output |

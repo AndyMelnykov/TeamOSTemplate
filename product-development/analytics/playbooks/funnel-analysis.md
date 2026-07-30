@@ -1,6 +1,6 @@
 # Funnel Analysis Playbook
 
-A repeatable methodology for investigating conversion funnels in Forge.
+A repeatable methodology for investigating conversion funnels in example_product.
 
 ## When to Use This Playbook
 
@@ -26,7 +26,7 @@ WITH funnel AS (
         MIN(CASE WHEN event = 'step_1' THEN timestamp END) AS step_1_at,
         MIN(CASE WHEN event = 'step_2' THEN timestamp END) AS step_2_at,
         MIN(CASE WHEN event = 'step_3' THEN timestamp END) AS step_3_at
-    FROM analytics.forge.events
+    FROM analytics.example_product.events
     WHERE timestamp BETWEEN :start_date AND :end_date
     GROUP BY user_id
 )

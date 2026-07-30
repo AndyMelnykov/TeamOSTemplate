@@ -1,6 +1,6 @@
 # Onboarding: Data Engineering
 
-Data engineering-specific setup and orientation for data engineers joining Forge.
+Data engineering-specific setup and orientation for data engineers joining example_product.
 
 ## Setup
 
@@ -13,23 +13,23 @@ See [General Onboarding](onboarding-general.md#shared-tools-everyone-gets-these)
 | Tool | Purpose | Access |
 |------|---------|--------|
 | Snowflake | Data warehouse | Request access from Grace Lin |
-| dbt | Data transformations and modeling | Access via `forge-data` repo |
+| dbt | Data transformations and modeling | Access via `example_product-data` repo |
 | Fivetran | Data ingestion pipelines | Admin access from Grace Lin |
-| Airflow | Pipeline orchestration | Access via `forge-data` repo |
+| Airflow | Pipeline orchestration | Access via `example_product-data` repo |
 | AWS Console | S3, Lambda, data infrastructure | Request from Sam Torres |
 
 ### Repos
 
 | Repo | Why |
 |------|-----|
-| `forge-data` | dbt models, Airflow DAGs, pipeline configs |
-| `forge-infra` | Terraform for data infrastructure |
-| `forge-product` | Analytics schemas, metric definitions |
+| `example_product-data` | dbt models, Airflow DAGs, pipeline configs |
+| `example_product-infra` | Terraform for data infrastructure |
+| `example_product-product` | Analytics schemas, metric definitions |
 
 ### Environment Setup
 
 1. Complete [General Onboarding](onboarding-general.md) setup first
-2. Clone `forge-data` and follow its `CONTRIBUTING.md` for local setup
+2. Clone `example_product-data` and follow its `CONTRIBUTING.md` for local setup
 3. Get Snowflake access and connect your SQL client
 4. Get Fivetran access and review current connector configurations
 5. Set up local dbt and run a test build against the dev schema
@@ -45,10 +45,10 @@ See [General Onboarding](onboarding-general.md#shared-tools-everyone-gets-these)
 
 | Channel | Purpose |
 |---------|---------|
-| `#forge-eng` | Engineering discussion, relevant for pipeline dependencies |
-| `#forge-general` | Team-wide announcements |
-| `#forge-incidents` | Incidents that may affect data pipelines |
-| `#forge-deploys` | Deploy notifications that may trigger pipeline runs |
+| `#example_product-eng` | Engineering discussion, relevant for pipeline dependencies |
+| `#example_product-general` | Team-wide announcements |
+| `#example_product-incidents` | Incidents that may affect data pipelines |
+| `#example_product-deploys` | Deploy notifications that may trigger pipeline runs |
 
 ## People to Meet
 

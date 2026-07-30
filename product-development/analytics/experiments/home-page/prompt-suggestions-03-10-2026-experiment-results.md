@@ -5,7 +5,7 @@
 | Run Date | 2026-03-10 |
 | Author | Casey Nguyen, Analytics |
 | Status | Complete |
-| Related Ticket | FORGE-1040 |
+| Related Ticket | EXAMPLE_PRODUCT-1040 |
 | Duration | 2 weeks (2026-02-24 to 2026-03-09) |
 | Split | 50/50 |
 | Total Users | 8,412 (4,198 control / 4,214 treatment) |
@@ -15,7 +15,7 @@
 
 ## TL;DR
 
-Personalized prompt suggestions on the Forge home page increased prompt submission rate by 18% (32.1% vs 27.2%) and reduced median time-to-first-action by 11 seconds. The treatment group also showed a 6% lift in Day 7 retention. Recommendation: **Ship to 100% of users.**
+Personalized prompt suggestions on the example_product home page increased prompt submission rate by 18% (32.1% vs 27.2%) and reduced median time-to-first-action by 11 seconds. The treatment group also showed a 6% lift in Day 7 retention. Recommendation: **Ship to 100% of users.**
 
 ---
 
@@ -79,7 +79,7 @@ Suggestions refreshed on each home page visit, with a maximum of 1 repeat sugges
 | New users (< 7 days) | 21.3% | 27.0% | +26.8% |
 | Returning users (7+ days) | 31.4% | 35.6% | +13.4% |
 
-The largest lift was observed in new users (< 7 days old), where personalized suggestions increased submission rate by 26.8%. This is partially explained by the fact that new users benefit most from guided prompts since they have less familiarity with what Forge can build.
+The largest lift was observed in new users (< 7 days old), where personalized suggestions increased submission rate by 26.8%. This is partially explained by the fact that new users benefit most from guided prompts since they have less familiarity with what example_product can build.
 
 ---
 
@@ -103,7 +103,7 @@ The largest lift was observed in new users (< 7 days old), where personalized su
 
 Follow-up work:
 - Monitor Day 7 retention for 4 weeks post-launch to validate the marginal retention signal.
-- Explore adding a 4th personalization signal based on template browsing history (FORGE-1062).
+- Explore adding a 4th personalization signal based on template browsing history (EXAMPLE_PRODUCT-1062).
 - A/B test suggestion count: 4 vs 6 suggestions to determine if more options improve or hurt engagement.
 
 ---
@@ -118,7 +118,7 @@ WITH experiment_users AS (
         user_id,
         variant,
         MIN(created_at) AS first_exposure
-    FROM analytics.forge.experiment_assignments
+    FROM analytics.example_product.experiment_assignments
     WHERE experiment_id = 'prompt_suggestions_v1'
       AND created_at BETWEEN '2026-02-24' AND '2026-03-09'
     GROUP BY 1, 2
@@ -132,7 +132,7 @@ user_actions AS (
         MIN(pg.created_at) AS first_generation_at,
         eu.first_exposure
     FROM experiment_users eu
-    LEFT JOIN analytics.forge.project_generations pg
+    LEFT JOIN analytics.example_product.project_generations pg
         ON eu.user_id = pg.user_id
         AND pg.created_at BETWEEN eu.first_exposure AND DATEADD('day', 1, eu.first_exposure)
     GROUP BY 1, 2
@@ -158,8 +158,8 @@ WITH suggestion_events AS (
         se.suggestion_type,         -- 'recent_project', 'framework', 'progression', 'generic'
         se.variant,
         se.was_clicked
-    FROM analytics.forge.suggestion_impression_events se
-    INNER JOIN analytics.forge.experiment_assignments ea
+    FROM analytics.example_product.suggestion_impression_events se
+    INNER JOIN analytics.example_product.experiment_assignments ea
         ON se.user_id = ea.user_id
         AND ea.experiment_id = 'prompt_suggestions_v1'
     WHERE se.created_at BETWEEN '2026-02-24' AND '2026-03-09'

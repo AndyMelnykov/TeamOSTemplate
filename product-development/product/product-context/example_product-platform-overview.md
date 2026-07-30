@@ -1,25 +1,25 @@
-# Forge Platform Overview
+# example_product Platform Overview
 
-High-level architecture and system overview for the Forge platform.
+High-level architecture and system overview for the example_product platform.
 
-# What Forge Does
+# What example_product Does
 
-Forge is an AI-powered platform that turns natural language prompts into deployable web applications. Users describe what they want to build, Forge generates the code, and with one click they can deploy it to a live URL.
+example_product is an AI-powered platform that turns natural language prompts into deployable web applications. Users describe what they want to build, example_product generates the code, and with one click they can deploy it to a live URL.
 
 # Core Systems
 
 ## AI Generation Engine
-The generation engine is the core of Forge. It takes a user's natural language prompt, processes it through a fine-tuned LLM pipeline, and produces a complete, working web application.
+The generation engine is the core of example_product. It takes a user's natural language prompt, processes it through a fine-tuned LLM pipeline, and produces a complete, working web application.
 
 - **Prompt processing:** Analyzes and enriches user prompts with context from their project history and selected templates
 - **Code generation:** Multi-step generation pipeline that produces frontend (React), backend (Node.js/Python), and infrastructure configuration
 - **Quality checks:** Automated linting, build verification, and visual regression checks before presenting output to the user
-- **Model versions:** Currently on `forge-gen-3.2`, with model upgrades managed through a staged rollout process
+- **Model versions:** Currently on `example_product-gen-3.2`, with model upgrades managed through a staged rollout process
 
 ## Deployment Pipeline
 Handles packaging and deploying generated applications to hosting providers.
 
-- **Supported providers:** Vercel, Netlify, and Forge-managed infrastructure
+- **Supported providers:** Vercel, Netlify, and example_product-managed infrastructure
 - **One-Click Deploy:** Streamlined flow that handles build, environment setup, and DNS configuration automatically
 - **Custom domains:** Users on Pro tier and above can connect their own domains
 - **Preview deploys:** Every generation creates a temporary preview URL for testing

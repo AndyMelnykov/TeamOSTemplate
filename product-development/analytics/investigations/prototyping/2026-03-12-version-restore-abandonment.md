@@ -2,7 +2,7 @@
 
 **Author:** Casey Nguyen, Analytics
 **Date:** 2026-03-12
-**Linear / Jira / Asana:** FORGE-1048
+**Linear / Jira / Asana:** EXAMPLE_PRODUCT-1048
 **Status:** Complete
 
 ## Question
@@ -11,7 +11,7 @@ When users restore a previous project version, do they continue working on the p
 
 ## Context
 
-Version history launched to internal dogfood users on 2026-02-24 and expanded to beta (Forge Pro and Teams) on 2026-03-03. After 9 days of beta data, we have enough restore events to draw initial conclusions. This investigation was triggered by a question from Hannah during the March 11 product review: "Are restores a sign of engagement or a sign of frustration?"
+Version history launched to internal dogfood users on 2026-02-24 and expanded to beta (example_product Pro and Teams) on 2026-03-03. After 9 days of beta data, we have enough restore events to draw initial conclusions. This investigation was triggered by a question from Hannah during the March 11 product review: "Are restores a sign of engagement or a sign of frustration?"
 
 ## Methodology
 
@@ -25,8 +25,8 @@ Version history launched to internal dogfood users on 2026-02-24 and expanded to
 **Definition of "abandon":** No further activity on the project within 30 minutes of the restore, and no return to the project within 24 hours.
 
 **Data sources:**
-- `analytics.forge.project_versions` (restore events)
-- `analytics.forge.project_generations` (post-restore generations)
+- `analytics.example_product.project_versions` (restore events)
+- `analytics.example_product.project_generations` (post-restore generations)
 - Segment session events (edits, deploys, navigation)
 
 ## Query
@@ -38,7 +38,7 @@ WITH restores AS (
         project_id,
         user_id,
         created_at AS restore_ts
-    FROM analytics.forge.project_versions
+    FROM analytics.example_product.project_versions
     WHERE action = 'restore'
       AND created_at BETWEEN '2026-03-03' AND '2026-03-12'
 ),
@@ -51,7 +51,7 @@ post_restore_activity AS (
         r.restore_ts,
         MIN(g.created_at) AS first_generation_after_restore
     FROM restores r
-    LEFT JOIN analytics.forge.project_generations g
+    LEFT JOIN analytics.example_product.project_generations g
         ON r.project_id = g.project_id
         AND r.user_id = g.user_id
         AND g.created_at > r.restore_ts

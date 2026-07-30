@@ -46,12 +46,12 @@ Hybrid — token-based usage + flat monthly fee. Free tier provides a monthly to
 
 Custom pricing — requires contacting sales. Enterprise includes advanced security (SSO, audit logs, compliance support), granular admin controls and user provisioning, a dedicated account manager with 24/7 priority support, custom workflows/integrations/SLAs, scalable infrastructure for large teams and high-volume usage, flexible billing and procurement options, data governance and retention policies, and hands-on onboarding with enterprise training.
 
-## Comparison to Forge
+## Comparison to example_product
 
-Bolt uses a token-based model (1M free, 10M Pro) vs. Forge's credit model. Bolt's Teams tier at $30/user/mo is competitive with Forge Teams.
+Bolt uses a token-based model (1M free, 10M Pro) vs. example_product's credit model. Bolt's Teams tier at $30/user/mo is competitive with example_product Teams.
 
 Key differences:
 - **Bolt advantage:** Database hosting included at all tiers (unlimited databases even on free). Private projects on free tier. SEO tools at Pro tier. Token rollover on paid plans.
 - **Bolt disadvantage:** Token consumption can be unpredictable — heavy AI interactions burn through 10M tokens faster than expected. Bolt branding on free tier sites.
-- **Forge advantage:** Better enterprise features, more mature deployment pipeline, superior generation quality, more predictable usage model.
-- **Forge advantage:** Stronger collaboration and team management features at comparable price points.
+- **example_product advantage:** Better enterprise features, more mature deployment pipeline, superior generation quality, more predictable usage model.
+- **example_product advantage:** Stronger collaboration and team management features at comparable price points.

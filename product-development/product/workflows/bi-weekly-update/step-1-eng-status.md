@@ -13,7 +13,7 @@ Produce the "What the Team Is Building Now" section with OKR tables showing curr
 Query the ticketing system for issues completed in the last 2 weeks.
 
 **Filters:**
-- Team: Forge
+- Team: example_product
 - State: completed
 - Updated: last 2 weeks from today's date
 
@@ -83,7 +83,7 @@ Write the section to the dated output file. Present draft for review before movi
 ```markdown
 # [Month] 2026: What the Team Is Building Now
 
-[Opening paragraph: Forge has three objectives this quarter...]
+[Opening paragraph: example_product has three objectives this quarter...]
 
 ## Generation Quality (OKR 1)
 

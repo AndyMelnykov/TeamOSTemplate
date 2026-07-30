@@ -1,6 +1,6 @@
-# DESCRIBE TABLE: `analytics.forge.credit_transactions`
+# DESCRIBE TABLE: `analytics.example_product.credit_transactions`
 
-Credit transaction ledger recording every credit movement in the Forge platform. Each row represents a single debit or credit event. This is an append-only table -- corrections are modeled as new rows with category `refund`.
+Credit transaction ledger recording every credit movement in the example_product platform. Each row represents a single debit or credit event. This is an append-only table -- corrections are modeled as new rows with category `refund`.
 
 ## Columns
 

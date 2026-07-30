@@ -44,12 +44,12 @@ Hybrid — per-workspace flat fee (shared across unlimited users) + credit-based
 
 Custom pricing, flexible plans. Requires contacting sales. Enterprise includes everything in Business plus dedicated support, onboarding services, design systems, SCIM provisioning, support for custom connectors, publishing controls, sharing controls, and audit logs. No public pricing is listed.
 
-## Comparison to Forge
+## Comparison to example_product
 
 Lovable's Pro at $25/mo is shared across unlimited users (not per-seat), making it significantly cheaper for teams. However, credit limits (100/mo at Pro, 100/mo at Business) can be restrictive for heavy usage. The credit-based model means costs can spike with on-demand top-ups for power users.
 
 Key differences:
 - **Lovable advantage:** Per-workspace pricing means unlimited users at a flat rate. Lower entry price for teams.
 - **Lovable disadvantage:** Credit limits can constrain heavy users. No public enterprise pricing.
-- **Forge advantage:** Per-seat pricing with usage-based components gives more predictable per-user costs. More mature enterprise tier with published capabilities.
-- **Forge advantage:** More generous generation limits at comparable price points.
+- **example_product advantage:** Per-seat pricing with usage-based components gives more predictable per-user costs. More mature enterprise tier with published capabilities.
+- **example_product advantage:** More generous generation limits at comparable price points.

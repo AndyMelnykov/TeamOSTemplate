@@ -17,7 +17,7 @@
 ## Pre-reads
 
 - [One-Click Deploy plan](../../../engineering/plans/deployment/custom-domains.md)
-- [Generation latency Datadog dashboard](https://app.datadoghq.com/forge-labs/dashboard/gen-latency)
+- [Generation latency Datadog dashboard](https://app.datadoghq.com/example_product-labs/dashboard/gen-latency)
 - [Meridian Health account context](../../customers/accounts/meridian-health/account-context.md)
 
 ## Discussion: One-Click Deploy Beta Readiness
@@ -33,10 +33,10 @@
 
 ## Discussion: Generation Latency Regression
 
-**Context:** forge-gen-3.2 is at 50% rollout. Quality scores up 12% on eval suite, but P95 latency regressed from 7.5s to 11s. Streaming helps perceived performance but raw numbers need to come down.
+**Context:** example_product-gen-3.2 is at 50% rollout. Quality scores up 12% on eval suite, but P95 latency regressed from 7.5s to 11s. Streaming helps perceived performance but raw numbers need to come down.
 
 **Options to discuss:**
-1. Roll back to forge-gen-3.1 for latency-sensitive users
+1. Roll back to example_product-gen-3.1 for latency-sensitive users
 2. Optimize inference pipeline (Priya estimates 2-3 weeks)
 3. Accept higher latency, rely on streaming to mask it
 

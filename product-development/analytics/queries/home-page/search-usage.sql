@@ -23,7 +23,7 @@ WITH daily_searches AS (
         AVG(result_count) AS avg_results_per_query,
         AVG(search_latency_ms) AS avg_latency_ms,
         PERCENTILE_CONT(0.95) WITHIN GROUP (ORDER BY search_latency_ms) AS p95_latency_ms
-    FROM analytics.forge.search_events
+    FROM analytics.example_product.search_events
     WHERE created_at >= DATEADD('day', -30, CURRENT_DATE())
     GROUP BY 1
 ),
@@ -32,7 +32,7 @@ daily_active AS (
     SELECT
         DATE_TRUNC('day', event_date) AS active_date,
         COUNT(DISTINCT user_id) AS dau
-    FROM analytics.forge.daily_active_users
+    FROM analytics.example_product.daily_active_users
     WHERE event_date >= DATEADD('day', -30, CURRENT_DATE())
     GROUP BY 1
 )

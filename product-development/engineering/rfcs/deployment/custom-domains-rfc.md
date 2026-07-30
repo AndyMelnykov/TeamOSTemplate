@@ -24,16 +24,16 @@
 
 # Summary
 
-Allow Forge users to connect custom domains to their deployed projects with automatic SSL certificate provisioning via Let's Encrypt. Instead of sharing a `project-name.forgeapp.dev` URL, users will be able to serve their project from any domain they own (e.g., `app.acmecorp.com`). The system handles DNS verification, certificate issuance, renewal, and edge routing transparently.
+Allow example_product users to connect custom domains to their deployed projects with automatic SSL certificate provisioning via Let's Encrypt. Instead of sharing a `project-name.example_productapp.dev` URL, users will be able to serve their project from any domain they own (e.g., `app.acmecorp.com`). The system handles DNS verification, certificate issuance, renewal, and edge routing transparently.
 
 # Motivation
 
-Today every deployed Forge project is served from a `*.forgeapp.dev` subdomain. This works for prototyping, but falls short the moment a user wants to share something that looks professional:
+Today every deployed example_product project is served from a `*.example_productapp.dev` subdomain. This works for prototyping, but falls short the moment a user wants to share something that looks professional:
 
-- **Brand credibility.** Clients, investors, and end-users expect to see the company's own domain, not a platform subdomain. A `forgeapp.dev` URL signals "demo," not "product."
+- **Brand credibility.** Clients, investors, and end-users expect to see the company's own domain, not a platform subdomain. A `example_productapp.dev` URL signals "demo," not "product."
 - **Paid conversion lever.** Custom domains are a natural upgrade trigger. Users on Free can prototype; users who need a polished public presence convert to Pro. In competitive analysis, every peer platform (Vercel, Netlify, Render) offers custom domains on paid tiers.
-- **Table stakes for business users.** Enterprise and Teams accounts frequently cite custom domains as a blocker in procurement conversations. Without this, Forge is limited to internal prototyping rather than customer-facing deployments.
-- **Top-requested feature.** Custom domains is the number one requested deployment feature based on customer feedback and feature request volume (FORGE-980, FORGE-1012, FORGE-1044).
+- **Table stakes for business users.** Enterprise and Teams accounts frequently cite custom domains as a blocker in procurement conversations. Without this, example_product is limited to internal prototyping rather than customer-facing deployments.
+- **Top-requested feature.** Custom domains is the number one requested deployment feature based on customer feedback and feature request volume (EXAMPLE_PRODUCT-980, EXAMPLE_PRODUCT-1012, EXAMPLE_PRODUCT-1044).
 
 # Proposed Design
 
@@ -42,7 +42,7 @@ The implementation is split into three phases:
 ## Phase 1: Domain Registration and DNS Verification
 
 1. User adds a custom domain via the `DomainSettings` panel.
-2. Backend generates a unique CNAME target (e.g., `cname.forgeapp.dev`) and a verification token.
+2. Backend generates a unique CNAME target (e.g., `cname.example_productapp.dev`) and a verification token.
 3. User configures a CNAME record at their DNS registrar pointing their domain to the CNAME target.
 4. A background worker polls DNS every 30 seconds for the CNAME record, for up to 48 hours.
 5. Once the CNAME resolves correctly, `dns_status` transitions from `pending` to `verified`.
@@ -135,8 +135,8 @@ Register a custom domain for a project.
   "domain": "app.acmecorp.com",
   "dns_status": "pending",
   "ssl_status": "pending",
-  "cname_target": "d1a2b3c4.cname.forgeapp.dev",
-  "verification_token": "forge-verify-a1b2c3d4e5f6",
+  "cname_target": "d1a2b3c4.cname.example_productapp.dev",
+  "verification_token": "example_product-verify-a1b2c3d4e5f6",
   "created_at": "2026-03-22T10:00:00Z"
 }
 ```
@@ -146,7 +146,7 @@ Register a custom domain for a project.
 | Status | Code | Description |
 |--------|------|-------------|
 | 400 | `INVALID_DOMAIN` | Domain format is invalid or is a reserved TLD |
-| 409 | `DOMAIN_ALREADY_REGISTERED` | Domain is already connected to another Forge project |
+| 409 | `DOMAIN_ALREADY_REGISTERED` | Domain is already connected to another example_product project |
 | 403 | `PLAN_LIMIT_REACHED` | Free-tier users cannot add custom domains; Pro allows 3, Teams 10, Enterprise unlimited |
 | 404 | `PROJECT_NOT_FOUND` | Project does not exist or user lacks access |
 
@@ -164,7 +164,7 @@ List all custom domains for a project.
       "domain": "app.acmecorp.com",
       "dns_status": "verified",
       "ssl_status": "provisioned",
-      "cname_target": "d1a2b3c4.cname.forgeapp.dev",
+      "cname_target": "d1a2b3c4.cname.example_productapp.dev",
       "expires_at": "2026-06-20T10:00:00Z",
       "created_at": "2026-03-22T10:00:00Z"
     }
@@ -316,7 +316,7 @@ Visual progression shown as a stepper component:
 A modal dialog triggered by the "Remove" button:
 
 - Title: "Remove {domain}?"
-- Body: "This will disconnect the domain from your project. Your DNS records will no longer point to Forge and any SSL certificates will be revoked. This action cannot be undone."
+- Body: "This will disconnect the domain from your project. Your DNS records will no longer point to example_product and any SSL certificates will be revoked. This action cannot be undone."
 - Actions: "Cancel" (secondary) and "Remove Domain" (destructive red).
 
 # Key Queries
@@ -375,7 +375,7 @@ ORDER BY cd.created_at DESC;
 
 - A domain can only be connected to one project at a time (enforced by the `UNIQUE` constraint on `custom_domains.domain`).
 - When a domain is removed, its certificate is revoked immediately via the ACME revocation endpoint.
-- Stale domains (DNS changed away from Forge) are detected by a weekly health check that verifies CNAME records are still valid. If a domain fails three consecutive health checks, it is automatically disconnected and the user is notified.
+- Stale domains (DNS changed away from example_product) are detected by a weekly health check that verifies CNAME records are still valid. If a domain fails three consecutive health checks, it is automatically disconnected and the user is notified.
 
 ## Rate Limiting
 
@@ -387,7 +387,7 @@ ORDER BY cd.created_at DESC;
 ## Phase 1: Internal Beta (Week 1-2)
 
 - Deploy behind `custom-domains` feature flag.
-- Enable for Forge team internal projects.
+- Enable for example_product team internal projects.
 - Validate DNS verification flow, SSL provisioning, and edge routing end-to-end.
 
 ## Phase 2: Limited Beta (Week 3-4)

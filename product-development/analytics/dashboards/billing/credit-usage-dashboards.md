@@ -12,9 +12,9 @@
 
 ### Credit Usage Health (Sigma)
 
-**Link**: [Credit Usage Health Dashboard](https://app.sigmacomputing.com/forge/workbook/credit-usage-health)
+**Link**: [Credit Usage Health Dashboard](https://app.sigmacomputing.com/example_product/workbook/credit-usage-health)
 
-**Purpose**: Primary operational dashboard for monitoring credit consumption patterns across the Forge user base. Used by PM and analytics to track utilization rates, identify users at risk of depletion, and validate the impact of billing features.
+**Purpose**: Primary operational dashboard for monitoring credit consumption patterns across the example_product user base. Used by PM and analytics to track utilization rates, identify users at risk of depletion, and validate the impact of billing features.
 
 **Key views**:
 - Daily credit consumption by category (generation, edit, deploy) -- stacked area chart
@@ -31,7 +31,7 @@
 
 ### Billing Experiments (Amplitude)
 
-**Link**: [Billing Experiments Dashboard](https://app.amplitude.com/forge/dashboard/billing-experiments)
+**Link**: [Billing Experiments Dashboard](https://app.amplitude.com/example_product/dashboard/billing-experiments)
 
 **Purpose**: Tracks active and completed experiments related to billing features. Used to monitor experiment health (sample size, statistical significance) and measure impact on conversion and retention metrics.
 
@@ -69,4 +69,4 @@
 
 ## Access
 
-All dashboards are accessible to members of the `forge-product` and `forge-analytics` groups. To request access, contact Casey Nguyen or post in #forge-data.
+All dashboards are accessible to members of the `example_product-product` and `example_product-analytics` groups. To request access, contact Casey Nguyen or post in #example_product-data.

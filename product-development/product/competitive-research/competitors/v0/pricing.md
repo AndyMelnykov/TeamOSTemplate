@@ -49,10 +49,10 @@ Custom pricing — requires contacting sales. Data is never used for training (u
 
 ## Comparison
 
-v0's pricing is significantly higher at the team level ($30/user/mo vs. Forge's lower starting price). The Business tier at $100/user/mo is the most expensive in the competitive set. The credit model ($30 included per user/mo) may not go far for heavy users, and the $2 daily login bonus creates an unusual incentive structure.
+v0's pricing is significantly higher at the team level ($30/user/mo vs. example_product's lower starting price). The Business tier at $100/user/mo is the most expensive in the competitive set. The credit model ($30 included per user/mo) may not go far for heavy users, and the $2 daily login bonus creates an unusual incentive structure.
 
 Key differences:
 - **v0 advantage:** Tight Vercel/Next.js integration. GitHub sync on free tier. Visual Design Mode. Strong React component generation.
 - **v0 disadvantage:** Highest per-seat pricing among competitors. Business tier at $100/user is 2-3x competitors. Frontend-only — no backend, database, or auth generation. 7 messages/day on free is very restrictive.
-- **Forge advantage:** Full-stack generation (not just frontend). Better deployment pipeline. More generous free tier. Significantly lower per-seat pricing at Team and Business tiers.
-- **Forge advantage:** More complete enterprise feature set at lower price points.
+- **example_product advantage:** Full-stack generation (not just frontend). Better deployment pipeline. More generous free tier. Significantly lower per-seat pricing at Team and Business tiers.
+- **example_product advantage:** More complete enterprise feature set at lower price points.

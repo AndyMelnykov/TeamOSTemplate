@@ -6,7 +6,7 @@
 -- Related schema: schemas/deployment/ (deploy_events table - not yet documented)
 --
 -- Platform: Snowflake
--- Source tables: analytics.forge.deploy_events, analytics.forge.subscriptions
+-- Source tables: analytics.example_product.deploy_events, analytics.example_product.subscriptions
 -- Recommended schedule: Daily, 06:00 UTC
 
 -- =============================================================================
@@ -30,7 +30,7 @@ WITH daily_deploys AS (
         PERCENTILE_CONT(0.95) WITHIN GROUP (
             ORDER BY CASE WHEN de.status = 'completed' THEN de.duration_ms END
         ) AS p95_deploy_duration_ms
-    FROM analytics.forge.deploy_events de
+    FROM analytics.example_product.deploy_events de
     WHERE de.created_at >= DATEADD('day', -30, CURRENT_DATE())
     GROUP BY 1
 ),
@@ -44,7 +44,7 @@ project_first_generation AS (
     SELECT
         project_id,
         MIN(created_at) AS first_generation_at
-    FROM analytics.forge.project_generations
+    FROM analytics.example_product.project_generations
     WHERE created_at >= DATEADD('day', -30, CURRENT_DATE())
     GROUP BY project_id
 ),
@@ -54,7 +54,7 @@ first_production_deploy AS (
     SELECT
         de.project_id,
         MIN(de.created_at) AS first_deploy_at
-    FROM analytics.forge.deploy_events de
+    FROM analytics.example_product.deploy_events de
     WHERE de.status = 'completed'
       AND de.deploy_target = 'production'
       AND de.created_at >= DATEADD('day', -30, CURRENT_DATE())
@@ -86,8 +86,8 @@ first_deploys AS (
     SELECT
         de.user_id,
         MIN(de.created_at) AS first_deploy_at
-    FROM analytics.forge.deploy_events de
-    JOIN analytics.forge.subscriptions s
+    FROM analytics.example_product.deploy_events de
+    JOIN analytics.example_product.subscriptions s
         ON s.user_id = de.user_id
         AND s.tier = 'free'
         AND s.status = 'active'
@@ -107,7 +107,7 @@ deploy_upgrades AS (
             THEN fd.user_id
         END) AS users_upgraded_within_7d
     FROM first_deploys fd
-    LEFT JOIN analytics.forge.subscriptions s
+    LEFT JOIN analytics.example_product.subscriptions s
         ON s.user_id = fd.user_id
         AND s.tier != 'free'
     GROUP BY 1
