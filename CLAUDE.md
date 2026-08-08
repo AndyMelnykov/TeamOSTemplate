@@ -38,3 +38,13 @@
 | Meetings | `product-development/product/meetings/CLAUDE.md` | Meeting docs, transcripts, summaries |
 | Team | `team/` | Onboarding guide and team resources |
 
+## Agent skills
+
+### Issue tracker
+
+Issues live in GitHub Issues for `AndyMelnykov/TeamOSTemplate`, managed via the `gh` CLI. See `docs/agents/issue-tracker.md`.
+
+### Domain docs
+
+Multi-context layout — `CONTEXT-MAP.md` at the repo root, with a `CONTEXT.md` per functional area under `product-development/<area>/` and `team/`. See `docs/agents/domain.md`.
+
