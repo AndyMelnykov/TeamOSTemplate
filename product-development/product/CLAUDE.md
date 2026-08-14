@@ -17,7 +17,7 @@ product/
 ├── competitive-research/
 │   └── competitors/          # Competitor audits and feature matrices
 ├── customers/                # Account context, calls, feature requests
-├── Insights/                 # Customer signal aggregated from support & success touchpoints
+├── Insights/                 # Customer signal aggregated across support, success & external research
 ├── strategy/                 # Roadmaps, vision, business context
 ├── product-context/          # Reference docs for example_product systems
 ├── PRDs/                     # Product requirement documents
