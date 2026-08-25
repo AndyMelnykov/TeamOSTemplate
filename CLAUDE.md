@@ -47,3 +47,11 @@ When you hit friction — a dead-end tool call, broken link, misleading doc, foo
     - **YYYY-MM-DD** [tag] What you hit, and what would have prevented it. (severity, unresolved)
 
 `tag` is free-form (`tooling`, `docs`, `config`, `build`, `test`, ...); `severity` is `minor` / `major` / `blocker`. This edit is required, not optional: don't ask whether to log it, don't just mention it in your final summary or report it back to the user instead — those are not substitutes for writing the line. File it, then keep working. Full trigger conditions: `.claude/skills/papercuts/SKILL.md`.
+### Issue tracker
+
+Issues live in GitHub Issues for `AndyMelnykov/TeamOSTemplate`, managed via the `gh` CLI. See `docs/agents/issue-tracker.md`.
+
+### Domain docs
+
+Multi-context layout — `CONTEXT-MAP.md` at the repo root, with a `CONTEXT.md` per functional area under `product-development/<area>/` and `team/`. See `docs/agents/domain.md`.
+
