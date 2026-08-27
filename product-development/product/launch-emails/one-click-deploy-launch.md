@@ -10,7 +10,7 @@
 | Subject Line | Your example_product apps are one click from production |
 | Preview Text | Deploy to AWS, GCP, or Vercel without leaving example_product |
 | CTA | Try One-Click Deploy |
-| PRD | [One-Click Deploy PRD](../PRDs/example_product/one-click-deploy.md) |
+| PRD | [One-Click Deploy PRD](../PRDs/deployment/one-click-deploy-prd.md) |
 
 ---
 

@@ -2,8 +2,8 @@
 **Related PRD:** [`product/PRDs/prototyping/version-history-prd.md`](../../../product/PRDs/prototyping/version-history-prd.md)
 **Related RFC:** [`engineering/rfcs/prototyping/version-history-rfc.md`](../../rfcs/prototyping/version-history-rfc.md)
 **Related Data Pipeline:** [`data-engineering/plans/prototyping/version-snapshots-pipeline.md`](../../../data-engineering/plans/prototyping/version-snapshots-pipeline.md)
-**Analytics Schema:** [`product/analytics/schemas/prototyping/project_versions.md`](../../../product/analytics/schemas/prototyping/project_versions.md)
-**Metrics:** [`product/analytics/metrics/prototyping/version-history-metrics.md`](../../../product/analytics/metrics/prototyping/version-history-metrics.md)
+**Analytics Schema:** [`product/analytics/schemas/prototyping/project_versions.md`](../../../analytics/schemas/prototyping/project_versions.md)
+**Metrics:** [`product/analytics/metrics/prototyping/version-history-metrics.md`](../../../analytics/metrics/prototyping/version-history-metrics.md)
 ---
 
 # Version history

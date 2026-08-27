@@ -38,10 +38,10 @@ See [General Onboarding](onboarding-general.md#shared-tools-everyone-gets-these)
 
 ## Key Documents
 
-- [Frontend CLAUDE.md](../frontend/CLAUDE.md) - dev conventions, design system, React patterns
-- [Engineering TDDs](../engineering/tdds/) - technical design documents
-- [Product Context](../product/product-context/example_product/CLAUDE.md) - system reference docs
-- [Platform Overview](../product/product-context/example_product-platform-overview.md) - what example_product does end-to-end
+- Dev conventions, design system, and React patterns live in the `example_product-app` repo (see Repos above), not in this repo
+- [Engineering RFCs](../../product-development/engineering/rfcs/) - technical design documents
+- [Product Context](../../product-development/product/product-context/CLAUDE.md) - system reference docs
+- [Platform Overview](../../product-development/product/product-context/example_product-platform-overview.md) - what example_product does end-to-end
 
 ## Slack Channels
 

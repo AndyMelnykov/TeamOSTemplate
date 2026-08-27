@@ -3,7 +3,7 @@
 **URL:** https://replit.com/pricing
 **Date captured:** 2026-03-23
 
-![Replit pricing page](images/replit-pricing.png)
+![Replit pricing page](images/pricing-monthly.png)
 
 ## Model
 
@@ -18,7 +18,7 @@ Hybrid pricing model combining a flat monthly subscription fee with credit-based
 | Replit Pro | $100/mo | $100 monthly credits, up to 15 collaborators, up to 50 viewers, access to most powerful models, private deployments, database restore up to 28 days, premium support, exclusive community | 15 collaborators, 50 viewers |
 | Enterprise | Custom | Everything in Pro + custom seat limits, custom Viewer Seats, SSO/SAML, advanced privacy controls, design system support, data warehouse connections, custom groups, custom pricing, dedicated support, single-tenant environments, region selection, static outbound IPs, VPC peering | Contact sales |
 
-![Replit tier comparison](images/replit-tier-comparison.png)
+![Replit tier comparison](images/tier-enterprise.png)
 
 ## Free Tier
 

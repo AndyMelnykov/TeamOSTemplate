@@ -45,4 +45,4 @@ Event-level table capturing every AI generation attempt on the example_product p
 # Notes
 
 - `generation_time_ms` is null for `cancelled` generations (user cancelled before completion)
-- `error_code` values are documented in the [Error Code Reference](../metrics/error-codes.md)
+- `error_code` values are documented in the [Error Code Reference](../../metrics/prototyping/error-codes.md)

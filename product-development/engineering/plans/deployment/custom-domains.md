@@ -5,7 +5,7 @@
 **Last Updated:** 2026-03-22
 **Related RFC:** [`engineering/rfcs/deployment/custom-domains-rfc.md`](../../rfcs/deployment/custom-domains-rfc.md)
 **Related PRD:** [`product/PRDs/deployment/custom-domains-prd.md`](../../../product/PRDs/deployment/custom-domains-prd.md)
-**Related Metrics:** [`product/analytics/metrics/deployment/custom-domains-metrics.md`](../../../product/analytics/metrics/deployment/custom-domains-metrics.md)
+**Related Metrics:** [`product/analytics/metrics/deployment/custom-domains-metrics.md`](../../../analytics/metrics/deployment/custom-domains-metrics.md)
 **Related Data Pipeline:** [`data-engineering/plans/deployment/domain-events-pipeline.md`](../../../data-engineering/plans/deployment/domain-events-pipeline.md)
 
 ---

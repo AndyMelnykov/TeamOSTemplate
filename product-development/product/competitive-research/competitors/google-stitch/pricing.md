@@ -3,7 +3,7 @@
 > Last reviewed: 2026-03-23
 > Pricing page URL: https://stitch.withgoogle.com
 
-![Google Stitch pricing page](images/google-stitch-pricing.png)
+![Google Stitch pricing page](images/pricing-monthly.png)
 
 ## Pricing Model
 
@@ -15,7 +15,7 @@ Free product through Google Labs (experimental). No paid tiers currently announc
 |------|-------|----------------|-------------|
 | Free (Beta) | $0 | AI UI prototyping, mobile and web app generation, HTML/CSS code export, Google ecosystem integration | Designers and developers exploring AI prototyping |
 
-![Google Stitch generation interface](images/google-stitch-generation.png)
+![Google Stitch generation interface](images/pricing-monthly-cropped.png)
 
 ## Free Tier
 
