@@ -3,7 +3,7 @@
 | Field | Value |
 |-------|-------|
 | **Author** | Riley Patel (Engineer) |
-| **Status** | Draft |
+| **Status** | Shipped |
 | **Last Updated** | 2026-03-22 |
 | **Related PRD** | `product/PRDs/billing/credit-usage-dashboard-prd.md` |
 | **Related Plan** | `engineering/plans/billing/credit-usage-dashboard.md` |

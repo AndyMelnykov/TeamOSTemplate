@@ -4,11 +4,7 @@ Customer feedback, account context, and call notes for example_product's named a
 
 ## Segments
 
-| Segment | Description |
-|---------|-------------|
-| Enterprise | Managed accounts with complex needs (SSO, compliance, dedicated support) |
-| Growth | Mid-market accounts with expansion potential |
-| Self-serve | Long-tail, no individual account management |
+Canonical segment and lifecycle-stage definitions live in [reference/segments.md](../../../reference/segments.md), not here.
 
 Only named/managed accounts get folders. Self-serve customers are tracked through aggregate analytics.
 

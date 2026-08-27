@@ -47,11 +47,7 @@ Each step reads its own instruction file (`step-1-eng-status.md`, etc.) for deta
 - Tables and bullets for scannable content; paragraphs for narrative
 
 ### Customer Categorization
-Each customer in the call synthesis table gets one of these categories:
-- **Paying customer** - signed and paying
-- **Pilot** - active pilot, not yet paying
-- **Pipeline** - in pipeline, being pitched
-- **Free tier** - on free plan, potential upsell
+Each customer in the call synthesis table gets one of the stages defined in [reference/segments.md](../../../../reference/segments.md#customer-lifecycle-stage).
 
 ### Date Ranges
 - Each cycle covers exactly 2 weeks

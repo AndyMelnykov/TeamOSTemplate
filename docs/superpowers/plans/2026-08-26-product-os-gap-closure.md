@@ -210,7 +210,7 @@ For customer segment and lifecycle-stage definitions, see [segments.md](segments
 ```markdown
 ## Terminology
 
-Canonical term definitions, metric definitions, and segment definitions live in [reference/](../../../reference/CLAUDE.md), not here — see [reference/terminology.md](../../../reference/terminology.md).
+Canonical term definitions, metric definitions, and segment definitions live in [reference/](../../reference/CLAUDE.md), not here — see [reference/terminology.md](../../reference/terminology.md).
 ```
 
 - [ ] **Step 3: Verify the dedup and no new breakage**
@@ -331,7 +331,7 @@ Only named/managed accounts get folders. Self-serve customers are tracked throug
 ```markdown
 ### Customer Categorization
 
-Each customer in the call synthesis table gets one of the stages defined in [reference/segments.md](../../../../../reference/segments.md#customer-lifecycle-stage).
+Each customer in the call synthesis table gets one of the stages defined in [reference/segments.md](../../../../reference/segments.md#customer-lifecycle-stage).
 ```
 
 - [ ] **Step 4: Verify**

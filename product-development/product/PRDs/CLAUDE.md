@@ -3,6 +3,8 @@
 ## Purpose
 Product Requirement Documents for example_product features.
 
+Valid `**Status**` values are defined in [reference/status-definitions.md](../../../reference/status-definitions.md).
+
 ---
 
 ## Naming Convention
