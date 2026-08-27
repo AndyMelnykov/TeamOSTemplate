@@ -22,6 +22,10 @@ All three folders share the same product-area structure:
 | Prototyping | `prototyping/` | Component library, real-time collab, version history |
 | Starter Templates | `starter-templates/` | Community marketplace, template customizer |
 
+## Status
+
+RFCs carry a `**Status**` field in their header table. Valid values are defined in [reference/status-definitions.md](../../reference/status-definitions.md).
+
 ## Naming Conventions
 
 - **Plans:** `{feature-name}.md` (e.g., `credit-usage-dashboard.md`)

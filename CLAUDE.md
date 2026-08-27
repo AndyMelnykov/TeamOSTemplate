@@ -24,6 +24,7 @@
 | Area | File | Description |
 |------|------|-------------|
 | Feature index | `product-development/feature-index.yaml` | Master lookup — every feature mapped to its PRDs, RFCs, plans, schemas, experiments, tickets |
+| Reference | `reference/CLAUDE.md` | Canonical definitions — terminology, metrics, segments, statuses, decision types |
 | Product | `product-development/product/CLAUDE.md` | Product context, pillars, segments, competitive landscape |
 | PRDs | `product-development/product/PRDs/CLAUDE.md` | Product requirement documents index |
 | Customer insights | `product-development/product/customers/CLAUDE.md` | Customer calls, account context, feature requests |
@@ -37,6 +38,7 @@
 | Engineering | `product-development/engineering/CLAUDE.md` | Engineering plans, RFCs, bug investigations |
 | Meetings | `product-development/product/meetings/CLAUDE.md` | Meeting docs, transcripts, summaries |
 | Team | `team/` | Onboarding guide and team resources |
+| Evaluation | `evaluation/CLAUDE.md` | Benchmark tasks + protocol for measuring whether the context architecture helps agents |
 
 ## Agent skills
 

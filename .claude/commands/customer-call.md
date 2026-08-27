@@ -13,21 +13,13 @@ Process a customer call transcript by:
 4. Creating separate summary and transcript files with cross-references
 5. Generating a comprehensive, detailed summary
 
-## Step 1: Determine Product Area
+## Step 1: Identify the Customer Account
 
-Ask the user which product area this call relates to (or infer from context):
-- **example_product** (AI Prototyping)
-- **example_product Studio**
-- **example_product Deploy**
-- **example_product Analytics**
+Ask the user which named account this call is for, or infer it from context. Check `product-development/product/customers/CLAUDE.md` for the current list of named accounts.
 
-Base paths for customer calls:
-```
-product areas/AI Prototyping (example_product)/customers/calls/
-product areas/example_product Studio/customer-calls/
-product areas/example_product Deploy/customer-calls/
-product areas/example_product Analytics/customer-calls/
-```
+If the account has no existing folder under `product-development/product/customers/accounts/`, tell the user this is a new account and confirm the segment (Enterprise / Growth / Self-serve — see `reference/segments.md`) before creating `product-development/product/customers/accounts/{slug}/`.
+
+Base path for this account's calls: `product-development/product/customers/accounts/{slug}/calls/`
 
 ## Step 1.5: Granola Connectivity Check
 
@@ -43,15 +35,13 @@ Skip this check if the user pastes a transcript or provides a file path.
 
 **ALWAYS check both folders before creating new files:**
 
-1. Search `[product-area]/customer-calls/summaries/` for `[CustomerName].md`
-2. Search `[product-area]/customer-calls/transcripts/` for `[CustomerName].md`
+1. Search `product-development/product/customers/accounts/{slug}/calls/summaries/` for an existing entry covering this call's topic.
+2. Search `product-development/product/customers/accounts/{slug}/calls/transcripts/` similarly.
 
-**If files exist:**
-- Review existing Open Action Items
-- Ask user about any items where status is unclear (e.g., "Was [action item] completed?")
-- Append the new meeting to both files (at the top, reverse chronological order)
+Each call gets its own dated file in each folder (`{date}.md`), not one running file per customer — see the naming convention in `product-development/product/customers/CLAUDE.md`.
 
-**If no files exist:** Create new files for this customer in both folders
+**If files for this date already exist:** confirm with the user before overwriting.
+**If no files exist for this date:** create new dated files in both folders.
 
 ## Step 3: Gather Information
 
@@ -76,15 +66,15 @@ Ask the user for:
    - Feature Requests (organized by area, table format with quotes)
    - Next Steps (organized by category with owners)
    - Follow-up Email draft
-5. Also prepare a **bullet list of feature requests** for the tracker update (customer name, feature name, context, which section of feature-requests.md they belong in)
+5. Also prepare a **bullet list of feature requests** to log in Linear / Jira / Asana (customer name, feature name, context)
 6. Also prepare **updated action item tables** if this is an existing file (which items to move to completed, which new items to add)
 7. Run through the Quality Checklist from SKILL.md before proceeding
 
 **IMPORTANT:** Do NOT try to generate the complete file-ready markdown in this step. Generate the summary content in sections. Agent 1 will handle assembling the final file structure.
 
-## Step 5: Write Files and Update Tracker
+## Step 5: Write Files and Log Feature Requests
 
-The main agent writes the summary and transcript files directly. Only the feature requests update is delegated to a background Task agent.
+The main agent writes the summary and transcript files directly, then logs feature requests to the tracker.
 
 **Why no Task agents for file writing:** Task agents add startup and context-loading overhead that makes them slower than the main agent for pure write operations. The main agent already has the content - writing directly is faster.
 
@@ -100,7 +90,7 @@ Write the summary file directly using the Write tool.
    - Metadata block (Date, Participants, Transcript cross-reference link)
    - The summary content sections from Step 4
    - If existing file: the `---` separator and all previous meetings from the existing file
-2. Write the assembled content to `[product-area]/customer-calls/summaries/[CustomerName].md`
+2. Write the assembled content to `product-development/product/customers/accounts/{slug}/calls/summaries/{date}.md`
 3. Keep all lines under 150 characters
 
 ### 5b. Write Transcript File (Main Agent via Bash)
@@ -134,7 +124,7 @@ Write the summary file directly using the Write tool.
 #   **Date:** [Full date]
 #   **Participants:** [Comma-separated list]
 #   **Granola Meeting ID:** [id, only include this line if source is Granola]
-#   **Summary:** [View summary](../summaries/[CustomerName].md#mmddyy---meeting-title)
+#   **Summary:** [View summary](../summaries/{date}.md#mmddyy---meeting-title)
 #
 #   **Transcript:**
 
@@ -164,19 +154,11 @@ TMPFILE=$(mktemp)
 # Then: run wrap script
 ```
 
-### 5c. Update Feature Requests (Background Task Agent)
+### 5c. Log Feature Requests
 
-Launch ONE Task agent **in the background** to update the feature requests tracker while the main agent continues.
+Feature requests are tracked in Linear / Jira / Asana, not in a repository file — see `product-development/product/customers/CLAUDE.md`, "Finding Customer Data."
 
-**Prompt the agent with:**
-- The list of feature requests identified in Step 4 (customer name, feature name, context, which section of feature-requests.md they belong in)
-- The target file: `product/customers/example_product/feature-requests/feature-requests.md`
-
-**The agent should:**
-1. Read `product/customers/example_product/feature-requests/feature-requests.md`
-2. For each feature request: add/update in the appropriate section
-3. Update Section 4 (customer index) with any new entries
-4. Update the "Last updated" date
+For each feature request identified in Step 4, log it in Linear / Jira / Asana with the customer's account label. Do not write feature requests to a Markdown tracker file.
 
 ### After writing files
 
@@ -201,7 +183,7 @@ Action items tables live at the TOP of the summary file (before any meetings), s
 - Anchor format: lowercase, spaces become hyphens, special characters removed
 - Example heading: `# 12/04/25 - Bi-Weekly Check-in`
 - Auto-generated anchor: `#120425---bi-weekly-check-in`
-- Links use: `[View transcript](../transcripts/CustomerName.md#120425---bi-weekly-check-in)`
+- Links use: `[View transcript](../transcripts/{date}.md#120425---bi-weekly-check-in)`
 
 ### Large Transcript Handling
 Pasted transcripts over ~30KB will fail with both the Write tool (output token timeout) and Bash heredocs (shell-hostile characters like single quotes, backticks, dollar signs). Use the Python chunked approach instead:

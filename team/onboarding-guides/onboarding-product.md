@@ -26,17 +26,17 @@ See [General Onboarding](onboarding-general.md#shared-tools-everyone-gets-these)
 ### Environment Setup
 
 1. Complete [General Onboarding](onboarding-general.md) setup first
-2. Get Amplitude access and bookmark the [example_product dashboard](../product/analytics/dashboards.md)
-3. Get Figma edit access and review the [design system](../product/PRDs/example_product/design-patterns/CLAUDE.md)
+2. Get Amplitude access and bookmark the [example_product dashboard](../../product-development/analytics/dashboards.md)
+3. Get Figma edit access and review the [Design CLAUDE.md](../../product-development/design/CLAUDE.md)
 4. Set up Granola for meeting note capture
 
 ## Key Documents
 
-- [Product CLAUDE.md](../product/CLAUDE.md) - product context, pillars, segments, competitive landscape
-- [PRD Index](../product/PRDs/example_product/CLAUDE.md) - all product requirement documents
-- [Customer Insights](../product/customers/example_product/CLAUDE.md) - call summaries, verbatims, feature requests
-- [Competitive Research](../product/competitive-research/example_product/CLAUDE.md) - competitor intel and comparisons
-- [Strategy Docs](../product/strategy/example_product/CLAUDE.md) - roadmaps, vision, business context
+- [Product CLAUDE.md](../../product-development/product/CLAUDE.md) - product context, pillars, segments, competitive landscape
+- [PRD Index](../../product-development/product/PRDs/CLAUDE.md) - all product requirement documents
+- [Customer Insights](../../product-development/product/customers/CLAUDE.md) - call summaries, verbatims, feature requests
+- [Competitive Research](../../product-development/product/competitive-research/CLAUDE.md) - competitor intel and comparisons
+- [Strategy Docs](../../product-development/product/strategy/CLAUDE.md) - roadmaps, vision, business context
 
 ## Slack Channels
 
@@ -64,7 +64,7 @@ Product reports to the Head of Product. Cross-functional partners: Engineering (
 ## First Tasks
 
 - [ ] Read the 3 most recent PRDs to understand current product direction
-- [ ] Shadow a customer call (check the [customer insights](../product/customers/example_product/CLAUDE.md) for upcoming calls)
+- [ ] Shadow a customer call (check the [customer insights](../../product-development/product/customers/CLAUDE.md) for upcoming calls)
 - [ ] Review the competitive landscape doc
 - [ ] Meet with your PM peers (Jordan, Alex) for context transfer
 - [ ] Pick up a small product task from the current sprint in Linear / Jira / Asana

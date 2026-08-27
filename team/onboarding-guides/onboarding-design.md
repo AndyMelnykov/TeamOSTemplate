@@ -27,15 +27,15 @@ See [General Onboarding](onboarding-general.md#shared-tools-everyone-gets-these)
 
 1. Complete [General Onboarding](onboarding-general.md) setup first
 2. Get Figma edit access and explore the `example_product Labs` workspace
-3. Review the [design patterns and component library](../product/PRDs/example_product/design-patterns/CLAUDE.md)
+3. Review the [Design CLAUDE.md](../../product-development/design/CLAUDE.md) and the Figma workspace — design artifacts live in Figma, linked from PRDs
 4. Get Amplitude access for usage data context
 
 ## Key Documents
 
-- [Design Patterns](../product/PRDs/example_product/design-patterns/CLAUDE.md) - components, copy library, screen inventory
-- [Frontend CLAUDE.md](../frontend/CLAUDE.md) - dev conventions and design system implementation
-- [Product CLAUDE.md](../product/CLAUDE.md) - product context, pillars, user segments
-- [Customer Insights](../product/customers/example_product/CLAUDE.md) - user research, verbatims
+- [Design CLAUDE.md](../../product-development/design/CLAUDE.md) - design docs (a stub; design artifacts live in Figma, linked from PRDs)
+- Frontend dev conventions and design system implementation live in the `example_product-app` repo (see Repos above), not in this repo
+- [Product CLAUDE.md](../../product-development/product/CLAUDE.md) - product context, pillars, user segments
+- [Customer Insights](../../product-development/product/customers/CLAUDE.md) - user research, verbatims
 
 ## Slack Channels
 

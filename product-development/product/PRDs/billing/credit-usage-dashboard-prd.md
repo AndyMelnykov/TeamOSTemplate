@@ -3,7 +3,7 @@
 | Field | Value |
 |-------|-------|
 | **Author** | Hannah Stulberg (PM) |
-| **Status** | Draft |
+| **Status** | Shipped |
 | **Last Updated** | 2026-03-22 |
 | **Related RFC** | `engineering/rfcs/billing/credit-usage-dashboard-rfc.md` |
 | **Related Plan** | `engineering/plans/billing/credit-usage-dashboard.md` |

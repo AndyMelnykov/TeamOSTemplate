@@ -2,9 +2,9 @@
 **Related RFC:** [`engineering/rfcs/starter-templates/community-marketplace-rfc.md`](../../rfcs/starter-templates/community-marketplace-rfc.md)
 **Related PRD:** [`product/PRDs/starter-templates/community-marketplace-prd.md`](../../../product/PRDs/starter-templates/community-marketplace-prd.md)
 **Related Analytics Plan:** [`data-engineering/plans/starter-templates/marketplace-analytics.md`](../../../data-engineering/plans/starter-templates/marketplace-analytics.md)
-**Metrics:** [`product/analytics/metrics/starter-templates/marketplace-metrics.md`](../../../product/analytics/metrics/starter-templates/marketplace-metrics.md)
-**Schemas:** [`published_templates`](../../../product/analytics/schemas/starter-templates/published_templates.md) | [`template_forks`](../../../product/analytics/schemas/starter-templates/template_forks.md)
-**Dashboards:** [`product/analytics/dashboards/starter-templates/marketplace-dashboards.md`](../../../product/analytics/dashboards/starter-templates/marketplace-dashboards.md)
+**Metrics:** [`product/analytics/metrics/starter-templates/marketplace-metrics.md`](../../../analytics/metrics/starter-templates/marketplace-metrics.md)
+**Schemas:** [`published_templates`](../../../analytics/schemas/starter-templates/published_templates.md) | [`template_forks`](../../../analytics/schemas/starter-templates/template_forks.md)
+**Dashboards:** [`product/analytics/dashboards/starter-templates/marketplace-dashboards.md`](../../../analytics/dashboards/starter-templates/marketplace-dashboards.md)
 ---
 
 # Community marketplace

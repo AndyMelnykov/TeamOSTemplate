@@ -2,7 +2,7 @@
 
 _Last reviewed: 2026-03-23_
 
-![Figma Make pricing page](images/figma-make-pricing.png)
+![Figma Make pricing page](images/pricing-monthly.png)
 
 ## Pricing Model
 
@@ -17,7 +17,7 @@ Per-seat pricing with seat type differentiation (Full seat, Dev seat, Collab sea
 | Organization | $55/mo (Full), $25/mo (Dev), $5/mo (Collab) -- billed annually | 3,500 AI credits/mo, unlimited teams, shared libraries and fonts, centralized admin tools | Billed annually |
 | Enterprise | $90/mo (Full), $35/mo (Dev), $5/mo (Collab) -- billed annually | 4,250 AI credits/mo, custom team workspaces, design system theming and APIs, SCIM seat management | Billed annually, contact sales |
 
-![Figma Make tier breakdown](images/figma-make-tiers.png)
+![Figma Make tier breakdown](images/tier-enterprise.png)
 
 ## Free Tier
 

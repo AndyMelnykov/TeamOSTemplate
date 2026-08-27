@@ -37,8 +37,8 @@ See your role-specific onboarding guide for additional tools.
 
 ## Key Documents
 
-- [Platform Overview](../product/product-context/example_product-platform-overview.md) - what example_product does
-- [Business Info](../product/strategy/business-context/example_product-business-info.md) - company context
+- [Platform Overview](../../product-development/product/product-context/example_product-platform-overview.md) - what example_product does
+- [Business Info](../../product-development/product/strategy/business-context/example_product-business-info.md) - company context
 
 ## Slack Channels
 

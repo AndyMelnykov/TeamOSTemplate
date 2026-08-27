@@ -163,7 +163,7 @@ The example_product Team
   - [ ] Onboarding summary written and saved to customer file
   - [ ] Salesforce updated with go-live date and health status
   - [ ] Account transitioned from SE to ongoing CSM support (Enterprise)
-  - [ ] Any open feature requests logged in [feature requests tracker](../customers/feature-requests/feature-requests.md)
+  - [ ] Any open feature requests logged in Linear / Jira / Asana with the customer's account label
 
 ## 90-Day Success Plan Template
 

@@ -37,9 +37,9 @@ See [General Onboarding](onboarding-general.md#shared-tools-everyone-gets-these)
 
 ## Key Documents
 
-- [Analytics CLAUDE.md](../product/analytics/CLAUDE.md) - metrics glossary, data sources, schema docs
-- [Analytics Schemas](../product/analytics/) - table definitions and column descriptions
-- [Product CLAUDE.md](../product/CLAUDE.md) - product context for understanding what data matters
+- [Analytics CLAUDE.md](../../product-development/analytics/CLAUDE.md) - metrics glossary, data sources, schema docs
+- [Analytics Schemas](../../product-development/analytics/) - table definitions and column descriptions
+- [Product CLAUDE.md](../../product-development/product/CLAUDE.md) - product context for understanding what data matters
 
 ## Slack Channels
 

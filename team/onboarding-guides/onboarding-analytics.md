@@ -14,7 +14,7 @@ See [General Onboarding](onboarding-general.md#shared-tools-everyone-gets-these)
 |------|---------|--------|
 | Snowflake | Data warehouse, SQL queries | Request access from Grace Lin |
 | Amplitude | Product analytics, funnels, retention | Request access from Grace Lin |
-| Mode / Sigma | Data dashboards and reporting | Links in [dashboards.md](../product/analytics/dashboards.md) |
+| Mode / Sigma | Data dashboards and reporting | Links in [dashboards.md](../../product-development/analytics/dashboards.md) |
 | dbt | Data transformations (read access) | Access via `example_product-data` repo |
 
 ### Repos
@@ -29,15 +29,15 @@ See [General Onboarding](onboarding-general.md#shared-tools-everyone-gets-these)
 1. Complete [General Onboarding](onboarding-general.md) setup first
 2. Get Snowflake access and connect your SQL client
 3. Get Amplitude access and explore existing dashboards
-4. Review the [analytics schemas](../product/analytics/CLAUDE.md) for table structures
+4. Review the [analytics schemas](../../product-development/analytics/CLAUDE.md) for table structures
 5. Bookmark key dashboards in Mode/Sigma
 
 ## Key Documents
 
-- [Analytics CLAUDE.md](../product/analytics/CLAUDE.md) - metrics glossary, data sources, common queries, RFCs
-- [Dashboards](../product/analytics/dashboards.md) - existing dashboards and links
-- [Product CLAUDE.md](../product/CLAUDE.md) - product context, pillars, segments
-- [Customer Insights](../product/customers/example_product/CLAUDE.md) - qualitative data to pair with quantitative
+- [Analytics CLAUDE.md](../../product-development/analytics/CLAUDE.md) - metrics glossary, data sources, common queries, RFCs
+- [Dashboards](../../product-development/analytics/dashboards.md) - existing dashboards and links
+- [Product CLAUDE.md](../../product-development/product/CLAUDE.md) - product context, pillars, segments
+- [Customer Insights](../../product-development/product/customers/CLAUDE.md) - qualitative data to pair with quantitative
 
 ## Slack Channels
 

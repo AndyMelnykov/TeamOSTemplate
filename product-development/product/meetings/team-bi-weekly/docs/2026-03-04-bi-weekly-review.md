@@ -16,9 +16,9 @@
 
 ## Pre-reads
 
-- [One-Click Deploy plan](../../../engineering/plans/deployment/custom-domains.md)
+- [One-Click Deploy RFC](../../../../engineering/rfcs/deployment/one-click-deploy-rfc.md)
 - [Generation latency Datadog dashboard](https://app.datadoghq.com/example_product-labs/dashboard/gen-latency)
-- [Meridian Health account context](../../customers/accounts/meridian-health/account-context.md)
+- [Meridian Health account context](../../../customers/accounts/meridian-health/account-context.md)
 
 ## Discussion: One-Click Deploy Beta Readiness
 
