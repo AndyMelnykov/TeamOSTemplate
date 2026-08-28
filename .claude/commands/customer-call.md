@@ -7,7 +7,7 @@ You are an expert at processing customer call transcripts and extracting key ins
 ## Task Overview
 
 Process a customer call transcript by:
-1. Determining the product area
+1. Identifying the customer account
 2. Checking for existing customer files
 3. Managing action items (update existing, add new, ask about unclear status)
 4. Creating separate summary and transcript files with cross-references
@@ -83,7 +83,7 @@ The main agent writes the summary and transcript files directly, then logs featu
 Write the summary file directly using the Write tool.
 
 1. Assemble the complete file content by combining:
-   - The `# [CustomerName] - Meeting Summaries` heading
+   - The `# {Account Name} - Meeting Summaries` heading
    - The updated action item tables (from Step 4)
    - The `---` separator
    - The new meeting heading: `# MM/DD/YY - [Meeting Title]`
@@ -117,7 +117,7 @@ Write the summary file directly using the Write tool.
 # === PASTED TEXT: Write tool + Python chunked approach ===
 # Step 1: Write header using the Write tool (NOT Bash heredoc)
 # Use the Write tool to create the file with the header content:
-#   # [CustomerName] - Meeting Transcripts
+#   # {Account Name} - Meeting Transcripts
 #
 #   # MM/DD/YY - [Meeting Title]
 #
@@ -198,9 +198,9 @@ When the transcript source is Granola, include a `**Granola Meeting ID:** [uuid]
 ### File Organization
 - **Summaries** go in `summaries/` subfolder
 - **Transcripts** go in `transcripts/` subfolder
-- Each customer has ONE summary file and ONE transcript file (with multiple meetings inside)
-- Meetings are in reverse chronological order (newest first)
-- Use `---` as separator between meetings
+- Each call gets its own dated file (`{date}.md`) in each folder — not one running file per customer (see Step 2)
+- If a dated file already holds more than one same-day meeting, those meetings are in reverse chronological order (newest first) within that file
+- Use `---` as separator between meetings within a file
 
 ### Adding to Existing Files
 When appending to existing files:
@@ -214,16 +214,15 @@ When appending to existing files:
 
 ## Execution Steps
 
-1. Confirm product area with user
+1. Identify the customer account (create the account folder if new)
 2. Check for existing customer files in both summaries/ and transcripts/ folders
 3. If existing files: review Open Action Items, ask user about unclear status
 4. Gather meeting information
 5. Get transcript content
 6. Read summary skill guidelines and example
 7. Generate summary content (sections), feature request list, and action item updates
-8. Launch background Task agent for feature requests update
-9. Write summary file directly (Write tool)
-10. Write transcript file directly (Bash concatenation + wrap script)
+8. Write summary file directly (Write tool)
+9. Write transcript file directly (Bash concatenation + wrap script)
+10. Log feature requests to Linear / Jira / Asana
 11. Verify files exist and cross-reference links are correct
-12. Check that feature requests agent completed
-13. Generate and present Slack summary draft for user review
+12. Generate and present Slack summary draft for user review
