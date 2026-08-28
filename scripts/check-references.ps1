@@ -13,6 +13,9 @@
     Pass 2 is scoped via `git ls-files` rather than a recursive filesystem walk,
     so it only ever sees files this repo actually tracks (or is about to) and
     can't wander into unrelated paths elsewhere on disk.
+    External links (http/https/mailto) and anchor-only links (#foo) are
+    ignored, as are links entirely inside an inline code span (single
+    backticks) — these are illustrative example text, not real references.
     Exit code 0 = no broken references. Exit code 1 = one or more found.
 .EXAMPLE
     powershell -File scripts/check-references.ps1
@@ -90,7 +93,12 @@ foreach ($relPath in $mdRelPaths) {
             continue
         }
         if ($inFence) { continue }
-        $linkMatches = [regex]::Matches($line, '\[[^\]]*\]\(([^)]+)\)')
+        # Strip inline code spans first: a Markdown link entirely inside a
+        # single-backtick span (e.g. an example line shown to an agent) is
+        # illustrative text, not a real reference — same treatment as the
+        # {...} placeholder exclusion in Test-IsExternalRef.
+        $scanLine = [regex]::Replace($line, '`[^`\n]*`', '')
+        $linkMatches = [regex]::Matches($scanLine, '\[[^\]]*\]\(([^)]+)\)')
         foreach ($m in $linkMatches) {
             $ref = $m.Groups[1].Value
             if (Test-IsExternalRef $ref) { continue }
