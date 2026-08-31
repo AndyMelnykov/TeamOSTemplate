@@ -25,3 +25,5 @@ Periodically skim **Log** below for repeat offenders — the same tag or file co
 ## Log
 
 <!-- Newest entries at the bottom. Append here — do not edit or remove existing entries. -->
+
+- **2026-08-31** [docs] `docs/agents/domain.md` documents a `docs/adr/` convention for repo-wide decisions, but nothing in the root `CLAUDE.md` doc index pointed to it before this entry — an agent writing its first ADR had to already know to open `domain-modeling/SKILL.md` to discover the path. Fixed by adding an explicit `docs/adr/` row to the root doc index. (minor, resolved)

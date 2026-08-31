@@ -39,6 +39,9 @@
 | Meetings | `product-development/product/meetings/CLAUDE.md` | Meeting docs, transcripts, summaries |
 | Team | `team/` | Onboarding guide and team resources |
 | Evaluation | `evaluation/CLAUDE.md` | Benchmark tasks + protocol for measuring whether the context architecture helps agents |
+| Architecture | `docs/architecture.md` | How an agent moves through the repo tree; deterministic vs. human-approval policy layer |
+| Roadmap | `ROADMAP.md` | What's next and why, not a feature wishlist |
+| Decisions | `docs/adr/` | Repo-wide architecture decisions (retrieval strategy, join table, write approval, agent orchestration) |
 
 ## Agent skills
 
