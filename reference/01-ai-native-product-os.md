@@ -8,9 +8,7 @@ The core idea is simple:
 
 > Product knowledge should not live only in meetings, chat threads, individual memory, scattered documents, and disconnected tools. It should be organized so both humans and agents can reliably understand the product, find the right context, trace decisions to sources, and execute recurring workflows.
 
-This project should demonstrate how a modern product organization can make its operating context machine-readable without turning the repository into a dumping ground.
-
-The repository should position the author as someone who understands not only how to use AI agents, but how to redesign product-team information architecture around them.
+This project demonstrates how a modern product organization can make its operating context machine-readable without turning the repository into a dumping ground.
 
 ---
 
