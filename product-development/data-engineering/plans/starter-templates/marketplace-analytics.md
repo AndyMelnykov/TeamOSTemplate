@@ -10,7 +10,7 @@
 
 ## Overview
 
-Build the analytics data pipeline for the Community Marketplace feature. This includes raw data ingestion via Snowpipe, dbt transformation models, Sigma dashboards, and data quality monitoring. The pipeline must be ready before the marketplace internal beta launch.
+Build the analytics data pipeline for the Community Marketplace feature. This includes raw data ingestion via Snowpipe, dbt transformation models, Sigma dashboards, and data quality monitoring. The pipeline must be ready before the marketplace internal beta launch. The marketplace hosts contract, invoice, intake-form, purchase-order, and NDA templates shared by users and partners.
 
 ## Steps
 
@@ -38,7 +38,7 @@ Build the analytics data pipeline for the Community Marketplace feature. This in
 - Create `models/marts/example_product/fact_template_forks.sql` with the following enrichments:
   - Denormalize `author_id` and `template_category` from `dim_published_templates`
   - Join `users` for `user_subscription_tier`
-  - Join `deploy_events` to compute `was_deployed`, `first_deploy_at`, and `minutes_to_first_deploy`
+  - Join `publish_events` to compute `was_published`, `first_published_at`, and `minutes_to_first_publish`
 - Add `schema.yml` with relationship tests, range tests, and reconciliation tests
 
 ### 4. Deploy dbt models to production
@@ -53,11 +53,11 @@ Build the analytics data pipeline for the Community Marketplace feature. This in
 - Create "Community Marketplace Overview" dashboard with the following views:
   - Weekly publish rate (line chart)
   - Weekly fork rate (line chart)
-  - Fork-to-deploy conversion (line chart with 40% target line)
+  - Fork-to-publish conversion (line chart with 40% target line)
   - Average template rating (line chart with 4.0 target line)
   - Review queue turnaround (bar chart, median hours)
 - Create "Top Templates Leaderboard" dashboard:
-  - Ranked table: template title, category, author, fork count, avg rating, deploy conversion
+  - Ranked table: template title, category, author, fork count, avg rating, publish conversion
   - Filterable by category and date range
 - Create "Publisher Analytics" dashboard:
   - Submissions per week, approval rate, top contributors
@@ -70,7 +70,7 @@ Build the analytics data pipeline for the Community Marketplace feature. This in
 - Add Snowflake alert: `fact_template_forks` row count drops to 0 for 2+ hours during business hours
 - Add Snowflake alert: `dim_published_templates` freshness exceeds 3 hours
 - Add daily reconciliation query: `fork_count` on dim matches `COUNT(*)` from fact
-- Add daily reconciliation query: `was_deployed` on fact matches `deploy_events` status
+- Add daily reconciliation query: `was_published` on fact matches `publish_events` status
 - Route all alerts to `#example_product-eng` Slack channel
 
 ### 7. Backfill historical data from internal template library
@@ -110,5 +110,5 @@ Build the analytics data pipeline for the Community Marketplace feature. This in
 | Risk | Mitigation |
 |------|------------|
 | Snowpipe latency exceeds 60s during high-volume fork events | Pre-test with load simulation; scale Snowpipe warehouse if needed |
-| `was_deployed` on fact table goes stale if deploy events arrive late | Set dbt incremental model to look back 7 days on each run |
+| `was_published` on fact table goes stale if publish events arrive late | Set dbt incremental model to look back 7 days on each run |
 | Backfill script introduces duplicates | Add `MERGE` logic with `fork_id` deduplication |

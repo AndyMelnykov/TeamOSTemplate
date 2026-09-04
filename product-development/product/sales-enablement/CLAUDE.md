@@ -16,10 +16,10 @@ Sales-facing documentation and customer onboarding materials for example_product
 ## Onboarding Flow
 
 1. Account setup and permissions
-2. Platform integrations (GitHub, Figma, etc.)
-3. AI generation configuration
+2. Platform integrations (Salesforce, DocuSign, etc.)
+3. AI extraction configuration
 4. Dashboard walkthrough
-5. Deployment setup
+5. Publishing setup
 
 ---
 

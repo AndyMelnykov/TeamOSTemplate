@@ -26,7 +26,7 @@ Reference documentation on example_product Labs products and platforms that exam
 
 | example_product Labs Product | example_product Relationship |
 |--------------------|-------------------|
-| **Developer Console** | example_product accessible via Console link-out; extends Projects > Generations |
+| **Developer Console** | example_product accessible via Console link-out; extends Workflows > Automation Runs |
 | **example_product CLI** | CLI tool for local development and deployment |
 | **example_product Cloud** | Hosting and deployment infrastructure |
 

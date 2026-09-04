@@ -13,7 +13,7 @@
 Investigate why template previews render as blank white iframes in Safari (macOS and iOS) while working correctly in Chrome and Firefox.
 
 ## Background
-After launching the template customizer (v2.4.2), support received 8 tickets from Safari users unable to preview templates. The Templates tab shows template cards correctly, but clicking into a template preview shows a blank iframe. Chrome and Firefox users are unaffected.
+After launching the template customizer (v2.4.2), support received 8 tickets from Safari users unable to preview templates. The Templates tab shows template cards correctly, but clicking into a template preview — a rendered simulation of the document/portal output — shows a blank iframe. Chrome and Firefox users are unaffected.
 
 ## Impact Scope
 - **Affected users:** ~2,100 users (14% of traffic from Safari)
@@ -22,19 +22,19 @@ After launching the template customizer (v2.4.2), support received 8 tickets fro
 
 ## Infrastructure
 - **Frontend:** React 18, Vite build, deployed on Vercel
-- **Preview iframe:** Sandboxed iframe loading template from `preview.lovable.app` subdomain
+- **Preview iframe:** Sandboxed iframe loading template from `preview.exampleproduct.app` subdomain
 - **CDN:** Vercel Edge Network
 - **Affected browsers:** Safari 17.x (macOS), Safari iOS 17.x+
 
 ## Results
 - Safari blocks the iframe due to cross-origin isolation policies
-- The `preview.lovable.app` subdomain sets `Cross-Origin-Opener-Policy: same-origin` header
+- The `preview.exampleproduct.app` subdomain sets `Cross-Origin-Opener-Policy: same-origin` header
 - Safari enforces this more strictly than Chrome — it refuses to render cross-origin iframes when COOP is set to `same-origin`
 - Chrome and Firefox allow the iframe but isolate it; Safari blocks it entirely
 
 ## Analysis
-1. Opened Safari Web Inspector — iframe shows `Blocked a frame with origin "https://lovable.dev" from accessing a cross-origin frame`
-2. Checked response headers on `preview.lovable.app` — found `Cross-Origin-Opener-Policy: same-origin` and `Cross-Origin-Embedder-Policy: require-corp`
+1. Opened Safari Web Inspector — iframe shows `Blocked a frame with origin "https://exampleproduct.com" from accessing a cross-origin frame`
+2. Checked response headers on `preview.exampleproduct.app` — found `Cross-Origin-Opener-Policy: same-origin` and `Cross-Origin-Embedder-Policy: require-corp`
 3. These headers were added in the Vercel config for security hardening (PR #495) but weren't tested in Safari
 4. Removed COOP header in staging — iframe renders correctly in Safari
 5. Confirmed Chrome/Firefox already handle this via iframe sandboxing without needing COOP
@@ -43,7 +43,7 @@ After launching the template customizer (v2.4.2), support received 8 tickets fro
 PR #495 added `Cross-Origin-Opener-Policy: same-origin` to the preview subdomain's Vercel headers config for security hardening. Safari interprets COOP more strictly than other browsers and refuses to render cross-origin iframes when the embedded page sets `same-origin` COOP. Chrome and Firefox are more permissive.
 
 ## Recommended Fix
-1. Change COOP header on `preview.lovable.app` from `same-origin` to `same-origin-allow-popups`
+1. Change COOP header on `preview.exampleproduct.app` from `same-origin` to `same-origin-allow-popups`
 2. Keep COEP header as-is — it's not causing the issue
 3. Add `sandbox="allow-scripts allow-same-origin"` attribute to the preview iframe for defense-in-depth
 4. Add Safari to the cross-browser test matrix for iframe-dependent features

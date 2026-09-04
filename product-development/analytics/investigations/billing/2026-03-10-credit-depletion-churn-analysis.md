@@ -15,7 +15,7 @@ Is there a statistically significant relationship between credit depletion (reac
 
 ## Background
 
-The billing support queue has been dominated by complaints from users who were surprised by hitting their credit limit. PM hypothesized that this surprise depletion experience is a meaningful driver of churn, but we had not previously quantified the relationship. This investigation was requested to put hard numbers behind the hypothesis and inform the priority of the Credit Usage Dashboard feature (EXAMPLE_PRODUCT-1028).
+The billing support queue has been dominated by complaints from users who were surprised by hitting their credit limit (credits are consumed per page/document processed through an automation run). PM hypothesized that this surprise depletion experience is a meaningful driver of churn, but we had not previously quantified the relationship. This investigation was requested to put hard numbers behind the hypothesis and inform the priority of the Credit Usage Dashboard feature (EXAMPLE_PRODUCT-1028).
 
 ## Methodology
 
@@ -25,7 +25,7 @@ The billing support queue has been dominated by complaints from users who were s
 
 **Control group**: Users who completed the billing cycle without reaching 0. N = 12,845.
 
-**Churn definition**: User did not perform any credit-consuming action (generation, edit, or deploy) in the 14 days following their billing cycle reset date AND did not renew their subscription.
+**Churn definition**: User did not perform any credit-consuming action (automation run, edit, or publish) in the 14 days following their billing cycle reset date AND did not renew their subscription.
 
 **Statistical method**: Chi-squared test for independence, with Bonferroni correction for tier-level subgroup analysis. Effect size measured using relative risk (RR).
 

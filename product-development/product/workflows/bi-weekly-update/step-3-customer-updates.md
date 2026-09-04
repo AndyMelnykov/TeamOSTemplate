@@ -11,10 +11,10 @@ Update customer pilot/launch exec summaries, deep dives, and cross-customer summ
 ### 1. Identify customers with new calls
 
 Check which active pilot and enterprise customers had calls in the last 2 weeks (from Step 2 data). Current active pilots:
-- Meridian Health (healthcare SaaS, 12-person eng team)
-- CloudKitchen (restaurant ops platform, 8-person eng team)
-- Nexus Financial (fintech startup, 20-person eng team)
-- Aether Logistics (supply chain platform, 15-person eng team)
+- Meridian Health (healthcare SaaS, 12-person operations team)
+- CloudKitchen (restaurant ops platform, 8-person operations team)
+- Nexus Financial (fintech startup, 20-person operations team)
+- Aether Logistics (supply chain platform, 15-person operations team)
 
 ### 2. Compare new data against existing sections
 

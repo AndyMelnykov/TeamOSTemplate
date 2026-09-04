@@ -23,7 +23,7 @@ See your role-specific onboarding guide for additional tools.
 | Repo | Description |
 |------|-------------|
 | `example_product-app` | Main application (frontend + backend API) |
-| `example_product-ai` | AI generation pipeline and model serving |
+| `example_product-ai` | AI extraction pipeline and model serving |
 | `example_product-infra` | Terraform, Kubernetes configs, CI/CD |
 | `example_product-docs` | Public documentation site |
 | `example_product-product` | This repo - product docs, PRDs, strategy |
@@ -33,7 +33,7 @@ See your role-specific onboarding guide for additional tools.
 1. Get laptop provisioned and accounts set up (IT will walk you through this)
 2. Accept invitations to GitHub (`example_product-labs` org), Linear / Jira / Asana (`example_product` team), Slack, and Google Workspace
 3. Set up local development environment (follow `CONTRIBUTING.md` in the main repo)
-4. Complete a test generation on staging and deploy it
+4. Complete a test automation run on staging and publish it
 
 ## Key Documents
 

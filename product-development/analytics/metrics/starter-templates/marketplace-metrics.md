@@ -1,6 +1,6 @@
-# Community Marketplace - Metrics Definition
+# Document Template Marketplace - Metrics Definition
 
-**Feature:** Community Marketplace (Starter Templates)
+**Feature:** Document Template Marketplace (Starter Templates)
 **Owner:** Hannah Stulberg, PM
 **Analytics Lead:** Casey Nguyen
 
@@ -10,7 +10,7 @@
 |--------|-----------|--------|--------|
 | Template publish rate | Number of new templates submitted per week | > 15/week by month 3 | `published_templates` table |
 | Fork rate | Number of template forks per week | > 100/week by month 3 | `template_forks` table |
-| Fork-to-deploy conversion | % of forked templates where the resulting project reaches at least one successful deployment | > 40% | `template_forks` joined with `deploy_events` |
+| Fork-to-publish conversion | % of forked templates where the resulting workflow reaches at least one successful publish | > 40% | `template_forks` joined with `publish_events` |
 | Average template rating | Mean rating across all rated templates in the marketplace | > 4.0 | `published_templates.avg_rating` |
 
 ## Secondary Metrics
@@ -19,7 +19,7 @@
 |--------|-----------|--------|--------|
 | Review queue turnaround | Median time from template submission to approval/rejection | < 24 hours | `published_templates` (created_at vs review_completed_at) |
 | Publish-to-approved conversion | % of submitted templates that are approved (not rejected) | > 80% | `published_templates` where status IN ('approved', 'rejected') |
-| Fork-to-customization rate | % of forks where the user applies customizations in the first session | > 60% | `template_forks.customizations_applied` |
+| Fork-to-customization rate | % of forks where the user applies customizations (field mappings, routing, branding) in the first session | > 60% | `template_forks.customizations_applied` |
 | Repeat publisher rate | % of publishers who publish more than one template within 30 days | Tracking | `published_templates` grouped by author_id |
 | Template discovery rate | % of marketplace page views that result in at least one template detail view | > 35% | Segment events: `marketplace.viewed`, `marketplace.template_clicked` |
 | Rating participation rate | % of users who forked a template and subsequently rated it | > 15% | `template_forks` joined with `template_ratings` |
@@ -37,13 +37,13 @@
 - **`published_templates`** - Template metadata and review status in Snowflake, populated via backend event logging
 - **`template_forks`** - Fork events in Snowflake, populated via Snowpipe
 - **`template_ratings`** - Individual rating records in Snowflake
-- **`deploy_events`** - Deployment outcomes, joined by `project_id` to connect forks to deploys
+- **`publish_events`** - Publish outcomes, joined by `project_id`/`workflow_id` to connect forks to publishes (legacy name: `deploy_events`)
 - **Segment** - Frontend interaction events (marketplace views, clicks, searches)
 - **Datadog RUM** - Page load performance and client-side errors
 
 ## Dashboard Links
 
-- [Community Marketplace Dashboard](https://app.sigma.com/example_product-labs/dashboard/community-marketplace) - Weekly metrics review
+- [Document Template Marketplace Dashboard](https://app.sigma.com/example_product-labs/dashboard/community-marketplace) - Weekly metrics review
 - [Marketplace Health Monitor](https://app.datadoghq.com/example_product-labs/dashboard/marketplace-health) - Real-time performance and error monitoring
 
 ## Related Queries
@@ -56,4 +56,4 @@
 
 | Investigation | Date | Summary |
 |--------------|------|---------|
-| [2026-03-08-template-fork-to-deploy-conversion.md](../../investigations/starter-templates/2026-03-08-template-fork-to-deploy-conversion.md) | 2026-03-08 | Template fork-to-deploy conversion analysis |
+| [2026-03-08-template-fork-to-deploy-conversion.md](../../investigations/starter-templates/2026-03-08-template-fork-to-deploy-conversion.md) | 2026-03-08 | Template fork-to-publish conversion analysis |

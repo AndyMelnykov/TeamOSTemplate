@@ -2,7 +2,7 @@
 
 Canonical vocabulary for example_product Labs and the example_product product. Every document in this repo should link here instead of redefining these terms locally.
 
-For metric definitions and targets (GSR, TTD, PCR, etc.), see [metrics.md](metrics.md).
+For metric definitions and targets (ESR, TTP, WCR, etc.), see [metrics.md](metrics.md).
 For customer segment and lifecycle-stage definitions, see [segments.md](segments.md).
 
 ## example_product Labs Terminology
@@ -18,11 +18,11 @@ For customer segment and lifecycle-stage definitions, see [segments.md](segments
 
 | Term | Definition |
 |------|------------|
-| Project | A customer workspace containing generated code, configuration, and deployment settings |
-| Generation | A single AI code generation event (prompt in, code out) |
-| Template | A pre-built starting point for common app types (SaaS dashboard, landing page, e-commerce, etc.) |
-| Preview | The live rendered output of generated code before deployment |
-| Deploy | Publishing a project to production infrastructure |
-| Iteration | A follow-up generation that modifies existing project code |
-| Prompt | The natural language input a customer provides to generate or iterate on code |
-| Competitors | Lovable, Google Stitch, v0, Replit, Figma Make, Bolt (see `../product-development/product/competitive-research/CLAUDE.md`) |
+| Workflow | A customer's document automation unit: intake template, extraction rules, approval routing, signature, and delivery settings |
+| Automation Run | A single AI-powered document processing execution (document in, extracted structured data + routing out) |
+| Template | A pre-built starting point for common document types (NDA, invoice, vendor onboarding form, sales contract, etc.) |
+| Preview | The rendered, simulated output of a workflow before publishing |
+| Publish | Making a workflow live for signers/submitters |
+| Refinement | A follow-up edit that modifies an existing workflow's extraction rules or routing logic |
+| Instruction | The natural language input a customer provides to configure what a workflow extracts or how it routes a document |
+| Competitors | DocuSign, PandaDoc, Ironclad, Conga, Dropbox Sign, Adobe Acrobat Sign (see `../product-development/product/competitive-research/CLAUDE.md`) |

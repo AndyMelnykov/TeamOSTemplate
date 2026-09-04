@@ -1,6 +1,6 @@
 # Schema: `analytics.example_product.published_templates`
 
-Dimension table tracking all templates published to the Community Marketplace. One row per published template submission. Includes both approved and rejected templates for funnel analysis.
+Dimension table tracking all templates published to the document template marketplace. One row per published template submission. Includes both approved and rejected templates for funnel analysis.
 
 **Database:** `ANALYTICS`
 **Schema:** `EXAMPLE_PRODUCT`
@@ -13,12 +13,12 @@ Dimension table tracking all templates published to the Community Marketplace. O
 | Column | Type | Nullable | Description |
 |--------|------|----------|-------------|
 | `template_id` | VARCHAR(36) | No | Unique identifier for the published template (UUID) |
-| `source_project_id` | VARCHAR(36) | No | Project that was published as a template |
+| `source_project_id` | VARCHAR(36) | No | Workflow that was published as a template (also referred to as `source_workflow_id`) |
 | `author_id` | VARCHAR(36) | No | User who published the template |
 | `title` | VARCHAR(200) | No | Display title for the template |
 | `description` | TEXT | No | Author-provided description of the template |
-| `category` | VARCHAR(50) | No | Template category: `saas`, `portfolio`, `e-commerce`, `landing-page`, `internal-tool` |
-| `preview_images` | VARIANT | No | JSON array of preview image objects (`url`, `alt`, `order`) |
+| `category` | VARCHAR(50) | No | Template category: `contract`, `invoice`, `intake-form`, `purchase-order`, `hr-onboarding` |
+| `preview_images` | VARIANT | No | JSON array of preview image objects showing the template's document layout (`url`, `alt`, `order`) |
 | `status` | VARCHAR(20) | No | Review status: `pending`, `approved`, `rejected` |
 | `fork_count` | INTEGER | No | Total number of times this template has been forked |
 | `avg_rating` | FLOAT | Yes | Average user rating (1.0 - 5.0), null if no ratings |
@@ -36,8 +36,8 @@ Dimension table tracking all templates published to the Community Marketplace. O
 ## Common Joins
 
 - `users` on `author_id` - Author profile, account age, subscription details
-- `projects` on `source_project_id` - Source project metadata, generation history
-- `template_forks` on `template_id` - Fork events and downstream project outcomes
+- `workflows` on `source_project_id` (`source_workflow_id`) - Source workflow metadata, automation run history
+- `template_forks` on `template_id` - Fork events and downstream workflow outcomes
 - `template_ratings` on `template_id` - Individual rating records
 
 ## Notes

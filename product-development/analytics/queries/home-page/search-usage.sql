@@ -1,6 +1,7 @@
 -- Search Usage Metrics
 -- Calculates daily search usage rate, zero-results rate, and average results
--- per query from the search_events table.
+-- per query from the search_events table (global Cmd+K search across
+-- workflows, templates, and automation runs).
 -- Used in the Search Health dashboard (Sigma).
 --
 -- Usage rate = distinct searchers / DAU

@@ -1,6 +1,6 @@
 # AI-Native Product OS
 
-A reference architecture for structuring product-team knowledge so that both humans and AI agents can navigate, reason, and execute from the same shared, version-controlled context — populated here with a realistic example product (`example_product`, an AI prototyping platform) so every pattern is backed by real files instead of empty folders.
+A reference architecture for structuring product-team knowledge so that both humans and AI agents can navigate, reason, and execute from the same shared, version-controlled context — populated here with a realistic example product (`example_product`, an AI-powered SaaS document automation platform) so every pattern is backed by real files instead of empty folders.
 
 No application code. The deliverable is the context itself: how it's organized, how an agent is meant to move through it, and where a human has to sign off.
 
@@ -111,7 +111,7 @@ Processes are executable, not just written down. `.claude/` turns recurring work
 
 `evaluation/` defines a small, reproducible benchmark for whether this structure actually helps an agent, rather than asserting that it does:
 
-- [`task-set.md`](evaluation/task-set.md) — seven tasks, each with a real, verifiable expected answer and source file (e.g. "find the current GSR target" → `reference/metrics.md`, `> 92%`).
+- [`task-set.md`](evaluation/task-set.md) — seven tasks, each with a real, verifiable expected answer and source file (e.g. "find the current ESR target" → `reference/metrics.md`, `> 92%`).
 - [`protocol.md`](evaluation/protocol.md) — run each task twice, once against the repo as-is and once with router files and `feature-index.yaml` removed; record task accuracy, wrong-source rate, files opened, tokens consumed, and citation accuracy.
 - [`results/`](evaluation/results/) — currently empty. **No run has been recorded yet** — this is a real gap, not a rounding error, and it's called out again under [Limitations](#limitations) rather than papered over with invented numbers.
 

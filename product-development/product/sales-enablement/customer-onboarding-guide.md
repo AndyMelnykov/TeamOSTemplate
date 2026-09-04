@@ -64,39 +64,39 @@ The example_product Team
 # Phase 2: Configuration (Days 3-5)
 
 **Owner:** Solutions Engineering + Customer
-**Goal:** example_product is configured for the customer's tech stack and development patterns
+**Goal:** example_product is configured for the customer's document types and approval patterns
 
 ## Checklist
 
 - [ ] Configuration session scheduled (60 min video call)
-- [ ] Customer's tech stack documented (framework, styling, state management, testing)
-- [ ] `.example_product/architecture.yaml` created with customer's patterns
-- [ ] Default project template configured with:
-  - [ ] Framework preference (React, Next.js, Vue, etc.)
-  - [ ] Styling system (Tailwind, CSS Modules, styled-components, etc.)
-  - [ ] TypeScript strictness level
-  - [ ] Component naming conventions
-  - [ ] Directory structure preferences
-- [ ] Custom prompt library seeded with 3-5 starter prompts relevant to their use cases
-- [ ] Cloud provider credentials connected (if deploying - AWS, GCP, or Vercel)
-- [ ] Git integration configured (GitHub, GitLab, or Bitbucket)
-- [ ] Walkthrough of project settings and generation options completed
+- [ ] Customer's document types documented (contracts, invoices, intake forms, purchase orders)
+- [ ] `.example_product/architecture.yaml` created with customer's extraction and routing patterns
+- [ ] Default workflow template configured with:
+  - [ ] Document type preference (contract, invoice, intake form, etc.)
+  - [ ] Branding system (logo, colors, portal domain)
+  - [ ] Field extraction strictness level
+  - [ ] Clause and field naming conventions
+  - [ ] Approval step and routing structure preferences
+- [ ] Custom instruction library seeded with 3-5 starter instructions relevant to their use cases
+- [ ] E-signature provider credentials connected (if publishing - DocuSign, Adobe Acrobat Sign, or Dropbox Sign)
+- [ ] Business system integration configured (Salesforce, NetSuite, or QuickBooks)
+- [ ] Walkthrough of workflow settings and extraction options completed
 
 ## Configuration Session Agenda
 
 | Time | Topic | Who |
 |------|-------|-----|
 | 0:00 - 0:10 | Introductions and onboarding overview | SE |
-| 0:10 - 0:25 | Tech stack discussion and architecture.yaml setup | SE + Customer |
-| 0:25 - 0:40 | First generation demo using their stack preferences | SE |
-| 0:40 - 0:50 | Integrations setup (Git, cloud, CI/CD) | SE + Customer |
+| 0:10 - 0:25 | Document types discussion and architecture.yaml setup | SE + Customer |
+| 0:25 - 0:40 | First automation run demo using their document types | SE |
+| 0:40 - 0:50 | Integrations setup (e-signature, business systems, delivery) | SE + Customer |
 | 0:50 - 1:00 | Q&A and next steps | All |
 
 ## Success Criteria
 
-- `architecture.yaml` committed and producing correctly-configured output
-- Customer has run at least 3 test generations with satisfactory results
-- Git integration is connected and exporting works
+- `architecture.yaml` committed and producing correctly-configured extraction output
+- Customer has run at least 3 test automation runs with satisfactory results
+- E-signature integration is connected and delivery works
 
 ---
 
@@ -107,16 +107,16 @@ The example_product Team
 
 ## Checklist
 
-- [ ] Team training session scheduled (90 min, all developers who will use example_product)
+- [ ] Team training session scheduled (90 min, all staff who will use example_product)
 - [ ] Training session delivered covering:
-  - [ ] Prompt engineering best practices for code generation
-  - [ ] Using architecture hints and constraints effectively
-  - [ ] Project templates and configuration inheritance
-  - [ ] Code export and integration with existing codebase
-  - [ ] Deployment workflow (if One-Click Deploy is enabled)
-  - [ ] Iterative refinement - editing and re-generating specific components
-  - [ ] Troubleshooting common generation issues
-- [ ] Hands-on workshop completed (each attendee builds a small project)
+  - [ ] Instruction-writing best practices for document extraction
+  - [ ] Using extraction hints and field constraints effectively
+  - [ ] Workflow templates and configuration inheritance
+  - [ ] Data export and integration with existing business systems
+  - [ ] Publishing workflow (if One-Click Publish is enabled)
+  - [ ] Iterative refinement - editing and re-running extraction on specific fields
+  - [ ] Troubleshooting common extraction issues
+- [ ] Hands-on workshop completed (each attendee builds a small workflow)
 - [ ] FAQ document customized for the customer's use cases and shared
 - [ ] Office hours schedule shared (Growth: weekly 30-min slot, Enterprise: dedicated SE)
 - [ ] Self-serve documentation links sent:
@@ -130,14 +130,14 @@ The example_product Team
 | Time | Topic | Format |
 |------|-------|--------|
 | 0:00 - 0:15 | example_product overview and key concepts | Presentation |
-| 0:15 - 0:35 | Prompt engineering masterclass | Demo + discussion |
-| 0:35 - 0:50 | Advanced features (architecture hints, templates, iteration) | Demo |
-| 0:50 - 1:20 | Hands-on workshop - build a project from scratch | Individual exercise |
+| 0:15 - 0:35 | Instruction-writing masterclass | Demo + discussion |
+| 0:35 - 0:50 | Advanced features (extraction hints, templates, refinement) | Demo |
+| 0:50 - 1:20 | Hands-on workshop - build a workflow from scratch | Individual exercise |
 | 1:20 - 1:30 | Q&A and ongoing support resources | Open discussion |
 
 ## Success Criteria
 
-- 80%+ of licensed seats have logged in and run at least one generation
+- 80%+ of licensed seats have logged in and run at least one automation run
 - Customer rates training session 4+ out of 5
 - No open "how do I..." support tickets from trained users
 
@@ -150,12 +150,12 @@ The example_product Team
 
 ## Checklist
 
-- [ ] First real project completed in example_product (not a training exercise)
-- [ ] Project exported or deployed to customer's environment
+- [ ] First real workflow completed in example_product (not a training exercise)
+- [ ] Workflow published live to customer's document portal
 - [ ] 90-day success plan created with customer, including:
-  - [ ] Target number of projects to build
+  - [ ] Target number of workflows to build
   - [ ] Target number of active users
-  - [ ] Specific use cases to tackle first
+  - [ ] Specific document types to tackle first
   - [ ] Milestone check-in dates (Day 30, Day 60, Day 90)
 - [ ] QBR cadence established (quarterly for Growth, monthly for Enterprise)
 - [ ] Feedback survey sent (onboarding NPS)
@@ -169,13 +169,13 @@ The example_product Team
 
 | Milestone | Target | Measure |
 |-----------|--------|---------|
-| Day 30 | 3+ projects created, 60%+ seat utilization | Usage dashboard |
-| Day 60 | 1+ project deployed to production, team generating independently | Customer check-in |
+| Day 30 | 3+ workflows created, 60%+ seat utilization | Usage dashboard |
+| Day 60 | 1+ workflow published to production, team automating independently | Customer check-in |
 | Day 90 | Expansion discussion, identify additional teams/use cases | QBR |
 
 ## Success Criteria
 
-- Customer has completed at least 1 real project
+- Customer has completed at least 1 real workflow
 - Onboarding NPS score >= 7
 - No open P0 or P1 support tickets
 - 90-day success plan agreed upon with customer stakeholder
@@ -187,7 +187,7 @@ The example_product Team
 | Issue | Escalation Path | SLA |
 |-------|----------------|-----|
 | Login or access problems | Solutions Engineering on-call | 4 hours |
-| Generation quality issues | Engineering (via #example_product-eng-support) | 24 hours |
+| Extraction quality issues | Engineering (via #example_product-eng-support) | 24 hours |
 | Configuration help | Assigned SE | 24 hours |
 | Billing or contract questions | RevOps (billing@example_productlabs.dev) | 48 hours |
 | Customer unhappy with onboarding | PM (Hannah Stulberg) | Same day |

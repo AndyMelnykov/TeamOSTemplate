@@ -11,16 +11,16 @@
 
 ## Overview
 
-SSO Integration lets example_product Enterprise customers authenticate through their own identity provider (Okta, Azure AD, Google Workspace) instead of example_product-managed credentials, satisfying a hard procurement requirement for regulated-industry buyers.
+SSO Integration lets example_product Enterprise customers authenticate through their own identity provider (Okta, Azure AD, Google Workspace) instead of example_product-managed credentials, satisfying a hard procurement requirement for regulated-industry buyers who are routing contracts, KYC forms, and patient intake documents through example_product's workflows.
 
 ## Problem Statement
 
-Enterprise prospects in regulated industries require SSO before they will sign. Meridian Health and Crestview Financial (both Enterprise-segment, both under active evaluation) have each flagged SSO as a blocker in their security review. Without it, example_product cannot close deals that require centralized identity management and deprovisioning.
+Enterprise prospects in regulated industries require SSO before they will sign. Meridian Health (patient intake form automation) and Crestview Financial (loan/account-opening and KYC document processing) -- both Enterprise-segment, both under active evaluation -- have each flagged SSO as a blocker in their security review. Without it, example_product cannot close deals that require centralized identity management and deprovisioning for anyone with access to sensitive document workflows.
 
 ## User Stories
 
-- As an Enterprise admin, I want to provision and deprovision example_product access through our existing identity provider, so that offboarding is instant and auditable.
-- As an Enterprise security reviewer, I want SAML-based SSO, so that example_product meets our procurement security checklist.
+- As an Enterprise admin, I want to provision and deprovision example_product access through our existing identity provider, so that offboarding is instant and auditable across every workflow and document portal my team can reach.
+- As an Enterprise security reviewer, I want SAML-based SSO, so that example_product meets our procurement security checklist before we route regulated documents through it.
 
 ## Requirements
 

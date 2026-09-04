@@ -9,34 +9,34 @@
 | Time | Topic | Lead | Goal |
 |------|-------|------|------|
 | 2:00 - 2:15 | Workstream updates | All | Status check |
-| 2:15 - 2:30 | One-Click Deploy beta readiness | Jordan | Go/no-go decision on March 24 target |
-| 2:30 - 2:40 | Generation latency regression | Priya | Decide on mitigation approach |
+| 2:15 - 2:30 | One-Click Publish beta readiness | Jordan | Go/no-go decision on March 24 target |
+| 2:30 - 2:40 | Extraction latency regression | Priya | Decide on mitigation approach |
 | 2:40 - 2:50 | Enterprise pipeline review | Alex | Align on next steps for active prospects |
 | 2:50 - 3:00 | Open discussion | All | — |
 
 ## Pre-reads
 
-- [One-Click Deploy RFC](../../../../engineering/rfcs/deployment/one-click-deploy-rfc.md)
-- [Generation latency Datadog dashboard](https://app.datadoghq.com/example_product-labs/dashboard/gen-latency)
+- [One-Click Publish RFC](../../../../engineering/rfcs/deployment/one-click-deploy-rfc.md)
+- [Extraction latency Datadog dashboard](https://app.datadoghq.com/example_product-labs/dashboard/extraction-latency)
 - [Meridian Health account context](../../../customers/accounts/meridian-health/account-context.md)
 
-## Discussion: One-Click Deploy Beta Readiness
+## Discussion: One-Click Publish Beta Readiness
 
-**Context:** Beta target is March 24. Deploy infrastructure is live on staging with Vercel and Netlify. Preview UI is functional and the internal team has been testing.
+**Context:** Beta target is March 24. Publish infrastructure is live on staging with email delivery and Salesforce integrations. Preview UI is functional and the internal team has been testing.
 
 **Open items to resolve:**
-- [ ] Error handling for failed deploys — how much edge case coverage do we need for beta vs GA?
+- [ ] Error handling for failed publishes — how much edge case coverage do we need for beta vs GA?
 - [ ] Help article and in-app tooltip copy — who owns, and can we hit March 24 without it?
-- [ ] Monitoring dashboards — Grace, are deploy success rate dashboards ready?
+- [ ] Monitoring dashboards — Grace, are publish success rate dashboards ready?
 
 **Proposed decision:** Proceed with March 24 if error handling and copy can be done by then. Otherwise push one week.
 
-## Discussion: Generation Latency Regression
+## Discussion: Extraction Latency Regression
 
-**Context:** example_product-gen-3.2 is at 50% rollout. Quality scores up 12% on eval suite, but P95 latency regressed from 7.5s to 11s. Streaming helps perceived performance but raw numbers need to come down.
+**Context:** example_product-extract-3.2 is at 50% rollout. Quality scores up 12% on eval suite, but P95 latency regressed from 7.5s to 11s. Streaming helps perceived performance but raw numbers need to come down.
 
 **Options to discuss:**
-1. Roll back to example_product-gen-3.1 for latency-sensitive users
+1. Roll back to example_product-extract-3.1 for latency-sensitive users
 2. Optimize inference pipeline (Priya estimates 2-3 weeks)
 3. Accept higher latency, rely on streaming to mask it
 

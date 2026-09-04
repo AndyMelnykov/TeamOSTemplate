@@ -22,7 +22,7 @@ See [General Onboarding](onboarding-general.md#shared-tools-everyone-gets-these)
 | Repo | Why |
 |------|-----|
 | `example_product-app` | Main application - frontend (React/Next.js) + backend API |
-| `example_product-ai` | AI generation pipeline and model serving |
+| `example_product-ai` | AI extraction pipeline and model serving |
 | `example_product-infra` | Terraform, Kubernetes configs, CI/CD pipelines |
 | `example_product-docs` | Public documentation site |
 | `example_product-product` | PRDs and specs for feature context |
@@ -33,7 +33,7 @@ See [General Onboarding](onboarding-general.md#shared-tools-everyone-gets-these)
 2. Clone `example_product-app`, `example_product-ai`, and `example_product-infra`
 3. Follow `CONTRIBUTING.md` in `example_product-app` for local dev setup
 4. Run the test suite locally and verify it passes
-5. Complete a test generation on staging and deploy it
+5. Complete a test automation run on staging and publish it
 6. Set up Datadog and bookmark the [example_product service dashboard](https://app.datadoghq.com)
 
 ## Key Documents
@@ -72,7 +72,7 @@ Engineering reports to Alex Rivera (EM). The team covers frontend, backend, AI p
 ## First Tasks
 
 - [ ] Get local dev environment running and passing tests
-- [ ] Complete a test generation on staging
+- [ ] Complete a test automation run on staging
 - [ ] Read the frontend conventions doc and one recent TDD
 - [ ] Review 2-3 recent PRs to understand code review norms
 - [ ] Pick up a starter bug or small feature from Linear / Jira / Asana (your manager will assign one)

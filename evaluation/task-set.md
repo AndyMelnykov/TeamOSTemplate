@@ -4,7 +4,7 @@ Each task has a real, verifiable expected answer and expected source file(s) in 
 
 ## 1. Find the current definition of a metric
 
-**Prompt:** "What is the current target for Generation Success Rate (GSR)?"
+**Prompt:** "What is the current target for Extraction Success Rate (ESR)?"
 **Expected answer:** > 92%
 **Expected source:** `reference/metrics.md`
 

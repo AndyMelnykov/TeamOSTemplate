@@ -9,25 +9,25 @@
 # Version history
 
 ## Overview
-Let users browse and restore previous versions of a project so they can safely experiment and roll back when the AI takes a wrong turn.
+Let users browse and restore previous versions of a workflow so they can safely experiment with extraction rules and routing logic, and roll back when an AI-assisted refinement takes a wrong turn.
 
 ## Steps
-1. Add version snapshot on each generation
-   - After each successful AI generation, snapshot full project state to `project_versions` table
-   - Store: version number, timestamp, prompt that triggered it, file tree hash
-2. Add `GET /api/projects/:id/versions` endpoint in `src/routes/projects.ts`
-   - Return version list with timestamps, prompts, and diff summaries
-3. Create `VersionHistory` panel in `src/components/editor/`
+1. Add version snapshot on each refinement
+   - After each successful AI-assisted refinement, snapshot the full workflow definition to `workflow_versions` table
+   - Store: version number, timestamp, instruction that triggered it, definition hash
+2. Add `GET /api/workflows/:id/versions` endpoint in `src/routes/workflows.ts`
+   - Return version list with timestamps, instructions, and diff summaries
+3. Create `VersionHistory` panel in `src/components/builder/`
    - Slide-out panel listing versions chronologically
-   - Each entry shows: version number, prompt snippet, timestamp
-   - Click to preview that version's output in a read-only view
+   - Each entry shows: version number, instruction snippet, timestamp
+   - Click to preview that version's extraction rules and routing in a read-only view
 4. Add restore flow
    - "Restore this version" button creates a new version from the old snapshot
    - Non-destructive — current state becomes just another version in history
 5. Add version diff view
-   - Side-by-side comparison of any two versions
-   - Highlight added/removed/changed elements
+   - Side-by-side comparison of any two versions' extraction rules and routing steps
+   - Highlight added/removed/changed fields and steps
 6. Add tests
-   - Snapshot created after each generation
+   - Snapshot created after each refinement
    - Restore creates new version, doesn't overwrite history
    - Diff correctly highlights changes

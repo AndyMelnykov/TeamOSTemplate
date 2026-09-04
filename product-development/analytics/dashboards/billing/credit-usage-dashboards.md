@@ -14,10 +14,10 @@
 
 **Link**: [Credit Usage Health Dashboard](https://app.sigmacomputing.com/example_product/workbook/credit-usage-health)
 
-**Purpose**: Primary operational dashboard for monitoring credit consumption patterns across the example_product user base. Used by PM and analytics to track utilization rates, identify users at risk of depletion, and validate the impact of billing features.
+**Purpose**: Primary operational dashboard for monitoring credit consumption patterns across the example_product user base. Credits are consumed per page/document processed, so this dashboard is used by PM and analytics to track utilization rates, identify users at risk of depletion, and validate the impact of billing features.
 
 **Key views**:
-- Daily credit consumption by category (generation, edit, deploy) -- stacked area chart
+- Daily credit consumption by category (automation run, edit, publish) -- stacked area chart
 - Credit utilization distribution by subscription tier -- histogram
 - Users approaching depletion (<20% balance) -- filterable table with projected depletion date
 - Burn rate trends -- 7-day rolling average, segmented by tier

@@ -1,4 +1,4 @@
-# Component Library - Product Requirements Document
+# Clause & Field Block Library - Product Requirements Document
 
 | Field | Value |
 |-------|-------|
@@ -11,21 +11,21 @@
 
 ## Overview
 
-A reusable component library lets users compose generated apps from a shared set of pre-built UI components instead of regenerating equivalent UI from scratch on every project, reducing generation volume and improving visual consistency across a user's projects.
+A shared clause and field block library lets users compose workflows from a shared set of pre-built clauses and field groups instead of re-extracting or re-defining equivalent structure from scratch on every workflow, reducing automation-run volume and improving consistency across a user's workflows.
 
 ## Problem Statement
 
-Users currently regenerate near-identical UI (nav bars, auth forms, data tables) from scratch on every new project, which increases both generation cost and Time-to-Deploy (TTD) — see `reference/metrics.md` for the TTD target.
+Users currently rebuild near-identical structure (standard payment-terms clauses, limitation-of-liability clauses, signature blocks, address field groups) from scratch on every new workflow, which increases both extraction cost and Time-to-Publish (TTP) — see `reference/metrics.md` for the TTP target.
 
 ## User Stories
 
-- As a user starting a new project, I want to pull in a pre-built component instead of prompting for one from scratch, so that I reach a working preview faster.
+- As a user starting a new workflow, I want to pull in a pre-built clause or field block instead of defining one from scratch, so that I reach a working preview faster.
 
 ## Requirements
 
-- A browsable library of common components (nav bar, auth form, data table, pricing card).
-- Inserting a component from the library does not require a new generation call.
-- Components respect the project's existing framework and styling.
+- A browsable library of common clauses and field blocks (payment-terms clause, limitation-of-liability clause, signature block, address field group, W-9 field group).
+- Inserting a block from the library does not require a new automation run.
+- Blocks respect the workflow's existing template and branding.
 
 ## Design
 
@@ -33,8 +33,8 @@ See `engineering/plans/prototyping/component-library.md` for implementation scop
 
 ## Technical Considerations
 
-Depends on the same project/generation data model used elsewhere in `prototyping/` — no new schema required for v1.
+Depends on the same workflow/extraction data model used elsewhere in `prototyping/` — no new schema required for v1.
 
 ## Launch Plan
 
-Ship as an opt-in panel in the existing project editor; no gating by tier.
+Ship as an opt-in panel in the existing workflow builder; no gating by tier.

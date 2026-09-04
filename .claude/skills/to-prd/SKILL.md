@@ -19,7 +19,7 @@ Run `/to-prd` first for any product-requirement-driven feature. Once it exists, 
 
 1. Explore the repo to understand the current state, if you haven't already:
    - `product-development/product/PRDs/CLAUDE.md` for the current PRD roster and naming convention.
-   - `product-development/product/CLAUDE.md` for pillars and terminology — use it throughout (Project, Generation, Iteration, GSR, TTD, PCR, etc.) rather than redefining it.
+   - `product-development/product/CLAUDE.md` for pillars and terminology — use it throughout (Workflow, Automation Run, Refinement, ESR, TTP, WCR, etc.) rather than redefining it.
    - An existing PRD in the same product area (`product/PRDs/<area>/`) to match tone and section depth.
 
 2. Confirm the product area and feature slug with the user if not already clear from the conversation. The area matches an existing `PRDs/<area>/` subfolder (`billing`, `deployment`, `home-page`, `prototyping`, `starter-templates`) or is a new one. The filename follows the existing convention: `[feature-name]-prd.md`.

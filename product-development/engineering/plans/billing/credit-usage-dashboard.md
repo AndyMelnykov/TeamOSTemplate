@@ -11,7 +11,7 @@
 | **Dashboards** | `product/analytics/dashboards/billing/credit-usage-dashboards.md` |
 
 ## Overview
-Show users a breakdown of how they're spending credits (generations, edits, deploys) so they understand consumption before hitting limits or deciding to upgrade.
+Show users a breakdown of how they're spending credits (extraction, refinement, publish) so they understand consumption before hitting limits or deciding to upgrade.
 
 ## Steps
 1. Add `GET /api/billing/usage` endpoint in `src/routes/billing.ts`
@@ -21,13 +21,13 @@ Show users a breakdown of how they're spending credits (generations, edits, depl
    - Bar chart showing daily credit usage by category
    - Summary cards: credits used this cycle, remaining, reset date
    - Trend line showing consumption rate
-3. Add usage breakdown by project
-   - `GET /api/billing/usage/by-project` returns per-project totals
-   - Sortable table: project name, generations, edits, total credits
+3. Add usage breakdown by workflow
+   - `GET /api/billing/usage/by-workflow` returns per-workflow totals
+   - Sortable table: workflow name, extractions, refinements, total credits
 4. Add low-balance warning banner
    - Show at <20% remaining credits on home page
    - Link to upgrade or purchase more credits
 5. Add tests
    - Usage totals match actual credit transactions
-   - Breakdown by project sums to total
+   - Breakdown by workflow sums to total
    - Warning banner appears at correct threshold

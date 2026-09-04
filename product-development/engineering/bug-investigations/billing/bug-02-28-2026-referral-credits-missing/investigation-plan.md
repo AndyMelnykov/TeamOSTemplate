@@ -13,7 +13,7 @@
 Investigate why referrers are not receiving their 100-credit bonus when referred users convert to paid plans, despite the referral being correctly attributed at signup.
 
 ## Background
-The referral program ("Share Lovable — 100 credits per paid referral") launched in January 2026. Several users contacted support saying they referred friends who upgraded to paid but never received credits. The referral attribution (signup tracking) is working — the credit grant on conversion is not.
+The referral program ("Share example_product — 100 credits per paid referral") launched in January 2026. Several users contacted support saying they referred colleagues who upgraded to paid but never received credits. The referral attribution (signup tracking) is working — the credit grant on conversion is not.
 
 ## Impact Scope
 - **Affected referrers:** 89 users who should have received credits since 2026-02-01

@@ -2,9 +2,9 @@
 
 ## Overview
 
-example_product is example_product Labs' AI prototyping platform that enables developers and teams to turn ideas into production-ready applications through intelligent code generation, real-time collaboration, and one-click deployment.
+example_product is example_product Labs' AI-powered SaaS document automation platform that enables ops, legal, and finance teams to turn manual paperwork into automated digital workflows through intelligent document extraction, real-time collaboration, and one-click publishing.
 
-**North Star:** Build the most reliable AI-powered development platform - empowering customers to go from concept to production by improving generation quality, developer experience, and deployment velocity.
+**North Star:** Build the most reliable AI-powered document automation platform - empowering customers to go from raw paperwork to published workflow by improving extraction quality, workflow building experience, and publishing velocity.
 
 **New to example_product?** See the [Onboarding Guide](../../team/onboarding-guides/onboarding-general.md) for a comprehensive introduction.
 
@@ -38,10 +38,10 @@ Each folder has its own `CLAUDE.md` with folder-specific context.
 
 | Pillar | Purpose | P0 Features |
 |--------|---------|-------------|
-| **1. Generation Quality** | Make AI output production-ready | Multi-file generation, framework detection, code quality scoring |
-| **2. Developer Experience** | Seamless build-to-ship workflow | Inline editing, real-time preview, version history, undo/redo |
-| **3. Deployment** | One-click production deploys | Auto-provisioning, custom domains, environment variables, CI/CD |
-| **4. Collaboration** | Team-based prototyping | Shared projects, commenting, branching, role-based permissions |
+| **1. Extraction Quality** | Make AI-extracted data trustworthy | Multi-format OCR, field & clause detection, extraction confidence scoring |
+| **2. Workflow Building Experience** | Seamless build-to-publish workflow | Inline field mapping, real-time preview, version history, undo/redo |
+| **3. Publishing** | One-click live document portals | Auto-provisioning, custom domains, environment previews, delivery integrations |
+| **4. Collaboration** | Team-based document workflows | Shared workflows, commenting, branching, role-based permissions |
 | **5. Enterprise** | Scale for organizations | SSO, audit logs, usage analytics, team management, SLAs |
 
 ---

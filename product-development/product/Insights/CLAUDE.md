@@ -12,7 +12,7 @@ Insights/
 ├── sources.csv                   # Evidence rows — one per observation, linked to an insight_id
 ├── customer-support/              # Raw sweep notes from support tickets, escalations, help-center interactions
 ├── customer-success/              # Raw sweep notes from CS check-ins, renewals, health scores, QBRs
-└── customer-research-reddit/      # Raw sweep notes from public Reddit research (r/lovable, etc.)
+└── customer-research-reddit/      # Raw sweep notes from public Reddit research (r/PandaDoc, etc.)
 ```
 
 The per-source folders are optional scratch space for raw notes from a research pass (e.g. `2026-08-12-sweep-notes.md`). The CSVs are the source of truth — folders just hold backing material worth keeping.

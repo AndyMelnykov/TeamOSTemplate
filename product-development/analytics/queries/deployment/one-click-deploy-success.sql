@@ -1,16 +1,16 @@
--- One-Click Deploy Success Rate, Time-to-Deploy, and Conversion Impact
+-- One-Click Publish Success Rate, Time-to-Publish, and Conversion Impact
 -- Author: Casey Nguyen
 -- Last Updated: 2026-03-22
 --
 -- Related metrics: metrics/deployment/one-click-deploy-metrics.md
--- Related schema: schemas/deployment/ (deploy_events table - not yet documented)
+-- Related schema: schemas/deployment/ (publish_events table, legacy name deploy_events - not yet documented)
 --
 -- Platform: Snowflake
--- Source tables: analytics.example_product.deploy_events, analytics.example_product.subscriptions
+-- Source tables: analytics.example_product.publish_events, analytics.example_product.subscriptions
 -- Recommended schedule: Daily, 06:00 UTC
 
 -- =============================================================================
--- 1. Daily deploy success rate and time-to-deploy
+-- 1. Daily publish success rate and time-to-publish
 -- =============================================================================
 WITH daily_deploys AS (
     SELECT
@@ -20,7 +20,7 @@ WITH daily_deploys AS (
         COUNT_IF(de.status = 'failed') AS failed_deploys,
         COUNT_IF(de.status = 'timeout') AS timed_out_deploys,
 
-        -- Time-to-deploy: median duration from click to live URL
+        -- Time-to-publish: median duration from click to live portal URL
         MEDIAN(
             CASE WHEN de.status = 'completed' THEN de.duration_ms END
         ) AS median_deploy_duration_ms,
@@ -30,31 +30,31 @@ WITH daily_deploys AS (
         PERCENTILE_CONT(0.95) WITHIN GROUP (
             ORDER BY CASE WHEN de.status = 'completed' THEN de.duration_ms END
         ) AS p95_deploy_duration_ms
-    FROM analytics.example_product.deploy_events de
+    FROM analytics.example_product.publish_events de
     WHERE de.created_at >= DATEADD('day', -30, CURRENT_DATE())
     GROUP BY 1
 ),
 
 -- =============================================================================
--- 2. Time-to-deploy from first generation to production deploy
---    Measures the full journey, not just the deploy step itself
+-- 2. Time-to-publish from first automation run to production publish
+--    Measures the full journey, not just the publish step itself
 -- =============================================================================
 project_first_generation AS (
-    -- Earliest generation per project (start of the user journey)
+    -- Earliest automation run per workflow (start of the user journey)
     SELECT
         project_id,
         MIN(created_at) AS first_generation_at
-    FROM analytics.example_product.project_generations
+    FROM analytics.example_product.workflow_automation_runs
     WHERE created_at >= DATEADD('day', -30, CURRENT_DATE())
     GROUP BY project_id
 ),
 
 first_production_deploy AS (
-    -- First successful production deploy per project
+    -- First successful production publish per workflow
     SELECT
         de.project_id,
         MIN(de.created_at) AS first_deploy_at
-    FROM analytics.example_product.deploy_events de
+    FROM analytics.example_product.publish_events de
     WHERE de.status = 'completed'
       AND de.deploy_target = 'production'
       AND de.created_at >= DATEADD('day', -30, CURRENT_DATE())
@@ -78,15 +78,15 @@ generation_to_deploy AS (
 ),
 
 -- =============================================================================
--- 3. Deploy-to-paid conversion
---    Free users who upgrade within 7 days of their first deploy
+-- 3. Publish-to-paid conversion
+--    Free users who upgrade within 7 days of their first publish
 -- =============================================================================
 first_deploys AS (
-    -- First successful deploy per free-tier user
+    -- First successful publish per free-tier user
     SELECT
         de.user_id,
         MIN(de.created_at) AS first_deploy_at
-    FROM analytics.example_product.deploy_events de
+    FROM analytics.example_product.publish_events de
     JOIN analytics.example_product.subscriptions s
         ON s.user_id = de.user_id
         AND s.tier = 'free'
@@ -114,12 +114,12 @@ deploy_upgrades AS (
 )
 
 -- =============================================================================
--- Final output: combine daily success rate, TTD, and conversion
+-- Final output: combine daily success rate, TTP, and conversion
 -- =============================================================================
 SELECT
     dd.deploy_date,
 
-    -- Deploy success rate
+    -- Publish success rate
     dd.total_deploy_attempts,
     dd.successful_deploys,
     dd.failed_deploys,
@@ -128,17 +128,17 @@ SELECT
         dd.successful_deploys * 100.0 / NULLIF(dd.total_deploy_attempts, 0), 2
     ) AS deploy_success_rate_pct,
 
-    -- Time-to-deploy (deploy step only)
+    -- Time-to-publish (publish step only)
     ROUND(dd.median_deploy_duration_ms, 0) AS median_deploy_ms,
     ROUND(dd.avg_deploy_duration_ms, 0) AS avg_deploy_ms,
     ROUND(dd.p95_deploy_duration_ms, 0) AS p95_deploy_ms,
 
-    -- Time-to-deploy (generation to production)
+    -- Time-to-publish (automation run to production)
     ROUND(g2d.median_generation_to_deploy_seconds, 0) AS median_gen_to_deploy_seconds,
     ROUND(g2d.avg_generation_to_deploy_seconds, 0) AS avg_gen_to_deploy_seconds,
     g2d.projects_deployed,
 
-    -- Deploy-to-paid conversion
+    -- Publish-to-paid conversion
     du.free_users_who_deployed,
     du.users_upgraded_within_7d,
     ROUND(

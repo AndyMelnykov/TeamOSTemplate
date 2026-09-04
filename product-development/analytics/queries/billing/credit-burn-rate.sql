@@ -3,8 +3,9 @@
 -- Last Updated: 2026-03-22
 --
 -- Calculates the daily credit burn rate for each user over the trailing 7 days,
--- then aggregates by subscription tier. Includes projected days until credit
--- depletion at the current burn rate.
+-- then aggregates by subscription tier. Credits are consumed as pages/documents
+-- are processed through automation runs and published portals. Includes
+-- projected days until credit depletion at the current burn rate.
 --
 -- Platform: Snowflake
 -- Source table: analytics.example_product.credit_transactions
@@ -100,7 +101,6 @@ ORDER BY
     CASE subscription_tier
         WHEN 'free' THEN 1
         WHEN 'pro' THEN 2
-        WHEN 'team' THEN 3
-        WHEN 'business' THEN 4
-        WHEN 'enterprise' THEN 5
+        WHEN 'teams' THEN 3
+        WHEN 'enterprise' THEN 4
     END;

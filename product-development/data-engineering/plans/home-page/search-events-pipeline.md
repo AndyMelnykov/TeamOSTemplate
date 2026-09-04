@@ -2,7 +2,7 @@
 
 ## Overview
 
-Build the search events data pipeline to move Project Search (Cmd+K) interaction data from Segment to Snowflake. The pipeline supports the search usage rate, zero-results rate, and click-through rate metrics defined in the PRD. End state: `fact_search_events` and `dim_search_results` tables refreshed within 2 minutes of event emission, with dbt transformations running every 15 minutes.
+Build the search events data pipeline to move Workflow Search (Cmd+K) interaction data from Segment to Snowflake. The pipeline supports the search usage rate, zero-results rate, and click-through rate metrics defined in the PRD. End state: `fact_search_events` and `dim_search_results` tables refreshed within 2 minutes of event emission, with dbt transformations running every 15 minutes.
 
 **Related RFC:** `data-engineering/rfcs/home-page/search-events-pipeline-rfc.md`
 **Related Product RFC:** `engineering/rfcs/home-page/project-search-rfc.md`
@@ -19,7 +19,7 @@ Build the search events data pipeline to move Project Search (Cmd+K) interaction
    - Verify table creation with `DESCRIBE TABLE` and confirm clustering keys
 
 2. Configure Segment tracking events
-   - Add `Search Executed` track call in `src/components/search/SearchModal.tsx` with all required properties (event_id, query_text, query_length, result_count, result_count_projects, result_count_templates, result_count_actions, filters_applied, search_latency_ms, is_zero_results, search_results array)
+   - Add `Search Executed` track call in `src/components/search/SearchModal.tsx` with all required properties (event_id, query_text, query_length, result_count, result_count_workflows, result_count_templates, result_count_actions, filters_applied, search_latency_ms, is_zero_results, search_results array)
    - Add `Search Result Clicked` track call with properties (event_id, clicked_result_id, clicked_result_type, clicked_position, time_to_click_ms)
    - Configure Segment S3 destination to route search events to `s3://segment-example_product-events/search/` prefix with date partitioning
    - Validate events are flowing to S3 using Segment debugger and S3 console

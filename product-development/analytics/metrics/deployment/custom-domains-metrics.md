@@ -1,6 +1,6 @@
 # Custom Domains - Metrics Definition
 
-**Feature:** Custom Domains
+**Feature:** Custom Domains (branded document portals)
 **Owner:** Hannah Stulberg, PM
 **Analytics Lead:** Casey Nguyen
 
@@ -8,8 +8,8 @@
 
 | Metric | Definition | Target | Source |
 |--------|-----------|--------|--------|
-| Domain setup completion rate | % of users who start the custom domain flow (add a domain) and reach `Live` status | > 75% | `custom_domains` table, funnel: `created` -> `dns_verified` -> `ssl_provisioned` -> `live` |
-| Time-to-live | Median elapsed time from domain added (`created_at`) to first request served on the custom domain | < 10 min | `custom_domains.created_at` to first `domain_request_events.timestamp` |
+| Domain setup completion rate | % of users who start the custom portal domain flow (add a domain) and reach `Live` status | > 75% | `custom_domains` table, funnel: `created` -> `dns_verified` -> `ssl_provisioned` -> `live` |
+| Time-to-live | Median elapsed time from domain added (`created_at`) to first request served on the custom portal domain | < 10 min | `custom_domains.created_at` to first `domain_request_events.timestamp` |
 
 # Secondary Metrics
 
@@ -19,14 +19,14 @@
 | Renewal success rate | % of auto-renewal attempts that succeed without manual intervention | > 99.5% | `domain_certificates` where renewal attempted and `status` remained `active` |
 | DNS verification success rate | % of added domains that reach `dns_status = 'verified'` within 48 hours | > 80% | `custom_domains` where `dns_status = 'verified'` / total created |
 | DNS verification time | Median time from domain added to DNS verified | < 30 min | `custom_domains.created_at` to timestamp of `dns_status = 'verified'` transition |
-| Free-to-Pro conversion lift | Relative increase in Free-to-Pro conversion among users who encounter the custom domain upgrade CTA | +15% | `custom_domain_events` joined with `subscriptions` |
-| Domain removal rate | % of custom domains removed within 30 days of being added | < 10% | `custom_domains` where deleted within 30 days of `created_at` |
+| Free-to-Pro conversion lift | Relative increase in Free-to-Pro conversion among users who encounter the custom portal domain upgrade CTA | +15% | `custom_domain_events` joined with `subscriptions` |
+| Domain removal rate | % of custom portal domains removed within 30 days of being added | < 10% | `custom_domains` where deleted within 30 days of `created_at` |
 
 # Data Sources
 
-- **`custom_domains`** -- Primary domain table in Snowflake, populated via backend event logging
+- **`custom_domains`** -- Primary custom portal domain table in Snowflake, populated via backend event logging (foreign key `project_id`/`workflow_id` points to `workflows`)
 - **`domain_certificates`** -- Certificate lifecycle table, tracks issuance, renewal, and expiry
-- **`domain_request_events`** -- Edge proxy logs for requests served on custom domains (via Snowpipe)
+- **`domain_request_events`** -- Edge proxy logs for requests served on custom portal domains (via Snowpipe)
 - **`subscriptions`** -- Stripe subscription data synced daily via Fivetran
 - **`custom_domain_events`** -- Segment events for domain add, verify, remove, and upgrade CTA interactions
 
@@ -46,4 +46,4 @@
 
 | Investigation | Date | Summary |
 |--------------|------|---------|
-| [2026-03-18-custom-domain-adoption-funnel.md](../../investigations/deployment/2026-03-18-custom-domain-adoption-funnel.md) | 2026-03-18 | Custom domain adoption funnel drop-off analysis |
+| [2026-03-18-custom-domain-adoption-funnel.md](../../investigations/deployment/2026-03-18-custom-domain-adoption-funnel.md) | 2026-03-18 | Custom portal domain adoption funnel drop-off analysis |

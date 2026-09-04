@@ -1,7 +1,7 @@
 # Write example_product Product Vision & Competitive Strategy Document
 
 ## Context
-Leadership needs a comprehensive product vision and competitive strategy document that articulates why example_product is differentiated in the AI prototyping space, maps the competitive landscape, and makes the case for why example_product is uniquely positioned to win. The document will be used for exec reviews, board prep, and strategic planning.
+Leadership needs a comprehensive product vision and competitive strategy document that articulates why example_product is differentiated in the SaaS document automation space, maps the competitive landscape, and makes the case for why example_product is uniquely positioned to win. The document will be used for exec reviews, board prep, and strategic planning.
 
 ## Output
 Single markdown file: `product-development/product/strategy/vision/example_product-competitive-strategy-2026.md`
@@ -24,17 +24,17 @@ vision/.tmp/
 
 ### Competitive research
 - `product-development/product/competitive-research/competitors/competitive-matrix.md` — feature comparison across all 6 competitors
-- `product-development/product/competitive-research/competitors/lovable/tldr.md`
-- `product-development/product/competitive-research/competitors/google-stitch/tldr.md`
-- `product-development/product/competitive-research/competitors/v0/tldr.md`
-- `product-development/product/competitive-research/competitors/replit/tldr.md`
-- `product-development/product/competitive-research/competitors/figma-make/tldr.md`
-- `product-development/product/competitive-research/competitors/bolt/tldr.md`
+- `product-development/product/competitive-research/competitors/pandadoc/tldr.md`
+- `product-development/product/competitive-research/competitors/conga/tldr.md`
+- `product-development/product/competitive-research/competitors/dropbox-sign/tldr.md`
+- `product-development/product/competitive-research/competitors/ironclad/tldr.md`
+- `product-development/product/competitive-research/competitors/adobe-acrobat-sign/tldr.md`
+- `product-development/product/competitive-research/competitors/docusign/tldr.md`
 - `product-development/product/competitive-research/competitors/*/pricing.md` — pricing per competitor
 
 ### Product context
 - `product-development/product/CLAUDE.md` — five core pillars, terminology, product overview
-- `product-development/product/strategy/vision/example_product-platform-vision.md` — existing vision doc
+- `product-development/product/strategy/vision/platform-vision.md` — existing vision doc
 - `product-development/product/strategy/business-context/example_product-business-info.md` — business context and metrics
 - `product-development/product/strategy/business-context/example_product-jtbd-and-users.md` — jobs to be done and personas
 
@@ -74,7 +74,7 @@ Step 3:  Assembly (after all agents complete)
 Prompt:
 
 ```
-You are writing sections of a product vision and competitive strategy document for example_product, an AI prototyping platform.
+You are writing sections of a product vision and competitive strategy document for example_product, an AI-powered SaaS document automation platform.
 
 WRITING GUIDE: Read `.claude-user/skills/writing-guide-strategy/SKILL.md` before writing anything. Follow the voice principles, argument construction pattern, and evidence toolkit exactly.
 
@@ -82,7 +82,7 @@ SHARED CONTEXT:
 [Insert shared context briefing from Step 1]
 
 SOURCE FILES TO READ:
-- `product-development/product/strategy/vision/example_product-platform-vision.md` — existing vision
+- `product-development/product/strategy/vision/platform-vision.md` — existing vision
 - `product-development/product/strategy/business-context/example_product-jtbd-and-users.md` — user personas and JTBD
 - `product-development/product/strategy/vision/.tmp/agent4-customer-research.md` — customer research synthesis (from Agent 4, read after it completes)
 
@@ -93,11 +93,11 @@ WRITE THE FOLLOWING SECTIONS:
 Organize around two themes:
 
 **What's broken (5 structural failures):**
-1. The stack is fragmented by design — AI prototyping tools cover one slice (frontend, or backend, or deployment) but none cover the full stack. Customers assemble 3-5 tools.
-2. Prototype-to-production gap kills projects — most AI-generated code never ships. It's a demo, not an app. The export-to-IDE gap is where projects die.
-3. Enterprise is locked out — no AI prototyping tool has SSO, audit logs, or compliance. Enterprise teams can't adopt.
-4. Collaboration is an afterthought — most tools are single-player. Teams can't work together on generated projects.
-5. Design quality vs engineering depth is a false tradeoff — tools are either beautiful but shallow (Lovable) or deep but ugly (Replit). Nobody does both.
+1. The stack is fragmented by design — document tools cover one slice (signature, or extraction, or contract lifecycle) but none cover the full stack. Customers assemble 3-5 tools.
+2. Extraction-to-production gap kills workflows — most "smart" document tools still dump raw text for a human to clean up. It's OCR, not automation. The manual-review gap is where workflows die.
+3. Enterprise is locked out of the fast tools — the tools with real SSO, audit logs, and compliance are the slow, expensive, Salesforce-locked ones. Enterprise teams can't get speed and compliance together.
+4. Collaboration is an afterthought — most tools are single-player, built for one signer at a time. Teams can't build and refine a workflow together.
+5. Extraction accuracy vs ease-of-use is a false tradeoff — tools are either easy but shallow (PandaDoc) or accurate but locked-in and slow (Conga). Nobody does both.
 
 **How this impacts customers (with verbatims):**
 - Pull 2-3 real customer quotes from the call summaries
@@ -107,7 +107,7 @@ Organize around two themes:
 
 Three parts:
 1. Mission/Vision/North Star — draft crisp, bold statements specific to example_product
-2. Why example_product can do better — structural advantages (full-stack generation, one-click deploy, enterprise features, template marketplace)
+2. Why example_product can do better — structural advantages (full-stack extraction-to-publish, one-click publish, enterprise features, template marketplace)
 3. The Five Pillars — brief overview referencing the pillar definitions from product/CLAUDE.md
 
 ## Section 3: Executive Summary
@@ -127,7 +127,7 @@ OUTPUT: Write to `product-development/product/strategy/vision/.tmp/agent1-vision
 Prompt:
 
 ```
-You are writing sections of a product vision and competitive strategy document for example_product, an AI prototyping platform.
+You are writing sections of a product vision and competitive strategy document for example_product, an AI-powered SaaS document automation platform.
 
 WRITING GUIDE: Read `.claude-user/skills/writing-guide-strategy/SKILL.md` before writing anything. Follow the voice principles, argument construction pattern, and evidence toolkit exactly.
 
@@ -136,18 +136,18 @@ SHARED CONTEXT:
 
 SOURCE FILES TO READ:
 - `product-development/product/competitive-research/competitors/competitive-matrix.md` — full feature matrix
-- `product-development/product/competitive-research/competitors/lovable/tldr.md`
-- `product-development/product/competitive-research/competitors/lovable/pricing.md`
-- `product-development/product/competitive-research/competitors/google-stitch/tldr.md`
-- `product-development/product/competitive-research/competitors/google-stitch/pricing.md`
-- `product-development/product/competitive-research/competitors/v0/tldr.md`
-- `product-development/product/competitive-research/competitors/v0/pricing.md`
-- `product-development/product/competitive-research/competitors/replit/tldr.md`
-- `product-development/product/competitive-research/competitors/replit/pricing.md`
-- `product-development/product/competitive-research/competitors/bolt/tldr.md`
-- `product-development/product/competitive-research/competitors/bolt/pricing.md`
-- `product-development/product/competitive-research/competitors/figma-make/tldr.md`
-- `product-development/product/competitive-research/competitors/figma-make/pricing.md`
+- `product-development/product/competitive-research/competitors/pandadoc/tldr.md`
+- `product-development/product/competitive-research/competitors/pandadoc/pricing.md`
+- `product-development/product/competitive-research/competitors/conga/tldr.md`
+- `product-development/product/competitive-research/competitors/conga/pricing.md`
+- `product-development/product/competitive-research/competitors/dropbox-sign/tldr.md`
+- `product-development/product/competitive-research/competitors/dropbox-sign/pricing.md`
+- `product-development/product/competitive-research/competitors/ironclad/tldr.md`
+- `product-development/product/competitive-research/competitors/ironclad/pricing.md`
+- `product-development/product/competitive-research/competitors/docusign/tldr.md`
+- `product-development/product/competitive-research/competitors/docusign/pricing.md`
+- `product-development/product/competitive-research/competitors/adobe-acrobat-sign/tldr.md`
+- `product-development/product/competitive-research/competitors/adobe-acrobat-sign/pricing.md`
 
 WRITE THE FOLLOWING SECTIONS:
 
@@ -155,7 +155,7 @@ WRITE THE FOLLOWING SECTIONS:
 
 Build a matrix with:
 - Rows: example_product + all 6 competitors
-- Columns: the 5 pillars (Generation Quality, Developer Experience, Deployment, Collaboration, Enterprise) + a "Pillar Count" column
+- Columns: the 5 pillars (Extraction Quality, Workflow Building Experience, Publishing, Collaboration, Enterprise) + a "Pillar Count" column
 - Cells: Full / Partial / None (pulled from competitive-matrix.md)
 - Key insight line: "No single competitor covers all 5 pillars."
 
@@ -186,7 +186,7 @@ OUTPUT: Write to `product-development/product/strategy/vision/.tmp/agent2-compet
 Prompt:
 
 ```
-You are writing sections of a product vision and competitive strategy document for example_product, an AI prototyping platform.
+You are writing sections of a product vision and competitive strategy document for example_product, an AI-powered SaaS document automation platform.
 
 WRITING GUIDE: Read `.claude-user/skills/writing-guide-strategy/SKILL.md` before writing anything. Follow the voice principles, argument construction pattern, and evidence toolkit exactly.
 
@@ -211,7 +211,7 @@ One comparison table per pillar (5 tables). For each table:
 
 ## Section 7: Head-to-Head Investment Roadmap
 
-For each major competitor (Lovable, Google Stitch, Replit, Bolt):
+For each major competitor (PandaDoc, Conga, Ironclad, DocuSign):
 
 ### Beating [Competitor]
 **Their core strength:** [1 sentence]
@@ -234,7 +234,7 @@ OUTPUT: Write to `product-development/product/strategy/vision/.tmp/agent3-featur
 Prompt:
 
 ```
-You are writing a customer research synthesis section for a product vision and competitive strategy document for example_product, an AI prototyping platform.
+You are writing a customer research synthesis section for a product vision and competitive strategy document for example_product, an AI-powered SaaS document automation platform.
 
 WRITING GUIDE: Read `.claude-user/skills/writing-guide-strategy/SKILL.md` before writing anything. Follow the voice principles, argument construction pattern, and evidence toolkit exactly.
 
@@ -261,7 +261,7 @@ WRITE THE FOLLOWING SECTION:
 Synthesize across all customer accounts and call summaries to surface:
 
 **Common themes:**
-- What are customers consistently asking for? Group requests into themes (e.g. "enterprise security," "deployment flexibility," "design quality").
+- What are customers consistently asking for? Group requests into themes (e.g. "enterprise security," "publishing flexibility," "extraction accuracy").
 - What pain points come up repeatedly across different accounts?
 
 **Segment patterns:**
@@ -275,7 +275,7 @@ Synthesize across all customer accounts and call summaries to surface:
 
 **Feature demand signals:**
 - Which features from the competitive matrix are customers explicitly requesting?
-- Map customer requests to specific competitors they're comparing us to (e.g. "Stackline wants API access — evaluating Replit as alternative")
+- Map customer requests to specific competitors they're comparing us to (e.g. "Stackline wants API access — evaluating Ironclad as alternative")
 
 **Risk signals:**
 - Which accounts have churn risk and why?

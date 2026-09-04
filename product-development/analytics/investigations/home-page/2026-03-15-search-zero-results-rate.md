@@ -1,4 +1,4 @@
-# Investigation: High Zero-Results Rate in Project Search
+# Investigation: High Zero-Results Rate in Workflow & Template Search
 
 | Field | Value |
 |-------|-------|
@@ -12,14 +12,14 @@
 
 ## Objective
 
-Investigate why the zero-results rate for Project Search (Cmd+K) is elevated at 23%, well above the 15% target established in the PRD. Identify the root causes driving empty search results and recommend actionable improvements to the search system.
+Investigate why the zero-results rate for Workflow & Template Search (Cmd+K) is elevated at 23%, well above the 15% target established in the PRD. Identify the root causes driving empty search results and recommend actionable improvements to the search system.
 
 ## Methodology
 
 1. Pulled all search events from the beta rollout period (2026-03-01 through 2026-03-14) -- 12,847 total search queries from 1,923 unique users.
 2. Segmented zero-result queries by query text patterns, user tier, and session context.
 3. Manually categorized a random sample of 200 zero-result queries into root cause buckets.
-4. Cross-referenced zero-result queries against existing project names, template titles, and action descriptions to identify near-misses.
+4. Cross-referenced zero-result queries against existing workflow names, template titles, and automation-run descriptions to identify near-misses.
 5. Analyzed click-through behavior on sessions that included both zero-result and successful searches to understand recovery patterns.
 
 ## Key Findings
@@ -30,11 +30,11 @@ During the beta period, 2,955 out of 12,847 searches returned no results. This b
 
 | Root Cause | % of Zero-Result Queries | Example Queries |
 |------------|-------------------------|-----------------|
-| Misspellings / typos | 38% | "dashbaord", "landign page", "ecomerce" |
-| Component-level searches | 24% | "navbar", "sidebar", "login form", "pricing table" |
-| Framework or library names | 15% | "next.js", "tailwind", "shadcn", "prisma" |
-| Overly specific phrases | 12% | "my project from tuesday", "the one with the blue header" |
-| Non-existent content | 11% | "mobile app", "flutter template", "iOS" |
+| Misspellings / typos | 38% | "invocie", "contarct", "worfklow" |
+| Field/clause-level searches | 24% | "signature block", "approval step", "field mapping", "clause library" |
+| Integration or delivery-partner names | 15% | "quickbooks", "netsuite", "salesforce", "docusign" |
+| Overly specific phrases | 12% | "the contract from tuesday", "the one with the blue header" |
+| Non-existent content | 11% | "background check form", "time-off request", "expense report" |
 
 ### Finding 2: Misspellings account for the largest share
 
@@ -42,23 +42,23 @@ During the beta period, 2,955 out of 12,847 searches returned no results. This b
 
 | Misspelled Query | Intended Match | Frequency |
 |-----------------|----------------|-----------|
-| "dashbaord" | "dashboard" | 87 |
-| "landign" | "landing" | 52 |
-| "ecomerce" / "ecommrce" | "e-commerce" | 41 |
-| "portfoilo" | "portfolio" | 29 |
-| "admni" | "admin" | 23 |
+| "invocie" | "invoice" | 87 |
+| "contarct" | "contract" | 52 |
+| "worfklow" | "workflow" | 41 |
+| "temmplate" | "template" | 29 |
+| "aproval" | "approval" | 23 |
 
-### Finding 3: Component-level searches reveal an indexing gap
+### Finding 3: Field/clause-level searches reveal an indexing gap
 
-24% of zero-result searches are for UI component names ("navbar", "sidebar", "login form", "pricing table"). These searches fail because the search index only covers project names, descriptions, and template titles. It does not index the individual components or page elements within projects or templates.
+24% of zero-result searches are for field/clause-level terms ("signature block", "approval step", "field mapping", "clause library"). These searches fail because the search index only covers workflow names, descriptions, and template titles. It does not index the individual extraction fields, clauses, or routing steps within workflows or templates.
 
 | Component Query | Frequency | Templates That Should Match |
 |----------------|-----------|---------------------------|
-| "navbar" | 64 | SaaS Dashboard, Landing Page, Portfolio |
-| "login form" | 48 | SaaS Dashboard, Admin Panel |
-| "pricing table" | 37 | Landing Page, SaaS Marketing |
-| "sidebar" | 31 | Admin Panel, Dashboard Starter |
-| "chart" / "charts" | 28 | Analytics Dashboard, SaaS Dashboard |
+| "signature block" | 64 | Vendor Contract, Sales Contract, NDA |
+| "approval step" | 48 | Purchase Order, Vendor Onboarding |
+| "field mapping" | 37 | Invoice, Intake Form |
+| "routing rules" | 31 | Purchase Order, Expense Report |
+| "clause library" / "clauses" | 28 | NDA, Sales Contract |
 
 ### Finding 4: Zero-results sessions have lower retention
 
@@ -87,11 +87,11 @@ Implement PostgreSQL `pg_trgm` trigram matching as a fallback when `plainto_tsqu
 
 **Implementation:** Add a `title_trigram` GIN index on `search_index.title` using `gin_trgm_ops`. When the primary tsquery returns zero results, fall back to `similarity(title, :query) > 0.3` ordered by similarity score.
 
-### R2: Index component and element names (Priority: P1)
+### R2: Index field and clause names (Priority: P1)
 
-Expand the `search_index` to include component-level content from templates. Add a `components` text field to the search index populated from template metadata. This addresses 24% of zero-result queries.
+Expand the `search_index` to include field/clause-level content from templates. Add a `components` text field to the search index populated from template metadata (extracted fields, detected clauses, routing steps). This addresses 24% of zero-result queries.
 
-**Implementation:** Add a new field to the `search_index.metadata` JSONB column containing an array of component names extracted from each template's manifest. Include these in the `search_vector` with weight 'C'.
+**Implementation:** Add a new field to the `search_index.metadata` JSONB column containing an array of field/clause names extracted from each template's manifest. Include these in the `search_vector` with weight 'C'.
 
 ### R3: Add "did you mean" suggestions (Priority: P2)
 
@@ -99,7 +99,7 @@ When a search returns zero results, show a "Did you mean: [suggestion]?" prompt 
 
 ### R4: Track zero-result queries for template gap analysis (Priority: P1)
 
-Pipe zero-result queries that fall into the "non-existent content" bucket (11%) into a weekly report for the product team. Queries like "mobile app", "flutter template", and "iOS" signal demand for content types example_product does not yet support.
+Pipe zero-result queries that fall into the "non-existent content" bucket (11%) into a weekly report for the product team. Queries like "background check form", "time-off request", and "expense report" signal demand for document types example_product does not yet support.
 
 ---
 

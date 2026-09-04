@@ -12,13 +12,13 @@
 
 ### Credit Utilization Rate
 
-**Definition**: Percentage of allocated credits used within a billing cycle.
+**Definition**: Percentage of allocated credits used within a billing cycle. Credits are consumed as pages/documents are processed through automation runs and published portals.
 
 ```
 credit_utilization_rate = (total_credits_debited_in_cycle / cycle_credit_allocation) * 100
 ```
 
-**Segmentation**: Calculated per user and aggregated by subscription tier (Free, Pro, Team, Business, Enterprise).
+**Segmentation**: Calculated per user and aggregated by subscription tier (Free, Pro, Teams, Enterprise).
 
 **Target**: This is a tracking metric rather than an optimization target. The goal is to understand distribution:
 - Users below 30% utilization may be over-provisioned (downgrade risk or engagement problem).
@@ -30,7 +30,7 @@ credit_utilization_rate = (total_credits_debited_in_cycle / cycle_credit_allocat
 |------|-------------------|---------------|-----------------|
 | Free | 72% | 38% | 22% |
 | Pro | 61% | 24% | 11% |
-| Team | 54% | 18% | 7% |
+| Teams | 54% | 18% | 7% |
 
 **Refresh cadence**: Daily, computed in the `dbt_billing.credit_utilization` model.
 
@@ -54,23 +54,23 @@ credit_to_upgrade_rate = (users_who_upgraded_within_7d_of_low_balance / users_wh
 
 ## Secondary Metrics
 
-### Average Credits per Generation
+### Average Credits per Automation Run
 
-**Definition**: Mean number of credits consumed per generation event, segmented by generation type (text-to-UI, image-to-UI, iteration).
+**Definition**: Mean number of credits consumed per automation run, segmented by document type (contract, invoice, intake form).
 
 ```
 avg_credits_per_generation = SUM(amount) / COUNT(DISTINCT reference_id)
-WHERE category = 'generation' AND type = 'debit'
+WHERE category = 'automation_run' AND type = 'debit'
 ```
 
 **Current values (March 2026)**:
-| Generation Type | Avg Credits |
+| Document Type | Avg Credits |
 |----------------|-------------|
-| Text-to-UI | 12.4 |
-| Image-to-UI | 18.7 |
-| Iteration | 6.2 |
+| Contract | 12.4 |
+| Invoice | 18.7 |
+| Intake Form | 6.2 |
 
-**Use case**: Informs credit pricing decisions and helps users understand relative costs across generation types.
+**Use case**: Informs credit pricing decisions and helps users understand relative costs across document types.
 
 ---
 
@@ -87,8 +87,7 @@ depletion_rate = (users_reaching_zero_balance / total_users_in_tier) * 100
 |------|---------------|
 | Free | 22% |
 | Pro | 11% |
-| Team | 7% |
-| Business | 3% |
+| Teams | 7% |
 
 **Target**: Reduce Free and Pro depletion rates by 30% relative through proactive warnings (not by increasing allocations).
 
@@ -104,7 +103,7 @@ refund_rate = (SUM(amount WHERE category = 'refund') / SUM(amount WHERE type = '
 
 **Current value**: 2.1% (March 2026).
 
-**Target**: <3%. A refund rate above 3% may indicate generation quality issues driving user dissatisfaction and manual refund requests.
+**Target**: <3%. A refund rate above 3% may indicate extraction quality issues driving user dissatisfaction and manual refund requests.
 
 ---
 
@@ -116,7 +115,7 @@ refund_rate = (SUM(amount WHERE category = 'refund') / SUM(amount WHERE type = '
 | User profiles | `analytics.example_product.dim_users` | 15 min (Fivetran) | Current tier, signup date, email. |
 | Subscription plans | `analytics.example_product.dim_subscription_plans` | Daily (dbt seed) | Credit allocations per tier. |
 | Stripe events | `analytics.stripe.charges` | 1 hour (Fivetran) | Revenue tie-out and upgrade event detection. |
-| Generation events | `analytics.example_product.fact_generations` | 15 min (Fivetran) | Generation type and metadata for per-type credit analysis. |
+| Automation run events | `analytics.example_product.workflow_automation_runs` | 15 min (Fivetran) | Document type and metadata for per-type credit analysis. Legacy name: `fact_generations`. |
 
 ## Dashboard Links
 
