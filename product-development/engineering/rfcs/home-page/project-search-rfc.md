@@ -1,4 +1,4 @@
-# RFC: Project Search (Cmd+K)
+# RFC: Global Search (Cmd+K)
 
 **Author:** Jordan Kim, Engineer
 **Status:** Draft
@@ -25,16 +25,16 @@
 
 ## Summary
 
-This RFC proposes a global search modal triggered by Cmd+K (Ctrl+K on Windows/Linux) that allows users to quickly find projects, templates, and recent actions from anywhere in the example_product application. The search system will consist of a full-text search index backed by PostgreSQL, a lightweight API endpoint optimized for typeahead latency, and a keyboard-navigable modal component rendered as a global overlay.
+This RFC proposes a global search modal triggered by Cmd+K (Ctrl+K on Windows/Linux) that allows users to quickly find workflows, templates, and automation runs from anywhere in the example_product application. The search system will consist of a full-text search index backed by PostgreSQL, a lightweight API endpoint optimized for typeahead latency, and a keyboard-navigable modal component rendered as a global overlay.
 
 ## Motivation
 
-example_product users accumulate projects quickly. Power users on our Teams and Enterprise tiers regularly maintain 50+ active projects, and template exploration is a core part of the onboarding flow. Today, finding a specific project requires scrolling through the home page project grid or relying on browser history. There is no way to search across templates or jump to recent actions (e.g., last deployment, last edited project).
+example_product users accumulate workflows quickly. Power users on our Teams and Enterprise tiers regularly maintain 50+ active workflows (contracts, invoices, intake forms), and template exploration is a core part of the onboarding flow. Today, finding a specific workflow requires scrolling through the home page workflow grid or relying on browser history. There is no way to search across templates or jump to recent automation runs (e.g., last publish, last edited workflow).
 
 Customer interviews surface this pain consistently:
 
-- *"I have 80 projects and no way to find the one I worked on last Tuesday."* -- Acme Corp, Enterprise
-- *"I know there's a SaaS dashboard template but I can't remember where I saw it."* -- Free-tier user in onboarding session
+- *"I have 80 vendor contract workflows and no way to find the one I worked on last Tuesday."* -- Acme Corp, Enterprise
+- *"I know there's a vendor onboarding template but I can't remember where I saw it."* -- Free-tier user in onboarding session
 
 A global search modal is a well-understood UX pattern (VS Code, Slack, Linear, Notion) that directly addresses discoverability without disrupting existing navigation. It also creates a foundation for future extensibility: searching documentation, team members, or settings.
 
@@ -51,14 +51,14 @@ Stores a flattened, searchable representation of all content types. Updated asyn
 ```sql
 CREATE TABLE search_index (
     id              UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    content_type    VARCHAR(30) NOT NULL,          -- 'project', 'template', 'action'
+    content_type    VARCHAR(30) NOT NULL,          -- 'workflow', 'template', 'automation_run'
     content_id      UUID NOT NULL,                  -- FK to source record
     user_id         UUID NOT NULL,                  -- Owner / actor
     org_id          UUID,                           -- NULL for free-tier users
     title           TEXT NOT NULL,                   -- Display title
     description     TEXT,                            -- Subtitle / secondary text
     search_vector   TSVECTOR NOT NULL,              -- Full-text search column
-    metadata        JSONB DEFAULT '{}',             -- Flexible attributes (tags, framework, status)
+    metadata        JSONB DEFAULT '{}',             -- Flexible attributes (tags, document type, status)
     last_accessed   TIMESTAMP WITH TIME ZONE,       -- For recency ranking
     created_at      TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
     updated_at      TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
@@ -85,9 +85,9 @@ CREATE TABLE search_events (
     query_length        INTEGER NOT NULL,
     result_count        INTEGER NOT NULL DEFAULT 0,
     clicked_result_id   UUID,                       -- NULL if no click
-    clicked_result_type VARCHAR(30),                -- 'project', 'template', 'action'
+    clicked_result_type VARCHAR(30),                -- 'workflow', 'template', 'automation_run'
     clicked_position    INTEGER,                    -- 1-indexed position in result list
-    filters_applied     JSONB DEFAULT '{}',         -- e.g. {"type": "project", "date_range": "7d"}
+    filters_applied     JSONB DEFAULT '{}',         -- e.g. {"type": "workflow", "date_range": "7d"}
     time_to_click_ms    INTEGER,                    -- NULL if no click
     created_at          TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW()
 );
@@ -127,7 +127,7 @@ Single endpoint serving both typeahead (as-you-type) and full search results.
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
 | `q` | string | Yes | -- | Search query string (min 1 char) |
-| `type` | string | No | `all` | Filter by content type: `projects`, `templates`, `actions`, `all` |
+| `type` | string | No | `all` | Filter by content type: `workflows`, `templates`, `runs`, `all` |
 | `date_from` | string | No | -- | ISO 8601 date, lower bound for `last_accessed` |
 | `date_to` | string | No | -- | ISO 8601 date, upper bound for `last_accessed` |
 | `limit` | integer | No | `10` | Max results per content type (max 25) |
@@ -137,57 +137,57 @@ Single endpoint serving both typeahead (as-you-type) and full search results.
 
 ```json
 {
-  "query": "dashboard",
+  "query": "vendor onboarding",
   "total_count": 14,
   "results": {
-    "projects": [
+    "workflows": [
       {
         "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
-        "title": "SaaS Dashboard v2",
-        "description": "Admin dashboard with analytics charts",
-        "content_type": "project",
+        "title": "Vendor Onboarding v2",
+        "description": "Contract intake + W-9 extraction + approval routing",
+        "content_type": "workflow",
         "last_accessed": "2026-03-21T14:30:00Z",
         "metadata": {
-          "framework": "next.js",
+          "document_type": "vendor-onboarding",
           "status": "active",
-          "deploy_count": 3
+          "publish_count": 3
         },
         "highlight": {
-          "title": "SaaS <mark>Dashboard</mark> v2",
-          "description": "Admin <mark>dashboard</mark> with analytics charts"
+          "title": "<mark>Vendor Onboarding</mark> v2",
+          "description": "Contract intake + W-9 extraction + approval routing"
         }
       }
     ],
     "templates": [
       {
         "id": "b2c3d4e5-f6a7-8901-bcde-f12345678901",
-        "title": "Analytics Dashboard Starter",
-        "description": "Pre-built dashboard template with chart components",
+        "title": "Vendor Onboarding Starter",
+        "description": "Pre-built template for vendor intake, W-9 collection, and NDA routing",
         "content_type": "template",
         "last_accessed": null,
         "metadata": {
-          "category": "business",
+          "category": "vendor-onboarding",
           "popularity_rank": 5
         },
         "highlight": {
-          "title": "Analytics <mark>Dashboard</mark> Starter",
-          "description": "Pre-built <mark>dashboard</mark> template with chart components"
+          "title": "<mark>Vendor Onboarding</mark> Starter",
+          "description": "Pre-built template for <mark>vendor</mark> intake, W-9 collection, and NDA routing"
         }
       }
     ],
-    "actions": [
+    "runs": [
       {
         "id": "c3d4e5f6-a7b8-9012-cdef-123456789012",
-        "title": "Deployed SaaS Dashboard v2",
-        "description": "Deployed to production 2 hours ago",
-        "content_type": "action",
+        "title": "Published Vendor Onboarding v2",
+        "description": "Published to live portal 2 hours ago",
+        "content_type": "automation_run",
         "last_accessed": "2026-03-22T10:15:00Z",
         "metadata": {
-          "action_type": "deploy",
-          "project_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+          "action_type": "publish",
+          "workflow_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
         },
         "highlight": {
-          "title": "Deployed SaaS <mark>Dashboard</mark> v2"
+          "title": "Published <mark>Vendor Onboarding</mark> v2"
         }
       }
     ]
@@ -201,7 +201,7 @@ Single endpoint serving both typeahead (as-you-type) and full search results.
 | Status | Code | Description |
 |--------|------|-------------|
 | 400 | `INVALID_QUERY` | Query parameter `q` is missing or empty |
-| 400 | `INVALID_TYPE_FILTER` | `type` is not one of `projects`, `templates`, `actions`, `all` |
+| 400 | `INVALID_TYPE_FILTER` | `type` is not one of `workflows`, `templates`, `runs`, `all` |
 | 400 | `INVALID_DATE_RANGE` | `date_from` is after `date_to` or dates are malformed |
 | 401 | `UNAUTHORIZED` | Missing or invalid authentication token |
 | 429 | `RATE_LIMITED` | User exceeded 60 requests/minute search rate limit |
@@ -226,12 +226,12 @@ Located at `src/components/search/SearchModal.tsx`. The modal is a global overla
 ```
 SearchModal
 ├── SearchInput          -- Auto-focused text input with clear button
-├── FilterBar            -- Type filter chips (All, Projects, Templates, Actions)
+├── FilterBar            -- Type filter chips (All, Workflows, Templates, Runs)
 ├── ResultSections       -- Grouped result lists
 │   ├── RecentSearches   -- Shown when input is empty
-│   ├── ProjectResults   -- Project result cards
+│   ├── WorkflowResults  -- Workflow result cards
 │   ├── TemplateResults  -- Template result cards
-│   └── ActionResults    -- Action result cards
+│   └── RunResults       -- Automation run result cards
 └── SearchFooter         -- Keyboard shortcut hints (arrows, enter, esc)
 ```
 
@@ -249,9 +249,9 @@ SearchModal
 **Result Sections:**
 
 1. **Recent Searches** -- Displayed when the input is empty. Pulled from localStorage (`example_product:recent-searches`). Stores the last 5 queries as an array of `{ query: string, timestamp: number }` objects.
-2. **Projects** -- Shows project name, framework badge, last-accessed timestamp, and deploy count.
+2. **Workflows** -- Shows workflow name, document-type badge, last-accessed timestamp, and publish count.
 3. **Templates** -- Shows template name, category tag, and popularity indicator.
-4. **Actions** -- Shows action description, action type icon (deploy, edit, generate), and relative timestamp.
+4. **Runs** -- Shows automation run description, action type icon (publish, edit, extraction), and relative timestamp.
 
 **Debouncing:** Input is debounced at 200ms before triggering API calls. A loading skeleton is shown during the request. If the user clears the input or types a new query before the previous response arrives, the stale response is discarded via an AbortController.
 
@@ -279,10 +279,10 @@ A row of chip buttons above the results. Options:
 
 | Value | Label | Searches |
 |-------|-------|----------|
-| `all` | All | Projects + Templates + Actions |
-| `projects` | Projects | User-owned and shared projects |
+| `all` | All | Workflows + Templates + Runs |
+| `workflows` | Workflows | User-owned and shared workflows |
 | `templates` | Templates | Public and org-private templates |
-| `actions` | Actions | Recent deployments, edits, generations |
+| `runs` | Runs | Recent publishes, edits, automation runs |
 
 Type filter is passed as the `type` query parameter to `GET /api/search`. Default is `all`.
 
@@ -356,7 +356,7 @@ WHERE created_at < NOW() - INTERVAL '90 days';
 
 3. **Rate Limiting:** The search endpoint is rate-limited at 60 requests/minute per authenticated user. Unauthenticated requests return 401 before any database query executes.
 
-4. **PII in Search Events:** The `search_events` table stores `query_text`, which may contain user-generated content. This table is classified as PII-containing and will be:
+4. **PII in Search Events:** The `search_events` table stores `query_text`, which may contain user-generated content (and, since workflow titles often reference customer or vendor names, may contain business-sensitive terms). This table is classified as PII-containing and will be:
    - Excluded from analytics data warehouse exports until the query text is hashed or redacted.
    - Subject to 90-day retention with automated deletion.
    - Accessible only to the analytics team via role-restricted views.

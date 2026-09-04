@@ -19,12 +19,12 @@
     --text-dim: #4e4c5a;
     --accent: #c9a84c;
     --accent-dim: rgba(201, 168, 76, 0.15);
-    --lovable: #9b59b6;
-    --bolt: #3b82f6;
-    --v0: #e2e0db;
-    --replit: #f26522;
-    --figma: #0acf83;
-    --stitch: #34a853;
+    --pandadoc: #9b59b6;
+    --docusign: #ffcc22;
+    --dropboxsign: #0061fe;
+    --ironclad: #f26522;
+    --acrobatsign: #ff0000;
+    --conga: #34a853;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -198,12 +198,12 @@
   }
 
   /* Competitor accent colors */
-  .card[data-competitor="lovable"] .card-header::before { background: var(--lovable); }
-  .card[data-competitor="bolt"] .card-header::before { background: var(--bolt); }
-  .card[data-competitor="v0"] .card-header::before { background: var(--v0); }
-  .card[data-competitor="replit"] .card-header::before { background: var(--replit); }
-  .card[data-competitor="figma"] .card-header::before { background: var(--figma); }
-  .card[data-competitor="stitch"] .card-header::before { background: var(--stitch); }
+  .card[data-competitor="pandadoc"] .card-header::before { background: var(--pandadoc); }
+  .card[data-competitor="docusign"] .card-header::before { background: var(--docusign); }
+  .card[data-competitor="dropbox-sign"] .card-header::before { background: var(--dropboxsign); }
+  .card[data-competitor="ironclad"] .card-header::before { background: var(--ironclad); }
+  .card[data-competitor="acrobat-sign"] .card-header::before { background: var(--acrobatsign); }
+  .card[data-competitor="conga"] .card-header::before { background: var(--conga); }
 
   /* Staggered card animations */
   @keyframes cardIn {
@@ -358,57 +358,57 @@
 
 <div class="section-title" id="monthly">Monthly Pricing</div>
 <div class="grid">
-  <div class="card" data-competitor="lovable">
-    <div class="card-header"><h3>Lovable</h3><span class="url">lovable.dev</span></div>
-    <img src="competitors/lovable/images/pricing-monthly-cropped.png" alt="Lovable monthly">
+  <div class="card" data-competitor="pandadoc">
+    <div class="card-header"><h3>PandaDoc</h3><span class="url">pandadoc.com</span></div>
+    <img src="competitors/pandadoc/images/pricing-monthly-cropped.png" alt="PandaDoc monthly">
   </div>
-  <div class="card" data-competitor="bolt">
-    <div class="card-header"><h3>Bolt</h3><span class="url">bolt.new</span></div>
-    <img src="competitors/bolt/images/pricing-monthly-cropped.png" alt="Bolt monthly">
+  <div class="card" data-competitor="docusign">
+    <div class="card-header"><h3>DocuSign</h3><span class="url">docusign.com</span></div>
+    <img src="competitors/docusign/images/pricing-monthly-cropped.png" alt="DocuSign monthly">
   </div>
-  <div class="card" data-competitor="v0">
-    <div class="card-header"><h3>v0</h3><span class="url">v0.app</span><span class="badge">No yearly toggle</span></div>
-    <img src="competitors/v0/images/pricing-monthly-cropped.png" alt="v0 monthly">
+  <div class="card" data-competitor="dropbox-sign">
+    <div class="card-header"><h3>Dropbox Sign</h3><span class="url">sign.dropbox.com</span></div>
+    <img src="competitors/dropbox-sign/images/pricing-monthly-cropped.png" alt="Dropbox Sign monthly">
   </div>
-  <div class="card" data-competitor="replit">
-    <div class="card-header"><h3>Replit</h3><span class="url">replit.com</span></div>
-    <img src="competitors/replit/images/pricing-monthly-cropped.png" alt="Replit monthly">
+  <div class="card" data-competitor="ironclad">
+    <div class="card-header"><h3>Ironclad</h3><span class="url">ironcladapp.com</span></div>
+    <img src="competitors/ironclad/images/pricing-monthly-cropped.png" alt="Ironclad monthly">
   </div>
-  <div class="card" data-competitor="figma">
-    <div class="card-header"><h3>Figma</h3><span class="url">figma.com</span></div>
-    <img src="competitors/figma-make/images/pricing-monthly-cropped.png" alt="Figma monthly">
+  <div class="card" data-competitor="acrobat-sign">
+    <div class="card-header"><h3>Adobe Acrobat Sign</h3><span class="url">acrobat.adobe.com/sign</span></div>
+    <img src="competitors/adobe-acrobat-sign/images/pricing-monthly-cropped.png" alt="Adobe Acrobat Sign monthly">
   </div>
-  <div class="card" data-competitor="stitch">
-    <div class="card-header"><h3>Google Stitch</h3><span class="url">stitch.withgoogle.com</span><span class="badge">Free (Beta)</span></div>
-    <img src="competitors/google-stitch/images/pricing-monthly-cropped.png" alt="Google Stitch monthly">
+  <div class="card" data-competitor="conga">
+    <div class="card-header"><h3>Conga</h3><span class="url">conga.com</span><span class="badge">Custom pricing only</span></div>
+    <img src="competitors/conga/images/pricing-monthly-cropped.png" alt="Conga monthly">
   </div>
 </div>
 
 <div class="section-title" id="yearly">Yearly Pricing</div>
 <div class="grid">
-  <div class="card" data-competitor="lovable">
-    <div class="card-header"><h3>Lovable</h3><span class="url">lovable.dev</span></div>
-    <img src="competitors/lovable/images/pricing-yearly-cropped.png" alt="Lovable yearly">
+  <div class="card" data-competitor="pandadoc">
+    <div class="card-header"><h3>PandaDoc</h3><span class="url">pandadoc.com</span></div>
+    <img src="competitors/pandadoc/images/pricing-yearly-cropped.png" alt="PandaDoc yearly">
   </div>
-  <div class="card" data-competitor="bolt">
-    <div class="card-header"><h3>Bolt</h3><span class="url">bolt.new</span></div>
-    <img src="competitors/bolt/images/pricing-yearly-cropped.png" alt="Bolt yearly">
+  <div class="card" data-competitor="docusign">
+    <div class="card-header"><h3>DocuSign</h3><span class="url">docusign.com</span></div>
+    <img src="competitors/docusign/images/pricing-yearly-cropped.png" alt="DocuSign yearly">
   </div>
-  <div class="card" data-competitor="v0">
-    <div class="card-header"><h3>v0</h3><span class="url">v0.app</span><span class="badge">No yearly toggle</span></div>
-    <img src="competitors/v0/images/pricing-yearly-cropped.png" alt="v0 yearly">
+  <div class="card" data-competitor="dropbox-sign">
+    <div class="card-header"><h3>Dropbox Sign</h3><span class="url">sign.dropbox.com</span></div>
+    <img src="competitors/dropbox-sign/images/pricing-yearly-cropped.png" alt="Dropbox Sign yearly">
   </div>
-  <div class="card" data-competitor="replit">
-    <div class="card-header"><h3>Replit</h3><span class="url">replit.com</span></div>
-    <img src="competitors/replit/images/pricing-yearly-cropped.png" alt="Replit yearly">
+  <div class="card" data-competitor="ironclad">
+    <div class="card-header"><h3>Ironclad</h3><span class="url">ironcladapp.com</span></div>
+    <img src="competitors/ironclad/images/pricing-yearly-cropped.png" alt="Ironclad yearly">
   </div>
-  <div class="card" data-competitor="figma">
-    <div class="card-header"><h3>Figma</h3><span class="url">figma.com</span></div>
-    <img src="competitors/figma-make/images/pricing-yearly-cropped.png" alt="Figma yearly">
+  <div class="card" data-competitor="acrobat-sign">
+    <div class="card-header"><h3>Adobe Acrobat Sign</h3><span class="url">acrobat.adobe.com/sign</span></div>
+    <img src="competitors/adobe-acrobat-sign/images/pricing-yearly-cropped.png" alt="Adobe Acrobat Sign yearly">
   </div>
-  <div class="card" data-competitor="stitch">
-    <div class="card-header"><h3>Google Stitch</h3><span class="url">stitch.withgoogle.com</span><span class="badge">Free (Beta)</span></div>
-    <img src="competitors/google-stitch/images/pricing-yearly-cropped.png" alt="Google Stitch yearly">
+  <div class="card" data-competitor="conga">
+    <div class="card-header"><h3>Conga</h3><span class="url">conga.com</span><span class="badge">Custom pricing only</span></div>
+    <img src="competitors/conga/images/pricing-yearly-cropped.png" alt="Conga yearly">
   </div>
 </div>
 
@@ -416,97 +416,97 @@
 
 <div class="section-title" id="tier-free">Free Tier</div>
 <div class="grid-5">
-  <div class="card" data-competitor="lovable">
-    <div class="card-header"><h3>Lovable</h3><span class="tier-name">Free</span></div>
-    <img src="competitors/lovable/images/tier-free.png" alt="Lovable Free">
+  <div class="card" data-competitor="pandadoc">
+    <div class="card-header"><h3>PandaDoc</h3><span class="tier-name">Free</span></div>
+    <img src="competitors/pandadoc/images/tier-free.png" alt="PandaDoc Free">
   </div>
-  <div class="card" data-competitor="bolt">
-    <div class="card-header"><h3>Bolt</h3><span class="tier-name">Free</span></div>
-    <img src="competitors/bolt/images/tier-free.png" alt="Bolt Free">
+  <div class="card" data-competitor="docusign">
+    <div class="card-header"><h3>DocuSign</h3><span class="tier-name">Free</span></div>
+    <img src="competitors/docusign/images/tier-free.png" alt="DocuSign Free">
   </div>
-  <div class="card" data-competitor="v0">
-    <div class="card-header"><h3>v0</h3><span class="tier-name">Free</span></div>
-    <img src="competitors/v0/images/tier-free.png" alt="v0 Free">
+  <div class="card" data-competitor="dropbox-sign">
+    <div class="card-header"><h3>Dropbox Sign</h3><span class="tier-name">Free</span></div>
+    <img src="competitors/dropbox-sign/images/tier-free.png" alt="Dropbox Sign Free">
   </div>
-  <div class="card" data-competitor="replit">
-    <div class="card-header"><h3>Replit</h3><span class="tier-name">Starter</span></div>
-    <img src="competitors/replit/images/tier-free.png" alt="Replit Starter">
+  <div class="card" data-competitor="ironclad">
+    <div class="card-header"><h3>Ironclad</h3><span class="tier-name">Starter</span><span class="badge">No free tier</span></div>
+    <img src="competitors/ironclad/images/tier-free.png" alt="Ironclad Starter">
   </div>
-  <div class="card" data-competitor="figma">
-    <div class="card-header"><h3>Figma</h3><span class="tier-name">Starter</span></div>
-    <img src="competitors/figma-make/images/tier-free.png" alt="Figma Starter">
+  <div class="card" data-competitor="acrobat-sign">
+    <div class="card-header"><h3>Adobe Acrobat Sign</h3><span class="tier-name">Solo</span><span class="badge">No free tier</span></div>
+    <img src="competitors/adobe-acrobat-sign/images/tier-free.png" alt="Adobe Acrobat Sign Solo">
   </div>
 </div>
 
 <div class="section-title" id="tier-mid">Mid Tier</div>
 <div class="grid-5">
-  <div class="card" data-competitor="lovable">
-    <div class="card-header"><h3>Lovable</h3><span class="tier-name">Pro</span></div>
-    <img src="competitors/lovable/images/tier-mid.png" alt="Lovable Pro">
+  <div class="card" data-competitor="pandadoc">
+    <div class="card-header"><h3>PandaDoc</h3><span class="tier-name">Pro</span></div>
+    <img src="competitors/pandadoc/images/tier-mid.png" alt="PandaDoc Pro">
   </div>
-  <div class="card" data-competitor="bolt">
-    <div class="card-header"><h3>Bolt</h3><span class="tier-name">Pro</span></div>
-    <img src="competitors/bolt/images/tier-mid.png" alt="Bolt Pro">
+  <div class="card" data-competitor="docusign">
+    <div class="card-header"><h3>DocuSign</h3><span class="tier-name">Pro</span></div>
+    <img src="competitors/docusign/images/tier-mid.png" alt="DocuSign Pro">
   </div>
-  <div class="card" data-competitor="v0">
-    <div class="card-header"><h3>v0</h3><span class="tier-name">Team</span></div>
-    <img src="competitors/v0/images/tier-mid.png" alt="v0 Team">
+  <div class="card" data-competitor="dropbox-sign">
+    <div class="card-header"><h3>Dropbox Sign</h3><span class="tier-name">Essentials</span></div>
+    <img src="competitors/dropbox-sign/images/tier-mid.png" alt="Dropbox Sign Essentials">
   </div>
-  <div class="card" data-competitor="replit">
-    <div class="card-header"><h3>Replit</h3><span class="tier-name">Core</span></div>
-    <img src="competitors/replit/images/tier-mid.png" alt="Replit Core">
+  <div class="card" data-competitor="ironclad">
+    <div class="card-header"><h3>Ironclad</h3><span class="tier-name">Essentials</span></div>
+    <img src="competitors/ironclad/images/tier-mid.png" alt="Ironclad Essentials">
   </div>
-  <div class="card" data-competitor="figma">
-    <div class="card-header"><h3>Figma</h3><span class="tier-name">Professional</span></div>
-    <img src="competitors/figma-make/images/tier-mid.png" alt="Figma Professional">
+  <div class="card" data-competitor="acrobat-sign">
+    <div class="card-header"><h3>Adobe Acrobat Sign</h3><span class="tier-name">Standard + Sign</span></div>
+    <img src="competitors/adobe-acrobat-sign/images/tier-mid.png" alt="Adobe Acrobat Sign Standard + Sign">
   </div>
 </div>
 
 <div class="section-title" id="tier-teams">Teams Tier</div>
 <div class="grid-5">
-  <div class="card" data-competitor="lovable">
-    <div class="card-header"><h3>Lovable</h3><span class="tier-name">Business</span></div>
-    <img src="competitors/lovable/images/tier-teams.png" alt="Lovable Business">
+  <div class="card" data-competitor="pandadoc">
+    <div class="card-header"><h3>PandaDoc</h3><span class="tier-name">Business</span></div>
+    <img src="competitors/pandadoc/images/tier-teams.png" alt="PandaDoc Business">
   </div>
-  <div class="card" data-competitor="bolt">
-    <div class="card-header"><h3>Bolt</h3><span class="tier-name">Teams</span></div>
-    <img src="competitors/bolt/images/tier-teams.png" alt="Bolt Teams">
+  <div class="card" data-competitor="docusign">
+    <div class="card-header"><h3>DocuSign</h3><span class="tier-name">Teams</span></div>
+    <img src="competitors/docusign/images/tier-teams.png" alt="DocuSign Teams">
   </div>
-  <div class="card" data-competitor="v0">
-    <div class="card-header"><h3>v0</h3><span class="tier-name">Business</span></div>
-    <img src="competitors/v0/images/tier-teams.png" alt="v0 Business">
+  <div class="card" data-competitor="dropbox-sign">
+    <div class="card-header"><h3>Dropbox Sign</h3><span class="tier-name">Standard</span></div>
+    <img src="competitors/dropbox-sign/images/tier-teams.png" alt="Dropbox Sign Standard">
   </div>
-  <div class="card" data-competitor="replit">
-    <div class="card-header"><h3>Replit</h3><span class="tier-name">Pro</span></div>
-    <img src="competitors/replit/images/tier-teams.png" alt="Replit Pro">
+  <div class="card" data-competitor="ironclad">
+    <div class="card-header"><h3>Ironclad</h3><span class="tier-name">Growth</span></div>
+    <img src="competitors/ironclad/images/tier-teams.png" alt="Ironclad Growth">
   </div>
-  <div class="card" data-competitor="figma">
-    <div class="card-header"><h3>Figma</h3><span class="tier-name">Organization</span></div>
-    <img src="competitors/figma-make/images/tier-teams.png" alt="Figma Organization">
+  <div class="card" data-competitor="acrobat-sign">
+    <div class="card-header"><h3>Adobe Acrobat Sign</h3><span class="tier-name">Pro + Sign</span></div>
+    <img src="competitors/adobe-acrobat-sign/images/tier-teams.png" alt="Adobe Acrobat Sign Pro + Sign">
   </div>
 </div>
 
 <div class="section-title" id="tier-enterprise">Enterprise Tier</div>
 <div class="grid-5">
-  <div class="card" data-competitor="lovable">
-    <div class="card-header"><h3>Lovable</h3><span class="tier-name">Enterprise</span></div>
-    <img src="competitors/lovable/images/tier-enterprise.png" alt="Lovable Enterprise">
+  <div class="card" data-competitor="pandadoc">
+    <div class="card-header"><h3>PandaDoc</h3><span class="tier-name">Enterprise</span></div>
+    <img src="competitors/pandadoc/images/tier-enterprise.png" alt="PandaDoc Enterprise">
   </div>
-  <div class="card" data-competitor="bolt">
-    <div class="card-header"><h3>Bolt</h3><span class="tier-name">Enterprise</span></div>
-    <img src="competitors/bolt/images/tier-enterprise.png" alt="Bolt Enterprise">
+  <div class="card" data-competitor="docusign">
+    <div class="card-header"><h3>DocuSign</h3><span class="tier-name">Enterprise</span></div>
+    <img src="competitors/docusign/images/tier-enterprise.png" alt="DocuSign Enterprise">
   </div>
-  <div class="card" data-competitor="v0">
-    <div class="card-header"><h3>v0</h3><span class="tier-name">Enterprise</span></div>
-    <img src="competitors/v0/images/tier-enterprise.png" alt="v0 Enterprise">
+  <div class="card" data-competitor="dropbox-sign">
+    <div class="card-header"><h3>Dropbox Sign</h3><span class="tier-name">Enterprise</span></div>
+    <img src="competitors/dropbox-sign/images/tier-enterprise.png" alt="Dropbox Sign Enterprise">
   </div>
-  <div class="card" data-competitor="replit">
-    <div class="card-header"><h3>Replit</h3><span class="tier-name">Enterprise</span></div>
-    <img src="competitors/replit/images/tier-enterprise.png" alt="Replit Enterprise">
+  <div class="card" data-competitor="ironclad">
+    <div class="card-header"><h3>Ironclad</h3><span class="tier-name">Enterprise</span></div>
+    <img src="competitors/ironclad/images/tier-enterprise.png" alt="Ironclad Enterprise">
   </div>
-  <div class="card" data-competitor="figma">
-    <div class="card-header"><h3>Figma</h3><span class="tier-name">Enterprise</span></div>
-    <img src="competitors/figma-make/images/tier-enterprise.png" alt="Figma Enterprise">
+  <div class="card" data-competitor="acrobat-sign">
+    <div class="card-header"><h3>Adobe Acrobat Sign</h3><span class="tier-name">Enterprise</span></div>
+    <img src="competitors/adobe-acrobat-sign/images/tier-enterprise.png" alt="Adobe Acrobat Sign Enterprise">
   </div>
 </div>
 
@@ -528,11 +528,11 @@
   <thead>
     <tr>
       <th></th>
-      <th><div class="comp-label"><span class="comp-dot" style="background:var(--lovable)"></span>Lovable</div></th>
-      <th><div class="comp-label"><span class="comp-dot" style="background:var(--bolt)"></span>Bolt</div></th>
-      <th><div class="comp-label"><span class="comp-dot" style="background:var(--v0)"></span>v0</div></th>
-      <th><div class="comp-label"><span class="comp-dot" style="background:var(--replit)"></span>Replit</div></th>
-      <th><div class="comp-label"><span class="comp-dot" style="background:var(--figma)"></span>Figma</div></th>
+      <th><div class="comp-label"><span class="comp-dot" style="background:var(--pandadoc)"></span>PandaDoc</div></th>
+      <th><div class="comp-label"><span class="comp-dot" style="background:var(--docusign)"></span>DocuSign</div></th>
+      <th><div class="comp-label"><span class="comp-dot" style="background:var(--dropboxsign)"></span>Dropbox Sign</div></th>
+      <th><div class="comp-label"><span class="comp-dot" style="background:var(--ironclad)"></span>Ironclad</div></th>
+      <th><div class="comp-label"><span class="comp-dot" style="background:var(--acrobatsign)"></span>Acrobat Sign</div></th>
     </tr>
   </thead>
   <tbody>
@@ -541,41 +541,49 @@
       <td>$0<span class="price-sub">Free</span></td>
       <td>$0<span class="price-sub">Free</span></td>
       <td>$0<span class="price-sub">Free</span></td>
-      <td>$0<span class="price-sub">Starter</span></td>
-      <td>$0<span class="price-sub">Starter</span></td>
+      <td>&mdash;<span class="price-sub">No free tier</span></td>
+      <td>$19.99<span class="price-sub">Solo, no free tier</span></td>
     </tr>
-    <tr class="section-row"><td colspan="6">Usage & Credits</td></tr>
+    <tr class="section-row"><td colspan="6">Usage & Limits</td></tr>
     <tr>
-      <td>Credits / tokens</td>
-      <td>5 daily (up to 30/mo)</td>
-      <td>1M tokens/mo</td>
-      <td>$5 included credits/mo</td>
-      <td>Free daily Agent credits</td>
-      <td>150 AI credits/day (500/mo)</td>
+      <td>Monthly volume</td>
+      <td>No builder access</td>
+      <td>3 envelopes/mo</td>
+      <td>3 signature requests/mo</td>
+      <td><span class="dash">-</span></td>
+      <td>7-document trial</td>
     </tr>
     <tr>
-      <td>Daily limit</td>
-      <td>5 credits</td>
-      <td>300K tokens</td>
-      <td>7 messages</td>
-      <td><span class="check">&#10003;</span> (limited)</td>
-      <td>150 credits</td>
+      <td>Templates</td>
+      <td>Basic templates</td>
+      <td><span class="dash">-</span></td>
+      <td><span class="dash">-</span></td>
+      <td><span class="dash">-</span></td>
+      <td>Reusable templates</td>
     </tr>
-    <tr class="section-row"><td colspan="6">Projects & Files</td></tr>
+    <tr class="section-row"><td colspan="6">Documents & Signing</td></tr>
     <tr>
-      <td>Projects</td>
-      <td>Public only</td>
-      <td>Public & private</td>
-      <td><span class="check">&#10003;</span></td>
-      <td>Publish 1 app</td>
-      <td>Unlimited drafts</td>
+      <td>E-signature</td>
+      <td><span class="check">&#10003;</span> Unlimited</td>
+      <td><span class="check">&#10003;</span> (3/mo)</td>
+      <td><span class="check">&#10003;</span> (3/mo)</td>
+      <td><span class="dash">-</span></td>
+      <td><span class="check">&#10003;</span> (trial)</td>
     </tr>
-    <tr class="section-row"><td colspan="6">Deployment & Hosting</td></tr>
     <tr>
-      <td>Website hosting</td>
-      <td>5 lovable.app domains</td>
-      <td><span class="check">&#10003;</span></td>
-      <td>Deploy to Vercel</td>
+      <td>Field / form detection</td>
+      <td><span class="dash">-</span></td>
+      <td>Basic field tagging</td>
+      <td><span class="dash">-</span></td>
+      <td><span class="dash">-</span></td>
+      <td>AcroForm detection</td>
+    </tr>
+    <tr class="section-row"><td colspan="6">Publishing & Hosting</td></tr>
+    <tr>
+      <td>Branded portal</td>
+      <td><span class="dash">-</span></td>
+      <td><span class="dash">-</span> (DocuSign branding shown)</td>
+      <td><span class="dash">-</span></td>
       <td><span class="dash">-</span></td>
       <td><span class="dash">-</span></td>
     </tr>
@@ -589,37 +597,21 @@
     </tr>
     <tr class="section-row"><td colspan="6">Collaboration</td></tr>
     <tr>
-      <td>Collaborators</td>
-      <td>Unlimited</td>
+      <td>Users</td>
+      <td>1 user</td>
+      <td>1 user</td>
+      <td>1 user</td>
       <td><span class="dash">-</span></td>
-      <td><span class="dash">-</span></td>
-      <td><span class="dash">-</span></td>
-      <td>View & comment only</td>
-    </tr>
-    <tr>
-      <td>GitHub sync</td>
-      <td><span class="dash">-</span></td>
-      <td><span class="dash">-</span></td>
-      <td><span class="check">&#10003;</span></td>
-      <td><span class="dash">-</span></td>
-      <td><span class="dash">-</span></td>
+      <td>1 user</td>
     </tr>
     <tr class="section-row"><td colspan="6">Other</td></tr>
     <tr>
-      <td>Branding removed</td>
+      <td>Mobile app</td>
+      <td><span class="check">&#10003;</span></td>
+      <td><span class="check">&#10003;</span></td>
+      <td><span class="check">&#10003;</span></td>
       <td><span class="dash">-</span></td>
-      <td><span class="dash">-</span> (Bolt branding)</td>
-      <td><span class="dash">-</span></td>
-      <td><span class="dash">-</span></td>
-      <td><span class="dash">-</span></td>
-    </tr>
-    <tr>
-      <td>Databases</td>
-      <td><span class="dash">-</span></td>
-      <td>Unlimited</td>
-      <td><span class="dash">-</span></td>
-      <td><span class="dash">-</span></td>
-      <td><span class="dash">-</span></td>
+      <td><span class="check">&#10003;</span></td>
     </tr>
   </tbody>
 </table>
@@ -631,73 +623,57 @@
   <thead>
     <tr>
       <th></th>
-      <th><div class="comp-label"><span class="comp-dot" style="background:var(--lovable)"></span>Lovable</div></th>
-      <th><div class="comp-label"><span class="comp-dot" style="background:var(--bolt)"></span>Bolt</div></th>
-      <th><div class="comp-label"><span class="comp-dot" style="background:var(--v0)"></span>v0</div></th>
-      <th><div class="comp-label"><span class="comp-dot" style="background:var(--replit)"></span>Replit</div></th>
-      <th><div class="comp-label"><span class="comp-dot" style="background:var(--figma)"></span>Figma</div></th>
+      <th><div class="comp-label"><span class="comp-dot" style="background:var(--pandadoc)"></span>PandaDoc</div></th>
+      <th><div class="comp-label"><span class="comp-dot" style="background:var(--docusign)"></span>DocuSign</div></th>
+      <th><div class="comp-label"><span class="comp-dot" style="background:var(--dropboxsign)"></span>Dropbox Sign</div></th>
+      <th><div class="comp-label"><span class="comp-dot" style="background:var(--ironclad)"></span>Ironclad</div></th>
+      <th><div class="comp-label"><span class="comp-dot" style="background:var(--acrobatsign)"></span>Acrobat Sign</div></th>
     </tr>
   </thead>
   <tbody>
     <tr class="price-row">
       <td>Price</td>
-      <td>$25<span class="price-sub">/mo (shared)</span></td>
-      <td>$25<span class="price-sub">/mo</span></td>
-      <td>$30<span class="price-sub">/user/mo</span></td>
-      <td>$20<span class="price-sub">/mo (Core)</span></td>
-      <td>$16<span class="price-sub">/mo (annual)</span></td>
+      <td>$19<span class="price-sub">/user/mo (Pro)</span></td>
+      <td>$25<span class="price-sub">/user/mo (Pro)</span></td>
+      <td>$20<span class="price-sub">/user/mo (Essentials)</span></td>
+      <td>$30<span class="price-sub">/user/mo (Essentials, est.)</span></td>
+      <td>$22.99<span class="price-sub">/mo (Standard + Sign)</span></td>
     </tr>
-    <tr class="section-row"><td colspan="6">Usage & Credits</td></tr>
+    <tr class="section-row"><td colspan="6">Usage & Limits</td></tr>
     <tr>
-      <td>Credits / tokens</td>
-      <td>100 credits/mo + 5 daily</td>
-      <td>10M tokens/mo</td>
-      <td>$30 credits/user/mo + $2 daily</td>
-      <td>$20 credits/mo</td>
-      <td>3,000 AI credits/mo</td>
+      <td>Monthly volume</td>
+      <td>Unlimited documents</td>
+      <td>25 envelopes/mo</td>
+      <td>Unlimited requests</td>
+      <td>5 workflow templates</td>
+      <td>Unlimited signature requests</td>
     </tr>
     <tr>
-      <td>Daily limit</td>
-      <td>5 credits (+ 150/mo)</td>
-      <td>No daily limit</td>
-      <td><span class="check">&#10003;</span> Unlimited</td>
-      <td><span class="check">&#10003;</span> Unlimited</td>
+      <td>Templates & library</td>
+      <td>Content library</td>
+      <td>Reusable templates</td>
+      <td>Reusable templates</td>
+      <td>Core workflow designer</td>
+      <td>PDF editing suite</td>
+    </tr>
+    <tr class="section-row"><td colspan="6">Documents & Signing</td></tr>
+    <tr>
+      <td>Payment collection</td>
+      <td><span class="check">&#10003;</span></td>
+      <td><span class="dash">-</span></td>
+      <td><span class="dash">-</span></td>
+      <td><span class="dash">-</span></td>
+      <td><span class="dash">-</span></td>
+    </tr>
+    <tr>
+      <td>In-person signing</td>
+      <td><span class="dash">-</span></td>
+      <td><span class="check">&#10003;</span></td>
+      <td><span class="check">&#10003;</span></td>
+      <td><span class="dash">-</span></td>
       <td><span class="check">&#10003;</span></td>
     </tr>
-    <tr>
-      <td>Rollover unused</td>
-      <td><span class="check">&#10003;</span></td>
-      <td><span class="check">&#10003;</span></td>
-      <td><span class="dash">-</span></td>
-      <td><span class="dash">-</span></td>
-      <td><span class="dash">-</span></td>
-    </tr>
-    <tr class="section-row"><td colspan="6">Projects & Files</td></tr>
-    <tr>
-      <td>Projects</td>
-      <td>Public & private</td>
-      <td>Public & private</td>
-      <td><span class="check">&#10003;</span></td>
-      <td>Unlimited workspaces</td>
-      <td>Unlimited files & projects</td>
-    </tr>
-    <tr>
-      <td>File upload limit</td>
-      <td><span class="dash">-</span></td>
-      <td>100MB</td>
-      <td><span class="dash">-</span></td>
-      <td><span class="dash">-</span></td>
-      <td><span class="dash">-</span></td>
-    </tr>
-    <tr class="section-row"><td colspan="6">Deployment & Hosting</td></tr>
-    <tr>
-      <td>Website hosting</td>
-      <td>Unlimited domains</td>
-      <td><span class="check">&#10003;</span> (1M requests)</td>
-      <td>Deploy to Vercel</td>
-      <td><span class="dash">-</span></td>
-      <td><span class="dash">-</span></td>
-    </tr>
+    <tr class="section-row"><td colspan="6">Publishing & Hosting</td></tr>
     <tr>
       <td>Custom domains</td>
       <td><span class="check">&#10003;</span></td>
@@ -707,24 +683,24 @@
       <td><span class="dash">-</span></td>
     </tr>
     <tr>
-      <td>SEO tools</td>
-      <td><span class="dash">-</span></td>
+      <td>Branding removed</td>
       <td><span class="check">&#10003;</span></td>
-      <td><span class="dash">-</span></td>
+      <td><span class="check">&#10003;</span></td>
+      <td><span class="check">&#10003;</span></td>
       <td><span class="dash">-</span></td>
       <td><span class="dash">-</span></td>
     </tr>
     <tr class="section-row"><td colspan="6">Collaboration</td></tr>
     <tr>
-      <td>Collaborators</td>
-      <td>Unlimited users</td>
+      <td>CRM integrations</td>
+      <td><span class="check">&#10003;</span></td>
       <td><span class="dash">-</span></td>
-      <td><span class="check">&#10003;</span> Share chats</td>
-      <td>Up to 5</td>
-      <td>Team-wide libraries</td>
+      <td><span class="dash">-</span></td>
+      <td><span class="check">&#10003;</span></td>
+      <td><span class="dash">-</span></td>
     </tr>
     <tr>
-      <td>User roles</td>
+      <td>Real-time tracking</td>
       <td><span class="check">&#10003;</span></td>
       <td><span class="dash">-</span></td>
       <td><span class="dash">-</span></td>
@@ -733,35 +709,11 @@
     </tr>
     <tr class="section-row"><td colspan="6">Other</td></tr>
     <tr>
-      <td>Branding removed</td>
-      <td><span class="check">&#10003;</span></td>
-      <td><span class="check">&#10003;</span></td>
-      <td><span class="dash">-</span></td>
-      <td><span class="check">&#10003;</span></td>
-      <td><span class="dash">-</span></td>
-    </tr>
-    <tr>
-      <td>Databases</td>
-      <td><span class="dash">-</span></td>
-      <td>Unlimited + expanded</td>
+      <td>API access</td>
       <td><span class="dash">-</span></td>
       <td><span class="dash">-</span></td>
       <td><span class="dash">-</span></td>
-    </tr>
-    <tr>
-      <td>AI image editing</td>
       <td><span class="dash">-</span></td>
-      <td><span class="check">&#10003;</span></td>
-      <td><span class="dash">-</span></td>
-      <td><span class="dash">-</span></td>
-      <td><span class="dash">-</span></td>
-    </tr>
-    <tr>
-      <td>Private sharing</td>
-      <td><span class="dash">-</span></td>
-      <td><span class="check">&#10003;</span></td>
-      <td><span class="dash">-</span></td>
-      <td><span class="check">&#10003;</span></td>
       <td><span class="dash">-</span></td>
     </tr>
   </tbody>
@@ -774,38 +726,38 @@
   <thead>
     <tr>
       <th></th>
-      <th><div class="comp-label"><span class="comp-dot" style="background:var(--lovable)"></span>Lovable</div></th>
-      <th><div class="comp-label"><span class="comp-dot" style="background:var(--bolt)"></span>Bolt</div></th>
-      <th><div class="comp-label"><span class="comp-dot" style="background:var(--v0)"></span>v0</div></th>
-      <th><div class="comp-label"><span class="comp-dot" style="background:var(--replit)"></span>Replit</div></th>
-      <th><div class="comp-label"><span class="comp-dot" style="background:var(--figma)"></span>Figma</div></th>
+      <th><div class="comp-label"><span class="comp-dot" style="background:var(--pandadoc)"></span>PandaDoc</div></th>
+      <th><div class="comp-label"><span class="comp-dot" style="background:var(--docusign)"></span>DocuSign</div></th>
+      <th><div class="comp-label"><span class="comp-dot" style="background:var(--dropboxsign)"></span>Dropbox Sign</div></th>
+      <th><div class="comp-label"><span class="comp-dot" style="background:var(--ironclad)"></span>Ironclad</div></th>
+      <th><div class="comp-label"><span class="comp-dot" style="background:var(--acrobatsign)"></span>Acrobat Sign</div></th>
     </tr>
   </thead>
   <tbody>
     <tr class="price-row">
       <td>Price</td>
-      <td>$50<span class="price-sub">/mo (Business)</span></td>
-      <td>$30<span class="price-sub">/user/mo (Teams)</span></td>
-      <td>$100<span class="price-sub">/user/mo (Business)</span></td>
-      <td>$100<span class="price-sub">/mo (Pro)</span></td>
-      <td>$55<span class="price-sub">/mo (Organization)</span></td>
+      <td>$49<span class="price-sub">/user/mo (Business)</span></td>
+      <td>$45<span class="price-sub">/user/mo (Teams)</span></td>
+      <td>$30<span class="price-sub">/user/mo (Standard)</span></td>
+      <td>$75<span class="price-sub">/user/mo (Growth, est.)</span></td>
+      <td>$29.99<span class="price-sub">/user/mo (Pro + Sign)</span></td>
     </tr>
-    <tr class="section-row"><td colspan="6">Usage & Credits</td></tr>
+    <tr class="section-row"><td colspan="6">Usage & Volume</td></tr>
     <tr>
-      <td>Credits / tokens</td>
-      <td>100 credits/mo</td>
-      <td>10M tokens/mo/member</td>
-      <td>$30 credits/user/mo + $2 daily</td>
-      <td>$100 credits/mo</td>
-      <td>3,500 AI credits/mo</td>
+      <td>Monthly volume</td>
+      <td>Bulk send</td>
+      <td>Bulk send</td>
+      <td>Bulk send</td>
+      <td>Unlimited workflow templates</td>
+      <td>Advanced field detection</td>
     </tr>
     <tr>
-      <td>Rollover unused</td>
-      <td><span class="check">&#10003;</span></td>
-      <td><span class="check">&#10003;</span></td>
-      <td><span class="dash">-</span></td>
-      <td><span class="dash">-</span></td>
-      <td><span class="dash">-</span></td>
+      <td>Collaborators</td>
+      <td>Team workspace</td>
+      <td>Envelope overage rollover</td>
+      <td>Multiple team members</td>
+      <td>Up to 25</td>
+      <td>Team template library</td>
     </tr>
     <tr class="section-row"><td colspan="6">Team Management</td></tr>
     <tr>
@@ -817,48 +769,32 @@
       <td><span class="check">&#10003;</span></td>
     </tr>
     <tr>
-      <td>Team workspace</td>
-      <td><span class="check">&#10003;</span></td>
-      <td><span class="check">&#10003;</span></td>
-      <td><span class="check">&#10003;</span></td>
-      <td><span class="check">&#10003;</span></td>
-      <td>Unlimited teams</td>
-    </tr>
-    <tr>
       <td>Admin controls</td>
-      <td>Role-based access</td>
-      <td><span class="check">&#10003;</span> Granular</td>
-      <td><span class="dash">-</span></td>
-      <td><span class="check">&#10003;</span></td>
-      <td>Centralized admin tools</td>
+      <td>Custom workflows & approvals</td>
+      <td>Granular admin controls</td>
+      <td>Roles & permissions</td>
+      <td>Advanced approval routing</td>
+      <td>E-signature analytics</td>
     </tr>
     <tr>
-      <td>Collaborators</td>
-      <td>Unlimited</td>
-      <td>Per member</td>
-      <td><span class="check">&#10003;</span></td>
-      <td>Up to 15 + 50 viewers</td>
-      <td>Shared libraries & fonts</td>
+      <td>Shared library</td>
+      <td>Conditional content blocks</td>
+      <td>Shared template library</td>
+      <td>Team folder sharing</td>
+      <td>Clause library</td>
+      <td><span class="dash">-</span></td>
     </tr>
     <tr class="section-row"><td colspan="6">Security & Compliance</td></tr>
     <tr>
       <td>SSO</td>
-      <td><span class="check">&#10003;</span></td>
       <td><span class="dash">-</span></td>
       <td><span class="dash">-</span></td>
       <td><span class="dash">-</span></td>
-      <td><span class="dash">-</span></td>
-    </tr>
-    <tr>
-      <td>Training opt-out</td>
-      <td><span class="dash">-</span></td>
-      <td><span class="dash">-</span></td>
-      <td><span class="check">&#10003;</span> (default)</td>
       <td><span class="dash">-</span></td>
       <td><span class="dash">-</span></td>
     </tr>
     <tr>
-      <td>Security center</td>
+      <td>API access</td>
       <td><span class="check">&#10003;</span></td>
       <td><span class="dash">-</span></td>
       <td><span class="dash">-</span></td>
@@ -867,27 +803,11 @@
     </tr>
     <tr class="section-row"><td colspan="6">Other</td></tr>
     <tr>
-      <td>Design system support</td>
-      <td>Design templates</td>
-      <td><span class="check">&#10003;</span> Per-package prompts</td>
+      <td>Deep CRM / storage integration</td>
+      <td><span class="check">&#10003;</span> Salesforce/HubSpot</td>
       <td><span class="dash">-</span></td>
-      <td><span class="dash">-</span></td>
-      <td><span class="check">&#10003;</span></td>
-    </tr>
-    <tr>
-      <td>Private NPM registries</td>
-      <td><span class="dash">-</span></td>
-      <td><span class="check">&#10003;</span></td>
-      <td><span class="dash">-</span></td>
-      <td><span class="dash">-</span></td>
-      <td><span class="dash">-</span></td>
-    </tr>
-    <tr>
-      <td>Internal publish</td>
-      <td><span class="check">&#10003;</span></td>
-      <td><span class="check">&#10003;</span></td>
-      <td><span class="dash">-</span></td>
-      <td><span class="check">&#10003;</span></td>
+      <td>CRM/storage app integrations</td>
+      <td>CRM integrations</td>
       <td><span class="dash">-</span></td>
     </tr>
   </tbody>
@@ -900,11 +820,11 @@
   <thead>
     <tr>
       <th></th>
-      <th><div class="comp-label"><span class="comp-dot" style="background:var(--lovable)"></span>Lovable</div></th>
-      <th><div class="comp-label"><span class="comp-dot" style="background:var(--bolt)"></span>Bolt</div></th>
-      <th><div class="comp-label"><span class="comp-dot" style="background:var(--v0)"></span>v0</div></th>
-      <th><div class="comp-label"><span class="comp-dot" style="background:var(--replit)"></span>Replit</div></th>
-      <th><div class="comp-label"><span class="comp-dot" style="background:var(--figma)"></span>Figma</div></th>
+      <th><div class="comp-label"><span class="comp-dot" style="background:var(--pandadoc)"></span>PandaDoc</div></th>
+      <th><div class="comp-label"><span class="comp-dot" style="background:var(--docusign)"></span>DocuSign</div></th>
+      <th><div class="comp-label"><span class="comp-dot" style="background:var(--dropboxsign)"></span>Dropbox Sign</div></th>
+      <th><div class="comp-label"><span class="comp-dot" style="background:var(--ironclad)"></span>Ironclad</div></th>
+      <th><div class="comp-label"><span class="comp-dot" style="background:var(--acrobatsign)"></span>Acrobat Sign</div></th>
     </tr>
   </thead>
   <tbody>
@@ -914,13 +834,13 @@
       <td>Custom</td>
       <td>Custom</td>
       <td>Custom</td>
-      <td>$90<span class="price-sub">/mo (annual)</span></td>
+      <td>Custom</td>
     </tr>
     <tr class="section-row"><td colspan="6">Security & Compliance</td></tr>
     <tr>
       <td>SSO / SAML</td>
-      <td><span class="dash">-</span></td>
       <td><span class="check">&#10003;</span></td>
+      <td><span class="check">&#10003;</span> SAML</td>
       <td><span class="check">&#10003;</span> SAML</td>
       <td><span class="check">&#10003;</span> SAML</td>
       <td><span class="check">&#10003;</span></td>
@@ -929,40 +849,24 @@
       <td>Audit logs</td>
       <td><span class="check">&#10003;</span></td>
       <td><span class="check">&#10003;</span></td>
-      <td><span class="dash">-</span></td>
-      <td><span class="dash">-</span></td>
-      <td><span class="dash">-</span></td>
-    </tr>
-    <tr>
-      <td>SCIM</td>
       <td><span class="check">&#10003;</span></td>
-      <td><span class="dash">-</span></td>
-      <td><span class="dash">-</span></td>
-      <td><span class="dash">-</span></td>
+      <td><span class="check">&#10003;</span> Advanced</td>
       <td><span class="check">&#10003;</span></td>
     </tr>
     <tr>
-      <td>Advanced privacy</td>
-      <td><span class="check">&#10003;</span></td>
-      <td><span class="check">&#10003;</span></td>
-      <td><span class="check">&#10003;</span> Data never trained</td>
-      <td><span class="check">&#10003;</span></td>
-      <td><span class="check">&#10003;</span></td>
-    </tr>
-    <tr>
-      <td>Data governance</td>
+      <td>SCIM / admin console</td>
+      <td>Single-tenant options</td>
+      <td>Advanced compliance workflows</td>
+      <td>Advanced admin console</td>
       <td><span class="dash">-</span></td>
-      <td><span class="check">&#10003;</span></td>
-      <td><span class="dash">-</span></td>
-      <td><span class="dash">-</span></td>
-      <td><span class="dash">-</span></td>
+      <td>SCIM provisioning</td>
     </tr>
     <tr>
       <td>Role-based access</td>
       <td><span class="check">&#10003;</span></td>
       <td><span class="check">&#10003;</span></td>
       <td><span class="check">&#10003;</span></td>
-      <td><span class="dash">-</span></td>
+      <td><span class="check">&#10003;</span></td>
       <td><span class="check">&#10003;</span></td>
     </tr>
     <tr class="section-row"><td colspan="6">Support & Onboarding</td></tr>
@@ -970,57 +874,41 @@
       <td>Dedicated support</td>
       <td><span class="check">&#10003;</span></td>
       <td><span class="check">&#10003;</span> 24/7</td>
-      <td><span class="check">&#10003;</span> SLA guaranteed</td>
+      <td><span class="check">&#10003;</span></td>
       <td><span class="check">&#10003;</span></td>
       <td><span class="check">&#10003;</span></td>
     </tr>
     <tr>
       <td>Onboarding services</td>
-      <td><span class="check">&#10003;</span></td>
-      <td><span class="check">&#10003;</span></td>
-      <td><span class="dash">-</span></td>
-      <td><span class="dash">-</span></td>
+      <td>Dedicated success manager</td>
+      <td>Hands-on onboarding & training</td>
+      <td>Dedicated account manager</td>
+      <td>Dedicated implementation team</td>
       <td><span class="dash">-</span></td>
     </tr>
     <tr>
-      <td>Priority performance</td>
-      <td><span class="dash">-</span></td>
-      <td><span class="dash">-</span></td>
-      <td><span class="check">&#10003;</span> No queues</td>
-      <td><span class="dash">-</span></td>
+      <td>SLA guarantee</td>
+      <td>Uptime SLA</td>
+      <td><span class="check">&#10003;</span></td>
+      <td>Guaranteed support SLA</td>
+      <td>Uptime SLA</td>
       <td><span class="dash">-</span></td>
     </tr>
     <tr class="section-row"><td colspan="6">Infrastructure</td></tr>
     <tr>
-      <td>Custom seat limits</td>
-      <td><span class="check">&#10003;</span></td>
-      <td><span class="check">&#10003;</span></td>
-      <td><span class="check">&#10003;</span></td>
-      <td><span class="check">&#10003;</span></td>
-      <td><span class="check">&#10003;</span></td>
-    </tr>
-    <tr>
       <td>Custom integrations</td>
-      <td><span class="check">&#10003;</span> Connectors</td>
-      <td><span class="check">&#10003;</span> Workflows & SLAs</td>
+      <td>Custom contract terms</td>
+      <td>Custom integrations & SLAs</td>
       <td><span class="dash">-</span></td>
-      <td>Data warehouse connections</td>
-      <td>Design system APIs</td>
+      <td>Custom integrations</td>
+      <td>Custom integrations & APIs</td>
     </tr>
     <tr>
-      <td>Single-tenant / VPC</td>
+      <td>Data governance</td>
       <td><span class="dash">-</span></td>
+      <td>Data governance & retention</td>
       <td><span class="dash">-</span></td>
-      <td><span class="dash">-</span></td>
-      <td><span class="check">&#10003;</span> + VPC peering</td>
-      <td><span class="dash">-</span></td>
-    </tr>
-    <tr>
-      <td>Region selection</td>
-      <td><span class="dash">-</span></td>
-      <td><span class="dash">-</span></td>
-      <td><span class="dash">-</span></td>
-      <td><span class="check">&#10003;</span></td>
+      <td>Data residency options</td>
       <td><span class="dash">-</span></td>
     </tr>
   </tbody>

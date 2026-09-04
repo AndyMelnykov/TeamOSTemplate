@@ -62,7 +62,7 @@ Analytics partners with Product and Strategy & Ops. Primary PM partner: Hannah S
 
 ## First Tasks
 
-- [ ] Get Snowflake access and run a sample query against the generation events table
+- [ ] Get Snowflake access and run a sample query against the automation run events table
 - [ ] Review the metrics glossary and key metric definitions
 - [ ] Explore 2-3 existing dashboards to understand current reporting
 - [ ] Meet with Casey for context transfer on current analytics projects

@@ -10,14 +10,14 @@
 | Related Tickets | EXAMPLE_PRODUCT-990, EXAMPLE_PRODUCT-994 |
 
 ## Objective
-Investigate why password-protected preview links return a 403 Forbidden error instead of showing the password entry page, making it impossible for stakeholders to access shared previews.
+Investigate why password-protected preview links return a 403 Forbidden error instead of showing the password entry page, making it impossible for stakeholders to review a workflow's staged output before publish.
 
 ## Background
-Preview environments with optional password protection launched in v2.3.1. Users who enable password protection on a preview link report that visitors see a 403 error page instead of a password prompt. Previews without password protection work correctly.
+Preview environments with optional password protection launched in v2.3.1, letting a workflow owner share a staging preview of a document portal with an external reviewer (e.g. a client's legal or procurement contact) before publishing it live. Users who enable password protection on a preview link report that visitors see a 403 error page instead of a password prompt. Previews without password protection work correctly.
 
 ## Impact Scope
 - **Affected users:** ~90 users who enabled password protection on preview links
-- **Stakeholder impact:** Unknown number of external stakeholders unable to view shared previews
+- **Stakeholder impact:** Unknown number of external reviewers unable to view shared previews
 - **Severity:** P2 — password-protected previews completely unusable
 - **Duration:** Since 2026-02-22 (password protection feature launch)
 
@@ -25,7 +25,7 @@ Preview environments with optional password protection launched in v2.3.1. Users
 - **Service:** `preview-gateway` (Vercel Edge Middleware)
 - **Auth layer:** Edge middleware at `middleware.ts` in the preview app
 - **Database:** Supabase PostgreSQL — `preview_deploys` table with `password_hash` column
-- **Hosting:** Vercel preview deployments on `preview-*.lovable.app` subdomains
+- **Hosting:** Vercel preview deployments on `preview-*.exampleproduct.app` subdomains
 
 ## Results
 - The Vercel Edge Middleware checks for password protection before serving the preview
@@ -70,13 +70,13 @@ Password-protected preview links always return 403 because the Edge Middleware b
 
 ### Query 1: Password-protected previews and their access attempts
 ```sql
-SELECT pd.id, pd.project_id, pd.password_hash IS NOT NULL as has_password,
+SELECT pd.id, pd.workflow_id, pd.password_hash IS NOT NULL as has_password,
        COUNT(al.id) as access_attempts,
        COUNT(al.id) FILTER (WHERE al.status_code = 403) as blocked_attempts
 FROM preview_deploys pd
 LEFT JOIN access_logs al ON al.preview_id = pd.id
 WHERE pd.created_at > '2026-02-22'
-GROUP BY pd.id, pd.project_id, has_password
+GROUP BY pd.id, pd.workflow_id, has_password
 ORDER BY blocked_attempts DESC;
 ```
 

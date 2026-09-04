@@ -6,12 +6,12 @@ Competitive intelligence for example_product — tracking competitors, feature c
 
 | Competitor | Website | Focus | Segment | Teardown |
 |-----------|---------|-------|---------|----------|
-| Lovable | lovable.dev | Full-stack AI app builder, design-focused | SMB-Mid | [competitors/lovable/](competitors/lovable/CLAUDE.md) |
-| Google Stitch | stitch.withgoogle.com | AI prototyping, Google Cloud ecosystem | Mid-Enterprise | [competitors/google-stitch/](competitors/google-stitch/CLAUDE.md) |
-| v0 | v0.dev | AI UI generation, Vercel/React ecosystem | SMB-Mid | [competitors/v0/](competitors/v0/CLAUDE.md) |
-| Replit | replit.com | AI cloud IDE + deployment | SMB-Mid | [competitors/replit/](competitors/replit/CLAUDE.md) |
-| Figma Make | figma.com/make | Design-to-code AI | Mid-Enterprise | [competitors/figma-make/](competitors/figma-make/CLAUDE.md) |
-| Bolt | bolt.new | Full-stack AI app builder, speed-focused | SMB-Mid | [competitors/bolt/](competitors/bolt/CLAUDE.md) |
+| PandaDoc | pandadoc.com | Fast document/proposal builder, design-focused | SMB-Mid | [competitors/pandadoc/](competitors/pandadoc/CLAUDE.md) |
+| Conga | conga.com | Enterprise document automation, deep Salesforce ecosystem lock-in | Mid-Enterprise | [competitors/conga/](competitors/conga/CLAUDE.md) |
+| Dropbox Sign | sign.dropbox.com | Lightweight e-signature, narrow but fast | SMB-Mid | [competitors/dropbox-sign/](competitors/dropbox-sign/CLAUDE.md) |
+| Ironclad | ironcladapp.com | Broad contract lifecycle management platform | SMB-Mid | [competitors/ironclad/](competitors/ironclad/CLAUDE.md) |
+| Adobe Acrobat Sign | acrobat.adobe.com/sign | Signature/workflow bolted onto the Acrobat/PDF platform | Mid-Enterprise | [competitors/adobe-acrobat-sign/](competitors/adobe-acrobat-sign/CLAUDE.md) |
+| DocuSign | docusign.com | Full-stack document workflow + signature, speed/brand-recognition-focused | SMB-Mid | [competitors/docusign/](competitors/docusign/CLAUDE.md) |
 
 ## Doc Index
 
@@ -25,18 +25,18 @@ Competitive intelligence for example_product — tracking competitors, feature c
 
 | Dimension | example_product Advantage |
 |-----------|-----------------|
-| **Production-readiness** | Only platform generating deploy-ready, enterprise-grade apps |
-| **Full-stack** | Frontend + backend + database + auth + deployment in one flow |
-| **Customization** | Deep control over architecture, patterns, and tech stack choices |
+| **Extraction accuracy** | Only platform combining high-accuracy OCR/field extraction with a no-code workflow builder |
+| **Full-stack** | Extraction + routing + approvals + e-signature + publishing in one flow |
+| **Customization** | Deep control over extraction rules, routing logic, and branding |
 | **Enterprise features** | SSO, audit logging, team workspaces, compliance controls |
-| **Iteration speed** | Modify and redeploy without regenerating from scratch |
+| **Refinement speed** | Modify and republish a workflow without rebuilding it from scratch |
 
 ## Key Takeaways
 
-1. **No single competitor covers the full stack well.** Lovable, v0, and Bolt are frontend-heavy; Replit is full-stack but design-weak; Google Stitch is ecosystem-locked; Figma Make is design-tool-bound.
-2. **Production-readiness is our moat.** Most competitors generate prototypes. example_product generates production apps.
-3. **Enterprise is underserved.** Only Google Stitch has enterprise credibility, but their product is early. This is our biggest opportunity.
-4. **Design quality is table stakes.** Lovable and v0 set a high bar. We must match their visual quality while delivering superior architecture.
+1. **No single competitor covers the full stack well.** PandaDoc, Dropbox Sign, and DocuSign are signature/proposal-heavy; Ironclad is full-lifecycle but extraction-weak; Conga is ecosystem-locked; Adobe Acrobat Sign is PDF-tool-bound.
+2. **Extraction accuracy is our moat.** Most competitors treat documents as static files to sign, not data to extract. example_product extracts structured data first.
+3. **Enterprise is underserved.** Only Conga has enterprise credibility, but their product is Salesforce-locked. This is our biggest opportunity.
+4. **Signature UX is table stakes.** DocuSign and PandaDoc set a high bar. We must match their signing experience while delivering superior extraction.
 
 ## When to Update
 

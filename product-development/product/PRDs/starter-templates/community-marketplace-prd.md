@@ -14,33 +14,33 @@ The Community Marketplace transforms the example_product template library from a
 
 **Network effects flywheel:**
 
-1. Users publish high-quality templates from their successful projects.
+1. Users publish high-quality contract, invoice, and intake-form templates from their successful workflows.
 2. New users discover and fork these templates, reducing time-to-value and increasing activation rates.
-3. Forked projects get deployed, creating more successful projects that can be published as templates.
+3. Forked workflows get published, creating more successful workflows that can be published as templates.
 4. Each new template increases the value of the marketplace for all users, driving organic growth and retention.
 
 **Revenue impact:**
 
 - Templates published by Pro and Teams users showcase what is possible on example_product, serving as organic marketing for paid tiers.
-- Users who fork templates and deploy them are prime upgrade candidates. Template forkers convert to paid at an estimated 2x the rate of users who start from blank projects.
-- A thriving marketplace differentiates example_product from competitors (Lovable, v0, Replit) that lack community-driven template ecosystems.
+- Users who fork templates and publish them are prime upgrade candidates. Template forkers convert to paid at an estimated 2x the rate of users who start from blank workflows.
+- A thriving marketplace differentiates example_product from competitors (PandaDoc, Dropbox Sign, Ironclad) that lack community-driven template ecosystems.
 
 ## Why Now
 
-1. **Template catalog is small.** example_product currently has 12 internally created templates. Competitors like Lovable offer 30+ and v0 is expanding rapidly. We cannot scale internal template creation fast enough to keep up.
-2. **Users are asking for this.** 34% of feature requests in Q1 2026 referenced template sharing or discovery. In 6 of the last 10 customer calls, users asked some version of "Can I share my project as a template?"
-3. **Deployment maturity.** With one-click deploy now stable, users are completing projects at a higher rate, creating a pool of deploy-worthy projects that would make excellent templates.
+1. **Template catalog is small.** example_product currently has 12 internally created templates. Competitors like PandaDoc offer 30+ and Dropbox Sign is expanding rapidly. We cannot scale internal template creation fast enough to keep up.
+2. **Users are asking for this.** 34% of feature requests in Q1 2026 referenced template sharing or discovery. In 6 of the last 10 customer calls, users asked some version of "Can I share my workflow as a template?"
+3. **Publishing maturity.** With one-click publish now stable, users are completing workflows at a higher rate, creating a pool of publish-worthy workflows that would make excellent templates.
 4. **Competitive moat.** A community marketplace is a defensible asset. Every published template increases switching costs. Moving first on this builds a content advantage that compounds over time.
 
 ## Customer Requests
 
 | Source | Request | Date |
 |--------|---------|------|
-| Customer call - Acme Corp | "We built a great internal tool dashboard and our team wants to share it as a starting point for other departments." | 2026-02-28 |
+| Customer call - Acme Corp | "We built a great vendor-contract intake workflow and our team wants to share it as a starting point for other departments." | 2026-02-28 |
 | Customer call - DevStudio | "I'd love to browse what other people have built and start from their work instead of from scratch." | 2026-03-01 |
-| Feature request (Canny) | "Marketplace for user templates with ratings - I want to find the best SaaS dashboard template without trying 5 different ones." | 2026-02-15 |
-| Feature request (Canny) | "Let me publish my portfolio template. I've gotten compliments on it and want others to use it." | 2026-02-20 |
-| Support ticket | "Is there a way to share my project setup with my team so they can clone it? I keep rebuilding the same base." | 2026-03-05 |
+| Feature request (Canny) | "Marketplace for user templates with ratings - I want to find the best vendor-onboarding contract template without trying 5 different ones." | 2026-02-15 |
+| Feature request (Canny) | "Let me publish my invoice-approval template. I've gotten compliments on it and want others to use it." | 2026-02-20 |
+| Support ticket | "Is there a way to share my workflow setup with my team so they can clone it? I keep rebuilding the same base." | 2026-03-05 |
 | NPS verbatim | "example_product would be 10x better if I could browse templates from other users, not just the default ones." | 2026-03-10 |
 
 ## Goals
@@ -48,8 +48,8 @@ The Community Marketplace transforms the example_product template library from a
 ### Primary Goals
 
 1. **Grow the template catalog to 100+ community templates within 90 days of launch.** The marketplace must reach a critical mass of content to be useful. Internal seeding plus organic publishing should hit this target.
-2. **Increase template fork-to-deploy conversion to 40%+.** Community templates should be high enough quality that users who fork them actually ship.
-3. **Improve new user activation by 15%.** Users who start from a template should activate (reach first deploy) at a meaningfully higher rate than users who start from blank projects.
+2. **Increase template fork-to-publish conversion to 40%+.** Community templates should be high enough quality that users who fork them actually ship.
+3. **Improve new user activation by 15%.** Users who start from a template should activate (reach first publish) at a meaningfully higher rate than users who start from blank workflows.
 
 ### Secondary Goals
 
@@ -61,7 +61,7 @@ The Community Marketplace transforms the example_product template library from a
 
 ### Template Publisher
 
-- As a example_product user who has built a successful project, I want to publish it as a template so that others can benefit from my work and I can build a reputation in the community.
+- As a example_product user who has built a successful workflow, I want to publish it as a template so that others can benefit from my work and I can build a reputation in the community.
 - As a template publisher, I want to see how many people have forked and rated my template so that I understand its impact and can improve it.
 - As a template publisher, I want to add a title, description, category, and preview screenshots so that potential users can evaluate my template before forking.
 
@@ -83,19 +83,19 @@ The Community Marketplace transforms the example_product template library from a
 
 | ID | Requirement | Priority |
 |----|-------------|----------|
-| FR-1 | Users can publish a project as a template with title, description, category, and up to 5 preview images | P0 |
+| FR-1 | Users can publish a workflow as a template with title, description, category, and up to 5 preview images | P0 |
 | FR-2 | Published templates enter a pending review state before appearing in the marketplace | P0 |
 | FR-3 | Users can browse the marketplace with a grid view of template cards | P0 |
-| FR-4 | Users can filter templates by category: SaaS, Portfolio, E-commerce, Landing Page, Internal Tool | P0 |
+| FR-4 | Users can filter templates by category: Contract, Invoice, Intake Form, Purchase Order, Internal Approval | P0 |
 | FR-5 | Users can sort templates by: Popular (fork count), New (date), Top Rated (avg rating) | P0 |
 | FR-6 | Users can search templates by keyword across titles and descriptions | P0 |
-| FR-7 | Users can fork a template into their own projects, creating an independent copy | P0 |
+| FR-7 | Users can fork a template into their own workflows, creating an independent copy | P0 |
 | FR-8 | Users can rate templates on a 1-5 star scale after forking and using them for >10 minutes | P1 |
 | FR-9 | Template cards display preview image, title, author, category, fork count, and average rating | P0 |
 | FR-10 | Admin review queue allows team members to approve or reject pending templates | P0 |
 | FR-11 | Users can report templates for inappropriate content | P1 |
 | FR-12 | Templates with 3+ reports are automatically hidden pending re-review | P1 |
-| FR-13 | Only users with at least one deployed project and accounts older than 7 days can publish | P1 |
+| FR-13 | Only users with at least one published workflow and accounts older than 7 days can publish | P1 |
 | FR-14 | Marketplace link is added to the main navigation | P0 |
 
 ### Non-Functional Requirements
@@ -131,12 +131,12 @@ The Community Marketplace transforms the example_product template library from a
 - Add marketplace to main navigation and homepage
 - Launch "Template of the Week" editorial spotlight
 - PR and social media push highlighting top community templates
-- Track impact on new user activation and fork-to-deploy conversion
+- Track impact on new user activation and fork-to-publish conversion
 
 ### Success Criteria for GA
 
 - 100+ approved community templates
-- Fork-to-deploy conversion >= 40%
+- Fork-to-publish conversion >= 40%
 - Average template rating >= 4.0
 - Review queue SLA met (24-hour turnaround) for 95%+ of submissions
 - No major abuse incidents requiring marketplace takedown

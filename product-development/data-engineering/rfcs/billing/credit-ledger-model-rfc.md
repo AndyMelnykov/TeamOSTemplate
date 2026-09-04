@@ -43,11 +43,11 @@ CREATE TABLE analytics.example_product.fact_credit_transactions (
     org_id              VARCHAR(36),
     amount              INTEGER NOT NULL,
     type                VARCHAR(10) NOT NULL,    -- 'debit' or 'credit'
-    category            VARCHAR(20) NOT NULL,    -- 'generation', 'edit', 'deploy', 'refund', 'referral', 'bonus'
+    category            VARCHAR(20) NOT NULL,    -- 'automation_run', 'refinement', 'publish', 'refund', 'referral', 'bonus'
     reference_id        VARCHAR(36),
-    project_id          VARCHAR(36),
+    workflow_id         VARCHAR(36),
     balance_after       INTEGER NOT NULL,
-    subscription_tier   VARCHAR(20) NOT NULL,    -- 'free', 'pro', 'team', 'business', 'enterprise'
+    subscription_tier   VARCHAR(20) NOT NULL,    -- 'free', 'pro', 'teams', 'enterprise'
     created_at          TIMESTAMP_TZ NOT NULL,
 
     -- dbt-added fields
@@ -69,12 +69,12 @@ Reference table for subscription plan attributes. Maintained as a dbt seed file 
 
 ```sql
 CREATE TABLE analytics.example_product.dim_subscription_plans (
-    tier                VARCHAR(20) NOT NULL PRIMARY KEY,  -- 'free', 'pro', 'team', 'business', 'enterprise'
+    tier                VARCHAR(20) NOT NULL PRIMARY KEY,  -- 'free', 'pro', 'teams', 'enterprise'
     display_name        VARCHAR(50) NOT NULL,
     monthly_credits     INTEGER NOT NULL,
     price_monthly_usd   DECIMAL(10, 2) NOT NULL,
     price_annual_usd    DECIMAL(10, 2) NOT NULL,
-    max_projects        INTEGER,
+    max_workflows       INTEGER,
     max_team_members    INTEGER,
     overage_enabled     BOOLEAN NOT NULL DEFAULT FALSE,
     overage_rate_usd    DECIMAL(10, 4),           -- Cost per credit above allocation (if overage enabled)
@@ -90,10 +90,9 @@ CREATE TABLE analytics.example_product.dim_subscription_plans (
 
 | Tier | Monthly Credits | Monthly Price | Annual Price |
 |------|----------------|---------------|--------------|
-| free | 500 | $0.00 | $0.00 |
-| pro | 2,000 | $20.00 | $192.00 |
-| team | 10,000 | $50.00/seat | $480.00/seat |
-| business | 50,000 | $200.00 | $1,920.00 |
+| free | 25 | $0.00 | $0.00 |
+| pro | 2,000 | $29.00 | $278.40 |
+| teams | 10,000 | $79.00/seat | $758.40/seat |
 | enterprise | Custom | Custom | Custom |
 
 ## Pipeline Architecture
@@ -249,10 +248,10 @@ ORDER BY projected_days_remaining ASC;
 | `not_null` | `fact_credit_transactions` | `transaction_id`, `user_id`, `amount`, `type`, `category`, `balance_after`, `created_at` | Error |
 | `unique` | `fact_credit_transactions` | `transaction_id` | Error |
 | `accepted_values` | `fact_credit_transactions` | `type` (`debit`, `credit`) | Error |
-| `accepted_values` | `fact_credit_transactions` | `category` (`generation`, `edit`, `deploy`, `refund`, `referral`, `bonus`) | Error |
-| `accepted_values` | `fact_credit_transactions` | `subscription_tier` (`free`, `pro`, `team`, `business`, `enterprise`) | Error |
+| `accepted_values` | `fact_credit_transactions` | `category` (`automation_run`, `refinement`, `publish`, `refund`, `referral`, `bonus`) | Error |
+| `accepted_values` | `fact_credit_transactions` | `subscription_tier` (`free`, `pro`, `teams`, `enterprise`) | Error |
 | `relationships` | `fact_credit_transactions` | `user_id` → `dim_users.user_id` | Warn |
-| `relationships` | `fact_credit_transactions` | `project_id` → `dim_projects.project_id` | Warn |
+| `relationships` | `fact_credit_transactions` | `workflow_id` → `dim_workflows.workflow_id` | Warn |
 | `positive_values` | `fact_credit_transactions` | `amount` | Error |
 | `non_negative` | `fact_credit_transactions` | `balance_after` | Error |
 

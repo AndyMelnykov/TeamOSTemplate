@@ -17,7 +17,7 @@ Give users visibility into their referral status — who signed up, who converte
    - Idempotent credit grant to prevent double-counting
 4. Add share integrations
    - Generate OG-tagged referral URL for social sharing
-   - "Share Lovable" button in sidebar triggers share sheet (copy link, Twitter, email)
+   - "Share example_product" button in sidebar triggers share sheet (copy link, Twitter, email)
 5. Add tests
    - Referral code correctly attributes signups
    - Credits granted once on paid conversion only

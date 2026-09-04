@@ -1,4 +1,4 @@
-# RFC: One-Click Deploy
+# RFC: One-Click Publish
 
 **Author:** Sam Torres, Staff Engineer
 **Status:** Draft

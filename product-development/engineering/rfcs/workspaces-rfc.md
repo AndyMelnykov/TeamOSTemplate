@@ -11,7 +11,7 @@
 
 ## Summary
 
-Introduces a workspace entity that groups projects under a team, with role-based permissions (member/manager/admin) and a manager review flag on each project.
+Introduces a workspace entity that groups document automation workflows under a team, with role-based permissions (member/manager/admin) and a manager review flag on each workflow.
 
 ## Motivation
 
@@ -19,13 +19,13 @@ See `product/PRDs/team-workspaces-prd.md`.
 
 ## Proposed Design
 
-- New `workspace` entity owning a set of `project` records (currently owned directly by `account`).
+- New `workspace` entity owning a set of `workflow` records (currently owned directly by `account`).
 - `workspace_membership` join table carrying a `role` enum (`member`, `manager`, `admin`).
-- `project.reviewed_at` / `project.reviewed_by` columns to support the manager review flow.
+- `workflow.reviewed_at` / `workflow.reviewed_by` columns to support the manager review flow (e.g., a manager sign-off before a vendor contract workflow is published).
 
 ## Alternatives Considered
 
-- Reusing the existing account-level permission model instead of a new workspace entity: rejected — accounts can contain multiple teams, and permissions need to scope below the account level.
+- Reusing the existing account-level permission model instead of a new workspace entity: rejected — accounts can contain multiple teams (e.g., legal and finance both automating documents under one account), and permissions need to scope below the account level.
 
 ## Rollout Plan
 

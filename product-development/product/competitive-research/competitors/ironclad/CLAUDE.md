@@ -1,6 +1,6 @@
-# Replit Competitive Teardown
+# Ironclad Competitive Teardown
 
-AI-powered cloud IDE with built-in hosting. Full-stack but less design-polished. Strong collaboration features.
+Broad contract lifecycle management (CLM) platform with built-in workflow (ironcladapp.com). Full-lifecycle but narrower document scope than example_product. Strong collaboration features.
 
 ## Document Index
 

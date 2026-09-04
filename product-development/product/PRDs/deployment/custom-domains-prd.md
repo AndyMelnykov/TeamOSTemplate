@@ -10,80 +10,80 @@
 
 # Business Opportunity
 
-Custom domains transform example_product from a prototyping tool into a production deployment platform. Today, every deployed project lives on a `*.example_productapp.dev` subdomain, which signals "demo" to anyone who sees the URL. For users building client deliverables, launching MVPs, or shipping internal tools, a branded domain is non-negotiable.
+Custom domains transform example_product from a workflow-building tool into a production document platform. Today, every published workflow's portal lives on a `*.example_productapp.dev` subdomain, which signals "demo" to anyone who sees the URL. For users publishing client-facing contracts, vendor onboarding forms, or applicant intake portals, a branded domain is non-negotiable.
 
-**Professional presentation drives paid conversion.** Users on the Free tier prototype and experiment. The moment they want to share something externally -- with a client, an investor, a user base -- they need a real URL. Custom domains are a natural upgrade trigger to example_product Pro.
+**Professional presentation drives paid conversion.** Users on the Free tier build and test workflows internally. The moment they want to send something externally -- to a client, a vendor, an applicant -- they need a real URL. Custom domains are a natural upgrade trigger to example_product Pro.
 
-**Table stakes for business users.** In every Enterprise and Teams sales conversation, custom domains come up in the first call. Procurement teams will not approve a platform where customer-facing applications are served from a third-party subdomain. Without custom domains, example_product is excluded from production use cases entirely.
+**Table stakes for business users.** In every Enterprise and Teams sales conversation, custom domains come up in the first call. Procurement and legal teams will not approve a platform where customer-facing contracts or intake forms are served from a third-party subdomain. Without custom domains, example_product is excluded from production use cases entirely.
 
 | Conversion lever | Impact |
 |-----------------|--------|
-| Free-to-Pro upgrade trigger | Users who deploy are 3.2x more likely to upgrade; custom domains add a second conversion moment |
+| Free-to-Pro upgrade trigger | Users who publish are 3.2x more likely to upgrade; custom domains add a second conversion moment |
 | Teams/Enterprise deal velocity | Removes a top-3 procurement blocker, reducing average sales cycle by an estimated 2 weeks |
-| Retention | Users with custom domains have a projected 25% lower churn rate (based on competitive benchmarking with Vercel/Netlify data) |
+| Retention | Users with custom domains have a projected 25% lower churn rate (based on competitive benchmarking with DocuSign/PandaDoc data) |
 
 # Why Now
 
-Custom domains is the **number one requested deployment feature** across all feedback channels:
+Custom domains is the **number one requested publishing feature** across all feedback channels:
 
 - **Feature request volume:** 47 unique requests in the last 90 days (EXAMPLE_PRODUCT-980, EXAMPLE_PRODUCT-1012, EXAMPLE_PRODUCT-1044 and related threads).
 - **Customer calls:** Mentioned unprompted in 8 of the last 12 Enterprise prospect calls.
-- **Competitive pressure:** Vercel, Netlify, Render, and Railway all offer custom domains on their lowest paid tiers. Lovable launched custom domain support in February 2026. example_product is now the only major AI prototyping platform without it.
+- **Competitive pressure:** DocuSign, PandaDoc, Dropbox Sign, and Conga all offer custom domains on their lowest paid tiers. PandaDoc launched custom-domain branded portals in February 2026. example_product is now the only major AI document automation platform without it.
 - **Revenue at risk:** Three active pipeline deals totaling ~$180K ARR have flagged custom domains as a requirement for signing.
 
 # Customer Requests
 
 | Source | Customer/Segment | Verbatim |
 |--------|-----------------|----------|
-| Feature request (EXAMPLE_PRODUCT-980) | Pro user, freelance developer | "I love building with example_product but I can't send clients a example_productapp.dev link. They'd never take it seriously." |
+| Feature request (EXAMPLE_PRODUCT-980) | Pro user, freelance ops consultant | "I love building workflows in example_product but I can't send clients a example_productapp.dev link. They'd never take it seriously." |
 | Sales call, 2026-03-05 | Enterprise prospect, fintech | "We need our compliance portal on our own domain. If example_product can't do that, we'll have to look at alternatives." |
-| Support ticket | Teams user, agency | "We're building client projects in example_product. Each one needs to live on the client's domain. This is a dealbreaker for us." |
-| NPS comment | Pro user, startup founder | "example_product is amazing for prototyping. The second I want to go live, I have to move everything to Vercel for a real domain. Fix this and I'll never leave." |
+| Support ticket | Teams user, agency | "We're building client onboarding workflows in example_product. Each one needs to live on the client's domain. This is a dealbreaker for us." |
+| NPS comment | Pro user, startup founder | "example_product is amazing for building workflows. The second I want to go live with real vendors, I have to bolt on a real domain myself. Fix this and I'll never leave." |
 | Customer call, 2026-02-28 | Enterprise pilot, healthcare | "Our legal team won't approve anything that doesn't run on our corporate domain. Period." |
 
 # Goals
 
 | Goal | Metric | Target |
 |------|--------|--------|
-| Enable professional deployments | Domain setup completion rate | > 75% of users who start the flow complete it |
+| Enable professional publishing | Domain setup completion rate | > 75% of users who start the flow complete it |
 | Fast time-to-live | Time from domain added to serving traffic | < 10 minutes (median) |
 | Reliable SSL | SSL provision success rate | > 99% |
-| Drive upgrades | Free-to-Pro conversion lift among deployers | +15% relative increase |
+| Drive upgrades | Free-to-Pro conversion lift among publishers | +15% relative increase |
 | Reduce churn | 90-day retention for users with custom domains vs. without | +10pp |
 
 # User Stories
 
-## Freelance Developer (Pro)
+## Freelance Ops Consultant (Pro)
 
-**As a** freelance developer building client projects in example_product, **I want to** connect my client's domain to the deployed project **so that** the deliverable looks professional and the client sees their own brand in the URL.
+**As a** freelance ops consultant building client intake and approval workflows in example_product, **I want to** connect my client's domain to the published workflow portal **so that** the deliverable looks professional and the client sees their own brand in the URL.
 
 **Acceptance criteria:**
-- I can add a custom domain from the project's deployment settings.
+- I can add a custom domain from the workflow's publishing settings.
 - I see clear DNS configuration instructions for my registrar.
 - The domain is live with HTTPS within minutes of DNS propagation.
-- I can remove the domain when the project is complete.
+- I can remove the domain when the engagement is complete.
 
 ## Startup Founder (Pro)
 
-**As a** startup founder who prototyped my MVP in example_product, **I want to** launch it on my own domain **so that** early users and investors see a legitimate product, not a demo link.
+**As a** startup founder who built my vendor onboarding workflow in example_product, **I want to** launch it on my own domain **so that** vendors and partners see a legitimate portal, not a demo link.
 
 **Acceptance criteria:**
-- I can add my startup's domain (e.g., `app.mystartup.com`) to my example_product project.
+- I can add my startup's domain (e.g., `portal.mystartup.com`) to my example_product workflow.
 - SSL is provisioned automatically -- I don't need to manage certificates.
 - The domain stays live and certificates auto-renew without my intervention.
 
 ## Agency Lead (Teams)
 
-**As an** agency lead managing multiple client projects, **I want to** connect a different custom domain to each project **so that** each client gets a branded deployment without leaving example_product.
+**As an** agency lead managing multiple client document workflows, **I want to** connect a different custom domain to each workflow **so that** each client gets a branded portal without leaving example_product.
 
 **Acceptance criteria:**
-- Each project in my Teams workspace can have its own custom domain.
-- I can see the status of all domains across projects in one place.
-- My team members can manage domains for projects they have access to.
+- Each workflow in my Teams workspace can have its own custom domain.
+- I can see the status of all domains across workflows in one place.
+- My team members can manage domains for workflows they have access to.
 
 ## Enterprise Admin (Enterprise)
 
-**As an** IT administrator at an enterprise customer, **I want to** deploy example_product-built internal tools on our corporate domain **so that** they comply with our security and branding policies.
+**As an** IT administrator at an enterprise customer, **I want to** publish example_product-built intake and approval portals on our corporate domain **so that** they comply with our security and branding policies.
 
 **Acceptance criteria:**
 - Domains are verified through DNS to prove ownership.
@@ -97,7 +97,7 @@ Custom domains is the **number one requested deployment feature** across all fee
 
 | ID | Requirement | Priority |
 |----|-------------|----------|
-| FR-1 | Users can add a custom domain to a deployed project from the deployment settings page | P0 |
+| FR-1 | Users can add a custom domain to a published workflow from the publishing settings page | P0 |
 | FR-2 | System generates CNAME target and verification token upon domain registration | P0 |
 | FR-3 | DNS verification runs automatically via polling (every 30s, up to 48 hours) | P0 |
 | FR-4 | Users can manually trigger DNS verification check | P1 |
@@ -127,7 +127,7 @@ Custom domains is the **number one requested deployment feature** across all fee
 ## Phase 1: Internal Dogfood (Week 1-2)
 
 - Deploy behind `custom-domains` feature flag.
-- example_product team tests with internal projects and personal domains.
+- example_product team tests with internal workflows and personal domains.
 - Validate end-to-end flow: add domain, configure DNS, verify, SSL provision, serve traffic, remove.
 - Fix any issues found before external exposure.
 
@@ -142,7 +142,7 @@ Custom domains is the **number one requested deployment feature** across all fee
 
 - Enable for all Pro, Teams, and Enterprise tiers.
 - Publish help center article with video walkthrough.
-- Add "Custom Domains" to the deployment settings page for all eligible users.
+- Add "Custom Domains" to the publishing settings page for all eligible users.
 - Display upgrade CTA for Free-tier users.
 - Announce in product changelog, in-app notification, and email to Pro/Teams users.
 - Run targeted email to Enterprise pipeline deals that flagged custom domains.

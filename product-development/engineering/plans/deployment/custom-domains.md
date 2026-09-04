@@ -11,13 +11,13 @@
 ---
 
 ## Overview
-Let users connect their own domain to a deployed Lovable project instead of using the default lovable.app subdomain.
+Let users connect their own domain to a published example_product workflow portal instead of using the default example_productapp.dev subdomain.
 
 ## Steps
 1. Add domain management API in `src/routes/domains.ts`
-   - `POST /api/projects/:id/domains` — register custom domain
-   - `GET /api/projects/:id/domains` — list connected domains with SSL status
-   - `DELETE /api/projects/:id/domains/:domainId` — remove domain
+   - `POST /api/workflows/:id/domains` — register custom domain
+   - `GET /api/workflows/:id/domains` — list connected domains with SSL status
+   - `DELETE /api/workflows/:id/domains/:domainId` — remove domain
 2. Build DNS verification flow
    - Generate CNAME or A record values for the user to configure
    - Poll DNS propagation status every 30s for up to 48 hours
@@ -26,11 +26,11 @@ Let users connect their own domain to a deployed Lovable project instead of usin
    - Trigger Let's Encrypt certificate after DNS verification passes
    - Store cert in `domain_certificates` table with expiry tracking
    - Auto-renew 30 days before expiry via cron job
-4. Create `DomainSettings` component in `src/components/deploy/`
+4. Create `DomainSettings` component in `src/components/publish/`
    - Input field for custom domain
    - Status indicators: DNS pending, DNS verified, SSL provisioning, live
    - Remove domain with confirmation dialog
 5. Add tests
    - Domain registration creates DNS verification record
    - SSL provisioned after DNS verification
-   - Deployed project accessible on custom domain
+   - Published portal accessible on custom domain

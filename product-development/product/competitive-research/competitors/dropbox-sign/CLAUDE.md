@@ -1,6 +1,6 @@
-# v0 Competitive Teardown
+# Dropbox Sign Competitive Teardown
 
-Vercel's AI UI generation platform. React/Next.js focused, frontend-only. Strong component generation.
+Dropbox's lightweight e-signature platform (sign.dropbox.com). Narrow scope, but fast. Signature-only, no extraction or workflow building.
 
 ## Document Index
 

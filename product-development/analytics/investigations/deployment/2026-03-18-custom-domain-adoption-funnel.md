@@ -13,7 +13,7 @@ Where do users drop off in the custom domain setup flow, and what can we do to i
 
 # Background
 
-Custom domains entered closed beta on 2026-03-04 with 50 Pro and Teams users. After two weeks, the domain setup completion rate (domain added to traffic serving) was 62%, below the 75% target. Product and engineering requested an investigation into where users are abandoning the flow and why.
+Custom domains for published document portals entered closed beta on 2026-03-04 with 50 Pro and Teams users. After two weeks, the domain setup completion rate (domain added to traffic serving) was 62%, below the 75% target. Product and engineering requested an investigation into where users are abandoning the flow and why.
 
 # Methodology
 

@@ -8,11 +8,11 @@
 
 ## TL;DR
 
-Personalized template recommendations increased the fork rate by **27%** compared to the default category browse experience. Users who saw recommended templates were also more likely to deploy their forked project (44% vs 39% fork-to-deploy conversion). We recommend shipping the recommendations experience to all users.
+Personalized template recommendations increased the fork rate by **27%** compared to the default category browse experience. Users who saw recommended templates were also more likely to publish their forked workflow (44% vs 39% fork-to-publish conversion). We recommend shipping the recommendations experience to all users.
 
 ## Hypothesis
 
-If we show users personalized template recommendations based on their project history and category preferences (instead of the default category browse grid), then the fork rate will increase because users will find relevant templates faster and with less browsing friction.
+If we show users personalized template recommendations based on their workflow history and category preferences (instead of the default category browse grid), then the fork rate will increase because users will find relevant templates faster and with less browsing friction.
 
 ## Experiment Design
 
@@ -23,7 +23,7 @@ If we show users personalized template recommendations based on their project hi
 | **End date** | 2026-03-07 |
 | **Duration** | 21 days |
 | **Platform** | Web only |
-| **Eligible users** | All users who visited the marketplace at least once and had at least one existing project (needed for recommendation signal) |
+| **Eligible users** | All users who visited the marketplace at least once and had at least one existing workflow (needed for recommendation signal) |
 | **Allocation** | 50/50 random split at user level |
 | **Control (A)** | Default marketplace browse: category sidebar + grid sorted by "Popular" |
 | **Treatment (B)** | Personalized recommendations: "Recommended for You" row at top of marketplace, followed by category browse below |
@@ -32,7 +32,7 @@ If we show users personalized template recommendations based on their project hi
 
 The "Recommended for You" row displays up to 8 templates selected by:
 
-1. Matching the category of the user's most recent project (weight: 0.4)
+1. Matching the category of the user's most recent workflow (weight: 0.4)
 2. Matching categories the user has previously forked from (weight: 0.3)
 3. High-rated templates in the user's most-viewed categories (weight: 0.2)
 4. Trending templates with high fork velocity in the last 7 days (weight: 0.1)
@@ -57,7 +57,7 @@ Templates the user has already forked are excluded.
 | Metric | Control (A) | Treatment (B) | Lift | p-value |
 |--------|-------------|---------------|------|---------|
 | Template detail view rate | 22.4% | 28.1% | +25.4% | < 0.001 |
-| Fork-to-deploy conversion | 39.1% | 44.0% | +12.5% | 0.031 |
+| Fork-to-publish conversion | 39.1% | 44.0% | +12.5% | 0.031 |
 | Avg templates viewed before fork | 4.7 | 3.2 | -31.9% | < 0.001 |
 | Time on marketplace page (median) | 2m 18s | 1m 42s | -26.1% | < 0.001 |
 | Return visit rate (7d) | 31.2% | 34.8% | +11.5% | 0.047 |
@@ -66,7 +66,7 @@ Templates the user has already forked are excluded.
 
 - **Fork rate increased by 27%.** This is the headline result. Users who see recommendations fork templates at a significantly higher rate.
 - **Users find templates faster.** The average number of templates viewed before forking dropped from 4.7 to 3.2, and median time on the marketplace page decreased by 26%. This indicates that recommendations surface relevant templates more efficiently.
-- **Fork-to-deploy conversion also improved.** Users in the treatment group not only forked more, but the templates they forked were more likely to be deployed (44% vs 39%). This suggests that recommendations match users with templates they actually intend to use, not just templates they click on out of curiosity.
+- **Fork-to-publish conversion also improved.** Users in the treatment group not only forked more, but the templates they forked were more likely to be published (44% vs 39%). This suggests that recommendations match users with templates they actually intend to use, not just templates they click on out of curiosity.
 - **Return visits increased.** Users who saw recommendations were 11.5% more likely to return to the marketplace within 7 days, suggesting a better overall experience.
 
 ### Guardrail Metrics
@@ -97,7 +97,7 @@ Recommendations have the strongest effect on new users and free-tier users, who 
 
 Rationale:
 1. The 27% fork rate lift is well above the minimum detectable effect (10%) we set before the experiment.
-2. Fork-to-deploy conversion also improved, meaning the lift is not driven by low-quality forks.
+2. Fork-to-publish conversion also improved, meaning the lift is not driven by low-quality forks.
 3. The effect is positive across all segments, with especially strong impact on new users and free-tier users.
 4. No guardrail metrics were breached.
 

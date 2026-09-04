@@ -30,7 +30,7 @@ For each call summary, extract:
 - **Key quotes** (verbatim, with speaker attribution)
 - **Product satisfaction signals** (positive or negative)
 - **Product feedback / feature requests**
-- **Workflow themes** (generation quality, deployment pain, collaboration needs, enterprise requirements)
+- **Workflow themes** (extraction quality, publishing pain, collaboration needs, enterprise requirements)
 
 ### 4. Draft sections
 

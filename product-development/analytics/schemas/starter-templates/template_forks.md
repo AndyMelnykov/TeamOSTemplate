@@ -1,6 +1,6 @@
 # Schema: `analytics.example_product.template_forks`
 
-Event-level table capturing every template fork action in the Community Marketplace. One row per fork event (a user creating a new project from a published template).
+Event-level table capturing every template fork action in the document template marketplace. One row per fork event (a user creating a new workflow from a published template).
 
 **Database:** `ANALYTICS`
 **Schema:** `EXAMPLE_PRODUCT`
@@ -15,8 +15,8 @@ Event-level table capturing every template fork action in the Community Marketpl
 | `fork_id` | VARCHAR(36) | No | Unique identifier for the fork event (UUID) |
 | `template_id` | VARCHAR(36) | No | Published template that was forked |
 | `user_id` | VARCHAR(36) | No | User who forked the template |
-| `project_id` | VARCHAR(36) | No | New project created from the fork |
-| `customizations_applied` | BOOLEAN | No | Whether the user made edits to the forked project within the first session |
+| `project_id` | VARCHAR(36) | No | New workflow created from the fork (also referred to as `workflow_id`) |
+| `customizations_applied` | BOOLEAN | No | Whether the user made edits (field mappings, routing, branding) to the forked workflow within the first session |
 | `created_at` | TIMESTAMP_NTZ | No | When the fork occurred (UTC) |
 
 ## Indexes & Clustering
@@ -28,12 +28,13 @@ Event-level table capturing every template fork action in the Community Marketpl
 
 - `published_templates` on `template_id` - Template metadata (category, author, rating)
 - `users` on `user_id` - User profile, subscription tier, account age
-- `projects` on `project_id` - Forked project metadata and downstream events
-- `deploy_events` on `project_id` - Whether the forked project was eventually deployed
-- `project_generations` on `project_id` - Generation activity in the forked project
+- `workflows` on `project_id` (`workflow_id`) - Forked workflow metadata and downstream events
+- `publish_events` on `project_id` (`workflow_id`) - Whether the forked workflow was eventually published
+- `workflow_automation_runs` on `project_id` (`workflow_id`) - Automation run activity in the forked workflow
 
 ## Notes
 
-- `customizations_applied` is set to `true` if the user triggers at least one generation or manual edit within the first 30 minutes after forking
-- A single user can fork the same template multiple times (each creates a new project), so `(template_id, user_id)` is not unique
-- To calculate fork-to-deploy conversion, join with `deploy_events` on `project_id` and check for `status = 'completed'`
+- **Naming note**: `project_id` in this table is referenced as `workflow_id` in current dashboards, investigations, and experiment writeups; both names point at the same column.
+- `customizations_applied` is set to `true` if the user triggers at least one automation run or manual edit within the first 30 minutes after forking
+- A single user can fork the same template multiple times (each creates a new workflow), so `(template_id, user_id)` is not unique
+- To calculate fork-to-publish conversion, join with `publish_events` on `project_id` (`workflow_id`) and check for `status = 'completed'`

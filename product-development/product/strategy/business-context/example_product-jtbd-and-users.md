@@ -2,52 +2,52 @@
 
 # Jobs to Be Done
 
-## JTBD 1: Ship an MVP fast
-"When I have a product idea, I want to go from concept to working prototype in hours instead of weeks, so I can validate the idea before investing real engineering time."
+## JTBD 1: Get out of manual data entry
+"When my team spends hours a week retyping data from PDFs and scanned forms into our systems, I want an automated way to extract that data accurately, so we stop wasting hours on repetitive, error-prone work."
 
-## JTBD 2: Prototype for client approval
-"When I'm pitching a client on a design concept, I want to show them an interactive prototype that feels real, so they can approve the direction and I can close the deal faster."
+## JTBD 2: Stand up a client-facing intake process fast
+"When I'm onboarding a new client or vendor, I want to hand them a branded, guided form that collects and validates everything we need, so I can close the deal faster without a back-and-forth email chain."
 
-## JTBD 3: Validate a product hypothesis
-"When I have a hypothesis about what users need, I want to quickly build and deploy a testable version, so I can gather real user feedback before committing the full team."
+## JTBD 3: Prove a new workflow before rolling it out
+"When I have an idea for automating a paperwork-heavy process, I want to quickly build and test it with real documents, so I can validate it actually works before rolling it out to the whole team."
 
-## JTBD 4: Standardize internal tooling
-"When my team keeps building the same internal admin panels and dashboards from scratch, I want a consistent way to generate and maintain them, so we stop wasting engineering cycles on repetitive work."
+## JTBD 4: Standardize document handling across teams
+"When my organization keeps building one-off spreadsheets and manual processes for the same kinds of documents, I want a consistent way to build and maintain automated workflows, so we stop reinventing the same paperwork process in every department."
 
 # User Personas
 
-## Solo Developer - "Dev Dana"
+## Solo Operator - "Ops Olivia"
 
-- **Role:** Full-stack developer, freelancer or early-stage founder
+- **Role:** Operations lead, freelancer or early-stage founder
 - **Company size:** 1-5 people
-- **Goals:** Ship MVPs quickly, iterate based on feedback, minimize infrastructure overhead
-- **Frustrations:** Boilerplate setup takes too long, deploying side projects is tedious, can't afford a design team
-- **example_product usage:** Generates full-stack apps from prompts, uses one-click deploy, upgrades to Pro for custom domains
+- **Goals:** Automate repetitive paperwork quickly, cut down on manual data entry, minimize tooling overhead
+- **Frustrations:** Setting up a workflow from scratch takes too long, publishing a signing portal is tedious, can't afford a dedicated ops team
+- **example_product usage:** Builds workflows from a document upload, uses one-click publish, upgrades to Pro for custom domains
 - **Tier:** Free to Pro
 
-## Design Agency - "Agency Ava"
+## Professional Services Firm - "Agency Ava"
 
-- **Role:** Creative director or lead designer at a digital agency
+- **Role:** Operations or client-services lead at a professional services firm
 - **Company size:** 10-30 people
-- **Goals:** Impress clients with interactive prototypes, reduce handoff friction with developers, win more contracts
-- **Frustrations:** Static mockups don't convey interaction, developer handoff is slow and lossy, client feedback cycles drag on
-- **example_product usage:** Generates interactive prototypes for client reviews, shares deployed previews, uses team workspaces for collaboration
+- **Goals:** Impress clients with a polished intake experience, reduce handoff friction with the delivery team, close engagements faster
+- **Frustrations:** Static PDF forms don't validate or route data, staff handoff between intake and delivery is slow and lossy, client follow-up cycles drag on
+- **example_product usage:** Builds branded intake workflows for client reviews, shares published portals, uses team workspaces for collaboration
 - **Tier:** Teams
 
-## Startup PM - "PM Parker"
+## Ops/Product Lead - "PM Parker"
 
-- **Role:** Product manager at a Series A/B startup
+- **Role:** Operations or product manager at a Series A/B startup
 - **Company size:** 30-150 people
-- **Goals:** Validate ideas quickly, communicate product vision to stakeholders, reduce dependency on engineering for early exploration
-- **Frustrations:** Eng team is always at capacity, getting a prototype built takes 2-3 sprints, hard to test ideas without building them
-- **example_product usage:** Generates prototypes to test with users, shares deployed versions in stakeholder reviews, uses analytics to measure engagement
+- **Goals:** Validate a new automated process quickly, communicate process improvements to stakeholders, reduce dependency on engineering for one-off tooling
+- **Frustrations:** Eng team is always at capacity, getting a workflow built takes 2-3 sprints, hard to test a process without building it
+- **example_product usage:** Builds workflows to pilot with real documents, shares published versions in stakeholder reviews, uses analytics to measure adoption
 - **Tier:** Pro to Teams
 
-## Enterprise Architect - "Architect Alex"
+## Enterprise Compliance Lead - "Architect Alex"
 
-- **Role:** Staff/principal engineer or engineering manager at a large company
+- **Role:** Staff/principal ops or compliance manager at a large company
 - **Company size:** 500+ people
-- **Goals:** Standardize internal tool creation, reduce duplicated effort across teams, enforce design system compliance
-- **Frustrations:** Every team builds admin panels differently, no consistency in internal tooling, hard to maintain dozens of one-off tools
-- **example_product usage:** Uses shared component library, enforces org-wide templates, deploys to internal infrastructure via custom integrations
+- **Goals:** Standardize document processing across departments, reduce duplicated effort across teams, enforce compliance and audit requirements
+- **Frustrations:** Every department handles the same document types differently, no consistency in how paperwork is processed, hard to maintain dozens of one-off spreadsheets and manual reviews
+- **example_product usage:** Uses shared clause/field block library, enforces org-wide templates, publishes to internal infrastructure via custom integrations
 - **Tier:** Enterprise

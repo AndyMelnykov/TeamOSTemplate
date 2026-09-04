@@ -21,8 +21,8 @@ Build the analytics data pipeline for the custom domains feature: ingest domain 
   - `src/routes/domains.ts` -- `domain.added`, `domain.removed`
   - `src/workers/dnsVerification.ts` -- `domain.dns_check`, `domain.dns_verified`, `domain.dns_failed`
   - `src/services/sslProvisioning.ts` -- `domain.ssl_requested`, `domain.ssl_provisioned`, `domain.ssl_failed`, `domain.ssl_renewed`, `domain.ssl_expired`
-- Each event must include: `domain_id`, `project_id`, `user_id`, `domain`, `event_type`, and event-specific metadata per the RFC schema.
-- Add the `domain.first_request` event via edge proxy access log -> Snowpipe (already configured for deploy events; extend the existing pipe).
+- Each event must include: `domain_id`, `workflow_id`, `user_id`, `domain`, `event_type`, and event-specific metadata per the RFC schema.
+- Add the `domain.first_request` event via edge proxy access log -> Snowpipe (already configured for publish events; extend the existing pipe).
 - **Validation:** Confirm events appear in `raw.segment.tracks` in Snowflake within 5 minutes of triggering. Check field names, types, and nullability.
 
 ### 2. Add Fivetran incremental sync for `custom_domains` and `domain_certificates`

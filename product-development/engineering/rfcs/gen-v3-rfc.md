@@ -1,4 +1,4 @@
-# AI Generation v3 - Engineering RFC
+# AI Extraction v3 - Engineering RFC
 
 | Field | Value |
 |-------|-------|
@@ -11,17 +11,17 @@
 
 ## Summary
 
-Migrates the generation pipeline to the v3 model to improve Generation Success Rate (GSR) on multi-file, mixed-framework generations.
+Migrates the extraction pipeline to the v3 model to improve Extraction Success Rate (ESR) on multi-page, mixed-document-type automation runs.
 
 ## Motivation
 
-See `product/PRDs/ai-gen-v3-prd.md` — GSR is below target specifically on less-common framework combinations.
+See `product/PRDs/ai-gen-v3-prd.md` — ESR is below target specifically on less-common document combinations (e.g., scanned purchase orders mixed with native-PDF invoices in the same automation run).
 
 ## Proposed Design
 
-- Stand up the v3 model behind the existing generation-service interface so no downstream caller changes.
-- Log generation outcomes to the `project-generations` table (`analytics/schemas/prototyping/project-generations.md`) with a model-version column so v2 vs v3 GSR can be compared per cohort.
-- Roll out by percentage cohort, gated on GSR staying at or above the v2 baseline at each step.
+- Stand up the v3 extraction model behind the existing extraction-service interface so no downstream caller changes.
+- Log automation run outcomes to the `project-generations` table (`analytics/schemas/prototyping/project-generations.md`) with a model-version column so v2 vs v3 ESR can be compared per cohort.
+- Roll out by percentage cohort, gated on ESR staying at or above the v2 baseline at each step.
 
 ## Alternatives Considered
 
@@ -29,4 +29,4 @@ See `product/PRDs/ai-gen-v3-prd.md` — GSR is below target specifically on less
 
 ## Rollout Plan
 
-5% -> 25% -> 100% cohort rollout, each stage gated on GSR (`reference/metrics.md`) staying at or above baseline for 3 consecutive days.
+5% -> 25% -> 100% cohort rollout, each stage gated on ESR (`reference/metrics.md`) staying at or above baseline for 3 consecutive days.

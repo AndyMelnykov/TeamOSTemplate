@@ -14,7 +14,7 @@ This RFC defines the analytics data models for the Community Marketplace feature
 
 ## Motivation
 
-The Community Marketplace introduces two new entity types (published templates and template forks) that do not exist in our current analytics schema. The product team needs to measure template publish rate, fork rate, fork-to-deploy conversion, and average rating. The existing `project_generations` and `deploy_events` tables do not capture the template-to-project relationship, so new models are required.
+The Community Marketplace introduces two new entity types (published templates and template forks) that do not exist in our current analytics schema. The product team needs to measure template publish rate, fork rate, fork-to-publish conversion, and average rating. The existing `workflow_automation_runs` and `publish_events` tables do not capture the template-to-workflow relationship, so new models are required.
 
 ## Data Flow
 
@@ -45,15 +45,15 @@ CREATE TABLE analytics.example_product.fact_template_forks (
     fork_id                 VARCHAR(36)     NOT NULL PRIMARY KEY,
     template_id             VARCHAR(36)     NOT NULL,
     user_id                 VARCHAR(36)     NOT NULL,
-    project_id              VARCHAR(36)     NOT NULL,
+    workflow_id             VARCHAR(36)     NOT NULL,
     author_id               VARCHAR(36)     NOT NULL,
     template_category       VARCHAR(50)     NOT NULL,
     user_subscription_tier  VARCHAR(20)     NOT NULL,
     customizations_applied  BOOLEAN         NOT NULL DEFAULT FALSE,
-    was_deployed            BOOLEAN         NOT NULL DEFAULT FALSE,
-    minutes_to_first_deploy INTEGER         NULL,
+    was_published           BOOLEAN         NOT NULL DEFAULT FALSE,
+    minutes_to_first_publish INTEGER        NULL,
     fork_created_at         TIMESTAMP_NTZ   NOT NULL,
-    first_deploy_at         TIMESTAMP_NTZ   NULL,
+    first_published_at      TIMESTAMP_NTZ   NULL,
     _loaded_at              TIMESTAMP_NTZ   NOT NULL DEFAULT CURRENT_TIMESTAMP()
 );
 ```
@@ -65,15 +65,15 @@ CREATE TABLE analytics.example_product.fact_template_forks (
 | `fork_id` | Primary key, UUID from the application database |
 | `template_id` | Foreign key to `dim_published_templates` |
 | `user_id` | User who performed the fork |
-| `project_id` | New project created by the fork; joins to `project_generations` and `deploy_events` |
+| `workflow_id` | New workflow created by the fork; joins to `workflow_automation_runs` and `publish_events` |
 | `author_id` | Author of the template (denormalized from `dim_published_templates` for query convenience) |
 | `template_category` | Category of the template at fork time (denormalized) |
 | `user_subscription_tier` | User's subscription tier at fork time: `free`, `pro`, `teams`, `enterprise` |
-| `customizations_applied` | Whether the user edited the forked project within 30 minutes |
-| `was_deployed` | Whether the forked project has been deployed (updated by downstream dbt model) |
-| `minutes_to_first_deploy` | Time from fork to first successful deploy, null if not deployed |
+| `customizations_applied` | Whether the user edited the forked workflow within 30 minutes |
+| `was_published` | Whether the forked workflow has been published (updated by downstream dbt model) |
+| `minutes_to_first_publish` | Time from fork to first successful publish, null if not published |
 | `fork_created_at` | Timestamp of the fork event |
-| `first_deploy_at` | Timestamp of the first successful deploy, null if not deployed |
+| `first_published_at` | Timestamp of the first successful publish, null if not published |
 | `_loaded_at` | dbt model load timestamp |
 
 **Clustering:** `(fork_created_at, template_category)`
@@ -85,7 +85,7 @@ CREATE TABLE analytics.example_product.fact_template_forks (
 **Upstream dependencies:**
 - `raw.example_product.template_forks` (Snowpipe)
 - `raw.example_product.published_templates` (Snowpipe, for denormalized fields)
-- `analytics.example_product.deploy_events` (for `was_deployed` and `first_deploy_at`)
+- `analytics.example_product.publish_events` (for `was_published` and `first_published_at`)
 - `analytics.example_product.users` (for `user_subscription_tier`)
 
 ### `dim_published_templates`
@@ -95,7 +95,7 @@ Dimension table for published template metadata. Grain: one row per published te
 ```sql
 CREATE TABLE analytics.example_product.dim_published_templates (
     template_id             VARCHAR(36)     NOT NULL PRIMARY KEY,
-    source_project_id       VARCHAR(36)     NOT NULL,
+    source_workflow_id      VARCHAR(36)     NOT NULL,
     author_id               VARCHAR(36)     NOT NULL,
     author_username         VARCHAR(100)    NOT NULL,
     title                   VARCHAR(200)    NOT NULL,
@@ -120,12 +120,12 @@ CREATE TABLE analytics.example_product.dim_published_templates (
 | Column | Description |
 |--------|-------------|
 | `template_id` | Primary key, UUID from the application database |
-| `source_project_id` | Original project that was published as a template |
+| `source_workflow_id` | Original workflow that was published as a template |
 | `author_id` | User who published the template |
 | `author_username` | Denormalized username for dashboard display |
 | `title` | Template display title |
 | `description` | Template description text |
-| `category` | Template category: `saas`, `portfolio`, `e-commerce`, `landing-page`, `internal-tool` |
+| `category` | Template category: `contract`, `invoice`, `intake-form`, `purchase-order`, `nda` |
 | `status` | Review status: `pending`, `approved`, `rejected` |
 | `fork_count` | Total fork count (denormalized counter) |
 | `avg_rating` | Average rating, null if no ratings yet |
@@ -170,14 +170,14 @@ models:
       - name: user_id
         tests:
           - not_null
-      - name: project_id
+      - name: workflow_id
         tests:
           - not_null
           - unique
       - name: template_category
         tests:
           - accepted_values:
-              values: ['saas', 'portfolio', 'e-commerce', 'landing-page', 'internal-tool']
+              values: ['contract', 'invoice', 'intake-form', 'purchase-order', 'nda']
 
   - name: dim_published_templates
     columns:
@@ -192,7 +192,7 @@ models:
       - name: category
         tests:
           - accepted_values:
-              values: ['saas', 'portfolio', 'e-commerce', 'landing-page', 'internal-tool']
+              values: ['contract', 'invoice', 'intake-form', 'purchase-order', 'nda']
       - name: avg_rating
         tests:
           - dbt_utils.accepted_range:
@@ -204,7 +204,7 @@ models:
 ### Data Quality Checks
 
 - `fork_count` on `dim_published_templates` should equal `COUNT(*)` from `fact_template_forks` for each template (reconciliation query run daily)
-- `was_deployed` on `fact_template_forks` should be consistent with `deploy_events` (reconciliation query run daily)
+- `was_published` on `fact_template_forks` should be consistent with `publish_events` (reconciliation query run daily)
 - No orphan forks: every `template_id` in `fact_template_forks` must exist in `dim_published_templates`
 
 ## Rollout

@@ -1,6 +1,6 @@
-# Google Stitch — Competitor Teardown
+# Conga
 
-Google's AI prototyping tool with deep Google Cloud integration. Direct competitor in the enterprise segment.
+Enterprise document automation platform (conga.com) with deep Salesforce ecosystem integration. Direct competitor in the enterprise segment.
 
 ## Document Index
 

@@ -10,17 +10,17 @@
 
 ## Overview
 
-Project Search introduces a global search modal (Cmd+K / Ctrl+K) that lets users instantly find projects, templates, and recent actions from anywhere in example_product. As users accumulate projects and explore templates, the current browse-only navigation becomes a bottleneck. A keyboard-driven search modal is the most requested navigation improvement and a table-stakes feature for power users coming from tools like VS Code, Notion, and Linear.
+Project Search introduces a global search modal (Cmd+K / Ctrl+K) that lets users instantly find workflows, templates, and automation runs from anywhere in example_product. As users accumulate workflows and explore templates, the current browse-only navigation becomes a bottleneck. A keyboard-driven search modal is the most requested navigation improvement and a table-stakes feature for power users coming from tools like Notion, Linear, and Superhuman.
 
 ## Problem Statement
 
-example_product users have no way to search across their projects, templates, or recent activity. The home page displays projects in a grid sorted by last-modified date, but offers no search, filtering, or quick-jump capability. This creates three specific pain points:
+example_product users have no way to search across their workflows, templates, or recent activity. The home page displays workflows in a grid sorted by last-modified date, but offers no search, filtering, or quick-jump capability. This creates three specific pain points:
 
-1. **Project discovery degrades with scale.** Free-tier users average 5-8 projects and can scan visually. Pro users average 25+ projects; Teams and Enterprise accounts can have 100+. Scrolling through a grid is not viable at this scale.
+1. **Workflow discovery degrades with scale.** Free-tier users average 5-8 workflows and can scan visually. Pro users average 25+ workflows; Teams and Enterprise accounts can have 100+. Scrolling through a grid is not viable at this scale.
 
-2. **Template exploration is disconnected.** Templates live on a separate page with their own browse flow. Users cannot search across projects and templates simultaneously, leading to context switches during the ideation phase.
+2. **Template exploration is disconnected.** Templates live on a separate page with their own browse flow. Users cannot search across workflows and templates simultaneously, leading to context switches while setting up a new intake form or contract.
 
-3. **No path to recent actions.** Users frequently want to return to something they just deployed or edited. Today this requires remembering the project name or relying on browser history. There is no in-app concept of "recent activity" that is searchable.
+3. **No path to recent actions.** Users frequently want to return to something they just published or edited. Today this requires remembering the workflow name or relying on browser history. There is no in-app concept of "recent activity" that is searchable.
 
 ## Business Opportunity
 
@@ -31,18 +31,18 @@ example_product users have no way to search across their projects, templates, or
 ## Why Now
 
 - The home page redesign (Q1 2026) established the layout foundation. Search is the next logical investment in the home page surface.
-- Customer escalations around project discovery have increased 3x quarter-over-quarter as average project counts grow.
-- Competitors Lovable and v0 both shipped global search in the past 6 months. Users switching from those tools explicitly cite search as an expected capability.
-- The prompt suggestions experiment (EXAMPLE_PRODUCT-1040) validated that surfacing relevant content on the home page increases engagement. Search extends this principle to user-initiated discovery.
+- Customer escalations around workflow discovery have increased 3x quarter-over-quarter as average workflow counts grow.
+- Competitors PandaDoc and Dropbox Sign both shipped global search in the past 6 months. Users switching from those tools explicitly cite search as an expected capability.
+- The smart field suggestions experiment (EXAMPLE_PRODUCT-1040) validated that surfacing relevant content on the home page increases engagement. Search extends this principle to user-initiated discovery.
 
 ## Customer Requests
 
 | Customer | Tier | Verbatim |
 |----------|------|----------|
-| Acme Corp | Enterprise | "I have 80 projects and no way to find the one I worked on last Tuesday. I end up using browser history which is embarrassing." |
+| Acme Corp | Enterprise | "I have 80 workflows and no way to find the one I set up last Tuesday. I end up using browser history which is embarrassing." |
 | Bright Studios | Teams | "We need Cmd+K. Every tool I use has it. I keep pressing it in example_product and nothing happens." |
-| Solo Dev (free-tier) | Free | "I tried a bunch of templates last week and now I can't remember which one had the e-commerce layout." |
-| DataFlow Inc | Pro | "Our team shares 40+ projects. Finding the right one takes longer than it should." |
+| Solo Operator (free-tier) | Free | "I tried a bunch of templates last week and now I can't remember which one had the vendor-onboarding layout." |
+| DataFlow Inc | Pro | "Our team shares 40+ workflows. Finding the right one takes longer than it should." |
 | NovaTech | Enterprise | "Search is the #1 thing blocking us from recommending example_product to more teams internally." |
 
 ---
@@ -51,8 +51,8 @@ example_product users have no way to search across their projects, templates, or
 
 ### Goals
 
-1. Give every example_product user a fast, keyboard-driven way to find any project, template, or recent action in under 3 seconds.
-2. Reduce the navigation overhead for power users with large project portfolios.
+1. Give every example_product user a fast, keyboard-driven way to find any workflow, template, or recent action in under 3 seconds.
+2. Reduce the navigation overhead for power users with large workflow portfolios.
 3. Capture search behavior data to inform template strategy and content gaps.
 
 ### Success Metrics
@@ -63,28 +63,28 @@ example_product users have no way to search across their projects, templates, or
 | Zero-results rate | % of searches that return no results | < 15% | 30 days post-GA |
 | Click-through rate (CTR) | % of searches where the user clicks a result | > 45% | 30 days post-GA |
 | Time-to-result | Median time from modal open to result click | < 4 seconds | 30 days post-GA |
-| Search-to-project-open rate | % of search sessions that lead to a project being opened | > 35% | 30 days post-GA |
+| Search-to-workflow-open rate | % of search sessions that lead to a workflow being opened | > 35% | 30 days post-GA |
 
 ### Guardrail Metrics
 
 | Metric | Definition | Threshold |
 |--------|-----------|-----------|
-| Home page engagement | Existing home page project card clicks should not decline | No regression > 5% |
+| Home page engagement | Existing home page workflow card clicks should not decline | No regression > 5% |
 | Page load time | Adding the search modal should not impact initial page load | p95 < 50ms increase |
 
 ---
 
 ## User Stories
 
-### US-1: Find a project by name
-**As a** example_product user with many projects,
-**I want to** press Cmd+K and type a project name,
-**So that** I can navigate directly to it without scrolling through the project grid.
+### US-1: Find a workflow by name
+**As a** example_product user with many workflows,
+**I want to** press Cmd+K and type a workflow name,
+**So that** I can navigate directly to it without scrolling through the workflow grid.
 
 **Acceptance criteria:**
 - Cmd+K opens the search modal from any page in example_product.
-- Typing a project name shows matching projects within 300ms.
-- Pressing Enter on a highlighted project navigates to it.
+- Typing a workflow name shows matching workflows within 300ms.
+- Pressing Enter on a highlighted workflow navigates to it.
 - The modal closes after navigation.
 
 ### US-2: Search for a template
@@ -93,27 +93,27 @@ example_product users have no way to search across their projects, templates, or
 **So that** I can find relevant starting points without leaving my current context.
 
 **Acceptance criteria:**
-- Templates appear in search results alongside projects.
+- Templates appear in search results alongside workflows.
 - Each template result shows the template name and category.
 - Clicking a template result opens the template detail/preview page.
 
 ### US-3: Return to a recent action
-**As a** user who recently deployed or edited a project,
-**I want to** search for recent actions like "deployed" or find recent activity,
+**As a** user who recently published or edited a workflow,
+**I want to** search for recent actions like "published" or find recent activity,
 **So that** I can quickly return to what I was working on.
 
 **Acceptance criteria:**
-- Recent actions (deploys, edits, generations) appear in search results.
-- Actions show the action type, associated project name, and relative timestamp.
-- Clicking an action navigates to the relevant project.
+- Recent actions (publishes, edits, automation runs) appear in search results.
+- Actions show the action type, associated workflow name, and relative timestamp.
+- Clicking an action navigates to the relevant workflow.
 
 ### US-4: Filter search results by type
 **As a** user looking for a specific type of content,
-**I want to** filter search results to only show projects, templates, or actions,
+**I want to** filter search results to only show workflows, templates, or actions,
 **So that** I can narrow down results quickly.
 
 **Acceptance criteria:**
-- Filter chips for All, Projects, Templates, and Actions are visible in the modal.
+- Filter chips for All, Workflows, Templates, and Actions are visible in the modal.
 - Selecting a filter updates results immediately.
 - The active filter persists within the search session.
 
@@ -145,14 +145,14 @@ example_product users have no way to search across their projects, templates, or
 | ID | Requirement | Priority |
 |----|------------|----------|
 | FR-1 | Global keyboard shortcut (Cmd+K / Ctrl+K) opens search modal from any page | P0 |
-| FR-2 | Full-text search across project names, descriptions, template titles, and action descriptions | P0 |
-| FR-3 | Results grouped by type: Projects, Templates, Actions | P0 |
+| FR-2 | Full-text search across workflow names, descriptions, template titles, and action descriptions | P0 |
+| FR-3 | Results grouped by type: Workflows, Templates, Actions | P0 |
 | FR-4 | Keyboard navigation through results (arrow keys, Enter, Escape) | P0 |
 | FR-5 | Matching text highlighted in results | P0 |
-| FR-6 | Type filter chips (All, Projects, Templates, Actions) | P0 |
+| FR-6 | Type filter chips (All, Workflows, Templates, Actions) | P0 |
 | FR-7 | Recent searches displayed on empty input (up to 5, stored in localStorage) | P1 |
 | FR-8 | Date range filter (Last 7 days, 30 days, 90 days) | P1 |
-| FR-9 | Result metadata: framework badge, deploy count, category tag, action type icon | P1 |
+| FR-9 | Result metadata: document-type badge, publish count, category tag, action type icon | P1 |
 | FR-10 | Search event tracking for analytics (query, result count, click position) | P1 |
 | FR-11 | Click-outside or Escape to dismiss modal | P0 |
 | FR-12 | Loading skeleton during search request | P1 |
@@ -165,8 +165,8 @@ example_product users have no way to search across their projects, templates, or
 | NFR-1 | Search API response time | < 200ms p95 |
 | NFR-2 | Input debounce interval | 200ms |
 | NFR-3 | Modal render time (open to interactive) | < 100ms |
-| NFR-4 | Search index freshness (new project appears in search) | < 30 seconds |
-| NFR-5 | Tenant isolation (users can only see their own content and shared projects) | 100% enforced |
+| NFR-4 | Search index freshness (new workflow appears in search) | < 30 seconds |
+| NFR-5 | Tenant isolation (users can only see their own content and shared workflows) | 100% enforced |
 | NFR-6 | Rate limiting | 60 requests/min per user |
 | NFR-7 | Accessibility: ARIA labels, focus management, screen reader support | WCAG 2.1 AA |
 | NFR-8 | Mobile responsive: modal adapts to viewport < 768px | Functional (not just hidden) |
@@ -187,7 +187,7 @@ example_product users have no way to search across their projects, templates, or
 - `search_modal_enabled` -- Phase 3 (default on)
 
 **Launch communications:**
-- In-app tooltip on first exposure: "Press Cmd+K to search your projects, templates, and more."
+- In-app tooltip on first exposure: "Press Cmd+K to search your workflows, templates, and more."
 - Changelog entry on GA launch.
 - Help center article with keyboard shortcuts and search tips.
 
@@ -199,8 +199,8 @@ example_product users have no way to search across their projects, templates, or
 
 | # | Question | Owner | Status |
 |---|----------|-------|--------|
-| 1 | Should search include shared projects from other org members, or only the user's own projects? | Hannah Stulberg | Open |
-| 2 | Do we want to support searching within project file contents (code search) in a future phase? | Jordan Kim | Open |
+| 1 | Should search include shared workflows from other org members, or only the user's own workflows? | Hannah Stulberg | Open |
+| 2 | Do we want to support searching within extracted document field values (content search) in a future phase? | Jordan Kim | Open |
 | 3 | Should recent searches sync across devices via the backend, or remain localStorage-only? | Hannah Stulberg | Open |
 | 4 | What is the right empty-state experience: show trending templates, or just a "no results" message? | Taylor Brooks | Open |
 | 5 | Should we add analytics for search queries that produce zero results to feed into template gap analysis? | Casey Nguyen | Open -- leaning yes |

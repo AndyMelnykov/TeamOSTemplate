@@ -1,4 +1,4 @@
--- Custom Domain Setup Funnel Completion Rates
+-- Custom Portal Domain Setup Funnel Completion Rates
 -- Author: Casey Nguyen
 -- Last Updated: 2026-03-22
 --
@@ -33,7 +33,7 @@ WITH domain_funnel_events AS (
             WHEN cde.event_type = 'ssl_provisioned' THEN cde.created_at
         END) AS step_ssl_provisioned_at,
 
-        -- Domain went live timestamp
+        -- Portal went live timestamp
         MIN(CASE
             WHEN cde.event_type = 'live' THEN cde.created_at
         END) AS step_live_at
@@ -128,8 +128,7 @@ ORDER BY
     CASE subscription_tier
         WHEN 'free' THEN 1
         WHEN 'pro' THEN 2
-        WHEN 'team' THEN 3
-        WHEN 'business' THEN 4
-        WHEN 'enterprise' THEN 5
-        ELSE 6
+        WHEN 'teams' THEN 3
+        WHEN 'enterprise' THEN 4
+        ELSE 5
     END;

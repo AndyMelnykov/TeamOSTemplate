@@ -1,6 +1,7 @@
--- Version Restore Rate and Versions Per Project
--- Calculates daily version restore rate (restores / active projects)
--- and average versions per project.
+-- Version Restore Rate and Versions Per Workflow
+-- Calculates daily version restore rate (restores / active workflows)
+-- and average versions per workflow, from the workflow_versions table
+-- (legacy name: project_versions).
 -- Used in the Version History Feature Board (Mode).
 --
 -- Author: Casey Nguyen, Analytics
@@ -9,13 +10,13 @@
 -- Related metrics: metrics/prototyping/version-history-metrics.md
 -- Related schema: schemas/prototyping/project_versions.md
 
--- Daily restore rate: restores / active projects with at least one version
+-- Daily restore rate: restores / active workflows with at least one version
 WITH daily_restores AS (
     SELECT
         DATE_TRUNC('day', created_at) AS event_date,
         COUNT(DISTINCT CASE WHEN action = 'restore' THEN project_id END) AS projects_with_restore,
         COUNT(CASE WHEN action = 'restore' THEN 1 END) AS total_restores
-    FROM analytics.example_product.project_versions
+    FROM analytics.example_product.workflow_versions
     WHERE created_at >= DATEADD('day', -30, CURRENT_DATE())
     GROUP BY 1
 ),
@@ -24,17 +25,17 @@ daily_active_projects AS (
     SELECT
         DATE_TRUNC('day', created_at) AS event_date,
         COUNT(DISTINCT project_id) AS active_projects
-    FROM analytics.example_product.project_versions
+    FROM analytics.example_product.workflow_versions
     WHERE created_at >= DATEADD('day', -30, CURRENT_DATE())
     GROUP BY 1
 ),
 
--- Average versions per project (rolling 30-day window)
+-- Average versions per workflow (rolling 30-day window)
 versions_per_project AS (
     SELECT
         project_id,
         COUNT(*) AS version_count
-    FROM analytics.example_product.project_versions
+    FROM analytics.example_product.workflow_versions
     WHERE created_at >= DATEADD('day', -30, CURRENT_DATE())
     GROUP BY 1
 )

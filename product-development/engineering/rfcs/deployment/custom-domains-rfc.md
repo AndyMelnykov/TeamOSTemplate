@@ -24,16 +24,16 @@
 
 # Summary
 
-Allow example_product users to connect custom domains to their deployed projects with automatic SSL certificate provisioning via Let's Encrypt. Instead of sharing a `project-name.example_productapp.dev` URL, users will be able to serve their project from any domain they own (e.g., `app.acmecorp.com`). The system handles DNS verification, certificate issuance, renewal, and edge routing transparently.
+Allow example_product users to connect custom domains to their published document portals with automatic SSL certificate provisioning via Let's Encrypt. Instead of sharing a `workflow-name.example_productapp.dev` URL, users will be able to serve their signing/submission portal from any domain they own (e.g., `contracts.acmecorp.com`). The system handles DNS verification, certificate issuance, renewal, and edge routing transparently.
 
 # Motivation
 
-Today every deployed example_product project is served from a `*.example_productapp.dev` subdomain. This works for prototyping, but falls short the moment a user wants to share something that looks professional:
+Today every published example_product workflow is served from a `*.example_productapp.dev` subdomain. This works for internal testing, but falls short the moment a user wants to share a portal that looks professional to signers or submitters:
 
-- **Brand credibility.** Clients, investors, and end-users expect to see the company's own domain, not a platform subdomain. A `example_productapp.dev` URL signals "demo," not "product."
-- **Paid conversion lever.** Custom domains are a natural upgrade trigger. Users on Free can prototype; users who need a polished public presence convert to Pro. In competitive analysis, every peer platform (Vercel, Netlify, Render) offers custom domains on paid tiers.
-- **Table stakes for business users.** Enterprise and Teams accounts frequently cite custom domains as a blocker in procurement conversations. Without this, example_product is limited to internal prototyping rather than customer-facing deployments.
-- **Top-requested feature.** Custom domains is the number one requested deployment feature based on customer feedback and feature request volume (EXAMPLE_PRODUCT-980, EXAMPLE_PRODUCT-1012, EXAMPLE_PRODUCT-1044).
+- **Brand credibility.** Counterparties signing a contract or submitting an intake form expect to see the company's own domain, not a platform subdomain. A `example_productapp.dev` URL signals "internal tool," not "our vendor portal."
+- **Paid conversion lever.** Custom domains are a natural upgrade trigger. Users on Free can build and test workflows; users who need a polished external-facing portal convert to Pro. In competitive analysis, every peer platform (DocuSign, PandaDoc, Ironclad) offers custom domains/branded sending on paid tiers.
+- **Table stakes for business users.** Enterprise and Teams accounts frequently cite custom domains as a blocker in procurement conversations, since legal and finance teams require the portal to be reachable at a company-owned domain for compliance and brand-trust reasons. Without this, example_product is limited to internal document processing rather than customer- and vendor-facing portals.
+- **Top-requested feature.** Custom domains is the number one requested publishing feature based on customer feedback and feature request volume (EXAMPLE_PRODUCT-980, EXAMPLE_PRODUCT-1012, EXAMPLE_PRODUCT-1044).
 
 # Proposed Design
 
@@ -58,8 +58,8 @@ The implementation is split into three phases:
 
 ## Phase 3: Edge Routing and Serving
 
-1. The edge proxy (Caddy/nginx) is configured to route incoming requests on custom domains to the correct project's deployment.
-2. A lookup table in Redis maps custom domains to project IDs and certificate paths for sub-millisecond routing.
+1. The edge proxy (Caddy/nginx) is configured to route incoming requests on custom domains to the correct workflow's published portal.
+2. A lookup table in Redis maps custom domains to workflow IDs and certificate paths for sub-millisecond routing.
 3. On domain removal, the certificate is revoked, the Redis mapping is cleared, and the DNS verification record is deleted.
 
 # Database Schema
@@ -69,7 +69,7 @@ The implementation is split into three phases:
 ```sql
 CREATE TABLE custom_domains (
     id              UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    project_id      UUID NOT NULL REFERENCES projects(id) ON DELETE CASCADE,
+    workflow_id     UUID NOT NULL REFERENCES workflows(id) ON DELETE CASCADE,
     user_id         UUID NOT NULL REFERENCES users(id),
     domain          VARCHAR(253) NOT NULL UNIQUE,
     dns_status      VARCHAR(20) NOT NULL DEFAULT 'pending'
@@ -84,7 +84,7 @@ CREATE TABLE custom_domains (
     updated_at      TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT now()
 );
 
-CREATE INDEX idx_custom_domains_project ON custom_domains(project_id);
+CREATE INDEX idx_custom_domains_workflow ON custom_domains(workflow_id);
 CREATE INDEX idx_custom_domains_domain ON custom_domains(domain);
 CREATE INDEX idx_custom_domains_dns_status ON custom_domains(dns_status);
 ```
@@ -113,17 +113,17 @@ CREATE INDEX idx_domain_certificates_status ON domain_certificates(status);
 
 # API Design
 
-All endpoints require authentication. Domain operations are scoped to the authenticated user's projects.
+All endpoints require authentication. Domain operations are scoped to the authenticated user's workflows.
 
-## `POST /api/projects/:id/domains`
+## `POST /api/workflows/:id/domains`
 
-Register a custom domain for a project.
+Register a custom domain for a workflow's published portal.
 
 **Request body:**
 
 ```json
 {
-  "domain": "app.acmecorp.com"
+  "domain": "contracts.acmecorp.com"
 }
 ```
 
@@ -132,7 +132,7 @@ Register a custom domain for a project.
 ```json
 {
   "id": "d1a2b3c4-...",
-  "domain": "app.acmecorp.com",
+  "domain": "contracts.acmecorp.com",
   "dns_status": "pending",
   "ssl_status": "pending",
   "cname_target": "d1a2b3c4.cname.example_productapp.dev",
@@ -146,13 +146,13 @@ Register a custom domain for a project.
 | Status | Code | Description |
 |--------|------|-------------|
 | 400 | `INVALID_DOMAIN` | Domain format is invalid or is a reserved TLD |
-| 409 | `DOMAIN_ALREADY_REGISTERED` | Domain is already connected to another example_product project |
+| 409 | `DOMAIN_ALREADY_REGISTERED` | Domain is already connected to another example_product workflow |
 | 403 | `PLAN_LIMIT_REACHED` | Free-tier users cannot add custom domains; Pro allows 3, Teams 10, Enterprise unlimited |
-| 404 | `PROJECT_NOT_FOUND` | Project does not exist or user lacks access |
+| 404 | `WORKFLOW_NOT_FOUND` | Workflow does not exist or user lacks access |
 
-## `GET /api/projects/:id/domains`
+## `GET /api/workflows/:id/domains`
 
-List all custom domains for a project.
+List all custom domains for a workflow.
 
 **Success response (200):**
 
@@ -161,7 +161,7 @@ List all custom domains for a project.
   "domains": [
     {
       "id": "d1a2b3c4-...",
-      "domain": "app.acmecorp.com",
+      "domain": "contracts.acmecorp.com",
       "dns_status": "verified",
       "ssl_status": "provisioned",
       "cname_target": "d1a2b3c4.cname.example_productapp.dev",
@@ -176,9 +176,9 @@ List all custom domains for a project.
 
 | Status | Code | Description |
 |--------|------|-------------|
-| 404 | `PROJECT_NOT_FOUND` | Project does not exist or user lacks access |
+| 404 | `WORKFLOW_NOT_FOUND` | Workflow does not exist or user lacks access |
 
-## `DELETE /api/projects/:id/domains/:domainId`
+## `DELETE /api/workflows/:id/domains/:domainId`
 
 Remove a custom domain. Revokes the SSL certificate, clears the edge routing entry, and deletes the DNS verification record.
 
@@ -188,10 +188,10 @@ Remove a custom domain. Revokes the SSL certificate, clears the edge routing ent
 
 | Status | Code | Description |
 |--------|------|-------------|
-| 404 | `DOMAIN_NOT_FOUND` | Domain does not exist on this project |
-| 403 | `FORBIDDEN` | User does not own this project |
+| 404 | `DOMAIN_NOT_FOUND` | Domain does not exist on this workflow |
+| 403 | `FORBIDDEN` | User does not own this workflow |
 
-## `POST /api/projects/:id/domains/:domainId/verify`
+## `POST /api/workflows/:id/domains/:domainId/verify`
 
 Manually trigger a DNS verification check. Useful if the user has just configured their DNS and does not want to wait for the next polling interval.
 
@@ -200,7 +200,7 @@ Manually trigger a DNS verification check. Useful if the user has just configure
 ```json
 {
   "id": "d1a2b3c4-...",
-  "domain": "app.acmecorp.com",
+  "domain": "contracts.acmecorp.com",
   "dns_status": "verified",
   "ssl_status": "pending",
   "message": "DNS verified. SSL certificate provisioning has started."
@@ -212,7 +212,7 @@ Manually trigger a DNS verification check. Useful if the user has just configure
 ```json
 {
   "id": "d1a2b3c4-...",
-  "domain": "app.acmecorp.com",
+  "domain": "contracts.acmecorp.com",
   "dns_status": "pending",
   "ssl_status": "pending",
   "message": "DNS record not found. Changes can take up to 48 hours to propagate."
@@ -223,7 +223,7 @@ Manually trigger a DNS verification check. Useful if the user has just configure
 
 | Status | Code | Description |
 |--------|------|-------------|
-| 404 | `DOMAIN_NOT_FOUND` | Domain does not exist on this project |
+| 404 | `DOMAIN_NOT_FOUND` | Domain does not exist on this workflow |
 | 409 | `ALREADY_VERIFIED` | Domain DNS has already been verified |
 
 ### DNS Propagation Polling
@@ -255,7 +255,7 @@ pending --> provisioning --> provisioned --> expired
 
 ## DomainSettings Panel
 
-Located at `src/components/deploy/DomainSettings.tsx`. Rendered within the project deployment settings page.
+Located at `src/components/publish/DomainSettings.tsx`. Rendered within the workflow's publish settings page.
 
 **Layout:**
 
@@ -266,11 +266,11 @@ Located at `src/components/deploy/DomainSettings.tsx`. Rendered within the proje
   - Status badge: `Pending DNS` (yellow), `Verified` (blue), `SSL Provisioning` (blue, animated), `Live` (green), `Failed` (red).
   - "Verify Now" button (visible only when `dns_status = 'pending'`).
   - "Remove" button with trash icon.
-- Empty state: illustration with text "Connect your own domain for a professional URL."
+- Empty state: illustration with text "Connect your own domain for a professional signing portal."
 
 ## DNS Instructions Component
 
-Located at `src/components/deploy/DnsInstructions.tsx`. Displayed after the user adds a domain.
+Located at `src/components/publish/DnsInstructions.tsx`. Displayed after the user adds a domain.
 
 **Tabbed interface with registrar-specific instructions:**
 
@@ -279,7 +279,7 @@ Located at `src/components/deploy/DnsInstructions.tsx`. Displayed after the user
 1. Log in to your GoDaddy account and go to **My Products**.
 2. Find your domain and click **DNS**.
 3. Click **Add** under the Records section.
-4. Set Type to **CNAME**, Name to your subdomain (e.g., `app`), and Value to `{cname_target}`.
+4. Set Type to **CNAME**, Name to your subdomain (e.g., `contracts`), and Value to `{cname_target}`.
 5. Set TTL to **1 Hour** and click **Save**.
 
 ### Namecheap Tab
@@ -287,14 +287,14 @@ Located at `src/components/deploy/DnsInstructions.tsx`. Displayed after the user
 1. Log in to Namecheap and go to **Domain List**.
 2. Click **Manage** next to your domain, then **Advanced DNS**.
 3. Click **Add New Record**.
-4. Select **CNAME Record**, enter the Host (e.g., `app`) and Target (`{cname_target}`).
+4. Select **CNAME Record**, enter the Host (e.g., `contracts`) and Target (`{cname_target}`).
 5. Click the green checkmark to save.
 
 ### Cloudflare Tab
 
 1. Log in to Cloudflare and select your domain.
 2. Go to **DNS** > **Records** and click **Add record**.
-3. Set Type to **CNAME**, Name to your subdomain (e.g., `app`), and Target to `{cname_target}`.
+3. Set Type to **CNAME**, Name to your subdomain (e.g., `contracts`), and Target to `{cname_target}`.
 4. Toggle the **Proxy status** to **DNS only** (gray cloud) for initial verification.
 5. Click **Save**.
 
@@ -316,7 +316,7 @@ Visual progression shown as a stepper component:
 A modal dialog triggered by the "Remove" button:
 
 - Title: "Remove {domain}?"
-- Body: "This will disconnect the domain from your project. Your DNS records will no longer point to example_product and any SSL certificates will be revoked. This action cannot be undone."
+- Body: "This will disconnect the domain from your published portal. Your DNS records will no longer point to example_product and any SSL certificates will be revoked. This action cannot be undone."
 - Actions: "Cancel" (secondary) and "Remove Domain" (destructive red).
 
 # Key Queries
@@ -341,7 +341,7 @@ WHERE dc.status = 'active'
   AND dc.expires_at < now() + INTERVAL '30 days';
 ```
 
-**Domain status summary for a project:**
+**Domain status summary for a workflow:**
 
 ```sql
 SELECT
@@ -352,7 +352,7 @@ SELECT
     dc.status AS cert_status
 FROM custom_domains cd
 LEFT JOIN domain_certificates dc ON dc.id = cd.certificate_id
-WHERE cd.project_id = :project_id
+WHERE cd.workflow_id = :workflow_id
 ORDER BY cd.created_at DESC;
 ```
 
@@ -373,13 +373,13 @@ ORDER BY cd.created_at DESC;
 
 ## Domain Hijacking Prevention
 
-- A domain can only be connected to one project at a time (enforced by the `UNIQUE` constraint on `custom_domains.domain`).
+- A domain can only be connected to one workflow at a time (enforced by the `UNIQUE` constraint on `custom_domains.domain`).
 - When a domain is removed, its certificate is revoked immediately via the ACME revocation endpoint.
 - Stale domains (DNS changed away from example_product) are detected by a weekly health check that verifies CNAME records are still valid. If a domain fails three consecutive health checks, it is automatically disconnected and the user is notified.
 
 ## Rate Limiting
 
-- Domain addition is rate-limited to 10 domains per project per hour to prevent abuse.
+- Domain addition is rate-limited to 10 domains per workflow per hour to prevent abuse.
 - DNS verification polling is rate-limited per domain, not per user, to avoid excessive DNS queries.
 
 # Rollout Plan
@@ -387,7 +387,7 @@ ORDER BY cd.created_at DESC;
 ## Phase 1: Internal Beta (Week 1-2)
 
 - Deploy behind `custom-domains` feature flag.
-- Enable for example_product team internal projects.
+- Enable for example_product team internal workflows.
 - Validate DNS verification flow, SSL provisioning, and edge routing end-to-end.
 
 ## Phase 2: Limited Beta (Week 3-4)

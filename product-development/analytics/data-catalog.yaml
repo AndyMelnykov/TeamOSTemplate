@@ -1,5 +1,14 @@
 # example_product Data Catalog
 # Registry of warehouse tables. For column-level detail, see schemas/ docs.
+#
+# Naming note: several tables carry a legacy name (matching this catalog's
+# keys and the schema doc filenames under schemas/) that differs from the
+# name used in current dashboards, investigations, and experiment writeups.
+# Both names refer to the same underlying table:
+#   projects            -> workflows
+#   project_generations -> workflow_automation_runs
+#   project_versions    -> workflow_versions
+#   deployments (deploy_events) -> publish_events
 
 tables:
   # --- Core entities ---
@@ -24,37 +33,37 @@ tables:
   projects:
     database: ANALYTICS
     schema: EXAMPLE_PRODUCT
-    description: Customer projects - metadata, creation date, framework, last activity
+    description: Customer workflows - metadata, creation date, feature area, last activity. Referenced as `workflows` in current docs.
     owner: data-engineering
     refresh: daily
     upstream: example_product API → Fivetran
-    used_by: [PCR, engagement, feature adoption]
+    used_by: [WCR, engagement, feature adoption]
 
-  # --- Generation ---
+  # --- Automation runs ---
   project_generations:
     database: ANALYTICS
     schema: EXAMPLE_PRODUCT
-    description: Every AI generation attempt - prompt, status, timing, model version, output type
+    description: Every AI automation run (document extraction attempt) - instruction, status, timing, model version, output document type. Referenced as `workflow_automation_runs` in current docs.
     owner: data-engineering
     refresh: streaming (Snowpipe)
-    upstream: Generation service → Snowpipe
-    used_by: [GSR, generation quality, error taxonomy, model performance]
+    upstream: Automation run service → Snowpipe
+    used_by: [ESR, extraction quality, error taxonomy, model performance]
     schema_doc: schemas/prototyping/project-generations.md
 
-  # --- Deployment ---
+  # --- Publishing ---
   deployments:
     database: ANALYTICS
     schema: EXAMPLE_PRODUCT
-    description: Deployment events - project, environment, URL, status, duration
+    description: Publish events - workflow, environment, portal URL, status, duration. Table is queried as `publish_events` (legacy name `deploy_events`); referenced as `publish_events` in current docs.
     owner: data-engineering
     refresh: streaming (Snowpipe)
-    upstream: Deploy service → Snowpipe
-    used_by: [TTD, deploy frequency, PCR]
+    upstream: Publish service → Snowpipe
+    used_by: [TTP, publish frequency, WCR]
 
   domain_certificates:
     database: ANALYTICS
     schema: EXAMPLE_PRODUCT
-    description: Custom domain SSL certificates - domain, status, expiry, renewal events
+    description: Custom portal domain SSL certificates - domain, status, expiry, renewal events
     owner: data-engineering
     refresh: daily
     upstream: Certificate manager → Fivetran
@@ -74,7 +83,7 @@ tables:
   credit_transactions:
     database: ANALYTICS
     schema: EXAMPLE_PRODUCT
-    description: Credit ledger - purchases, usage, refunds, referral credits, balance changes
+    description: Credit ledger - purchases, usage (pages/documents processed), refunds, referral credits, balance changes
     owner: data-engineering
     refresh: daily
     upstream: Billing service → Fivetran
@@ -85,29 +94,29 @@ tables:
   search_events:
     database: ANALYTICS
     schema: EXAMPLE_PRODUCT
-    description: Project search interactions - queries, results, clicks, filters
+    description: Global search (Cmd+K) interactions across workflows, templates, and automation runs - queries, results, clicks, filters
     owner: data-engineering
     refresh: streaming (Snowpipe)
     upstream: Search service → Snowpipe
     used_by: [search quality, home page engagement]
     schema_doc: schemas/home-page/search_events.md
 
-  # --- Prototyping ---
+  # --- Prototyping (workflow building) ---
   project_versions:
     database: ANALYTICS
     schema: EXAMPLE_PRODUCT
-    description: Version history snapshots - project state at each save point
+    description: Workflow/template version history snapshots - workflow state at each save point. Referenced as `workflow_versions` in current docs.
     owner: data-engineering
     refresh: daily
     upstream: Version service → Fivetran
-    used_by: [version history adoption, iteration depth]
+    used_by: [version history adoption, refinement depth]
     schema_doc: schemas/prototyping/project_versions.md
 
-  # --- Starter Templates ---
+  # --- Starter Templates (document template marketplace) ---
   published_templates:
     database: ANALYTICS
     schema: EXAMPLE_PRODUCT
-    description: Community-published starter templates - metadata, author, category, ratings
+    description: Document templates published to the marketplace - metadata, author, category, ratings
     owner: data-engineering
     refresh: daily
     upstream: Template service → Fivetran
@@ -117,7 +126,7 @@ tables:
   template_forks:
     database: ANALYTICS
     schema: EXAMPLE_PRODUCT
-    description: Template fork events - which templates are used, by whom, conversion to projects
+    description: Template fork events - which templates are used, by whom, conversion to workflows
     owner: data-engineering
     refresh: daily
     upstream: Template service → Fivetran

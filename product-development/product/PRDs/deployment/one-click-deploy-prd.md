@@ -1,4 +1,4 @@
-# One-Click Deploy PRD
+# One-Click Publish PRD
 
 **Author:** Jordan Reeves, PM
 **Status:** Draft

@@ -6,4 +6,4 @@ Product launch communications for example_product features.
 
 | File | Feature |
 |------|---------|
-| `one-click-deploy-launch.md` | One-click deployment to production |
+| `one-click-deploy-launch.md` | One-click publish to a live document portal |

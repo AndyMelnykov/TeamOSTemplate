@@ -1,6 +1,6 @@
 -- Template Fork Rate Queries
--- Calculates daily fork rate, top templates by forks, and fork-to-deploy conversion
--- for the Community Marketplace feature.
+-- Calculates daily fork rate, top templates by forks, and fork-to-publish conversion
+-- for the document template marketplace feature.
 --
 -- Used in the Community Marketplace Dashboard (Sigma).
 --
@@ -73,10 +73,11 @@ LIMIT 25;
 
 
 -- =============================================================================
--- Query 3: Fork-to-deploy conversion (last 30 days)
+-- Query 3: Fork-to-publish conversion (last 30 days)
 -- =============================================================================
--- Measures what percentage of forked templates result in a successful deployment.
--- Compares against blank-project deploy rate as a baseline.
+-- Measures what percentage of forked templates result in a successfully
+-- published workflow (portal). Compares against blank-workflow publish rate
+-- as a baseline.
 
 WITH forked_projects AS (
     SELECT
@@ -102,7 +103,7 @@ fork_deploy_status AS (
         MIN(de.created_at) AS first_deploy_at,
         DATEDIFF('minute', fp.fork_created_at, MIN(de.created_at)) AS minutes_to_first_deploy
     FROM forked_projects fp
-    LEFT JOIN analytics.example_product.deploy_events de
+    LEFT JOIN analytics.example_product.publish_events de
         ON de.project_id = fp.project_id
     GROUP BY 1, 2, 3, 4, fp.fork_created_at
 )
@@ -121,14 +122,14 @@ SELECT
         / NULLIF(SUM(CASE WHEN customizations_applied THEN 1 ELSE 0 END), 0),
     2) AS customized_deploy_pct,
 
-    -- Time to deploy
+    -- Time to publish
     ROUND(AVG(CASE WHEN was_deployed = 1 THEN minutes_to_first_deploy END), 1) AS avg_minutes_to_deploy,
     ROUND(PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY CASE WHEN was_deployed = 1 THEN minutes_to_first_deploy END), 1) AS p50_minutes_to_deploy
 FROM fork_deploy_status;
 
 
 -- =============================================================================
--- Query 4: Fork-to-deploy conversion by template category
+-- Query 4: Fork-to-publish conversion by template category
 -- =============================================================================
 
 WITH forked_projects AS (
@@ -148,7 +149,7 @@ fork_deploy_status AS (
         fp.template_category,
         MAX(CASE WHEN de.status = 'completed' THEN 1 ELSE 0 END) AS was_deployed
     FROM forked_projects fp
-    LEFT JOIN analytics.example_product.deploy_events de
+    LEFT JOIN analytics.example_product.publish_events de
         ON de.project_id = fp.project_id
     GROUP BY 1, 2
 )

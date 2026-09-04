@@ -11,7 +11,7 @@
 
 ## Overview
 
-Build the credit transaction data model in Snowflake to power the Credit Usage Dashboard and billing analytics. This plan covers the full pipeline from Supabase source to analytics-ready tables in Snowflake, including Fivetran configuration, dbt models, data quality tests, and metric models.
+Build the credit transaction data model in Snowflake to power the Credit Usage Dashboard and billing analytics. This plan covers the full pipeline from Supabase source to analytics-ready tables in Snowflake, including Fivetran configuration, dbt models, data quality tests, and metric models. Credits are consumed as customers process pages through automation runs (extraction, routing) and publish workflows.
 
 ## Steps
 
@@ -48,8 +48,8 @@ Build the credit transaction data model in Snowflake to power the Credit Usage D
 ### 4. Create dbt seed `dim_subscription_plans`
 
 - Create `seeds/billing/dim_subscription_plans.csv` with current plan data.
-- Columns: `tier`, `display_name`, `monthly_credits`, `price_monthly_usd`, `price_annual_usd`, `max_projects`, `max_team_members`, `overage_enabled`, `overage_rate_usd`, `is_active`, `effective_from`, `effective_to`.
-- Populate with current plan values (free, pro, team, business, enterprise).
+- Columns: `tier`, `display_name`, `monthly_credits`, `price_monthly_usd`, `price_annual_usd`, `max_workflows`, `max_team_members`, `overage_enabled`, `overage_rate_usd`, `is_active`, `effective_from`, `effective_to`.
+- Populate with current plan values (free, pro, teams, enterprise).
 - Add schema YAML with accepted_values test on `tier`.
 
 ### 5. Backfill historical transactions

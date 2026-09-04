@@ -1,4 +1,4 @@
-# AI Generation v3 - Product Requirements Document
+# AI Extraction v3 - Product Requirements Document
 
 | Field | Value |
 |-------|-------|
@@ -11,21 +11,21 @@
 
 ## Overview
 
-AI Generation v3 upgrades example_product's core code-generation pipeline to the next-generation model, targeting a material lift in Generation Success Rate (GSR) — see `reference/metrics.md` for the metric definition and current target (> 92%).
+AI Extraction v3 upgrades example_product's core document-extraction pipeline to the next-generation model, targeting a material lift in Extraction Success Rate (ESR) — see `reference/metrics.md` for the metric definition and current target (> 92%).
 
 ## Problem Statement
 
-GSR has plateaued below target on multi-file generations involving less common framework combinations. Support tickets and the `analytics/investigations/` history show generation failures concentrated in these cases, directly suppressing Project Completion Rate (PCR).
+ESR has plateaued below target on multi-field extractions involving less common document formats and layouts (scanned PDFs with tables, multi-page contracts with inconsistent clause ordering). Support tickets and the `analytics/investigations/` history show extraction failures concentrated in these cases, directly suppressing Workflow Completion Rate (WCR).
 
 ## User Stories
 
-- As a user generating a multi-file app, I want a higher first-try success rate, so that I spend fewer iterations recovering from broken generations.
+- As a user processing a multi-page document, I want a higher first-try extraction success rate, so that I spend fewer refinements correcting misextracted fields.
 
 ## Requirements
 
-- Migrate the generation pipeline to the v3 model.
-- Maintain framework-detection accuracy at or above the current baseline while improving GSR.
-- Ship behind a gradual rollout so GSR can be monitored per cohort before full cutover.
+- Migrate the extraction pipeline to the v3 model.
+- Maintain document-type detection accuracy at or above the current baseline while improving ESR.
+- Ship behind a gradual rollout so ESR can be monitored per cohort before full cutover.
 
 ## Design
 
@@ -33,8 +33,8 @@ No user-facing UI changes; this is a backend model upgrade. See `engineering/rfc
 
 ## Technical Considerations
 
-See `engineering/rfcs/gen-v3-rfc.md` and the `table-schemas` entry in `feature-index.yaml` (`prototyping.ai-generation-v3.table-schemas`) for the generation-event schema this feature depends on.
+See `engineering/rfcs/gen-v3-rfc.md` and the `table-schemas` entry in `feature-index.yaml` (`prototyping.ai-generation-v3.table-schemas`) for the automation-run event schema this feature depends on.
 
 ## Launch Plan
 
-Staged rollout by cohort, monitored against the GSR target in `reference/metrics.md`.
+Staged rollout by cohort, monitored against the ESR target in `reference/metrics.md`.

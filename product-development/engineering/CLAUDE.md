@@ -17,9 +17,9 @@ All three folders share the same product-area structure:
 | Product Area | Subfolder | What's Here |
 |-------------|-----------|-------------|
 | Billing | `billing/` | Credit usage, referral tracking, seat management, credit bugs |
-| Deployment | `deployment/` | Custom domains, preview environments, SSL, deploy bugs |
-| Home Page | `home-page/` | Activity feed, project search, prompt suggestions |
-| Prototyping | `prototyping/` | Component library, real-time collab, version history |
+| Deployment | `deployment/` | Custom domains, preview environments, SSL, publish bugs |
+| Home Page | `home-page/` | Activity feed, global search, instruction suggestions |
+| Prototyping | `prototyping/` | Clause/field block library, real-time collab, version history |
 | Starter Templates | `starter-templates/` | Community marketplace, template customizer |
 
 ## Status

@@ -13,12 +13,12 @@
 Investigate why Let's Encrypt SSL certificates for custom domains are not auto-renewing, causing deployed sites to show browser security warnings when certs expire.
 
 ## Background
-Custom domains launched in v2.5.0 with automatic SSL provisioning via Let's Encrypt. The first batch of certificates (provisioned 2026-02-17) are approaching their 90-day expiry. The auto-renew cron job runs daily but is not renewing expiring certificates. Two users have already reported browser security warnings.
+Custom domains launched in v2.5.0 with automatic SSL provisioning via Let's Encrypt, letting a customer put their own branded domain (e.g. `sign.theirbrand.com`) in front of a published document portal. The first batch of certificates (provisioned 2026-02-17) are approaching their 90-day expiry. The auto-renew cron job runs daily but is not renewing expiring certificates. Two users have already reported browser security warnings.
 
 ## Impact Scope
 - **Affected users:** 31 users with custom domains provisioned before 2026-03-01 (certs expiring in next 2 weeks)
-- **Immediately impacted:** 2 users whose certs already expired (sites showing security warnings)
-- **Severity:** P1 — deployed production sites inaccessible or showing security warnings
+- **Immediately impacted:** 2 users whose certs already expired (portals showing security warnings)
+- **Severity:** P1 — published document portals inaccessible or showing security warnings to signers
 - **Duration:** Discovered 2026-03-19, certificates started failing to renew ~30 days ago
 
 ## Infrastructure
@@ -66,7 +66,7 @@ Type mismatch between stored data and query. The certificate provisioning code s
 | portal.agency.co | 2026-02-10 | 1746921600 | 2026-05-11 | 53 |
 
 ## Executive Summary
-SSL auto-renewal is silently broken because certificate expiry dates are stored as Unix timestamps (integers) but the renewal query compares them against PostgreSQL timestamps. The comparison never matches, so no certs get renewed. Two user sites are already showing security warnings. Immediately renew expired certs manually, fix the query's type comparison, and migrate the column to `timestamptz`. Add monitoring to catch silent cron job failures.
+SSL auto-renewal is silently broken because certificate expiry dates are stored as Unix timestamps (integers) but the renewal query compares them against PostgreSQL timestamps. The comparison never matches, so no certs get renewed. Two customer document portals are already showing security warnings to signers. Immediately renew expired certs manually, fix the query's type comparison, and migrate the column to `timestamptz`. Add monitoring to catch silent cron job failures.
 
 ## Appendix
 

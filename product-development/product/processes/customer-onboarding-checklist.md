@@ -30,13 +30,13 @@ Operational checklist for onboarding a new customer to the example_product platf
 
 - [ ] Live demo / training session for the customer's team (60 min)
 - [ ] Share getting-started guide and help center links
-- [ ] Walk through first generation and deploy end-to-end
-- [ ] If Teams/Enterprise: set up shared component library with customer's brand assets
-- [ ] Ensure at least 3 team members have completed their first generation
+- [ ] Walk through first automation run and publish end-to-end
+- [ ] If Teams/Enterprise: set up shared clause/field block library with customer's brand assets
+- [ ] Ensure at least 3 team members have completed their first automation run
 
 # Health Check (Week 3-4)
 
-- [ ] Review usage metrics: generations, deploys, active users
+- [ ] Review usage metrics: automation runs, publishes, active users
 - [ ] Check-in call: gather feedback, address blockers
 - [ ] Identify power users and potential champions
 - [ ] Document any feature requests in Linear / Jira / Asana (label: `customer-reported`)
@@ -46,5 +46,5 @@ Operational checklist for onboarding a new customer to the example_product platf
 
 - [ ] Regular check-ins per agreed cadence
 - [ ] Quarterly business review (QBR) for Teams and Enterprise
-- [ ] Monitor health signals: login frequency, generation volume, support tickets
+- [ ] Monitor health signals: login frequency, automation run volume, support tickets
 - [ ] Flag churn risk if usage drops below baseline for 2 consecutive weeks

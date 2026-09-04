@@ -1,17 +1,17 @@
 # Team seat management
 
 ## Overview
-Let Business plan admins add and remove team seats, assign roles, and see per-seat usage from a single settings page.
+Let Teams plan admins add and remove team seats, assign roles, and see per-seat usage from a single settings page.
 
 ## Steps
 1. Add team member CRUD endpoints in `src/routes/team.ts`
    - `GET /api/team/members` — list members with role and usage stats
    - `POST /api/team/members` — invite by email, assign role (admin/member)
-   - `DELETE /api/team/members/:id` — remove seat, transfer owned projects
+   - `DELETE /api/team/members/:id` — remove seat, transfer owned workflows
 2. Create `TeamManagement` component in `src/components/settings/`
    - Member table: name, email, role, credits used, last active
    - Invite form with email input and role picker
-   - Confirm dialog for seat removal with project transfer options
+   - Confirm dialog for seat removal with workflow transfer options
 3. Add seat-based billing logic
    - Update Stripe subscription quantity on member add/remove
    - Prorate charges mid-cycle

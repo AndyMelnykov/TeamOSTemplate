@@ -1,8 +1,10 @@
--- Generation Success Rate Query
--- Calculates daily generation success rate from the project_generations table.
+-- Extraction Success Rate Query
+-- Calculates daily extraction success rate (ESR) from the workflow_automation_runs
+-- table (legacy name: project_generations) -- the % of automation runs that
+-- extract all required fields without manual correction.
 -- Used in the Generation Metrics dashboard (Mode).
 --
--- Success = status IN ('completed', 'deployed')
+-- Success = status IN ('completed', 'published')
 -- Failure = status IN ('failed', 'timeout', 'cancelled')
 --
 -- Author: Grace Lin, Analytics
@@ -15,12 +17,12 @@ WITH daily_generations AS (
     SELECT
         DATE_TRUNC('day', created_at) AS generation_date,
         COUNT(*) AS total_generations,
-        COUNT_IF(status IN ('completed', 'deployed')) AS successful_generations,
+        COUNT_IF(status IN ('completed', 'published')) AS successful_generations,
         COUNT_IF(status IN ('failed', 'timeout', 'cancelled')) AS failed_generations,
         AVG(generation_time_ms) AS avg_generation_time_ms,
         PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY generation_time_ms) AS p50_generation_time_ms,
         PERCENTILE_CONT(0.95) WITHIN GROUP (ORDER BY generation_time_ms) AS p95_generation_time_ms
-    FROM analytics.example_product.project_generations
+    FROM analytics.example_product.workflow_automation_runs
     WHERE created_at >= DATEADD('day', -30, CURRENT_DATE())
     GROUP BY 1
 )

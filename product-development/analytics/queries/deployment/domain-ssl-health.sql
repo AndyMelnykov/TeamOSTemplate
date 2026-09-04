@@ -1,4 +1,4 @@
--- Domain SSL Health Dashboard Query
+-- Custom Portal Domain SSL Health Dashboard Query
 -- Snowflake SQL for monitoring certificate health, renewal success, and provisioning performance.
 -- Used by: Custom Domains Health Dashboard (Sigma)
 -- Owner: Casey Nguyen, Analytics

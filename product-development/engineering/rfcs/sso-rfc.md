@@ -15,7 +15,7 @@ Adds SAML 2.0-based SSO for example_product Enterprise accounts, with just-in-ti
 
 ## Motivation
 
-Enterprise procurement reviews at Meridian Health and Crestview Financial both list SSO as a blocking requirement. See `product/PRDs/sso-prd.md` for the full business case.
+Enterprise procurement reviews at Meridian Health and Crestview Financial both list SSO as a blocking requirement — both accounts route regulated documents (patient intake forms, loan/KYC paperwork) through example_product and their security teams require centralized identity control before any more staff can be provisioned. See `product/PRDs/sso-prd.md` for the full business case.
 
 ## Proposed Design
 

@@ -7,7 +7,7 @@ Canonical, single-source-of-truth definitions for example_product. Every other d
 | File | Description |
 |------|--------------|
 | `terminology.md` | Product and company terminology (Project, Generation, tier names, etc.) |
-| `metrics.md` | Metric definitions and targets (GSR, TTD, PCR, D7 retention, etc.) |
+| `metrics.md` | Metric definitions and targets (ESR, TTP, WCR, D7 retention, etc.) |
 | `segments.md` | Customer account segments and call-synthesis lifecycle stages |
 | `status-definitions.md` | Valid `**Status**` values for PRDs and RFCs |
 | `decision-types.md` | Decision categories and the `YYYY-MM-DD-{topic}-decision.md` naming convention |

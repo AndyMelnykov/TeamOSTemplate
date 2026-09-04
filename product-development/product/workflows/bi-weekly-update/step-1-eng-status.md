@@ -21,26 +21,26 @@ Query the ticketing system for issues completed in the last 2 weeks.
 
 Categorize each completed issue into one of the three OKR objectives:
 
-**Generation Quality (OKR 1):**
-- Multi-Page App Generation
-- Component Library Support
-- State Management Patterns
-- Design Token Integration
-- Responsive Layout Engine
+**Extraction Quality (OKR 1):**
+- Multi-Step Workflow Building
+- Clause & Field Block Library
+- Conditional Routing Logic
+- Brand & Template Customization
+- Mobile-Friendly Intake Forms
 
-**Enterprise & Deployment (OKR 2):**
+**Enterprise & Publishing (OKR 2):**
 - SSO / SAML Integration
 - Audit Logging
 - Team Workspaces
-- CI/CD Pipeline
+- Approval Routing Engine
 - Environment Management
 
 **Platform & Integrations (OKR 3):**
-- Git Provider Integration (GitHub, GitLab)
-- Database Connectors
-- Auth Provider Support
+- E-Signature Provider Integration (DocuSign, Adobe Acrobat Sign)
+- Business System Connectors
+- Identity Provider Support
 - Plugin / Extension API
-- Cloud Provider Export (AWS, GCP, Azure)
+- Document Storage Export (AWS, GCP, Azure)
 
 ### 3. Generate draft status tables
 
@@ -85,7 +85,7 @@ Write the section to the dated output file. Present draft for review before movi
 
 [Opening paragraph: example_product has three objectives this quarter...]
 
-## Generation Quality (OKR 1)
+## Extraction Quality (OKR 1)
 
 **Goal:** [Goal from OKRs]
 
@@ -95,7 +95,7 @@ Write the section to the dated output file. Present draft for review before movi
 |---|---|---|
 | **[Workstream]** | [Business impact] | [Current status] |
 
-## Enterprise & Deployment (OKR 2)
+## Enterprise & Publishing (OKR 2)
 
 **Goal:** [Goal from OKRs]
 

@@ -8,95 +8,95 @@ Last updated: 2026-03-22
 - **Partial** - Feature exists but with significant limitations
 - **No** - Feature not available
 
-## Generation Quality
+## Extraction Quality
 
-| Feature | example_product | Lovable | Google Stitch | v0 | Replit | Figma Make | Bolt |
+| Feature | example_product | PandaDoc | Conga | Dropbox Sign | Ironclad | Adobe Acrobat Sign | DocuSign |
 |---------|-------|---------|---------------|-----|--------|------------|------|
-| UI component quality | Yes | Yes | Partial | Yes | Partial | Yes | Yes |
-| Responsive design | Yes | Yes | Partial | Yes | Partial | Yes | Yes |
-| Design system adherence | Yes | Yes | Partial | Partial | No | Yes | Partial |
-| Code maintainability | Yes | Partial | Partial | Yes | Partial | Partial | Partial |
-| Iteration without full regen | Yes | Partial | Partial | Partial | Yes | No | Yes |
-| Multi-page app generation | Yes | Yes | Partial | No | Yes | No | Yes |
-| State management quality | Yes | Partial | Partial | Partial | Yes | No | Partial |
+| OCR / scanned document support | Yes | Partial | Yes | No | Partial | Yes | Partial |
+| Field-level extraction accuracy | Yes | Partial | Yes | No | Yes | Partial | Partial |
+| Clause / contract-language detection | Yes | Partial | Partial | No | Yes | No | Partial |
+| Extraction confidence scoring | Yes | No | Partial | No | Partial | No | No |
+| Refinement without full re-upload | Yes | Partial | Partial | No | Yes | No | Partial |
+| Multi-format ingestion (PDF/scan/DOCX) | Yes | Yes | Partial | No | Yes | Yes | Yes |
+| Table / line-item extraction | Yes | Partial | Yes | No | Partial | No | Partial |
 
-## Deployment
+## Publishing
 
-| Feature | example_product | Lovable | Google Stitch | v0 | Replit | Figma Make | Bolt |
+| Feature | example_product | PandaDoc | Conga | Dropbox Sign | Ironclad | Adobe Acrobat Sign | DocuSign |
 |---------|-------|---------|---------------|-----|--------|------------|------|
-| One-click deploy | Yes | Yes | Partial | Partial | Yes | No | Yes |
+| One-click publish | Yes | Yes | Partial | Yes | Yes | Partial | Yes |
 | Custom domain support | Yes | Yes | No | No | Yes | No | Partial |
-| CI/CD pipeline | Yes | No | Partial | Partial | Partial | No | No |
-| Environment management | Yes | Partial | Partial | No | Yes | No | Partial |
-| Hosting included | Yes | Yes | Yes | Partial | Yes | No | Yes |
-| Export to own infra | Yes | Partial | No | Yes | Yes | Partial | Partial |
+| CI/CD-style staged rollout | Yes | No | Partial | No | Partial | No | No |
+| Environment management (staging/preview) | Yes | Partial | Partial | No | Yes | No | Partial |
+| Hosting included | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
+| Export to own infra | Yes | Partial | No | No | Yes | Partial | Partial |
 
 ## Collaboration
 
-| Feature | example_product | Lovable | Google Stitch | v0 | Replit | Figma Make | Bolt |
+| Feature | example_product | PandaDoc | Conga | Dropbox Sign | Ironclad | Adobe Acrobat Sign | DocuSign |
 |---------|-------|---------|---------------|-----|--------|------------|------|
-| Real-time multiplayer editing | Yes | No | Partial | No | Yes | Yes | No |
+| Real-time multiplayer editing | Yes | No | Partial | No | Yes | No | No |
 | Team workspaces | Yes | Partial | Yes | Partial | Yes | Yes | Partial |
-| Version history | Yes | Partial | Partial | Yes | Yes | Partial | Partial |
-| Commenting / review | Yes | No | Partial | Partial | Partial | Yes | No |
-| Role-based permissions | Yes | Partial | Yes | No | Partial | Yes | No |
-| Share preview links | Yes | Yes | Yes | Yes | Yes | Partial | Yes |
+| Version history | Yes | Partial | Partial | No | Yes | Partial | Partial |
+| Commenting / review | Yes | Partial | Partial | No | Yes | Partial | No |
+| Role-based permissions | Yes | Partial | Yes | No | Yes | Yes | Partial |
+| Share preview links | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
 
 ## Enterprise Features
 
-| Feature | example_product | Lovable | Google Stitch | v0 | Replit | Figma Make | Bolt |
+| Feature | example_product | PandaDoc | Conga | Dropbox Sign | Ironclad | Adobe Acrobat Sign | DocuSign |
 |---------|-------|---------|---------------|-----|--------|------------|------|
-| SSO / SAML | Yes | No | Yes | No | Partial | Yes | No |
-| Audit logging | Yes | No | Yes | No | Partial | Partial | No |
-| SOC 2 compliance | Yes | No | Yes | No | Yes | Yes | No |
-| Data residency controls | Partial | No | Yes | No | No | Partial | No |
-| Admin console | Yes | No | Yes | No | Partial | Yes | No |
-| SLA guarantees | Yes | No | Yes | No | Partial | Yes | No |
+| SSO / SAML | Yes | No | Yes | No | Yes | Yes | Partial |
+| Audit logging | Yes | No | Yes | No | Yes | Partial | Partial |
+| SOC 2 compliance | Yes | Partial | Yes | Yes | Yes | Yes | Yes |
+| Data residency controls | Partial | No | Yes | No | Partial | Partial | Partial |
+| Admin console | Yes | Partial | Yes | No | Yes | Yes | Yes |
+| SLA guarantees | Yes | No | Yes | No | Yes | Yes | Yes |
 | On-prem / private cloud | Partial | No | Partial | No | No | No | No |
 
 ## Pricing
 
-| Feature | example_product | Lovable | Google Stitch | v0 | Replit | Figma Make | Bolt |
+| Feature | example_product | PandaDoc | Conga | Dropbox Sign | Ironclad | Adobe Acrobat Sign | DocuSign |
 |---------|-------|---------|---------------|-----|--------|------------|------|
-| Free tier | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
+| Free tier | Yes | Yes | No | Yes | No | No | Yes |
 | Per-seat pricing | Yes | Yes | No | Yes | Yes | Yes | Yes |
-| Usage-based pricing | Yes | Yes | No | Yes | Yes | No | Yes |
-| Enterprise custom pricing | Yes | No | Yes | No | Yes | Yes | No |
-| Starting price point | $20/mo | $20/mo | Free (beta) | $20/mo | $25/mo | Included w/ Figma | $20/mo |
+| Usage-based pricing | Yes | Partial | No | Yes | No | Partial | Yes |
+| Enterprise custom pricing | Yes | Yes | Yes | No | Yes | Yes | Yes |
+| Starting price point | $29/mo | $19/mo | Custom only | $20/mo | Custom only | $19.99/mo | $25/mo |
 
 ## Integrations
 
-| Feature | example_product | Lovable | Google Stitch | v0 | Replit | Figma Make | Bolt |
+| Feature | example_product | PandaDoc | Conga | Dropbox Sign | Ironclad | Adobe Acrobat Sign | DocuSign |
 |---------|-------|---------|---------------|-----|--------|------------|------|
-| Git (GitHub/GitLab) | Yes | Partial | Partial | Yes | Yes | No | Partial |
-| Database connectors | Yes | Partial | Partial | No | Yes | No | Partial |
-| Auth providers | Yes | Partial | Yes | No | Partial | No | Partial |
-| API integrations | Yes | Partial | Partial | Partial | Yes | No | Partial |
-| Design tool import | Yes | Partial | No | Partial | No | Yes | No |
-| Cloud provider support | Yes | No | Yes | Partial | Partial | No | No |
+| CRM connectors | Yes | Yes | Yes | Partial | Yes | Partial | Yes |
+| Storage connectors (Drive/Box/Dropbox) | Yes | Yes | Partial | Yes | Partial | Yes | Yes |
+| Identity providers | Yes | Partial | Yes | Partial | Yes | Yes | Yes |
+| API access | Yes | Yes | Partial | Yes | Yes | Yes | Yes |
+| Payment collection | Yes | Yes | No | No | No | No | Partial |
+| ERP connectors | Yes | No | Yes | No | Partial | No | Partial |
 
 ## Customization
 
-| Feature | example_product | Lovable | Google Stitch | v0 | Replit | Figma Make | Bolt |
+| Feature | example_product | PandaDoc | Conga | Dropbox Sign | Ironclad | Adobe Acrobat Sign | DocuSign |
 |---------|-------|---------|---------------|-----|--------|------------|------|
-| Tech stack selection | Yes | Partial | Partial | No | Yes | No | Partial |
-| Architecture patterns | Yes | No | Partial | No | Partial | No | No |
-| Custom component library | Yes | Partial | No | Partial | Partial | Yes | No |
-| Theme / design token support | Yes | Partial | Partial | Partial | No | Yes | Partial |
-| Code style / linting config | Yes | No | No | Partial | Yes | No | No |
-| Plugin / extension system | Partial | No | No | No | Partial | Yes | No |
+| Extraction rule configuration | Yes | Partial | Partial | No | Yes | No | Partial |
+| Approval routing patterns | Yes | Partial | Yes | No | Yes | Partial | Partial |
+| Custom clause/field block library | Yes | Partial | No | No | Yes | No | Partial |
+| Branding / white-label | Yes | Partial | Partial | Partial | Partial | Yes | Partial |
+| Validation rule / logic config | Yes | No | Partial | No | Yes | No | No |
+| Plugin / extension system | Partial | No | Partial | No | Partial | Yes | Partial |
 
 ## Summary Scorecard
 
-| Category | example_product | Lovable | Google Stitch | v0 | Replit | Figma Make | Bolt |
+| Category | example_product | PandaDoc | Conga | Dropbox Sign | Ironclad | Adobe Acrobat Sign | DocuSign |
 |----------|-------|---------|---------------|-----|--------|------------|------|
-| Generation Quality | 5 | 4 | 3 | 4 | 3 | 2 | 4 |
-| Deployment | 5 | 4 | 2 | 2 | 4 | 1 | 4 |
-| Collaboration | 5 | 2 | 4 | 2 | 4 | 4 | 2 |
-| Enterprise Features | 5 | 1 | 5 | 1 | 3 | 4 | 1 |
-| Pricing | 4 | 4 | 4 | 3 | 4 | 3 | 4 |
-| Integrations | 5 | 2 | 3 | 2 | 4 | 2 | 2 |
-| Customization | 5 | 2 | 2 | 2 | 3 | 3 | 2 |
+| Extraction Quality | 5 | 3 | 4 | 1 | 4 | 2 | 3 |
+| Publishing | 5 | 3 | 2 | 3 | 4 | 2 | 3 |
+| Collaboration | 5 | 2 | 4 | 1 | 5 | 3 | 2 |
+| Enterprise Features | 5 | 1 | 5 | 1 | 4 | 4 | 4 |
+| Pricing | 4 | 4 | 2 | 4 | 3 | 3 | 4 |
+| Integrations | 5 | 4 | 3 | 3 | 4 | 3 | 4 |
+| Customization | 5 | 2 | 3 | 1 | 4 | 2 | 2 |
 
 Scoring: 1 (weak) to 5 (best-in-class). Scores populated after individual teardowns are complete.
 

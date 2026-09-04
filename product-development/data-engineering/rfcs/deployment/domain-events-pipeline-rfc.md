@@ -37,7 +37,7 @@ The custom domains feature generates events across multiple backend services: th
 
 1. **Segment -> Snowflake:** All domain events land in `raw.segment.tracks` via the existing Segment-Snowflake connector. No new connector needed.
 2. **Staging:** A dbt staging model (`stg_domain_events`) filters, deduplicates, and normalizes domain events from `raw.segment.tracks`.
-3. **Fact table:** `fact_domain_events` is built from `stg_domain_events` with enrichment from the application DB sync (user tier, project metadata).
+3. **Fact table:** `fact_domain_events` is built from `stg_domain_events` with enrichment from the application DB sync (user tier, workflow metadata).
 4. **Dimension table:** `dim_custom_domains` is a Type 2 SCD built from the Fivetran sync of `custom_domains` and `domain_certificates`, capturing every state change with `valid_from` / `valid_to` timestamps.
 5. **dbt runs:** Hourly via the existing dbt Cloud scheduler.
 
@@ -50,7 +50,7 @@ CREATE TABLE analytics.example_product.fact_domain_events (
     event_id            VARCHAR(36)     NOT NULL,
     event_type          VARCHAR(50)     NOT NULL,
     domain_id           VARCHAR(36)     NOT NULL,
-    project_id          VARCHAR(36)     NOT NULL,
+    workflow_id         VARCHAR(36)     NOT NULL,
     user_id             VARCHAR(36)     NOT NULL,
     org_id              VARCHAR(36),
     domain              VARCHAR(253)    NOT NULL,
@@ -90,7 +90,7 @@ CREATE TABLE analytics.example_product.fact_domain_events (
 CREATE TABLE analytics.example_product.dim_custom_domains (
     domain_key          INTEGER         NOT NULL AUTOINCREMENT,
     domain_id           VARCHAR(36)     NOT NULL,
-    project_id          VARCHAR(36)     NOT NULL,
+    workflow_id         VARCHAR(36)     NOT NULL,
     user_id             VARCHAR(36)     NOT NULL,
     org_id              VARCHAR(36),
     domain              VARCHAR(253)    NOT NULL,

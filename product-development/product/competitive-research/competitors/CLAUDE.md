@@ -17,12 +17,12 @@ Per-competitor research profiles and website audits for example_product competit
 
 | Folder | Type | Focus | example_product Relevance |
 |--------|------|-------|-----------------|
-| `lovable/` | Website audit | Full-stack AI app builder with instant deployment | Direct competitor - closest feature overlap |
-| `google-stitch/` | Website audit | Google's AI prototyping tool, deep integration with Google Cloud | Direct competitor (enterprise) |
-| `v0/` | Website audit | Vercel's AI UI generation, React/Next.js focused | Direct competitor - strong in frontend generation |
-| `replit/` | Website audit | AI-powered cloud IDE with built-in hosting | Direct competitor - broader scope (full IDE) |
-| `figma-make/` | Website audit | Figma's design-to-code AI feature | Adjacent - design-first approach, different entry point |
-| `bolt/` | Website audit | Full-stack AI app builder (bolt.new) | Direct competitor - speed-focused prompt-to-app |
+| `pandadoc/` | Website audit | Fast document/proposal builder with e-signature | Direct competitor - closest feature overlap |
+| `conga/` | Website audit | Enterprise document automation, deep integration with Salesforce | Direct competitor (enterprise) |
+| `dropbox-sign/` | Website audit | Lightweight e-signature, narrow but fast | Direct competitor - strong in signature UX |
+| `ironclad/` | Website audit | Contract lifecycle management platform with built-in workflow | Direct competitor - broader scope (full lifecycle) |
+| `adobe-acrobat-sign/` | Website audit | Adobe's signature/workflow feature bolted onto Acrobat/PDF | Adjacent - PDF-tool-first approach, different entry point |
+| `docusign/` | Website audit | Full-stack document workflow + signature (docusign.com) | Direct competitor - brand-recognition-focused |
 
 ---
 
@@ -46,9 +46,9 @@ When auditing a competitor, evaluate across these dimensions:
 
 | Dimension | What to Capture |
 |-----------|-----------------|
-| **Generation Quality** | Framework support, code quality, error handling, multi-file output |
-| **Developer Experience** | Editor UX, preview speed, iteration flow, prompt interface |
-| **Deployment** | Hosting options, custom domains, environment variables, CI/CD |
+| **Extraction Quality** | Format support, OCR/field extraction accuracy, error handling, multi-page output |
+| **Workflow Building Experience** | Builder UX, preview speed, refinement flow, instruction interface |
+| **Publishing** | Hosting options, custom domains, environment variables, CI/CD |
 | **Collaboration** | Sharing, team features, permissions, commenting |
 | **Pricing** | Free tier limits, paid tiers, enterprise pricing, usage-based components |
 | **Templates** | Library size, categories, customization depth, community contributions |

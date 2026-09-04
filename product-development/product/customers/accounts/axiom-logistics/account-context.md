@@ -2,18 +2,18 @@
 
 ## What They Use example_product For
 
-Logistics company with a 28-person team. Power user of deployment features - running 16 active projects with heavy production deployment usage.
+Logistics company with a 28-person team. Power user of publishing features - running 16 active workflows with heavy production publishing usage, primarily automating bill-of-lading and customs document extraction across their regional warehouses.
 
 ## Goals and Success Criteria
 
 - Role-based access controls for team management
-- Project archiving and retention policies for compliance
+- Workflow archiving and retention policies for compliance
 - Admin-level usage analytics dashboard
 
 ## Relationship Context
 
 - **Champion:** Deepa Patel (CTO) - hands-on with example_product, drives adoption across the org
-- One of the most active Enterprise accounts by deployment volume
+- One of the most active Enterprise accounts by publishing volume
 
 ## Open Risks and Blockers
 

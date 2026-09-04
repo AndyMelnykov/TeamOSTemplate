@@ -4,7 +4,7 @@ A repeatable methodology for investigating conversion funnels in example_product
 
 ## When to Use This Playbook
 
-- A funnel metric (e.g., setup completion rate, fork-to-deploy conversion) drops below target
+- A funnel metric (e.g., setup completion rate, fork-to-publish conversion) drops below target
 - Product or engineering requests a funnel investigation for a new or changed flow
 - You need to identify the highest-leverage drop-off point to improve
 

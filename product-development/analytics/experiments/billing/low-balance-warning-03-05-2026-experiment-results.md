@@ -12,7 +12,7 @@
 
 ## TL;DR
 
-Showing a warning banner when users drop below 20% of their credit allocation reduced churn-from-depletion by 22% and increased the upgrade rate by 15%. The result is statistically significant and the recommendation is to **ship the warning banner to all users**.
+Showing a warning banner when users drop below 20% of their page/document-processing credit allocation reduced churn-from-depletion by 22% and increased the upgrade rate by 15%. The result is statistically significant and the recommendation is to **ship the warning banner to all users**.
 
 ## Hypothesis
 

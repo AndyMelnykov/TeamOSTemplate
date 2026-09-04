@@ -1,6 +1,6 @@
 # Schema: `analytics.example_product.domain_certificates`
 
-Certificate lifecycle tracking for custom domains connected to example_product projects. One row per certificate issued.
+Certificate lifecycle tracking for custom portal domains connected to example_product workflows. One row per certificate issued.
 
 **Database:** `ANALYTICS`
 **Schema:** `EXAMPLE_PRODUCT`
@@ -30,8 +30,8 @@ Certificate lifecycle tracking for custom domains connected to example_product p
 
 # Common Joins
 
-- `custom_domains` on `domain_id` -- Domain metadata, DNS status, project association
-- `projects` on `custom_domains.project_id` -- Project metadata
+- `custom_domains` on `domain_id` -- Domain metadata, DNS status, workflow association
+- `workflows` on `custom_domains.project_id` (`workflow_id`) -- Workflow metadata for the published portal
 - `users` on `custom_domains.user_id` -- User profile and account details
 
 # Notes
@@ -39,4 +39,4 @@ Certificate lifecycle tracking for custom domains connected to example_product p
 - `issued_at` and `expires_at` are null for certificates in `pending` or `failed` status.
 - `last_renewal_attempt` is null until the first renewal is attempted; it updates on every renewal attempt regardless of outcome.
 - Let's Encrypt certificates have a 90-day validity period. The renewal cron targets certificates expiring within 30 days.
-- When a domain is removed, the certificate `status` is set to `revoked` rather than deleting the row, preserving audit history.
+- When a custom portal domain is removed, the certificate `status` is set to `revoked` rather than deleting the row, preserving audit history.

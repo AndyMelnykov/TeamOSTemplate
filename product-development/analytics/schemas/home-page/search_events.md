@@ -1,6 +1,6 @@
 # Schema: `analytics.example_product.search_events`
 
-Event-level table capturing every search interaction in the example_product platform. One row per search query execution. Tracks what users search for, how many results are returned, and which results (if any) are clicked.
+Event-level table capturing every global search (Cmd+K) interaction in the example_product platform. One row per search query execution. Tracks what users search for across workflows, templates, and automation runs, how many results are returned, and which results (if any) are clicked.
 
 **Database:** `ANALYTICS`
 **Schema:** `EXAMPLE_PRODUCT`
@@ -19,13 +19,13 @@ Event-level table capturing every search interaction in the example_product plat
 | `query_text` | TEXT | No | The search string entered by the user |
 | `query_length` | INTEGER | No | Character count of the query string |
 | `result_count` | INTEGER | No | Total number of results returned across all content types |
-| `result_count_projects` | INTEGER | No | Number of project results returned |
+| `result_count_projects` | INTEGER | No | Number of workflow results returned |
 | `result_count_templates` | INTEGER | No | Number of template results returned |
-| `result_count_actions` | INTEGER | No | Number of action results returned |
+| `result_count_actions` | INTEGER | No | Number of automation run results returned |
 | `clicked_result_id` | VARCHAR(36) | Yes | ID of the result the user clicked (null if no click) |
-| `clicked_result_type` | VARCHAR(30) | Yes | Content type of the clicked result: `project`, `template`, `action` |
+| `clicked_result_type` | VARCHAR(30) | Yes | Content type of the clicked result: `workflow`, `template`, `automation_run` |
 | `clicked_position` | INTEGER | Yes | 1-indexed position of the clicked result in the list |
-| `filters_applied` | VARIANT | Yes | JSON object of active filters (e.g., `{"type": "project", "date_range": "7d"}`) |
+| `filters_applied` | VARIANT | Yes | JSON object of active filters (e.g., `{"type": "workflow", "date_range": "7d"}`) |
 | `time_to_click_ms` | INTEGER | Yes | Milliseconds from search execution to result click (null if no click) |
 | `is_zero_results` | BOOLEAN | No | Whether the search returned zero results |
 | `search_latency_ms` | INTEGER | No | Server-side response time for the search query in milliseconds |
@@ -42,8 +42,9 @@ Event-level table capturing every search interaction in the example_product plat
 
 - `users` on `user_id` -- User profile, account details, signup date
 - `organizations` on `org_id` -- Organization metadata and plan information
-- `projects` on `clicked_result_id` WHERE `clicked_result_type = 'project'` -- Project details for click-through analysis
+- `workflows` on `clicked_result_id` WHERE `clicked_result_type = 'workflow'` -- Workflow details for click-through analysis
 - `templates` on `clicked_result_id` WHERE `clicked_result_type = 'template'` -- Template metadata
+- `workflow_automation_runs` on `clicked_result_id` WHERE `clicked_result_type = 'automation_run'` -- Automation run details for click-through analysis
 - `subscriptions` on `user_id` -- Billing and plan tier history
 
 # Notes
