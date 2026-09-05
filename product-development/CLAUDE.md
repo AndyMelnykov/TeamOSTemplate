@@ -14,3 +14,13 @@ All product development artifacts for example_product - product, engineering, an
 | `feature-index.yaml` | Master feature index - every feature mapped to its PRDs, RFCs, plans, schemas, experiments, tickets |
 | `analytics/data-catalog.yaml` | Data warehouse table registry - descriptions, owners, refresh cadence, upstream sources |
 | [product/customers/CLAUDE.md](product/customers/CLAUDE.md) | Customer accounts routing table - named accounts, segments, data source pointers |
+
+## `feature-index.yaml` optional keys
+
+Beyond the artifact pointers already in use (`prd:`, `eng-rfc:`, etc.), any entry may carry:
+
+| Key | Purpose |
+|-----|---------|
+| `opportunity:` / `hypothesis:` | Pointers to the discovery artifacts that justify the feature — see [reference/discovery-artifact-types.md](../reference/discovery-artifact-types.md) |
+| `read_first:` | Paths an agent should open before anything else in this entry |
+| `do_not_load_by_default:` | Paths that exist but shouldn't be pulled in without a specific reason (e.g. an archived experiment) |

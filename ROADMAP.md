@@ -43,3 +43,4 @@ A roadmap of decisions, not a wishlist — each item states why it matters, not 
 - **Role-specific onboarding agent** — `.claude/agents/onboarding.md`.
 - **GitHub-based issue tracking** — `docs/agents/issue-tracker.md`.
 - **A friction log with an auto-triggering skill** — `PAPERCUTS.md` plus `.claude/skills/papercuts/`, not on the original extensions list but built for the same reason: surface problems with the structure instead of letting agents silently work around them.
+- **Opportunity/hypothesis discovery layer** — `reference/discovery-artifact-types.md`, `templates/opportunity.md`, `templates/hypothesis.md`, worked example under `product-development/product/PRDs/extraction-quality/`. See [ADR 0005](docs/adr/0005-opportunity-hypothesis-layer.md).
