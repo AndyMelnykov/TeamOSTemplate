@@ -205,3 +205,10 @@ deployment:
     figma: https://figma.com/file/example_product-deploy
     tickets:
       - EXAMPLE_PRODUCT/850
+
+extraction-quality:
+  extraction-confidence-scoring:
+    opportunity: product/PRDs/extraction-quality/extraction-confidence-scoring-opportunity.md
+    hypothesis: product/PRDs/extraction-quality/extraction-confidence-scoring-hypothesis.md
+    read_first:
+      - product/PRDs/extraction-quality/extraction-confidence-scoring-opportunity.md

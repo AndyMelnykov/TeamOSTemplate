@@ -36,6 +36,16 @@ PRDs are organized by product area:
 
 ---
 
+## Opportunities in progress (no PRD yet)
+
+Framed but not yet committed to engineering time. See [reference/discovery-artifact-types.md](../../../reference/discovery-artifact-types.md).
+
+| Opportunity | Hypothesis | Area |
+|-------------|-----------|------|
+| `extraction-quality/extraction-confidence-scoring-opportunity.md` (`OPP-EXTRACT-001`) | `extraction-quality/extraction-confidence-scoring-hypothesis.md` (`HYP-EXTRACT-001`) | Extraction Quality |
+
+---
+
 ## Creating New PRDs
 
 Use the `/prd` command to create new PRDs. The command will:
