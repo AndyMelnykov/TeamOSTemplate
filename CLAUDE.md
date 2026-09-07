@@ -42,6 +42,7 @@
 | Architecture | `docs/architecture.md` | How an agent moves through the repo tree; deterministic vs. human-approval policy layer |
 | Roadmap | `ROADMAP.md` | What's next and why, not a feature wishlist |
 | Decisions | `docs/adr/` | Repo-wide architecture decisions (retrieval strategy, join table, write approval, agent orchestration) |
+| Adoption guides | [`docs/install-from-scratch.md`](docs/install-from-scratch.md), [`docs/install-existing-product.md`](docs/install-existing-product.md) | Step-by-step guides for introducing this practice to a team — greenfield vs. an existing product |
 
 ## Agent skills
 
