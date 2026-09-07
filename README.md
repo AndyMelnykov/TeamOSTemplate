@@ -123,6 +123,17 @@ There's no model-call trace to capture — the observable surface is the repo's 
 - **Friction log** — [`PAPERCUTS.md`](PAPERCUTS.md) is where an agent appends one line the moment it hits a dead end, a broken link, or a footgun, without stopping to fix it first. It's currently empty (no entries logged yet), which is itself a data point about how much this structure has actually been exercised — see [Limitations](#limitations).
 - **Decision trail** — git history plus dated decision files (`YYYY-MM-DD-{topic}-decision.md`, convention in [`reference/decision-types.md`](reference/decision-types.md)) are the durable record of what changed and why; nothing here relies on chat logs no one can re-read.
 
+## Adopting this on a real team
+
+Two step-by-step guides for introducing this practice, depending on where the team is
+starting from:
+
+- [`docs/install-from-scratch.md`](docs/install-from-scratch.md) — a new product with no
+  existing knowledge base to reconcile.
+- [`docs/install-existing-product.md`](docs/install-existing-product.md) — a product already
+  in development, with docs scattered across Notion/Confluence/Slack — an incremental,
+  function-by-function migration rather than a big-bang rewrite.
+
 ## Running locally
 
 There's no server to start. To work with this repo:
