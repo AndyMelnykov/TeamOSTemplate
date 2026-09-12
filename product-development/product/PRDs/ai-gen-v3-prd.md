@@ -38,3 +38,8 @@ See `engineering/rfcs/gen-v3-rfc.md` and the `table-schemas` entry in `feature-i
 ## Launch Plan
 
 Staged rollout by cohort, monitored against the ESR target in `reference/metrics.md`.
+
+## Sources
+
+- [reference/metrics.md](../../../reference/metrics.md) — Extraction Success Rate (ESR) and Workflow Completion Rate (WCR) definitions and targets, cited in Overview and Problem Statement
+- [analytics/schemas/prototyping/project-generations.md](../../analytics/schemas/prototyping/project-generations.md) — automation-run event schema cited in Technical Considerations (see `feature-index.yaml`'s `prototyping.ai-generation-v3.table-schemas` entry)
