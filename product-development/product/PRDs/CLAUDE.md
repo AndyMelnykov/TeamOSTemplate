@@ -52,6 +52,7 @@ Use the `/prd` command to create new PRDs. The command will:
 1. Load the PRD writing style
 2. Guide you through required sections
 3. Format according to example_product Labs standards
+4. Run a CPO check against the finished draft before it's treated as ready to share
 
 ---
 
@@ -63,3 +64,4 @@ Use the `/prd` command to create new PRDs. The command will:
 4. **Design** - UX flows, wireframes
 5. **Technical Considerations** - Architecture, dependencies
 6. **Launch Plan** - Rollout strategy, feature flags
+7. **Sources** - `INS-###`, `SRC-###`, or file-path citations for claims already made in sections 1-6, one bullet each, in the same citation format as `templates/opportunity.md`'s "Evidence" section. A file-path citation must be a Markdown link (`[label](relative/path)`), not a bare backtick reference, so `scripts/check-references.ps1` can verify it resolves. This section consolidates citations already made elsewhere in the PRD — it is not a place to introduce a new unsupported claim. See `.claude/commands/prd.md`'s Step 6 (CPO check) for how these are validated.
