@@ -11,7 +11,7 @@ A roadmap of decisions, not a wishlist — each item states why it matters, not 
 **Why:** `feature-index.yaml` is hand-maintained (see [ADR 0002](docs/adr/0002-feature-index-as-join-table.md)). A new PRD or RFC can ship without ever being wired into the join table, silently reintroducing the exact cross-functional fragmentation the index exists to solve.
 
 ### Canonical-document validation
-**Why:** `reference/status-definitions.md` and `reference/decision-types.md` define valid conventions, but nothing currently enforces them — a PRD can carry an invalid `Status` value or a definition can get re-stated outside `reference/` and nothing catches it.
+**Why:** `reference/decision-types.md` defines a valid decision-file format, but nothing currently enforces it — a definition can get re-stated outside `reference/` and nothing catches it. (PRD-level validation — `Status` value, and metric name/target match against `reference/metrics.md` — is now covered by `/prd`'s Step 6 CPO check; this item is now scoped to decision files, and to enforcement outside of a PRD author's own `/prd` run, e.g. a PRD edited by hand after the fact.)
 
 ## Next
 
@@ -44,3 +44,4 @@ A roadmap of decisions, not a wishlist — each item states why it matters, not 
 - **GitHub-based issue tracking** — `docs/agents/issue-tracker.md`.
 - **A friction log with an auto-triggering skill** — `PAPERCUTS.md` plus `.claude/skills/papercuts/`, not on the original extensions list but built for the same reason: surface problems with the structure instead of letting agents silently work around them.
 - **Opportunity/hypothesis discovery layer** — `reference/discovery-artifact-types.md`, `templates/opportunity.md`, `templates/hypothesis.md`, worked example under `product-development/product/PRDs/extraction-quality/`. See [ADR 0005](docs/adr/0005-opportunity-hypothesis-layer.md).
+- **PRD self-review before sharing ("CPO check")** — `.claude/commands/prd.md` Step 6 validates section completeness, `Status` validity, metric name/target match against `reference/metrics.md`, and that `Sources` citations resolve, before a PRD is treated as ready. Scoped to PRDs only; decision-file validation remains open (see "Canonical-document validation" above).
