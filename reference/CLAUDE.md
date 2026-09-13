@@ -12,4 +12,5 @@ Canonical, single-source-of-truth definitions for example_product. Every other d
 | `status-definitions.md` | Valid `**Status**` values for PRDs and RFCs |
 | `decision-types.md` | Decision categories and the `YYYY-MM-DD-{topic}-decision.md` naming convention |
 | `discovery-artifact-types.md` | Opportunity/hypothesis artifact types, ID scheme, and the `{feature}-opportunity.md` / `{feature}-hypothesis.md` naming convention |
+| `sla-policy.md` | Response-time policy for feature requests filed via `/feature-request-intake`, keyed by `Impact` level |
 | `01-ai-native-product-os.md` | The architecture spec this repo implements — the source of truth for *why* the repo is structured this way |
