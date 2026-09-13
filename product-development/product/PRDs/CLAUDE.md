@@ -65,3 +65,16 @@ Use the `/prd` command to create new PRDs. The command will:
 5. **Technical Considerations** - Architecture, dependencies
 6. **Launch Plan** - Rollout strategy, feature flags
 7. **Sources** - `INS-###`, `SRC-###`, or file-path citations for claims already made in sections 1-6, one bullet each, in the same citation format as `templates/opportunity.md`'s "Evidence" section. A file-path citation must be a Markdown link (`[label](relative/path)`), not a bare backtick reference, so `scripts/check-references.ps1` can verify it resolves. This section consolidates citations already made elsewhere in the PRD — it is not a place to introduce a new unsupported claim. See `.claude/commands/prd.md`'s Step 6 (CPO check) for how these are validated.
+
+---
+
+## Review Tier
+
+Every PRD's header table carries a `**Review Tier**` field: `Local` or `Strategy Review`.
+
+A PRD is `Strategy Review` tier if it meets any of:
+- It spans more than one product area (see the areas listed in `product-development/feature-index.yaml`).
+- It redefines or materially changes a term in `reference/terminology.md` or a metric in `reference/metrics.md`.
+- It changes a cross-feature interaction model — a pattern or surface multiple other features already depend on (e.g. the shared clause/field block library, not a single feature's own UI).
+
+Otherwise it is `Local` tier. Most PRDs are `Local` — this mirrors normal PR-level review. A `Strategy Review`-tier PRD additionally requires a decision file recording the review's outcome (see `reference/decision-types.md` and `docs/adr/0006-two-track-prd-review.md`) before `**Status**` can advance past `In Review`.

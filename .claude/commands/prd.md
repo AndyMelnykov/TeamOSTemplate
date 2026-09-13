@@ -12,9 +12,11 @@ Create a new PRD by:
 5. Updating `product-development/feature-index.yaml` with the new PRD's path
 6. Running the CPO check against the finished draft before treating it as ready to share
 
-## Step 1: Confirm Feature Name and Product Area
+## Step 1: Confirm Feature Name, Product Area, and Review Tier
 
 Ask the user for the feature name and which product area it belongs to (`home-page`, `billing`, `prototyping`, `starter-templates`, or `deployment` — see `product-development/feature-index.yaml` for the current set).
+
+Also determine the `Review Tier` (`Local` or `Strategy Review`) using the criteria in `product-development/product/PRDs/CLAUDE.md`'s "Review Tier" section. If any criterion is met, it's `Strategy Review`; otherwise `Local`. Tell the user which tier applies and why.
 
 ## Step 2: Check for an Existing Entry
 
@@ -47,6 +49,7 @@ Use the header table format from any existing PRD (e.g. `product-development/pro
 | **Status** | Draft |
 | **Last Updated** | [YYYY-MM-DD] |
 | **Related RFC** | `engineering/rfcs/{product-area}/{feature-name}-rfc.md` (once it exists) |
+| **Review Tier** | [Local or Strategy Review — see `product-development/product/PRDs/CLAUDE.md`] |
 ```
 
 `**Status**` starts at `Draft` per `reference/status-definitions.md` and should be updated as the PRD progresses.
@@ -67,7 +70,8 @@ Before treating the PRD as ready to share (i.e. before advancing `**Status**` pa
 2. **Every metric cited matches `reference/metrics.md`** - for each metric name mentioned in the PRD, confirm both the name and any target value match the corresponding row in `reference/metrics.md` exactly. If a cited metric doesn't appear in `reference/metrics.md` at all, flag it to the user rather than treating it as a new canonical metric — new canonical metrics are added to `reference/metrics.md` under the human-approval rule in `docs/adr/0003-human-approval-for-canonical-writes.md`, not invented inline in a PRD.
 3. **`**Status**` is a valid value** - one of the five values in `reference/status-definitions.md` (`Draft`, `In Review`, `Approved`, `Shipped`, `Archived`).
 4. **`**Related RFC**` is not left as a dangling placeholder** - either a real path, or explicit prose stating no RFC exists yet (e.g. "not yet planned").
-5. **Every `Sources` citation resolves**:
+5. **`**Review Tier**` is a valid value** - either `Local` or `Strategy Review`, matching the criteria in `product-development/product/PRDs/CLAUDE.md`'s "Review Tier" section. If `Strategy Review`, `**Status**` may not advance past `In Review` unless a decision file recording the review's outcome already exists under `product-development/product/strategy/` (per `reference/decision-types.md` and `docs/adr/0006-two-track-prd-review.md`), linked from this PRD. If no such decision file exists yet, flag it to the user and hold `**Status**` at `In Review` rather than advancing it.
+6. **Every `Sources` citation resolves**:
    - For a file-path citation (written as a Markdown link per Step 3), run `powershell -File scripts/check-references.ps1` from the repo root and confirm it reports `No broken references found.` This script already scans every tracked Markdown file's links and `feature-index.yaml`'s path tokens, so a PRD's file-path citations are covered as soon as the PRD is on disk — no PRD-specific script changes are needed.
    - For an `INS-###` citation, confirm that ID exists as a row in `product-development/product/Insights/insights.csv`.
    - For a `SRC-###` citation, confirm that ID exists as a row in `product-development/product/Insights/sources.csv`.
