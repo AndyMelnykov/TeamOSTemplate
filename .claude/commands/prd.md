@@ -20,6 +20,8 @@ Ask the user for the feature name and which product area it belongs to (`home-pa
 
 Search `product-development/feature-index.yaml` under the given product area for an existing feature with this name or a close match. If found, tell the user and offer to edit the existing PRD instead of creating a new one.
 
+Also check for an open `feature-request`-labeled GitHub issue covering this feature: `gh issue list --label feature-request --state open --json number,title,body`. If found, tell the user and offer to link the issue from the new PRD's `Sources` section rather than treating this as an unrelated fresh request.
+
 ## Step 3: Gather Content
 
 For each of the seven sections defined in `product-development/product/PRDs/CLAUDE.md` ("PRD Template Sections"), ask the user for the relevant content, or draft it from context already available (feature-index entries, customer call summaries under `product-development/product/customers/accounts/`, competitive research) and confirm with the user before finalizing:
