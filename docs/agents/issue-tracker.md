@@ -43,3 +43,7 @@ Used by `/wayfinder`. The **map** is a single issue with **child** issues as tic
 - **Frontier query**: list the map's open children (`gh issue list --state open`, scoped to the map's sub-issues / task list), drop any with an open blocker (`issue_dependencies_summary.blocked_by > 0`, or an open issue in the `Blocked by` line) or an assignee; first in map order wins.
 - **Claim**: `gh issue edit <n> --add-assignee @me` — the session's first write.
 - **Resolve**: `gh issue comment <n> --body "<answer>"`, then `gh issue close <n>`, then append a context pointer (gist + link) to the map's Decisions-so-far.
+
+## Feature-request intake
+
+`/feature-request-intake` (see `.claude/commands/feature-request-intake.md`) files a new `feature-request`-labeled issue for a raw ask. It intentionally applies no state label — the issue starts in the "unlabeled" bucket, which `/triage`'s discovery step already surfaces as needing first triage. Intake and triage are sequential, not overlapping: intake structures and files the request; `/triage` moves it through `needs-triage` → `ready-for-agent`/`ready-for-human`/`wontfix` from there.

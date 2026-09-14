@@ -1,0 +1,9 @@
+# Two-track PRD review: a Review Tier field, not a second approval gate
+
+Most PRDs get lightweight, PR-level review — read the diff, check it against `/prd`'s Step 6 CPO check, merge. A PRD that spans multiple product areas, redefines a canonical term or metric, or changes a cross-feature interaction model needs more: alignment across the areas it touches before implementation starts, not just a correctness check on the document. `product-development/product/PRDs/CLAUDE.md` now defines criteria for this and a `**Review Tier**` field (`Local` | `Strategy Review`) that `/prd` asks for and validates.
+
+Rather than build a second approval mechanism, a `Strategy Review`-tier PRD's resolution is required to be written as a decision file — using the existing format in `reference/decision-types.md` — and that decision file must live under `product-development/product/strategy/`, not the PRD's own folder (the other location `decision-types.md` otherwise allows for a product decision). Writing under `strategy/` puts it inside the human-approval gate already defined in [ADR 0003](0003-human-approval-for-canonical-writes.md), so a `Strategy Review` can't quietly resolve without a human in the loop — with no new gate, no new agent, and no new file format to build.
+
+## Consequences
+
+`/prd`'s Step 6 CPO check now holds `**Status**` at `In Review` for a `Strategy Review`-tier PRD until a linked decision file exists under `strategy/`. This means a PRD author working through a genuinely cross-cutting change gets stopped by the same mechanism that already protects `reference/` and `strategy/`, rather than a bespoke one. If a future PRD's resolution decision is written to its own folder instead of `strategy/` by mistake, it won't trigger ADR 0003's gate — reviewers should treat a `Strategy Review`-tier PRD whose decision file isn't under `strategy/` as non-compliant, not merely differently organized.

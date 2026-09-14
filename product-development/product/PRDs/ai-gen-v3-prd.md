@@ -6,6 +6,7 @@
 | **Status** | Draft |
 | **Last Updated** | 2026-03-18 |
 | **Related RFC** | `engineering/rfcs/gen-v3-rfc.md` |
+| **Review Tier** | Local |
 
 ---
 

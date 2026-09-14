@@ -6,6 +6,7 @@
 | **Status** | Draft |
 | **Last Updated** | 2026-03-17 |
 | **Related Plan** | `engineering/plans/prototyping/component-library.md` |
+| **Review Tier** | Strategy Review |
 
 ---
 
