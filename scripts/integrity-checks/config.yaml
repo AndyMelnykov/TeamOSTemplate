@@ -1,4 +1,10 @@
-checks: {}
+checks:
+  insights-orphan-hypothesis: true
+  insights-orphan-sources: true
+  insights-promotion-status: true
+  insights-stale: true
+  insights-orphan-opportunity: true
+  insights-id-collisions: true
 
 thresholds:
   stale-insight-days: 30
