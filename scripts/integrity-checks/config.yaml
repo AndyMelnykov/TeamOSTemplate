@@ -1,0 +1,8 @@
+checks: {}
+
+thresholds:
+  stale-insight-days: 30
+  stale-prd-status-days: 21
+  stale-bug-investigation-days: 14
+
+fail-on-findings: true
