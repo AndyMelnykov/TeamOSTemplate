@@ -1,4 +1,21 @@
-checks: {}
+checks:
+  insights-orphan-hypothesis: true
+  insights-orphan-sources: true
+  insights-promotion-status: true
+  insights-stale: true
+  insights-orphan-opportunity: true
+  insights-id-collisions: true
+  feature-index-join-completeness: true
+  feature-index-broken-tickets: false
+  prd-missing-sections: true
+  prd-strategy-review-decision-gate: true
+  prd-sources-citation-validity: true
+  prd-stale-status: true
+  decisions-naming-convention: true
+  adr-numbering: true
+  process-stale-bug-investigations: true
+  process-papercuts-digest: true
+  process-skillgaps-digest: true
 
 thresholds:
   stale-insight-days: 30
