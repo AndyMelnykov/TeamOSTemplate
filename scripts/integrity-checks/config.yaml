@@ -5,6 +5,8 @@ checks:
   insights-stale: true
   insights-orphan-opportunity: true
   insights-id-collisions: true
+  feature-index-join-completeness: true
+  feature-index-broken-tickets: false
 
 thresholds:
   stale-insight-days: 30
