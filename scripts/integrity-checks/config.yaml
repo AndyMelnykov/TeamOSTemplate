@@ -13,6 +13,9 @@ checks:
   prd-stale-status: true
   decisions-naming-convention: true
   adr-numbering: true
+  process-stale-bug-investigations: true
+  process-papercuts-digest: true
+  process-skillgaps-digest: true
 
 thresholds:
   stale-insight-days: 30
