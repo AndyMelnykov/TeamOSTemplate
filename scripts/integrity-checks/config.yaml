@@ -7,6 +7,10 @@ checks:
   insights-id-collisions: true
   feature-index-join-completeness: true
   feature-index-broken-tickets: false
+  prd-missing-sections: true
+  prd-strategy-review-decision-gate: true
+  prd-sources-citation-validity: true
+  prd-stale-status: true
 
 thresholds:
   stale-insight-days: 30
