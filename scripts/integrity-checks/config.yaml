@@ -11,6 +11,8 @@ checks:
   prd-strategy-review-decision-gate: true
   prd-sources-citation-validity: true
   prd-stale-status: true
+  decisions-naming-convention: true
+  adr-numbering: true
 
 thresholds:
   stale-insight-days: 30
