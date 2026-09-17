@@ -1,0 +1,43 @@
+name: Integrity Checks
+
+on:
+  schedule:
+    - cron: "0 8 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  run-checks:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r scripts/integrity-checks/requirements.txt
+
+      - name: Run checks
+        id: run_checks
+        continue-on-error: true
+        run: python scripts/integrity-checks/run_checks.py --repo-root .
+
+      - name: Build summary
+        run: python scripts/integrity-checks/summarize.py
+
+      - name: Commit updated reports
+        run: |
+          git config user.name "integrity-check-bot"
+          git config user.email "actions@github.com"
+          git add scripts/integrity-checks/reports/status.json scripts/integrity-checks/reports/summary.md
+          git diff --cached --quiet || (git commit -m "chore: update integrity check reports" && git push)
+
+      - name: Fail the job if open findings exist
+        if: steps.run_checks.outcome == 'failure'
+        run: exit 1
