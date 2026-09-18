@@ -40,3 +40,9 @@ See `engineering/rfcs/sso-rfc.md` for the SAML implementation design.
 ## Launch Plan
 
 Enterprise-tier gated rollout, starting with Meridian Health and Crestview Financial as design partners.
+
+## Sources
+
+- [engineering/rfcs/sso-rfc.md](../../engineering/rfcs/sso-rfc.md) — SAML implementation design, cited in Technical Considerations
+- [product/customers/accounts/meridian-health/](../customers/accounts/meridian-health/) — Enterprise prospect blocked on SSO in security review, cited in Problem Statement
+- [product/customers/accounts/crestview-financial/](../customers/accounts/crestview-financial/) — Enterprise prospect blocked on SSO in security review, cited in Problem Statement

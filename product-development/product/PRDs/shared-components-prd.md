@@ -39,3 +39,8 @@ Depends on the same workflow/extraction data model used elsewhere in `prototypin
 ## Launch Plan
 
 Ship as an opt-in panel in the existing workflow builder; no gating by tier.
+
+## Sources
+
+- [reference/metrics.md](../../../reference/metrics.md) — Time-to-Publish (TTP) target, cited in Problem Statement
+- [engineering/plans/prototyping/component-library.md](../../engineering/plans/prototyping/component-library.md) — implementation scope, cited in Design

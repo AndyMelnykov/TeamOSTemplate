@@ -66,7 +66,7 @@ Ask the user for:
    - Feature Requests (organized by area, table format with quotes)
    - Next Steps (organized by category with owners)
    - Follow-up Email draft
-5. Also prepare a **bullet list of feature requests** to log in Linear / Jira / Asana (customer name, feature name, context)
+5. Also prepare a **bullet list of feature requests** to log as GitHub issues (customer name, feature name, context)
 6. Also prepare **updated action item tables** if this is an existing file (which items to move to completed, which new items to add)
 7. Run through the Quality Checklist from SKILL.md before proceeding
 
@@ -156,9 +156,9 @@ TMPFILE=$(mktemp)
 
 ### 5c. Log Feature Requests
 
-Feature requests are tracked in Linear / Jira / Asana, not in a repository file — see `product-development/product/customers/CLAUDE.md`, "Finding Customer Data."
+Feature requests are tracked as GitHub issues, not in a repository file — see `docs/agents/issue-tracker.md` and `product-development/product/customers/CLAUDE.md`, "Finding Customer Data."
 
-For each feature request identified in Step 4, log it in Linear / Jira / Asana with the customer's account label. Do not write feature requests to a Markdown tracker file.
+For each feature request identified in Step 4, log it via `/feature-request-intake` (or `gh issue create --label feature-request`) with the customer's account label. Do not write feature requests to a Markdown tracker file.
 
 ### After writing files
 

@@ -30,8 +30,8 @@ Only named/managed accounts get folders. Self-serve customers are tracked throug
 | Call summaries | `accounts/{customer}/calls/summaries/` |
 | Call transcripts | `accounts/{customer}/calls/transcripts/` |
 | Analytics (metrics, queries, schemas, dashboards) | `../../analytics/CLAUDE.md` (organized by product area, not by customer) |
-| Feature requests for a customer | Linear / Jira / Asana: filter by customer label |
-| Escalations | Linear / Jira / Asana: filter by `type:escalation` + customer label |
+| Feature requests for a customer | GitHub Issues: filter by `feature-request` label + customer label (see `docs/agents/issue-tracker.md`) |
+| Escalations | GitHub Issues: filter by `type:escalation` + customer label |
 
 ## Processing Customer Calls
 
@@ -39,4 +39,4 @@ When processing a new customer call:
 1. Save summary to `accounts/{customer}/calls/summaries/{date}.md`
 2. Save transcript to `accounts/{customer}/calls/transcripts/{date}.md`
 3. Update `accounts/{customer}/account-context.md` with new insights
-4. Log feature requests in Linear / Jira / Asana with the customer label
+4. Log feature requests as GitHub issues (via `/feature-request-intake` or `gh issue create --label feature-request`) with the customer label
