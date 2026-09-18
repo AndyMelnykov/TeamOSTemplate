@@ -1,0 +1,293 @@
+{
+  "findings": {
+    "feature-index-join-completeness::analytics/queries/deployment/domain-setup-completion.sql": {
+      "check_id": "feature-index-join-completeness",
+      "file": "/home/runner/work/TeamOSTemplate/TeamOSTemplate/product-development/analytics/queries/deployment/domain-setup-completion.sql",
+      "first_detected": "2026-09-18",
+      "key": "analytics/queries/deployment/domain-setup-completion.sql",
+      "last_seen": "2026-09-18",
+      "message": "analytics/queries/deployment/domain-setup-completion.sql exists on disk but is not referenced by any feature-index.yaml entry"
+    },
+    "feature-index-join-completeness::analytics/queries/deployment/one-click-deploy-success.sql": {
+      "check_id": "feature-index-join-completeness",
+      "file": "/home/runner/work/TeamOSTemplate/TeamOSTemplate/product-development/analytics/queries/deployment/one-click-deploy-success.sql",
+      "first_detected": "2026-09-18",
+      "key": "analytics/queries/deployment/one-click-deploy-success.sql",
+      "last_seen": "2026-09-18",
+      "message": "analytics/queries/deployment/one-click-deploy-success.sql exists on disk but is not referenced by any feature-index.yaml entry"
+    },
+    "feature-index-join-completeness::analytics/queries/prototyping/generation-success-rate.sql": {
+      "check_id": "feature-index-join-completeness",
+      "file": "/home/runner/work/TeamOSTemplate/TeamOSTemplate/product-development/analytics/queries/prototyping/generation-success-rate.sql",
+      "first_detected": "2026-09-18",
+      "key": "analytics/queries/prototyping/generation-success-rate.sql",
+      "last_seen": "2026-09-18",
+      "message": "analytics/queries/prototyping/generation-success-rate.sql exists on disk but is not referenced by any feature-index.yaml entry"
+    },
+    "insights-stale::INS-001": {
+      "check_id": "insights-stale",
+      "file": "product-development/product/Insights/insights.csv",
+      "first_detected": "2026-09-18",
+      "key": "INS-001",
+      "last_seen": "2026-09-18",
+      "message": "INS-001 has been 'new' since 2026-08-12 (37d, threshold 30d)"
+    },
+    "insights-stale::INS-004": {
+      "check_id": "insights-stale",
+      "file": "product-development/product/Insights/insights.csv",
+      "first_detected": "2026-09-18",
+      "key": "INS-004",
+      "last_seen": "2026-09-18",
+      "message": "INS-004 has been 'new' since 2026-08-12 (37d, threshold 30d)"
+    },
+    "insights-stale::INS-005": {
+      "check_id": "insights-stale",
+      "file": "product-development/product/Insights/insights.csv",
+      "first_detected": "2026-09-18",
+      "key": "INS-005",
+      "last_seen": "2026-09-18",
+      "message": "INS-005 has been 'new' since 2026-08-12 (37d, threshold 30d)"
+    },
+    "insights-stale::INS-006": {
+      "check_id": "insights-stale",
+      "file": "product-development/product/Insights/insights.csv",
+      "first_detected": "2026-09-18",
+      "key": "INS-006",
+      "last_seen": "2026-09-18",
+      "message": "INS-006 has been 'new' since 2026-08-12 (37d, threshold 30d)"
+    },
+    "insights-stale::INS-007": {
+      "check_id": "insights-stale",
+      "file": "product-development/product/Insights/insights.csv",
+      "first_detected": "2026-09-18",
+      "key": "INS-007",
+      "last_seen": "2026-09-18",
+      "message": "INS-007 has been 'new' since 2026-08-12 (37d, threshold 30d)"
+    },
+    "insights-stale::INS-008": {
+      "check_id": "insights-stale",
+      "file": "product-development/product/Insights/insights.csv",
+      "first_detected": "2026-09-18",
+      "key": "INS-008",
+      "last_seen": "2026-09-18",
+      "message": "INS-008 has been 'new' since 2026-08-12 (37d, threshold 30d)"
+    },
+    "insights-stale::INS-009": {
+      "check_id": "insights-stale",
+      "file": "product-development/product/Insights/insights.csv",
+      "first_detected": "2026-09-18",
+      "key": "INS-009",
+      "last_seen": "2026-09-18",
+      "message": "INS-009 has been 'new' since 2026-08-12 (37d, threshold 30d)"
+    },
+    "insights-stale::INS-010": {
+      "check_id": "insights-stale",
+      "file": "product-development/product/Insights/insights.csv",
+      "first_detected": "2026-09-18",
+      "key": "INS-010",
+      "last_seen": "2026-09-18",
+      "message": "INS-010 has been 'new' since 2026-08-12 (37d, threshold 30d)"
+    },
+    "insights-stale::INS-011": {
+      "check_id": "insights-stale",
+      "file": "product-development/product/Insights/insights.csv",
+      "first_detected": "2026-09-18",
+      "key": "INS-011",
+      "last_seen": "2026-09-18",
+      "message": "INS-011 has been 'new' since 2026-08-12 (37d, threshold 30d)"
+    },
+    "insights-stale::INS-012": {
+      "check_id": "insights-stale",
+      "file": "product-development/product/Insights/insights.csv",
+      "first_detected": "2026-09-18",
+      "key": "INS-012",
+      "last_seen": "2026-09-18",
+      "message": "INS-012 has been 'new' since 2026-08-12 (37d, threshold 30d)"
+    },
+    "insights-stale::INS-013": {
+      "check_id": "insights-stale",
+      "file": "product-development/product/Insights/insights.csv",
+      "first_detected": "2026-09-18",
+      "key": "INS-013",
+      "last_seen": "2026-09-18",
+      "message": "INS-013 has been 'new' since 2026-08-12 (37d, threshold 30d)"
+    },
+    "insights-stale::INS-014": {
+      "check_id": "insights-stale",
+      "file": "product-development/product/Insights/insights.csv",
+      "first_detected": "2026-09-18",
+      "key": "INS-014",
+      "last_seen": "2026-09-18",
+      "message": "INS-014 has been 'new' since 2026-08-12 (37d, threshold 30d)"
+    },
+    "insights-stale::INS-015": {
+      "check_id": "insights-stale",
+      "file": "product-development/product/Insights/insights.csv",
+      "first_detected": "2026-09-18",
+      "key": "INS-015",
+      "last_seen": "2026-09-18",
+      "message": "INS-015 has been 'new' since 2026-08-12 (37d, threshold 30d)"
+    },
+    "insights-stale::INS-016": {
+      "check_id": "insights-stale",
+      "file": "product-development/product/Insights/insights.csv",
+      "first_detected": "2026-09-18",
+      "key": "INS-016",
+      "last_seen": "2026-09-18",
+      "message": "INS-016 has been 'new' since 2026-08-12 (37d, threshold 30d)"
+    },
+    "insights-stale::INS-017": {
+      "check_id": "insights-stale",
+      "file": "product-development/product/Insights/insights.csv",
+      "first_detected": "2026-09-18",
+      "key": "INS-017",
+      "last_seen": "2026-09-18",
+      "message": "INS-017 has been 'new' since 2026-08-12 (37d, threshold 30d)"
+    },
+    "insights-stale::INS-018": {
+      "check_id": "insights-stale",
+      "file": "product-development/product/Insights/insights.csv",
+      "first_detected": "2026-09-18",
+      "key": "INS-018",
+      "last_seen": "2026-09-18",
+      "message": "INS-018 has been 'new' since 2026-08-12 (37d, threshold 30d)"
+    },
+    "insights-stale::INS-019": {
+      "check_id": "insights-stale",
+      "file": "product-development/product/Insights/insights.csv",
+      "first_detected": "2026-09-18",
+      "key": "INS-019",
+      "last_seen": "2026-09-18",
+      "message": "INS-019 has been 'new' since 2026-08-12 (37d, threshold 30d)"
+    },
+    "prd-missing-sections::product-development/product/PRDs/billing/credit-usage-dashboard-prd.md": {
+      "check_id": "prd-missing-sections",
+      "file": "product-development/product/PRDs/billing/credit-usage-dashboard-prd.md",
+      "first_detected": "2026-09-18",
+      "key": "product-development/product/PRDs/billing/credit-usage-dashboard-prd.md",
+      "last_seen": "2026-09-18",
+      "message": "credit-usage-dashboard-prd.md is missing section(s): Design, Technical Considerations, Sources"
+    },
+    "prd-missing-sections::product-development/product/PRDs/deployment/custom-domains-prd.md": {
+      "check_id": "prd-missing-sections",
+      "file": "product-development/product/PRDs/deployment/custom-domains-prd.md",
+      "first_detected": "2026-09-18",
+      "key": "product-development/product/PRDs/deployment/custom-domains-prd.md",
+      "last_seen": "2026-09-18",
+      "message": "custom-domains-prd.md is missing section(s): Overview, User Stories, Requirements, Design, Technical Considerations, Launch Plan, Sources"
+    },
+    "prd-missing-sections::product-development/product/PRDs/deployment/one-click-deploy-prd.md": {
+      "check_id": "prd-missing-sections",
+      "file": "product-development/product/PRDs/deployment/one-click-deploy-prd.md",
+      "first_detected": "2026-09-18",
+      "key": "product-development/product/PRDs/deployment/one-click-deploy-prd.md",
+      "last_seen": "2026-09-18",
+      "message": "one-click-deploy-prd.md is missing section(s): Overview, User Stories, Requirements, Design, Technical Considerations, Launch Plan, Sources"
+    },
+    "prd-missing-sections::product-development/product/PRDs/home-page/project-search-prd.md": {
+      "check_id": "prd-missing-sections",
+      "file": "product-development/product/PRDs/home-page/project-search-prd.md",
+      "first_detected": "2026-09-18",
+      "key": "product-development/product/PRDs/home-page/project-search-prd.md",
+      "last_seen": "2026-09-18",
+      "message": "project-search-prd.md is missing section(s): Requirements, Design, Technical Considerations, Sources"
+    },
+    "prd-missing-sections::product-development/product/PRDs/prototyping/version-history-prd.md": {
+      "check_id": "prd-missing-sections",
+      "file": "product-development/product/PRDs/prototyping/version-history-prd.md",
+      "first_detected": "2026-09-18",
+      "key": "product-development/product/PRDs/prototyping/version-history-prd.md",
+      "last_seen": "2026-09-18",
+      "message": "version-history-prd.md is missing section(s): Overview, Design, Technical Considerations, Sources"
+    },
+    "prd-missing-sections::product-development/product/PRDs/shared-components-prd.md": {
+      "check_id": "prd-missing-sections",
+      "file": "product-development/product/PRDs/shared-components-prd.md",
+      "first_detected": "2026-09-18",
+      "key": "product-development/product/PRDs/shared-components-prd.md",
+      "last_seen": "2026-09-18",
+      "message": "shared-components-prd.md is missing section(s): Sources"
+    },
+    "prd-missing-sections::product-development/product/PRDs/sso-prd.md": {
+      "check_id": "prd-missing-sections",
+      "file": "product-development/product/PRDs/sso-prd.md",
+      "first_detected": "2026-09-18",
+      "key": "product-development/product/PRDs/sso-prd.md",
+      "last_seen": "2026-09-18",
+      "message": "sso-prd.md is missing section(s): Sources"
+    },
+    "prd-missing-sections::product-development/product/PRDs/starter-templates/community-marketplace-prd.md": {
+      "check_id": "prd-missing-sections",
+      "file": "product-development/product/PRDs/starter-templates/community-marketplace-prd.md",
+      "first_detected": "2026-09-18",
+      "key": "product-development/product/PRDs/starter-templates/community-marketplace-prd.md",
+      "last_seen": "2026-09-18",
+      "message": "community-marketplace-prd.md is missing section(s): Overview, Design, Technical Considerations, Sources"
+    },
+    "prd-missing-sections::product-development/product/PRDs/team-workspaces-prd.md": {
+      "check_id": "prd-missing-sections",
+      "file": "product-development/product/PRDs/team-workspaces-prd.md",
+      "first_detected": "2026-09-18",
+      "key": "product-development/product/PRDs/team-workspaces-prd.md",
+      "last_seen": "2026-09-18",
+      "message": "team-workspaces-prd.md is missing section(s): Sources"
+    },
+    "prd-stale-status::product-development/product/PRDs/ai-gen-v3-prd.md": {
+      "check_id": "prd-stale-status",
+      "file": "product-development/product/PRDs/ai-gen-v3-prd.md",
+      "first_detected": "2026-09-18",
+      "key": "product-development/product/PRDs/ai-gen-v3-prd.md",
+      "last_seen": "2026-09-18",
+      "message": "ai-gen-v3-prd.md has been 'Draft' since 2026-03-18 (184d, threshold 21d)"
+    },
+    "prd-stale-status::product-development/product/PRDs/shared-components-prd.md": {
+      "check_id": "prd-stale-status",
+      "file": "product-development/product/PRDs/shared-components-prd.md",
+      "first_detected": "2026-09-18",
+      "key": "product-development/product/PRDs/shared-components-prd.md",
+      "last_seen": "2026-09-18",
+      "message": "shared-components-prd.md has been 'Draft' since 2026-03-17 (185d, threshold 21d)"
+    },
+    "prd-stale-status::product-development/product/PRDs/sso-prd.md": {
+      "check_id": "prd-stale-status",
+      "file": "product-development/product/PRDs/sso-prd.md",
+      "first_detected": "2026-09-18",
+      "key": "product-development/product/PRDs/sso-prd.md",
+      "last_seen": "2026-09-18",
+      "message": "sso-prd.md has been 'Draft' since 2026-03-20 (182d, threshold 21d)"
+    },
+    "prd-stale-status::product-development/product/PRDs/team-workspaces-prd.md": {
+      "check_id": "prd-stale-status",
+      "file": "product-development/product/PRDs/team-workspaces-prd.md",
+      "first_detected": "2026-09-18",
+      "key": "product-development/product/PRDs/team-workspaces-prd.md",
+      "last_seen": "2026-09-18",
+      "message": "team-workspaces-prd.md has been 'Draft' since 2026-03-19 (183d, threshold 21d)"
+    },
+    "process-papercuts-digest::docs": {
+      "check_id": "process-papercuts-digest",
+      "file": "PAPERCUTS.md",
+      "first_detected": "2026-09-18",
+      "key": "docs",
+      "last_seen": "2026-09-18",
+      "message": "2 unresolved entries tagged [docs] in PAPERCUTS.md -- repeat offender"
+    },
+    "process-stale-bug-investigations::product-development/engineering/bug-investigations/deployment/bug-03-19-2026-ssl-cert-not-renewing/investigation-plan.md": {
+      "check_id": "process-stale-bug-investigations",
+      "file": "product-development/engineering/bug-investigations/deployment/bug-03-19-2026-ssl-cert-not-renewing/investigation-plan.md",
+      "first_detected": "2026-09-18",
+      "key": "product-development/engineering/bug-investigations/deployment/bug-03-19-2026-ssl-cert-not-renewing/investigation-plan.md",
+      "last_seen": "2026-09-18",
+      "message": "product-development/engineering/bug-investigations/deployment/bug-03-19-2026-ssl-cert-not-renewing/investigation-plan.md has Status 'In Progress' since 2026-03-19 (183d, threshold 14d)"
+    },
+    "process-stale-bug-investigations::product-development/engineering/bug-investigations/prototyping/bug-03-18-2026-version-restore-data-loss/investigation-plan.md": {
+      "check_id": "process-stale-bug-investigations",
+      "file": "product-development/engineering/bug-investigations/prototyping/bug-03-18-2026-version-restore-data-loss/investigation-plan.md",
+      "first_detected": "2026-09-18",
+      "key": "product-development/engineering/bug-investigations/prototyping/bug-03-18-2026-version-restore-data-loss/investigation-plan.md",
+      "last_seen": "2026-09-18",
+      "message": "product-development/engineering/bug-investigations/prototyping/bug-03-18-2026-version-restore-data-loss/investigation-plan.md has Status 'In Progress' since 2026-03-18 (184d, threshold 14d)"
+    }
+  },
+  "generated_at": "2026-09-18"
+}
