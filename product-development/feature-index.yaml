@@ -129,6 +129,8 @@ prototyping:
     figma: https://figma.com/file/example_product-gen-v3
     table-schemas:
       - analytics/schemas/prototyping/project-generations.md
+    queries:
+      - analytics/queries/prototyping/generation-success-rate.sql
 
   team-workspaces:
     prd: product/PRDs/team-workspaces-prd.md
@@ -183,6 +185,7 @@ deployment:
       - analytics/schemas/deployment/domain_certificates.md
     queries:
       - analytics/queries/deployment/domain-ssl-health.sql
+      - analytics/queries/deployment/domain-setup-completion.sql
     dashboards: analytics/dashboards/deployment/custom-domains-dashboards.md
     experiments:
       - analytics/experiments/deployment/one-click-deploy-cta-03-15-2026-experiment-results.md
@@ -205,6 +208,8 @@ deployment:
     figma: https://figma.com/file/example_product-deploy
     tickets:
       - EXAMPLE_PRODUCT/850
+    queries:
+      - analytics/queries/deployment/one-click-deploy-success.sql
 
 extraction-quality:
   extraction-confidence-scoring:

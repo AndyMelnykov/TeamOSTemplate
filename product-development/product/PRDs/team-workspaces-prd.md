@@ -39,3 +39,9 @@ See `engineering/rfcs/workspaces-rfc.md`.
 ## Launch Plan
 
 Design-partner rollout with Acme Corp given their existing internal rollout planning.
+
+## Sources
+
+- [product-development/product/CLAUDE.md](../CLAUDE.md) — Five Core Pillars ("Collaboration"), cited in Overview
+- [product/customers/accounts/acme-corp/calls/summaries/](../customers/accounts/acme-corp/calls/summaries/) — manager-review and rollout-planning request, cited in Problem Statement
+- [engineering/rfcs/workspaces-rfc.md](../../engineering/rfcs/workspaces-rfc.md) — implementation design, cited in Technical Considerations
