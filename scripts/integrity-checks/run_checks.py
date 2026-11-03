@@ -9,7 +9,7 @@ from pathlib import Path
 from common import Finding, days_open, load_config, load_status, merge_findings, write_status
 
 CHECK_MODULES = [
-    "checks.insights_discovery",
+    "checks.signals",
     "checks.feature_index",
     "checks.prd_content",
     "checks.decisions_adr",

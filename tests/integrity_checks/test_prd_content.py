@@ -31,11 +31,9 @@ def _header(status: str, tier: str, last_updated: str) -> str:
 
 @pytest.fixture
 def repo(tmp_path: Path) -> Path:
-    _write(tmp_path / "product-development/product/Insights/insights.csv",
-        "insight_id,theme,user_intent,product_insight,status,first_seen,last_seen\n"
-        "INS-001,trust,intent,implication,validated,2026-01-01,2026-01-01\n")
-    _write(tmp_path / "product-development/product/Insights/sources.csv",
-        "source_id,insight_id,source_type,source_ref,date,evidence\n")
+    _write(tmp_path / "product-development/signals/signals.csv",
+        "signal_id,date,source_type,source_ref,account,summary,detail,tags\n"
+        "SIG-001,2026-01-01,support,ticket-1,,first,,\n")
     return tmp_path
 
 
@@ -67,12 +65,27 @@ def test_strategy_review_gate_clean_when_decision_file_links_back(repo: Path):
     assert check_strategy_review_decision_gate(repo, {}) == []
 
 
-def test_sources_citation_validity_flags_unknown_id(repo: Path):
+def _prd_with_sources(repo: Path, sources: str) -> None:
     _write(repo / "product-development/product/PRDs/area/feature-prd.md",
-        _header("Draft", "Local", "2026-01-01") +
-        "## Overview\nx\n\n## Sources\n\n- INS-999\n")
+        _header("Draft", "Local", "2026-01-01") + f"## Overview\nx\n\n## Sources\n\n{sources}\n")
+
+
+def test_sources_citation_validity_flags_unknown_id(repo: Path):
+    _prd_with_sources(repo, "- SIG-999")
     findings = check_sources_citation_validity(repo, {})
-    assert findings and "INS-999" in findings[0].key
+    assert findings and "SIG-999" in findings[0].key
+
+
+def test_sources_citation_validity_accepts_existing_signal(repo: Path):
+    _prd_with_sources(repo, "- SIG-001")
+    assert check_sources_citation_validity(repo, {}) == []
+
+
+@pytest.mark.parametrize("leftover", ["INS-001", "SRC-001"])
+def test_sources_citation_validity_rejects_leftover_old_ids(repo: Path, leftover: str):
+    _prd_with_sources(repo, f"- {leftover}")
+    findings = check_sources_citation_validity(repo, {})
+    assert findings and leftover in findings[0].key
 
 
 def test_stale_status_flags_old_draft(repo: Path):
