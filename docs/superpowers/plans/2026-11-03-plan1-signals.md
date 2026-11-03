@@ -20,7 +20,7 @@
   | `date` | `YYYY-MM-DD`, when it happened |
   | `source_type` | one of `customer-call`, `support`, `community`, `review`, `competitor`, `market`, `analytics`, `experiment`, `survey`, `prototype`, `other` |
   | `source_ref` | URL, ticket key, file path or call date; never invented |
-  | `account` | optional; slug of a folder under `product/customers/accounts/` |
+  | `account` | optional; slug of a folder under `product-development/product/customers/accounts/`. `validate(row, repo_root)` checks the folder exists when given a `repo_root`; `add`, `check` and `signals-invalid-row` pass it |
   | `summary` | what happened, one sentence, max 300 characters |
   | `detail` | optional: quote or longer note, max 2000 characters |
   | `tags` | optional: `;`-separated free words for grouping |
@@ -61,6 +61,7 @@
 
 **Files:**
 - Create: `scripts/signals/signals.py`, `tests/signals/test_signals.py`
+- Modify: `pytest.ini` (`pythonpath` gains `scripts/signals`, so `import signals` is the module and tests use `from signals import …`)
 
 **Interfaces:**
 - Produces:
@@ -140,7 +141,7 @@ def test_historical_docs_are_not_rewritten(): ...
 - [ ] **Step 2: Run them and confirm they fail.**
 - [ ] **Step 3: Implement.** Reuse `signals.add` so migration inherits validation and dedupe.
 - [ ] **Step 4: Run them and confirm they pass.**
-- [ ] **Step 5: Run on the real repo.** `--dry-run`, read the report, run for real. Expect 19 signals. Then `python scripts/signals/signals.py check --repo-root .` → OK, and `git grep -n -E "INS-[0-9]{3}|SRC-[0-9]{3}|Insights/"` has hits only in the exclusions.
+- [ ] **Step 5: Run on the real repo.** `--dry-run`, read the report, run for real. Expect 19 signals. Then `python scripts/signals/signals.py check --repo-root .` → OK, and `git grep -n -E "INS-[0-9]{3}|SRC-[0-9]{3}|Insights/"` has hits only in the exclusions, the new `scripts/signals/` and `tests/signals/` files, `PAPERCUTS.md`, and files that Tasks 3-5 rewrite (`README.md`, `ROADMAP.md`, `.claude/commands/prd.md`, `reference/`, `product/CLAUDE.md`, the integrity-check code and tests). After Task 5 only the exclusions, `PAPERCUTS.md`, the phrase "Insights/Learnings" and one historical README/ROADMAP mention remain.
 - [ ] **Step 6: Commit** the script, tests and migrated tree in one commit — `git commit -m "feat: migrate Insights to signals.csv"`.
 
 ### Task 3: Integrity checks follow the store
@@ -148,7 +149,7 @@ def test_historical_docs_are_not_rewritten(): ...
 **Files:**
 - Create: `scripts/integrity-checks/checks/signals.py`, `tests/integrity_checks/test_signals.py`
 - Delete: `scripts/integrity-checks/checks/insights_discovery.py`, `tests/integrity_checks/test_insights_discovery.py`
-- Modify: `run_checks.py` (`CHECK_MODULES`), `config.yaml`, `checks/prd_content.py` (`check_sources_citation_validity`: accept `SIG-`, reject leftover `INS-`/`SRC-`), `tests/integrity_checks/test_prd_content.py`, `scripts/integrity-checks/README.md`
+- Modify: `pytest.ini` (`addopts = --import-mode=importlib`, because `tests/integrity_checks/test_signals.py` and `tests/signals/test_signals.py` share a basename), `run_checks.py` (`CHECK_MODULES`), `config.yaml`, `checks/prd_content.py` (`check_sources_citation_validity`: accept `SIG-`, reject leftover `INS-`/`SRC-`), `tests/integrity_checks/test_prd_content.py`, `scripts/integrity-checks/README.md`
 
 **Interfaces:**
 - Consumes: `signals.load`, `signals.validate`, `signals.cited`, `signals.unassigned`.

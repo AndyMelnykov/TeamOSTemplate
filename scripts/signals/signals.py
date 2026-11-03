@@ -28,6 +28,7 @@ DETAIL_MAX = 2000
 
 STORE = Path("product-development/signals/signals.csv")
 HYPOTHESES_ROOT = Path("product-development/product/PRDs")
+ACCOUNTS_ROOT = Path("product-development/product/customers/accounts")
 
 
 @dataclass(frozen=True)
@@ -64,8 +65,11 @@ def load(repo_root: Path) -> list[Signal]:
         return [Signal(**{c: (r.get(c) or "") for c in COLUMNS}) for r in csv.DictReader(f)]
 
 
-def validate(row: dict) -> list[str]:
-    """One message per bad column; [] means valid. `signal_id` is checked only when present."""
+def validate(row: dict, repo_root: Path | None = None) -> list[str]:
+    """One message per bad column; [] means valid. `signal_id` is checked only when present.
+
+    `account` must name a folder under customers/accounts/; that is checked only when `repo_root` is given.
+    """
     problems: list[str] = []
 
     def get(key: str) -> str:
@@ -91,6 +95,10 @@ def validate(row: dict) -> list[str]:
     detail = row.get("detail") or ""
     if len(detail) > DETAIL_MAX:
         problems.append(f"detail is {len(detail)} characters; max {DETAIL_MAX}")
+    account = get("account")
+    if account and repo_root is not None:
+        if "/" in account or "\\" in account or not (Path(repo_root) / ACCOUNTS_ROOT / account).is_dir():
+            problems.append(f"account {account!r} must be a folder under {ACCOUNTS_ROOT.as_posix()}/")
     return problems
 
 
@@ -107,7 +115,7 @@ def add(repo_root: Path, rows: list[dict]) -> AddResult:
     new: list[Signal] = []
 
     for index, row in enumerate(rows):
-        problems = validate(row)
+        problems = validate(row, repo_root)
         if problems:
             result.invalid[index] = problems
             continue
@@ -181,7 +189,7 @@ def _cmd_check(args) -> int:
     seen: set[str] = set()
     for s in load(args.repo_root):
         label = s.signal_id or "(no id)"
-        for p in validate(s.__dict__):
+        for p in validate(s.__dict__, args.repo_root):
             problems.append(f"{label}: {p}")
         if not s.signal_id:
             problems.append(f"{label}: signal_id is required")

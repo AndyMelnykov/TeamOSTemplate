@@ -52,6 +52,13 @@ def test_invalid_row_keys_a_row_without_an_id_by_line(repo: Path):
     assert [f.key for f in check_invalid_row(repo, {})] == ["line 2"]
 
 
+def test_invalid_row_flags_unknown_account(repo: Path):
+    _write(repo / "product-development/signals/signals.csv", HEADER
+        + "SIG-001,2026-01-01,support,ticket-1,nope,first,,\n")
+    findings = check_invalid_row(repo, {})
+    assert [f.key for f in findings] == ["SIG-001"] and "account" in findings[0].message
+
+
 def test_invalid_row_clean_store_has_no_finding(repo: Path):
     assert check_invalid_row(repo, {}) == []
 
