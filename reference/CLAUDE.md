@@ -12,6 +12,7 @@ Canonical, single-source-of-truth definitions for example_product. Every other d
 | `status-definitions.md` | Valid `**Status**` values for PRDs and RFCs |
 | `decision-types.md` | Decision categories and the `YYYY-MM-DD-{topic}-decision.md` naming convention |
 | `discovery-artifact-types.md` | Hypothesis artifact type, ID scheme, statuses, and the `{feature}-hypothesis.md` naming convention |
+| `signal-contract.md` | The contract for adding signals (the product loop's input): columns, duplicate rule, privacy, and the `signals.py` entry point |
 | `product-loop.md` | The discovery → delivery loop: seven stages, plug-and-play principle, and the machine-checked stage status table |
 | `sla-policy.md` | Response-time policy for feature requests filed via `/feature-request-intake`, keyed by `Impact` level |
 | `ai-native-product-os.md` | The architecture spec this repo implements — the source of truth for *why* the repo is structured this way |

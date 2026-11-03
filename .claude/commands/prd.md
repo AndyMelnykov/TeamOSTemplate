@@ -34,7 +34,7 @@ For each of the seven sections defined in `product-development/product/PRDs/CLAU
 4. **Design** - UX flows, wireframes (link the Figma file if one exists)
 5. **Technical Considerations** - Architecture, dependencies; link the related RFC if one exists or is planned
 6. **Launch Plan** - Rollout strategy, feature flags
-7. **Sources** - Every `INS-###`, `SRC-###`, or file path already cited in sections 1-6 above, listed once each as its own bullet. Use the same citation format as `templates/hypothesis.md`'s "Signals" section; write a file-path citation as a Markdown link (`[label](relative/path)`) rather than a bare backtick reference. If a claim in sections 1-6 has no citable source, leave it as uncited prose rather than inventing a citation here.
+7. **Sources** - Every `SIG-###` or file path already cited in sections 1-6 above, listed once each as its own bullet. Use the same citation format as `templates/hypothesis.md`'s "Signals" section; write a file-path citation as a Markdown link (`[label](relative/path)`) rather than a bare backtick reference. If a claim in sections 1-6 has no citable source, leave it as uncited prose rather than inventing a citation here.
 
 ## Step 4: Write the PRD
 
@@ -73,7 +73,6 @@ Before treating the PRD as ready to share (i.e. before advancing `**Status**` pa
 5. **`**Review Tier**` is a valid value** - either `Local` or `Strategy Review`, matching the criteria in `product-development/product/PRDs/CLAUDE.md`'s "Review Tier" section. If `Strategy Review`, `**Status**` may not advance past `In Review` unless a decision file recording the review's outcome already exists under `product-development/product/strategy/` (per `reference/decision-types.md` and `docs/adr/0006-two-track-prd-review.md`), linked from this PRD. If no such decision file exists yet, flag it to the user and hold `**Status**` at `In Review` rather than advancing it.
 6. **Every `Sources` citation resolves**:
    - For a file-path citation (written as a Markdown link per Step 3), run `powershell -File scripts/check-references.ps1` from the repo root and confirm it reports `No broken references found.` This script already scans every tracked Markdown file's links and `feature-index.yaml`'s path tokens, so a PRD's file-path citations are covered as soon as the PRD is on disk — no PRD-specific script changes are needed.
-   - For an `INS-###` citation, confirm that ID exists as a row in `product-development/product/Insights/insights.csv`.
-   - For a `SRC-###` citation, confirm that ID exists as a row in `product-development/product/Insights/sources.csv`.
+   - For a `SIG-###` citation, confirm that ID exists as a row in `product-development/signals/signals.csv`. An `INS-###` or `SRC-###` citation is a retired id: replace it with its `SIG-###`.
 
-Report any failures to the user and fix them before moving on. This check only reads `reference/`, `feature-index.yaml`, `insights.csv`, and `sources.csv`, and validates the PRD draft — it never writes to `reference/` or `product-development/product/strategy/`, so it does not trigger the human-approval gate in ADR 0003.
+Report any failures to the user and fix them before moving on. This check only reads `reference/`, `feature-index.yaml`, and `signals.csv`, and validates the PRD draft — it never writes to `reference/` or `product-development/product/strategy/`, so it does not trigger the human-approval gate in ADR 0003.

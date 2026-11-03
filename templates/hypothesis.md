@@ -8,7 +8,7 @@ If {change}, then {expected user behavior change}, because {underlying belief}.
 
 ## Signals
 
-- {INS-### from insights.csv, a file path to an analytics investigation or competitive research finding} -- {why it supports this}
+- {SIG-### from signals.csv, a file path to an analytics investigation or competitive research finding} -- {why it supports this}
 
 ## Why it matters
 

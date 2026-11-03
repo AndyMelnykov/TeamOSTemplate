@@ -160,6 +160,22 @@ Feature requests are tracked as GitHub issues, not in a repository file — see 
 
 For each feature request identified in Step 4, log it via `/feature-request-intake` (or `gh issue create --label feature-request`) with the customer's account label. Do not write feature requests to a Markdown tracker file.
 
+### 5d. Add Signals
+
+Every insight, learning and feature request in the summary is also a signal in the product loop. Read `reference/signal-contract.md`, then build one object per Insights/Learnings or Feature Request row:
+
+| Field | Value |
+|---|---|
+| `source_type` | `customer-call` |
+| `account` | the account slug |
+| `source_ref` | the summary path, `product-development/product/customers/accounts/{slug}/calls/summaries/{date}.md` |
+| `date` | the call date as `YYYY-MM-DD` |
+| `summary` | the row's headline, one sentence, at most 300 characters |
+| `detail` | the supporting quote with each speaker reduced to a role (for example "VP Engineering"); no personal names |
+| `tags` | the topic or feature area, `;`-separated |
+
+Write the list to a scratch JSON file and run `python scripts/signals/signals.py add --json <file>`. Report how many signals were written and how many were skipped as duplicates. Re-running `/customer-call` on the same call adds nothing. Fix any `error:` row and re-run. Never edit `signals.csv` directly.
+
 ### After writing files
 
 - Verify both summary and transcript files exist and cross-reference links are correct
@@ -224,5 +240,6 @@ When appending to existing files:
 8. Write summary file directly (Write tool)
 9. Write transcript file directly (Bash concatenation + wrap script)
 10. Log feature requests to the issue tracker (see `docs/agents/capabilities.md`)
-11. Verify files exist and cross-reference links are correct
-12. Generate and present Slack summary draft for user review
+11. Add a signal per insight and feature request (Step 5d)
+12. Verify files exist and cross-reference links are correct
+13. Generate and present Slack summary draft for user review
