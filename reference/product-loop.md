@@ -60,7 +60,7 @@ Machine-checked by `tests/docs/test_product_loop.py`: every `implemented` or `pa
 
 | Stage | Status | Delivered by | Notes |
 |---|---|---|---|
-| 1. Input signals | partial | `.claude/commands/customer-call.md`; `product-development/product/Insights/insights.csv` | Manual call and Reddit-research intake only, kept in `Insights/` until Plan 1 replaces it with `signals.csv`. Analytics feed: Plan 4. |
+| 1. Input signals | partial | `.claude/commands/customer-call.md`; `product-development/signals/signals.csv`; `scripts/signals/signals.py` | Manual call and Reddit-research intake only; Insights migrated into `signals.csv`. Analytics feed: Plan 4. |
 | 2. Hypotheses | partial | `templates/hypothesis.md`; `reference/discovery-artifact-types.md` | Hypotheses exist today. Plan 2 adds derived reach and a validation recommendation. |
 | 3. Validation | partial | `product-development/analytics/experiments/` | Experiments are recorded. Results as signals: Plans 1 and 4. |
 | 4. Prototyping | partial | `.claude/skills/prototype/SKILL.md` | Throwaway by design. Linking prototypes to a shared design system is a Later roadmap item. |

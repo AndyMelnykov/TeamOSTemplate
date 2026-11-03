@@ -75,8 +75,8 @@ Five file reads, no guessing what "Draft" means, no duplicated definitions. Run 
 ### Why does HYP-EXTRACT-001 exist?
 
 1. Start at the hypothesis: [`extraction-confidence-scoring-hypothesis.md`](product-development/product/PRDs/extraction-quality/extraction-confidence-scoring-hypothesis.md) → the bet is a plain-language confidence label on extracted fields; its Result is `pending`.
-2. Follow its supporting signals, `INS-002` and `INS-003`, in [`insights.csv`](product-development/product/Insights/insights.csv) → trust is the top concern, and users ask whether extraction is "good enough" rather than how OCR works. (Today a signal is split across `insights.csv` and `sources.csv`; Plan 1 makes it one row in `signals.csv`.)
-3. Trace each to its source in [`sources.csv`](product-development/product/Insights/sources.csv) → `SRC-002` and `SRC-003`, both `r/PandaDoc` document-security threads from the Reddit customer research.
+2. Follow its supporting signals, `SIG-002` and `SIG-003`, in [`insights.csv`](product-development/product/Insights/insights.csv) → trust is the top concern, and users ask whether extraction is "good enough" rather than how OCR works. (Today a signal is split across `insights.csv` and `sources.csv`; Plan 1 makes it one row in `signals.csv`.)
+3. Trace each to its source in [`sources.csv`](product-development/product/Insights/sources.csv) → `SIG-002` and `SIG-003`, both `r/PandaDoc` document-security threads from the Reddit customer research.
 4. Answer: *the hypothesis exists because Reddit research surfaced a trust gap in extraction output; it is untested.*
 
 Today this chain is followed by hand. The single signal store (Plan 1) and the hypothesis changes (Plan 2) are planned to make it one lookup.
