@@ -53,26 +53,30 @@ def check_strategy_review_decision_gate(repo_root: Path, thresholds: dict) -> li
     return findings
 
 
-def _load_ids(repo_root: Path, filename: str, id_field: str) -> set[str]:
-    path = repo_root / "product-development/product/Insights" / filename
+def _load_signal_ids(repo_root: Path) -> set[str]:
+    path = repo_root / "product-development/signals/signals.csv"
+    if not path.exists():
+        return set()
     with path.open(encoding="utf-8", newline="") as f:
-        return {row[id_field] for row in csv.DictReader(f)}
+        return {row["signal_id"] for row in csv.DictReader(f)}
 
 
 def check_sources_citation_validity(repo_root: Path, thresholds: dict) -> list[Finding]:
-    insight_ids = _load_ids(repo_root, "insights.csv", "insight_id")
-    source_ids = _load_ids(repo_root, "sources.csv", "source_id")
+    signal_ids = _load_signal_ids(repo_root)
     findings = []
     for path in _prd_files(repo_root):
         text = path.read_text(encoding="utf-8")
         rel = path.relative_to(repo_root).as_posix()
         m = re.search(r"^##\s+Sources\s*$(.*?)(?=^##\s|\Z)", text, re.MULTILINE | re.DOTALL)
         section = m.group(1) if m else ""
-        for cited in re.findall(r"\b(INS-\d+|SRC-\d+)\b", section):
-            valid = cited in insight_ids if cited.startswith("INS-") else cited in source_ids
-            if not valid:
-                findings.append(Finding("prd-sources-citation-validity", f"{rel}::{cited}",
-                    f"{path.name} cites {cited} in ## Sources, which does not exist", rel))
+        for cited in re.findall(r"(?<![\w-])((?:SIG|INS|SRC)-\d{3,})(?![\w-])", section):
+            if cited.startswith("SIG-"):
+                if cited in signal_ids:
+                    continue
+                message = f"{path.name} cites {cited} in ## Sources, which does not exist"
+            else:
+                message = f"{path.name} cites retired id {cited} in ## Sources; cite the SIG- signal instead"
+            findings.append(Finding("prd-sources-citation-validity", f"{rel}::{cited}", message, rel))
     return findings
 
 

@@ -1,10 +1,10 @@
 checks:
-  insights-orphan-hypothesis: true
-  insights-orphan-sources: true
-  insights-promotion-status: true
-  insights-stale: true
-  insights-unindexed-hypothesis: true
-  insights-id-collisions: true
+  signals-invalid-row: true
+  signals-unknown-citation: true
+  signals-orphan-hypothesis: true
+  signals-unassigned-stale: true
+  signals-unindexed-hypothesis: true
+  signals-id-collisions: true
   feature-index-join-completeness: true
   feature-index-broken-tickets: false
   prd-missing-sections: true
@@ -18,7 +18,7 @@ checks:
   process-skillgaps-digest: true
 
 thresholds:
-  stale-insight-days: 30
+  unassigned-signal-days: 30
   stale-prd-status-days: 21
   stale-bug-investigation-days: 14
 

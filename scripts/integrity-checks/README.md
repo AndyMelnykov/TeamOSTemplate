@@ -17,6 +17,8 @@ cat scripts/integrity-checks/reports/summary.md
 
 Edit `config.yaml`'s `checks:` map -- `true` runs it, `false` skips it. Thresholds (staleness day counts) live in the same file under `thresholds:`.
 
+The `signals-*` checks read `product-development/signals/signals.csv` through `scripts/signals/signals.py` (row validity, hypotheses citing missing or no signals, signals no hypothesis has picked up for `unassigned-signal-days`).
+
 `feature-index-broken-tickets` ships disabled: this template repo's example ticket numbers aren't real GitHub issues. Flip it to `true` once your `feature-index.yaml` has real ticket references and `gh` is authenticated against your real repo.
 
 ## How staleness is tracked
