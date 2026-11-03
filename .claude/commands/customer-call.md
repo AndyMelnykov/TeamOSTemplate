@@ -223,6 +223,6 @@ When appending to existing files:
 7. Generate summary content (sections), feature request list, and action item updates
 8. Write summary file directly (Write tool)
 9. Write transcript file directly (Bash concatenation + wrap script)
-10. Log feature requests to Linear / Jira / Asana
+10. Log feature requests to the issue tracker (see `docs/agents/capabilities.md`)
 11. Verify files exist and cross-reference links are correct
 12. Generate and present Slack summary draft for user review

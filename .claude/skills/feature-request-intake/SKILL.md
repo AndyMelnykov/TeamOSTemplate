@@ -1,6 +1,6 @@
 ---
 name: feature-request-intake
-description: Turn a raw feature ask into a structured, function-routed GitHub issue.
+description: Turn a raw feature ask into a structured, function-routed issue in the issue tracker.
 ---
 
 # Feature Request Intake
@@ -23,7 +23,7 @@ Every intake produces an issue with these fields, all stated explicitly by whoev
 
 Before filing, check both:
 1. `product-development/feature-index.yaml` for an existing feature entry with a matching or near-matching name (same search this repo's `/prd` Step 2 already does).
-2. Open GitHub issues labeled `feature-request`: `gh issue list --label feature-request --state open --json number,title,body`.
+2. Open issues labeled `feature-request` in the issue tracker (capability; see `docs/agents/capabilities.md`). With the configured GitHub adapter: `gh issue list --label feature-request --state open --json number,title,body`.
 
 If either surfaces a clear match, tell the user and stop — do not file a duplicate. Report where you looked either way, per the same convention `.claude/skills/triage/SKILL.md` uses for its own redundancy check.
 

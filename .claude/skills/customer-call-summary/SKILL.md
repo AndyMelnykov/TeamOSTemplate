@@ -141,7 +141,7 @@ Draft a ready-to-post Slack message summarizing the call for internal stakeholde
 - Bold topic headers for each major area discussed
 - Detailed paragraphs covering each major topic with inline customer quotes
 - Numbered lists for specific fixes or action items
-- End with "Linear issues to come for all items raised above." when applicable
+- End with "Issues to come for all items raised above." when applicable
 
 **Content guidelines:**
 - Hit ALL key takeaways - be specific (e.g., list all 5 fixes, not "a couple of fixes")
@@ -214,7 +214,7 @@ deployed through example_product Teams, it's already running on our infrastructu
 not spinning up duplicate instances." We'll solve this by bringing the Deployment
 Dashboard into example_product (long-standing ask across multiple example_product customers).
 
-Linear issues to come for all items raised above.
+Issues to come for all items raised above.
 ```
 
 ## Action Item Management

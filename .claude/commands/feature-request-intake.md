@@ -53,4 +53,4 @@ Compose the issue per the skill file's Issue Format section and create it:
 gh issue create --title "[Feature Request] {title}" --label "feature-request" --label "area:{function}" --body "{body}"
 ```
 
-Use a heredoc for the body per `docs/agents/issue-tracker.md`'s conventions. Report the created issue's number and URL to the user. The issue starts unlabeled for triage state — `.claude/skills/triage/SKILL.md` picks it up from `needs-triage` onward; this command's job ends once the issue exists.
+Use a heredoc for the body per `docs/agents/issue-tracker.md`'s conventions (the issue tracker is a capability; see `docs/agents/capabilities.md`). Report the created issue's number and URL to the user. The issue starts unlabeled for triage state — `.claude/skills/triage/SKILL.md` picks it up from `needs-triage` onward; this command's job ends once the issue exists.
