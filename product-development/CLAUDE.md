@@ -2,6 +2,8 @@
 
 All product development artifacts for example_product - product, engineering, analytics, data engineering, and design.
 
+The artifacts here are the middle of the discovery → delivery loop; see [`reference/product-loop.md`](../reference/product-loop.md) for the stages and their status.
+
 ## Doc Index
 
 | Path | Description |
@@ -21,6 +23,6 @@ Beyond the artifact pointers already in use (`prd:`, `eng-rfc:`, etc.), any entr
 
 | Key | Purpose |
 |-----|---------|
-| `opportunity:` / `hypothesis:` | Pointers to the discovery artifacts that justify the feature — see [reference/discovery-artifact-types.md](../reference/discovery-artifact-types.md) |
+| `hypothesis:` | Pointer to the discovery artifact that justifies the feature — see [reference/discovery-artifact-types.md](../reference/discovery-artifact-types.md) |
 | `read_first:` | Paths an agent should open before anything else in this entry |
 | `do_not_load_by_default:` | Paths that exist but shouldn't be pulled in without a specific reason (e.g. an archived experiment) |

@@ -8,10 +8,6 @@ Make AI-extracted data trustworthy enough that non-technical ops/legal users can
 
 Canonical definitions live in [reference/metrics.md](../../../../reference/metrics.md). Extraction success rate (ESR) is the metric most relevant here.
 
-## Active opportunities
-
-- `OPP-EXTRACT-001` — `extraction-confidence-scoring-opportunity.md`
-
 ## Active hypotheses
 
 - `HYP-EXTRACT-001` — `extraction-confidence-scoring-hypothesis.md`

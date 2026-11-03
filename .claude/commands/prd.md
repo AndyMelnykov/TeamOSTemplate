@@ -34,7 +34,7 @@ For each of the seven sections defined in `product-development/product/PRDs/CLAU
 4. **Design** - UX flows, wireframes (link the Figma file if one exists)
 5. **Technical Considerations** - Architecture, dependencies; link the related RFC if one exists or is planned
 6. **Launch Plan** - Rollout strategy, feature flags
-7. **Sources** - Every `INS-###`, `SRC-###`, or file path already cited in sections 1-6 above, listed once each as its own bullet. Use the same citation format as `templates/opportunity.md`'s "Evidence" section; write a file-path citation as a Markdown link (`[label](relative/path)`) rather than a bare backtick reference. If a claim in sections 1-6 has no citable source, leave it as uncited prose rather than inventing a citation here.
+7. **Sources** - Every `INS-###`, `SRC-###`, or file path already cited in sections 1-6 above, listed once each as its own bullet. Use the same citation format as `templates/hypothesis.md`'s "Signals" section; write a file-path citation as a Markdown link (`[label](relative/path)`) rather than a bare backtick reference. If a claim in sections 1-6 has no citable source, leave it as uncited prose rather than inventing a citation here.
 
 ## Step 4: Write the PRD
 

@@ -30,7 +30,7 @@ Only named/managed accounts get folders. Self-serve customers are tracked throug
 | Call summaries | `accounts/{customer}/calls/summaries/` |
 | Call transcripts | `accounts/{customer}/calls/transcripts/` |
 | Analytics (metrics, queries, schemas, dashboards) | `../../analytics/CLAUDE.md` (organized by product area, not by customer) |
-| Feature requests for a customer | GitHub Issues: filter by `feature-request` label + customer label (see `docs/agents/issue-tracker.md`) |
+| Feature requests for a customer | GitHub Issues: filter by `feature-request` label + customer label (the issue tracker capability; see `docs/agents/capabilities.md` and `docs/agents/issue-tracker.md`) |
 | Escalations | GitHub Issues: filter by `type:escalation` + customer label |
 
 ## Processing Customer Calls

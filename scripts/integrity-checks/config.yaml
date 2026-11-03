@@ -3,7 +3,7 @@ checks:
   insights-orphan-sources: true
   insights-promotion-status: true
   insights-stale: true
-  insights-orphan-opportunity: true
+  insights-unindexed-hypothesis: true
   insights-id-collisions: true
   feature-index-join-completeness: true
   feature-index-broken-tickets: false

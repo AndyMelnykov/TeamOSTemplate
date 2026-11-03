@@ -73,15 +73,52 @@ There is no runtime service in this repo — no model calls to trace, no tool-ex
                                                 └───────────────────────────┘
 ```
 
+## Integration layer
+
+The read/write path above shows how an agent moves through the tree. This diagram shows how signals move through it: the repo is the system of record for the [product loop](../reference/product-loop.md), and everything outside it is a source adapter or a capability ([`docs/agents/capabilities.md`](agents/capabilities.md), [ADR 0007](adr/0007-teamos-is-the-integration-layer.md)). The signal store and the script that writes it are planned (Plan 1); today the first two boxes are filled by `/customer-call` and `Insights/insights.csv`.
+
+```
+  Source adapters
+  +--------------------------------------------------------------+
+  | product-intelligence-agent | /customer-call | analytics sweep |
+  | MCP-backed adapters                                          |
+  +------------------------------+-------------------------------+
+                                 | add signals (Plan 1)
+                                 v
+                  +-----------------------------+
+                  | Signals                      |
+                  +--------------+--------------+
+                                 v
+                  +-----------------------------+
+                  | Hypotheses                   |
+                  | (aggregate signals)          |
+                  +--------------+--------------+
+                                 v
+                  +-----------------------------+
+                  | PRD                          |
+                  +--------------+--------------+
+                                 v
+                  +-----------------------------+
+                  | Tickets (external tracker)   |  engineering is out of scope
+                  +--------------+--------------+
+                                 v
+                  +-----------------------------+
+                  | Rollout -> measurement       |
+                  +--------------+--------------+
+                                 | results become new signals (Plans 1, 4)
+                                 v
+                           back to Signals
+```
+
 ## Mapping onto the usual agent-product architecture vocabulary
 
 | Usual element | What plays that role here |
 |---|---|
 | Model | The coding agent's own model (Claude, or whichever the operator points at the repo) — this repo doesn't call a model itself |
 | Tools | File read/search (`Read`, `Grep`, `Glob`), shell (`Bash`/`gh`), and the skills/commands under `.claude/` |
-| Data sources | The repo tree itself — `reference/` for canonical definitions, `product-development/` for raw + derived artifacts |
+| Data sources | The repo plus signals added by source adapters — `reference/` for canonical definitions, `product-development/` for raw + derived artifacts |
 | Policy layer | `scripts/check-references.ps1` (deterministic, always runs the same way) plus the human-approval requirement on canonical writes (judgment-based, documented in [ADR 0003](adr/0003-human-approval-for-canonical-writes.md)) |
-| Storage | Git — every artifact is a version-controlled file; there is no separate database |
+| Storage | Git text files; signals move to a single `signals.csv` (Plan 1) |
 | External APIs | The systems listed in the diagram above, referenced by link/path and purpose, never mirrored into the repo |
 
 ## Why this shape
