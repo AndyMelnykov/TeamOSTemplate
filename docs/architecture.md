@@ -73,15 +73,56 @@ There is no runtime service in this repo — no model calls to trace, no tool-ex
                                                 └───────────────────────────┘
 ```
 
+## Integration layer
+
+The read/write path above shows how an agent moves through the tree. This diagram shows how evidence moves through it: the repo is the system of record for the [product loop](../reference/product-loop.md), and everything outside it is a source adapter or a capability ([`docs/agents/capabilities.md`](agents/capabilities.md), [ADR 0007](adr/0007-teamos-is-the-integration-layer.md)). The evidence store, signals and adapter contract are planned (Plans 1–2); today the boxes up to "signals" are filled by `/customer-call` and `Insights/insights.csv`.
+
+```
+  Source adapters
+  ┌──────────────────────────────────────────────────────────────┐
+  │ product-intelligence-agent · /customer-call · analytics sweep │
+  │ · MCP-backed adapters                                         │
+  └──────────────────────────────┬───────────────────────────────┘
+                                 │ write evidence through one contract (Plan 1)
+                                 ▼
+                  ┌─────────────────────────────┐
+                  │ Evidence store (Plan 2)      │
+                  └──────────────┬──────────────┘
+                                 ▼
+                  ┌─────────────────────────────┐
+                  │ Signals                      │
+                  └──────────────┬──────────────┘
+                                 ▼
+                  ┌─────────────────────────────┐
+                  │ Discovery artifacts          │
+                  │ opportunities · hypotheses   │
+                  └──────────────┬──────────────┘
+                                 ▼
+                  ┌─────────────────────────────┐
+                  │ PRD                          │
+                  └──────────────┬──────────────┘
+                                 ▼
+                  ┌─────────────────────────────┐
+                  │ Tickets (external tracker)   │ ── engineering is out of scope
+                  └──────────────┬──────────────┘
+                                 ▼
+                  ┌─────────────────────────────┐
+                  │ Rollout → measurement        │
+                  └──────────────┬──────────────┘
+                                 │ results become new evidence (Plans 2, 3, 6)
+                                 ▼
+                         back to the evidence store
+```
+
 ## Mapping onto the usual agent-product architecture vocabulary
 
 | Usual element | What plays that role here |
 |---|---|
 | Model | The coding agent's own model (Claude, or whichever the operator points at the repo) — this repo doesn't call a model itself |
 | Tools | File read/search (`Read`, `Grep`, `Glob`), shell (`Bash`/`gh`), and the skills/commands under `.claude/` |
-| Data sources | The repo tree itself — `reference/` for canonical definitions, `product-development/` for raw + derived artifacts |
+| Data sources | The repo plus evidence written by source adapters — `reference/` for canonical definitions, `product-development/` for raw + derived artifacts |
 | Policy layer | `scripts/check-references.ps1` (deterministic, always runs the same way) plus the human-approval requirement on canonical writes (judgment-based, documented in [ADR 0003](adr/0003-human-approval-for-canonical-writes.md)) |
-| Storage | Git — every artifact is a version-controlled file; there is no separate database |
+| Storage | Git text files; a derived SQLite index is planned (Plan 2) |
 | External APIs | The systems listed in the diagram above, referenced by link/path and purpose, never mirrored into the repo |
 
 ## Why this shape

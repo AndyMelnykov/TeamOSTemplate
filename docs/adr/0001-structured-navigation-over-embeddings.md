@@ -7,7 +7,7 @@ Product knowledge here is addressed through a `CLAUDE.md` router tree, predictab
 - Vector/semantic search over all Markdown.
 - Hybrid: structure for addressable content, embeddings for the rest.
 
-Rejected/deferred because the corpus is currently small and well-labeled enough that structure alone resolves every task in `evaluation/task-set.md`. See [`reference/01-ai-native-product-os.md`](../../reference/01-ai-native-product-os.md#ai-specific-design-decisions) for the fuller rationale, including where hybrid retrieval would become the right call.
+Rejected/deferred because the corpus is currently small and well-labeled enough that structure alone resolves every task in `evaluation/task-set.md`. See [`reference/ai-native-product-os.md`](../../reference/ai-native-product-os.md#ai-specific-design-decisions) for the fuller rationale, including where hybrid retrieval would become the right call.
 
 ## Consequences
 

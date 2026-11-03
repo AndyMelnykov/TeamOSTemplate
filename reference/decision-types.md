@@ -12,4 +12,4 @@ A decision file should state: the question being decided, the options considered
 
 **Exception for `Strategy Review`-tier PRDs:** a Product decision that resolves a PRD marked `**Review Tier**: Strategy Review` (see `product-development/product/PRDs/CLAUDE.md`) must be recorded under `product-development/product/strategy/` specifically, not the PRD's own folder — this is what routes it through the human-approval gate in [ADR 0003](../docs/adr/0003-human-approval-for-canonical-writes.md). See [ADR 0006](../docs/adr/0006-two-track-prd-review.md) for why. This tightens the general "or" above into a "must" only for this case; other product decisions may still use either location.
 
-Only the decision itself is durable and belongs here — see Principle 7 (Durable vs. transient context) in [`01-ai-native-product-os.md`](01-ai-native-product-os.md). Working hypotheses and unapproved alternatives stay out of this pattern.
+Only the decision itself is durable and belongs here — see Principle 7 (Durable vs. transient context) in [`ai-native-product-os.md`](ai-native-product-os.md). Working hypotheses and unapproved alternatives stay out of this pattern.

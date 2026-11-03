@@ -39,6 +39,9 @@
 | Meetings | `product-development/product/meetings/CLAUDE.md` | Meeting docs, transcripts, summaries |
 | Team | `team/` | Onboarding guide and team resources |
 | Evaluation | `evaluation/CLAUDE.md` | Benchmark tasks + protocol for measuring whether the context architecture helps agents |
+| Product loop | `reference/product-loop.md` | The discovery → delivery loop, plug-and-play principle, and the machine-checked stage status table |
+| Capabilities | `docs/agents/capabilities.md` | Capability → configured adapter table (issue tracker, support desk, analytics warehouse, …) |
+| Product loop plans | `docs/superpowers/plans/2026-11-03-product-loop-plans-index.md` | Ordered plans that close the loop, with decisions and dependencies |
 | Architecture | `docs/architecture.md` | How an agent moves through the repo tree; deterministic vs. human-approval policy layer |
 | Roadmap | `ROADMAP.md` | What's next and why, not a feature wishlist |
 | Decisions | `docs/adr/` | Repo-wide architecture decisions (retrieval strategy, join table, write approval, agent orchestration) |
@@ -64,5 +67,5 @@ Issues live in GitHub Issues for `AndyMelnykov/TeamOSTemplate`, managed via the 
 
 ### Domain docs
 
-Multi-context layout — `CONTEXT-MAP.md` at the repo root, with a `CONTEXT.md` per functional area under `product-development/<area>/` and `team/`. See `docs/agents/domain.md`.
+Multi-context layout — `CONTEXT-MAP.md` at the repo root lists the `CONTEXT.md` files that exist today (under `product-development/product/PRDs/`); other areas add theirs when first needed. See `docs/agents/domain.md`.
 

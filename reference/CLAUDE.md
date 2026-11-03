@@ -14,4 +14,4 @@ Canonical, single-source-of-truth definitions for example_product. Every other d
 | `discovery-artifact-types.md` | Opportunity/hypothesis artifact types, ID scheme, and the `{feature}-opportunity.md` / `{feature}-hypothesis.md` naming convention |
 | `product-loop.md` | The discovery → delivery loop: seven stages, plug-and-play principle, and the machine-checked stage status table |
 | `sla-policy.md` | Response-time policy for feature requests filed via `/feature-request-intake`, keyed by `Impact` level |
-| `01-ai-native-product-os.md` | The architecture spec this repo implements — the source of truth for *why* the repo is structured this way |
+| `ai-native-product-os.md` | The architecture spec this repo implements — the source of truth for *why* the repo is structured this way |

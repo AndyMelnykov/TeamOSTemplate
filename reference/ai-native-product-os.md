@@ -10,6 +10,10 @@ The core idea is simple:
 
 This project demonstrates how a modern product organization can make its operating context machine-readable without turning the repository into a dumping ground.
 
+## Product loop
+
+The context architecture below exists to serve the discovery → delivery loop: input signals, hypotheses, validation, PRDs and the hand-off to engineering, with rollout results flowing back as new evidence. The loop, its vocabulary and the status of each stage are defined in [`product-loop.md`](product-loop.md).
+
 ---
 
 ## Why this project matters
@@ -525,8 +529,8 @@ This project should make a hiring manager conclude:
 ## Suggested future extensions
 
 - Codex-compatible instructions
-- Claude Code skills
-- automated broken-link checks
+- Claude Code skills — shipped (`.claude/skills/`, `.claude/commands/`)
+- automated broken-link checks — shipped (`scripts/check-references.ps1`)
 - canonical-document validation
 - stale-context detection
 - conflict detection across decisions
@@ -534,7 +538,7 @@ This project should make a hiring manager conclude:
 - agent-generated decision summaries
 - optional hybrid retrieval for large research collections
 - example integrations with Linear, Jira, GitHub, Figma, or analytics tools
-- role-specific onboarding agents
+- role-specific onboarding agents — shipped (`.claude/agents/onboarding.md`)
 
 ---
 

@@ -2,6 +2,8 @@
 
 All product development artifacts for example_product - product, engineering, analytics, data engineering, and design.
 
+The artifacts here are the middle of the discovery → delivery loop; see [`reference/product-loop.md`](../reference/product-loop.md) for the stages and their status.
+
 ## Doc Index
 
 | Path | Description |

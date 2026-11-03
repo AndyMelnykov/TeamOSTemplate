@@ -1,19 +1,37 @@
 # Roadmap
 
-A roadmap of decisions, not a wishlist — each item states why it matters, not just what it is. Items are pulled from the open list in [`reference/01-ai-native-product-os.md`](reference/01-ai-native-product-os.md#suggested-future-extensions), filtered down to what's actually still missing.
+A roadmap of decisions, not a wishlist — each item states why it matters, not just what it is. Items are pulled from the open list in [`reference/ai-native-product-os.md`](reference/ai-native-product-os.md#suggested-future-extensions), filtered down to what's actually still missing. The product-loop work is organised by the plans in the [plans index](docs/superpowers/plans/2026-11-03-product-loop-plans-index.md); stage status lives in [`reference/product-loop.md`](reference/product-loop.md#stage-status).
 
 ## Now
 
 ### Run the evaluation protocol and publish real results
 **Why:** `evaluation/task-set.md` and `evaluation/protocol.md` define a real methodology, but `evaluation/results/` is empty. Every claim in the README about the structure "helping" is currently a hypothesis with a defined test, not a measured result — this repo shouldn't claim reliability it hasn't measured.
 
-### Automatic feature-index maintenance
-**Why:** `feature-index.yaml` is hand-maintained (see [ADR 0002](docs/adr/0002-feature-index-as-join-table.md)). A new PRD or RFC can ship without ever being wired into the join table, silently reintroducing the exact cross-functional fragmentation the index exists to solve.
+### Plan 1 — Signal source contract
+**Why:** Every input to the loop (calls, research, tickets, analytics, external agents) needs to write evidence the same way, or "plug-and-play" is only a slogan. See [plan 1](docs/superpowers/plans/2026-11-03-plan1-signal-source-contract.md).
 
-### Canonical-document validation
-**Why:** `reference/decision-types.md` defines a valid decision-file format, but nothing currently enforces it — a definition can get re-stated outside `reference/` and nothing catches it. (PRD-level validation — `Status` value, and metric name/target match against `reference/metrics.md` — is now covered by `/prd`'s Step 6 CPO check; this item is now scoped to decision files, and to enforcement outside of a PRD author's own `/prd` run, e.g. a PRD edited by hand after the fact.)
+### Plan 2 — Universal signal store
+**Why:** Evidence and signals currently live in a CSV that only covers Reddit research. One store lets every source feed hypotheses and lets outcomes flow back as evidence. See [plan 2](docs/superpowers/plans/2026-11-03-plan2-universal-signal-store.md).
+
+### Plan 5 — PRD acceptance criteria
+**Why:** The PRD → ticket hand-off is the one engineering boundary this repo owns; without testable acceptance criteria it cannot be checked. See [plan 5](docs/superpowers/plans/2026-11-03-plan5-prd-acceptance-criteria.md).
 
 ## Next
+
+### Plan 3 — Hypothesis evaluation
+**Why:** Hypotheses are written but never scored or routed to a validation path (A/B, prototype, survey, interviews), so there is no principled order for what to test. See [plan 3](docs/superpowers/plans/2026-11-03-plan3-hypothesis-evaluation.md).
+
+### Plan 6 — Analytics → signals
+**Why:** Measurement is stage 7 of the loop and currently has no path back into evidence; metric shifts and experiment outcomes should become signals. See [plan 6](docs/superpowers/plans/2026-11-03-plan6-analytics-signal-adapter.md).
+
+### product-intelligence-agent integration (handoff 2a)
+**Why:** The first external source adapter proves the contract end to end. Work happens in the agent's repo; see the [handoff brief](docs/handoffs/2026-11-03-product-intelligence-agent-teamos-integration.md) and [ADR 0007](docs/adr/0007-teamos-is-the-integration-layer.md).
+
+### Automatic feature-index maintenance
+**Why:** `feature-index.yaml` is hand-maintained (see [ADR 0002](docs/adr/0002-feature-index-as-join-table.md)). The `feature-index-join-completeness` integrity check now detects unwired artifacts, but nothing writes the entries, so a new PRD or RFC can still sit outside the join table until a person notices.
+
+### Canonical-document validation
+**Why:** `reference/decision-types.md` defines a valid decision-file format, but nothing currently enforces it — a definition can get re-stated outside `reference/` and nothing catches it. (PRD-level validation — `Status` value, and metric name/target match against `reference/metrics.md` — is covered by `/prd`'s Step 6 CPO check; this item is scoped to decision files, and to enforcement outside of a PRD author's own `/prd` run, e.g. a PRD edited by hand after the fact.)
 
 ### Stale-context detection
 **Why:** Nothing currently flags a decision file or reference definition that hasn't been touched since the artifacts depending on it changed underneath it.
@@ -21,19 +39,25 @@ A roadmap of decisions, not a wishlist — each item states why it matters, not 
 ### Conflict detection across decisions
 **Why:** `reference/decision-types.md` defines the format for a decision file, but nothing checks two decision files against each other for contradictory claims.
 
-### Agent-generated decision summaries
-**Why:** Turning a closed debate (a PR thread, a meeting's outcome) into a dated decision file is still a fully manual step today.
-
 ## Later
 
-### Codex-compatible instructions
-**Why:** The router-tree pattern (`CLAUDE.md` per folder) is currently coupled to Claude Code's file-naming convention. A parallel path (e.g. `AGENTS.md`) would let other coding agents use the same structure without a rename.
+### Rollout record per feature
+**Why:** Stage 7 of the loop has no home for what shipped, when and to whom, so measurement cannot be tied back to a release. Plan 6 covers measurement only.
+
+### Prototype ↔ shared design system
+**Why:** Prototypes stay throwaway by design (`.claude/skills/prototype/`). Linking them to a shared design system would stop design drift between prototype and product, but it is not needed to close the loop.
+
+### Capability adapters for Jira, Azure DevOps and a support desk
+**Why:** Capabilities are currently filled by GitHub Issues and manual paste ([`docs/agents/capabilities.md`](docs/agents/capabilities.md)). Demonstrating a second adapter per capability is what proves the swap story; today nothing in the repo shows a live link to those systems resolving.
+
+### Agent-generated decision summaries
+**Why:** Turning a closed debate (a PR thread, a meeting's outcome) into a dated decision file is still a fully manual step today.
 
 ### Hybrid retrieval for large, less-structured collections
 **Why:** `product-development/product/competitive-research/` and the customer `Insights/` folder are the two places already flagged (in [ADR 0001](docs/adr/0001-structured-navigation-over-embeddings.md)) as closer to unstructured document piles than addressable tables — deterministic navigation is weakest there.
 
-### Example integrations with Linear, Jira, GitHub, or Figma
-**Why:** Today those systems are described in prose (path + purpose, see the root `CLAUDE.md` doc index) but nothing in the repo demonstrates a live link actually resolving.
+### Codex-compatible instructions
+**Why:** The router-tree pattern (`CLAUDE.md` per folder) is currently coupled to Claude Code's file-naming convention. A parallel path (e.g. `AGENTS.md`) would let other coding agents use the same structure without a rename.
 
 ## Already shipped
 
