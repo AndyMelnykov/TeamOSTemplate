@@ -27,7 +27,8 @@
 | Reference | `reference/CLAUDE.md` | Canonical definitions — terminology, metrics, segments, statuses, decision types |
 | Product | `product-development/product/CLAUDE.md` | Product context, pillars, segments, competitive landscape |
 | PRDs | `product-development/product/PRDs/CLAUDE.md` | Product requirement documents index |
-| Customer insights | `product-development/product/customers/CLAUDE.md` | Customer calls, account context, feature requests |
+| Customer calls | `product-development/product/customers/CLAUDE.md` | Customer calls, account context, feature requests |
+| Signals | `product-development/signals/CLAUDE.md` | Every input to the product loop (`signals.csv`); add with `scripts/signals/signals.py` |
 | Competitive research | `product-development/product/competitive-research/CLAUDE.md` | Competitor intel and feature comparisons |
 | Strategy | `product-development/product/strategy/CLAUDE.md` | Roadmaps, vision, business context |
 | Launches | `product-development/product/launch-emails/CLAUDE.md` | Launch communications |
