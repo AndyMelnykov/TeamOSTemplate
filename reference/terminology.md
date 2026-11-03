@@ -33,12 +33,8 @@ Defined once in [product-loop.md](product-loop.md); these entries point there.
 
 | Term | Definition |
 |------|------------|
-| Signal | A recurring pattern across evidence (`SIG-###`). See [product-loop.md](product-loop.md). |
-| Evidence | One observation from one source (`EV-…`). See [product-loop.md](product-loop.md). |
-| Source adapter | Anything that writes evidence through the signal-source contract. See [product-loop.md](product-loop.md). |
-| Capability | A kind of external tool (issue tracker, support desk, analytics warehouse, …) filled by a named adapter per install. See [product-loop.md](product-loop.md). |
-| Opportunity | A framed customer problem or market gap that signals point to. See [product-loop.md](product-loop.md). |
-| Hypothesis | A testable belief about an opportunity, with what would change our mind. See [product-loop.md](product-loop.md). |
+| Signal | One thing that happened, from any source (a customer quote, a forum thread, a ticket, a metric miss, an A/B result). Unique or repeated; repeats are separate signals. See [product-loop.md](product-loop.md). |
+| Hypothesis | A testable bet that aggregates signals. Its first status, `opportunity`, is the problem framed before a bet is chosen. See [product-loop.md](product-loop.md). |
 | Validation path | The cheapest adequate test of a hypothesis: A/B, prototype, survey or interviews. See [product-loop.md](product-loop.md). |
-| Rollout record | The per-feature record of what shipped, when and to whom (planned; Later roadmap). See [product-loop.md](product-loop.md). |
-| Measurement | Post-rollout metric results written back as evidence. See [product-loop.md](product-loop.md). |
+| Source adapter | Anything that adds signals: a skill, a script, an MCP-backed workflow or an external agent. See [product-loop.md](product-loop.md). |
+| Capability | A kind of external tool (issue tracker, support desk, analytics warehouse, …) filled by a named adapter per install. See [product-loop.md](product-loop.md). |

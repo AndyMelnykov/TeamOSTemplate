@@ -12,7 +12,7 @@ This project demonstrates how a modern product organization can make its operati
 
 ## Product loop
 
-The context architecture below exists to serve the discovery → delivery loop: input signals, hypotheses, validation, PRDs and the hand-off to engineering, with rollout results flowing back as new evidence. The loop, its vocabulary and the status of each stage are defined in [`product-loop.md`](product-loop.md).
+The context architecture below exists to serve the discovery → delivery loop: input signals, hypotheses, validation, PRDs and the hand-off to engineering, with rollout results flowing back as new signals. The loop, its vocabulary and the status of each stage are defined in [`product-loop.md`](product-loop.md).
 
 ---
 

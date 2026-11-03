@@ -7,25 +7,22 @@ A roadmap of decisions, not a wishlist — each item states why it matters, not 
 ### Run the evaluation protocol and publish real results
 **Why:** `evaluation/task-set.md` and `evaluation/protocol.md` define a real methodology, but `evaluation/results/` is empty. Every claim in the README about the structure "helping" is currently a hypothesis with a defined test, not a measured result — this repo shouldn't claim reliability it hasn't measured.
 
-### Plan 1 — Signal source contract
-**Why:** Every input to the loop (calls, research, tickets, analytics, external agents) needs to write evidence the same way, or "plug-and-play" is only a slogan. See [plan 1](docs/superpowers/plans/2026-11-03-plan1-signal-source-contract.md).
+### Plan 1 — Signals
+**Why:** Every input to the loop (calls, research, tickets, analytics, external agents) needs to be added the same way, or "plug-and-play" is only a slogan. One store of signals, one script that writes it. See [plan 1](docs/superpowers/plans/2026-11-03-plan1-signals.md).
 
-### Plan 2 — Universal signal store
-**Why:** Evidence and signals currently live in a CSV that only covers Reddit research. One store lets every source feed hypotheses and lets outcomes flow back as evidence. See [plan 2](docs/superpowers/plans/2026-11-03-plan2-universal-signal-store.md).
-
-### Plan 5 — PRD acceptance criteria
-**Why:** The PRD → ticket hand-off is the one engineering boundary this repo owns; without testable acceptance criteria it cannot be checked. See [plan 5](docs/superpowers/plans/2026-11-03-plan5-prd-acceptance-criteria.md).
+### Plan 3 — PRD acceptance criteria
+**Why:** The PRD → ticket hand-off is the one engineering boundary this repo owns; without testable acceptance criteria it cannot be checked. See [plan 3](docs/superpowers/plans/2026-11-03-plan3-prd-acceptance-criteria.md).
 
 ## Next
 
-### Plan 3 — Hypothesis evaluation
-**Why:** Hypotheses are written but never scored or routed to a validation path (A/B, prototype, survey, interviews), so there is no principled order for what to test. See [plan 3](docs/superpowers/plans/2026-11-03-plan3-hypothesis-evaluation.md).
+### Plan 2 — Hypotheses
+**Why:** A hypothesis should be the single discovery artifact: it aggregates signals, starts as an opportunity, and shows its reach and a recommended validation path (A/B when cheap, prototype or survey when complex). See [plan 2](docs/superpowers/plans/2026-11-03-plan2-hypotheses.md).
 
-### Plan 6 — Analytics → signals
-**Why:** Measurement is stage 7 of the loop and currently has no path back into evidence; metric shifts and experiment outcomes should become signals. See [plan 6](docs/superpowers/plans/2026-11-03-plan6-analytics-signal-adapter.md).
+### Plan 4 — Analytics → signals
+**Why:** Measurement is stage 7 of the loop and currently has no path back into the loop; metric shifts and experiment outcomes should become signals. See [plan 4](docs/superpowers/plans/2026-11-03-plan4-analytics-signals.md).
 
-### product-intelligence-agent integration (handoff 2a)
-**Why:** The first external source adapter proves the contract end to end. Work happens in the agent's repo; see the [handoff brief](docs/handoffs/2026-11-03-product-intelligence-agent-teamos-integration.md) and [ADR 0007](docs/adr/0007-teamos-is-the-integration-layer.md).
+### product-intelligence-agent integration
+**Why:** The first external source adapter proves the signal script end to end. Work happens in the agent's repo; see the [handoff brief](docs/handoffs/2026-11-03-product-intelligence-agent-teamos-integration.md) and [ADR 0007](docs/adr/0007-teamos-is-the-integration-layer.md).
 
 ### Automatic feature-index maintenance
 **Why:** `feature-index.yaml` is hand-maintained (see [ADR 0002](docs/adr/0002-feature-index-as-join-table.md)). The `feature-index-join-completeness` integrity check now detects unwired artifacts, but nothing writes the entries, so a new PRD or RFC can still sit outside the join table until a person notices.
@@ -40,9 +37,6 @@ A roadmap of decisions, not a wishlist — each item states why it matters, not 
 **Why:** `reference/decision-types.md` defines the format for a decision file, but nothing checks two decision files against each other for contradictory claims.
 
 ## Later
-
-### Rollout record per feature
-**Why:** Stage 7 of the loop has no home for what shipped, when and to whom, so measurement cannot be tied back to a release. Plan 6 covers measurement only.
 
 ### Prototype ↔ shared design system
 **Why:** Prototypes stay throwaway by design (`.claude/skills/prototype/`). Linking them to a shared design system would stop design drift between prototype and product, but it is not needed to close the loop.
