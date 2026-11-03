@@ -7,9 +7,9 @@ Plans that turn TeamOSTemplate into a plug-and-play product operating system for
 | Term | Meaning |
 |---|---|
 | **Signal** | One thing that happened, from any source: a customer quote, a forum thread, a support ticket, a metric miss, an A/B result. Unique or repeated; repeats are separate rows. |
-| **Hypothesis** | The one discovery artifact. Aggregates signals. Its first status, `opportunity`, is what other tools call an opportunity. |
+| **Hypothesis** | The one discovery artifact. Aggregates signals; starts as `proposed` and moves toward testing. |
 
-Nothing else is added to the model: no separate evidence layer, no separate opportunity artifact, no registry, no database.
+Nothing else is added to the model: no separate evidence layer, no second discovery artifact next to the hypothesis, no registry, no database.
 
 ## Decisions (owner, 2026-11-03)
 
@@ -33,7 +33,7 @@ Nothing else is added to the model: no separate evidence layer, no separate oppo
 
 Gap 4 (prototyping) has no plan by decision; Plan 0 records the stance and puts the design-system link in `ROADMAP.md` under "Later".
 
-Plan 3 can run in parallel with Plans 1–2. Plans 2 and 4 can run in parallel once Plan 1 is merged. Superseded earlier drafts are kept in [`superseded/`](superseded/) for reference only.
+Plan 3 can run in parallel with Plans 1–2. Plans 2 and 4 can run in parallel once Plan 1 is merged.
 
 Shared files to watch when running plans in parallel:
 - `scripts/integrity-checks/checks/prd_content.py` is edited by Plan 1 Task 3 (citation ids) and Plan 3 Task 3 (acceptance criteria). Whichever merges second rebases and keeps both.

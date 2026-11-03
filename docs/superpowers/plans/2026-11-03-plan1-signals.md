@@ -161,6 +161,8 @@ def test_historical_docs_are_not_rewritten(): ...
   | `signals-orphan-hypothesis` | A hypothesis citing no signal | hypothesis path |
   | `signals-unassigned-stale` | A signal cited by no hypothesis and older than `unassigned-signal-days: 30` | `signal_id` |
 
+  The remaining `insights-*` checks (`unindexed-hypothesis`, `id-collisions`) are ported with their ids renamed to `signals-*`. `insights-promotion-status` disappears: signals have no status.
+
 - [ ] **Step 1: Port the existing tests** to the new fixture; add one test per check id.
 - [ ] **Step 2: Run them and confirm they fail.**
 - [ ] **Step 3: Implement**, update `config.yaml` (remove `insights-*`, add the four ids set to `true`, rename the threshold to `unassigned-signal-days`).

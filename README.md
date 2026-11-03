@@ -14,7 +14,7 @@ signals → hypotheses → validation (A/B | prototype | survey | interviews)
 ```
 
 1. **Signals** are things that happen — from calls, research, tickets, analytics and external intelligence. A signal can be unique or repeat.
-2. **Hypotheses** aggregate signals into testable bets. A hypothesis starts as an opportunity (its first status).
+2. **Hypotheses** aggregate signals into testable bets. A hypothesis starts as `proposed` and moves toward testing.
 3. **Validation** picks the cheapest adequate test.
 4. **PRDs** carry validated bets to engineering; this repo owns the PRD → ticket hand-off, not the build.
 5. **Rollout and measurement** write results back as new signals, closing the loop.
@@ -28,7 +28,7 @@ This table mirrors the machine-checked stage status table in [`reference/product
 | Stage | Status | Entry points |
 | --- | --- | --- |
 | 1. Input signals | partial | `/customer-call` ([`customer-call.md`](.claude/commands/customer-call.md)), `/feature-request-intake` ([`feature-request-intake.md`](.claude/commands/feature-request-intake.md)), [`Insights/insights.csv`](product-development/product/Insights/insights.csv). One signal store and script: planned (Plan 1). Analytics feed: planned (Plan 4). |
-| 2. Hypotheses | partial | The [hypothesis](templates/hypothesis.md) template (and a separate [opportunity](templates/opportunity.md) template that Plan 2 folds into it); [`discovery-artifact-types.md`](reference/discovery-artifact-types.md). Derived reach and validation recommendation: planned (Plan 2). |
+| 2. Hypotheses | partial | The [hypothesis](templates/hypothesis.md) template; [`discovery-artifact-types.md`](reference/discovery-artifact-types.md). Derived reach and validation recommendation: planned (Plan 2). |
 | 3. Validation | partial | [`analytics/experiments/`](product-development/analytics/experiments/). Results as signals: planned (Plans 1 and 4). |
 | 4. Prototyping | partial | The [`prototype` skill](.claude/skills/prototype/SKILL.md). Prototypes are throwaway by design; linking them to a shared design system is a Later roadmap item. |
 | 5. PRDs | partial | `/prd` ([`prd.md`](.claude/commands/prd.md)), then `/to-prd` → `/to-spec` → `/to-tickets` → `/implement`. Acceptance criteria: planned (Plan 3). |
@@ -77,8 +77,7 @@ Five file reads, no guessing what "Draft" means, no duplicated definitions. Run 
 1. Start at the hypothesis: [`extraction-confidence-scoring-hypothesis.md`](product-development/product/PRDs/extraction-quality/extraction-confidence-scoring-hypothesis.md) → the bet is a plain-language confidence label on extracted fields; its Result is `pending`.
 2. Follow its supporting signals, `INS-002` and `INS-003`, in [`insights.csv`](product-development/product/Insights/insights.csv) → trust is the top concern, and users ask whether extraction is "good enough" rather than how OCR works. (Today a signal is split across `insights.csv` and `sources.csv`; Plan 1 makes it one row in `signals.csv`.)
 3. Trace each to its source in [`sources.csv`](product-development/product/Insights/sources.csv) → `SRC-002` and `SRC-003`, both `r/PandaDoc` document-security threads from the Reddit customer research.
-4. Its `## Opportunity` section points to `OPP-EXTRACT-001`, the problem framing ([`extraction-confidence-scoring-opportunity.md`](product-development/product/PRDs/extraction-quality/extraction-confidence-scoring-opportunity.md)). Plan 2 folds that into the hypothesis file as its first status.
-5. Answer: *the hypothesis exists because Reddit research surfaced a trust gap in extraction output; it is untested.*
+4. Answer: *the hypothesis exists because Reddit research surfaced a trust gap in extraction output; it is untested.*
 
 Today this chain is followed by hand. The single signal store (Plan 1) and the hypothesis changes (Plan 2) are planned to make it one lookup.
 
@@ -90,7 +89,7 @@ Today this chain is followed by hand. The single signal store (Plan 1) and the h
 | Cross-functional reassembly | One join table (`feature-index.yaml`), not a feature-first folder structure | Keeps function-first ownership clarity while answering feature-shaped questions. [ADR 0002](docs/adr/0002-feature-index-as-join-table.md) |
 | Canonical writes | Human approval before editing `reference/` or `strategy/` | Those files are read by many future sessions; a bad edit's blast radius is the shared vocabulary. [ADR 0003](docs/adr/0003-human-approval-for-canonical-writes.md) |
 | Orchestration | One agent per session, not a multi-agent pipeline | The recurring tasks are sequential (gather → draft → human review). [ADR 0004](docs/adr/0004-single-agent-no-orchestration.md) |
-| Discovery layer | Hypothesis files next to the PRDs they feed (opportunity is a hypothesis's first status) | Records why a PRD exists and what was bet on, without a new top-level tree. [ADR 0005](docs/adr/0005-opportunity-hypothesis-layer.md) |
+| Discovery layer | Hypothesis files next to the PRDs they feed | Records why a PRD exists and what was bet on, without a new top-level tree. [ADR 0008](docs/adr/0008-hypothesis-is-the-discovery-artifact.md) |
 | PRD review | A Review Tier field on the PRD, not a second approval gate | Two-track review without a second approval step. [ADR 0006](docs/adr/0006-two-track-prd-review.md) |
 | Integration | This repo is the system of record; external agents and tools are source adapters | One store and one vocabulary, any number of adapters. [ADR 0007](docs/adr/0007-teamos-is-the-integration-layer.md) |
 | Provenance | Raw evidence kept beside derived summaries, never overwritten | Lets a human or agent re-verify a claim without losing the source. |
@@ -153,7 +152,7 @@ Two step-by-step guides, depending on where the team is starting from:
 
 ## Limitations
 
-- **The loop is open at both ends until Plans 1–4 land.** Signals have no single store or entry point yet (Plan 1), hypotheses still need a separate opportunity file and show no derived reach (Plan 2), PRDs lack acceptance criteria (Plan 3), and measurement doesn't flow back as signals (Plan 4).
+- **The loop is open at both ends until Plans 1–4 land.** Signals have no single store or entry point yet (Plan 1), hypotheses show no derived reach or validation recommendation (Plan 2), PRDs lack acceptance criteria (Plan 3), and measurement doesn't flow back as signals (Plan 4).
 - **The evaluation has never been run.** The methodology exists and `evaluation/results/` is empty. Treat every claim here about the structure "helping" as a hypothesis with a defined test, not a measured result.
 - **Structured navigation degrades on unstructured collections.** `competitive-research/` and the customer `Insights/` folder are closer to document piles than addressable tables (see [ADR 0001](docs/adr/0001-structured-navigation-over-embeddings.md)).
 - **Unwired artifacts are detected, not fixed.** The `feature-index-join-completeness` integrity check detects artifacts missing from `feature-index.yaml`, but nothing writes the entries automatically.

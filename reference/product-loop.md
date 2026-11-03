@@ -10,9 +10,9 @@ calls | tickets | analytics | research | external agents
           v
 +-------------------+     +-------------------+     +-------------------+
 | 1. SIGNALS        |     | 2. HYPOTHESES     |     | 3. VALIDATION     |
-| events from any   |---->| aggregate signals;|---->| A/B, survey,      |
-| source, unique or |     | first status is   |     | interviews,       |
-| repeated          |     | opportunity       |     | 4. prototype      |
+| events from any   |---->| aggregate signals |---->| A/B, survey,      |
+| source, unique or |     | into a testable   |     | interviews,       |
+| repeated          |     | bet               |     | 4. prototype      |
 +-------------------+     +-------------------+     +-------------------+
           ^                                                   |
           |  rollout results become new signals               v
@@ -27,7 +27,7 @@ calls | tickets | analytics | research | external agents
 The flow reads left to right along the top row, then right to left along the bottom row. The upward arrow is the loop closure: rollout results become new signals at stage 1.
 
 1. **Signals.** Anything that happens and might matter: a customer says something, a forum thread appears, a support ticket arrives, a metric misses, an A/B test finishes. A signal is one event from one source. It may be unique or it may repeat; repeats are separate signals.
-2. **Hypotheses.** A hypothesis aggregates signals into a testable bet: what we believe, for whom, and what would change our mind. Its first status, `opportunity`, is the problem framed before a bet is chosen; there is no separate opportunity artifact.
+2. **Hypotheses.** A hypothesis aggregates signals into a testable bet: what we believe, for whom, and what would change our mind. It starts as `proposed`: the problem and its signals, before a test is chosen.
 3. **Validation.** A hypothesis is tested by the cheapest adequate **validation path**: cheap to build means build it and A/B test; complex means a prototype, survey or interviews first. Results come back as signals.
 4. **Prototyping.** Prototypes answer a design question. They stay throwaway; they are not a path to production code.
 5. **PRDs.** A validated hypothesis becomes a PRD with acceptance criteria that engineering can build against.
@@ -61,7 +61,7 @@ Machine-checked by `tests/docs/test_product_loop.py`: every `implemented` or `pa
 | Stage | Status | Delivered by | Notes |
 |---|---|---|---|
 | 1. Input signals | partial | `.claude/commands/customer-call.md`; `product-development/product/Insights/insights.csv` | Manual call and Reddit-research intake only, kept in `Insights/` until Plan 1 replaces it with `signals.csv`. Analytics feed: Plan 4. |
-| 2. Hypotheses | partial | `templates/hypothesis.md`; `reference/discovery-artifact-types.md` | Hypotheses and a separate opportunity file exist today. Plan 2 makes opportunity a hypothesis status and adds derived reach and a validation recommendation. |
+| 2. Hypotheses | partial | `templates/hypothesis.md`; `reference/discovery-artifact-types.md` | Hypotheses exist today. Plan 2 adds derived reach and a validation recommendation. |
 | 3. Validation | partial | `product-development/analytics/experiments/` | Experiments are recorded. Results as signals: Plans 1 and 4. |
 | 4. Prototyping | partial | `.claude/skills/prototype/SKILL.md` | Throwaway by design. Linking prototypes to a shared design system is a Later roadmap item. |
 | 5. PRDs | partial | `.claude/commands/prd.md`; `.claude/skills/to-prd/SKILL.md` | Acceptance criteria: Plan 3. |

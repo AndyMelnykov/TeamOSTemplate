@@ -91,7 +91,7 @@ The read/write path above shows how an agent moves through the tree. This diagra
                                  v
                   +-----------------------------+
                   | Hypotheses                   |
-                  | (first status: opportunity)  |
+                  | (aggregate signals)          |
                   +--------------+--------------+
                                  v
                   +-----------------------------+

@@ -34,7 +34,7 @@ Defined once in [product-loop.md](product-loop.md); these entries point there.
 | Term | Definition |
 |------|------------|
 | Signal | One thing that happened, from any source (a customer quote, a forum thread, a ticket, a metric miss, an A/B result). Unique or repeated; repeats are separate signals. See [product-loop.md](product-loop.md). |
-| Hypothesis | A testable bet that aggregates signals. Its first status, `opportunity`, is the problem framed before a bet is chosen. See [product-loop.md](product-loop.md). |
+| Hypothesis | A testable bet that aggregates signals. It starts as `proposed`: the problem and its signals, before a test is chosen. See [product-loop.md](product-loop.md). |
 | Validation path | The cheapest adequate test of a hypothesis: A/B, prototype, survey or interviews. See [product-loop.md](product-loop.md). |
 | Source adapter | Anything that adds signals: a skill, a script, an MCP-backed workflow or an external agent. See [product-loop.md](product-loop.md). |
 | Capability | A kind of external tool (issue tracker, support desk, analytics warehouse, …) filled by a named adapter per install. See [product-loop.md](product-loop.md). |

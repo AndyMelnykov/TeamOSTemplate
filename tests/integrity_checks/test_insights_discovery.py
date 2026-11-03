@@ -6,7 +6,7 @@ import yaml
 from checks.insights_discovery import (
     check_id_collisions,
     check_orphan_hypothesis,
-    check_orphan_opportunity,
+    check_unindexed_hypothesis,
     check_orphan_sources,
     check_promotion_status,
     check_stale_insights,
@@ -29,27 +29,22 @@ def repo(tmp_path: Path) -> Path:
         "SRC-001,INS-001,customer-support,ticket-1,2026-01-01,quote\n")
     _write(tmp_path / "product-development/feature-index.yaml",
         yaml.safe_dump({"area": {"feature": {
-            "opportunity": "product/PRDs/area/feature-opportunity.md",
             "hypothesis": "product/PRDs/area/feature-hypothesis.md",
         }}}))
-    _write(tmp_path / "product-development/product/PRDs/area/feature-opportunity.md",
-        "# OPP-AREA-001: title\n\n## Evidence\n\n- `INS-001` -- some reason\n")
     _write(tmp_path / "product-development/product/PRDs/area/feature-hypothesis.md",
-        "# HYP-AREA-001\n\nstatement\n\n## Opportunity\n\nOPP-AREA-001\n")
+        "# HYP-AREA-001: title\n\nstatement\n\n## Signals\n\n- `INS-001` -- some reason\n")
     return tmp_path
 
 
-def test_orphan_hypothesis_flags_missing_opportunity_section(repo: Path):
+def test_orphan_hypothesis_flags_missing_signals_section(repo: Path):
     _write(repo / "product-development/product/PRDs/area/other-hypothesis.md", "# HYP-AREA-002\n\nstatement\n")
     findings = check_orphan_hypothesis(repo, {})
     assert any(f.key == "HYP-AREA-002" for f in findings)
 
 
-def test_orphan_hypothesis_flags_missing_evidence(repo: Path):
-    _write(repo / "product-development/product/PRDs/area/other-opportunity.md",
-        "# OPP-AREA-003: title\n\n## Evidence\n\nnone yet\n")
+def test_orphan_hypothesis_flags_unknown_signal(repo: Path):
     _write(repo / "product-development/product/PRDs/area/other-hypothesis.md",
-        "# HYP-AREA-003\n\nstatement\n\n## Opportunity\n\nOPP-AREA-003\n")
+        "# HYP-AREA-003\n\nstatement\n\n## Signals\n\n- `INS-999` -- not in the CSV\n")
     findings = check_orphan_hypothesis(repo, {})
     assert any(f.key == "HYP-AREA-003" for f in findings)
 
@@ -67,9 +62,9 @@ def test_orphan_sources_flags_unknown_insight_id(repo: Path):
     assert findings and findings[0].key == "SRC-002"
 
 
-def test_promotion_status_flags_new_insight_cited_by_opportunity(repo: Path):
-    _write(repo / "product-development/product/PRDs/area/feature-opportunity.md",
-        "# OPP-AREA-001: title\n\n## Evidence\n\n- `INS-002` -- some reason\n")
+def test_promotion_status_flags_new_insight_cited_by_hypothesis(repo: Path):
+    _write(repo / "product-development/product/PRDs/area/feature-hypothesis.md",
+        "# HYP-AREA-001: title\n\nstatement\n\n## Signals\n\n- `INS-002` -- some reason\n")
     findings = check_promotion_status(repo, {})
     assert any(f.key == "INS-002" for f in findings)
 
@@ -82,13 +77,13 @@ def test_stale_insights_flags_old_new_insight(repo: Path):
     assert findings and findings[0].key == "INS-003"
 
 
-def test_orphan_opportunity_flags_unwired_file(repo: Path):
-    _write(repo / "product-development/product/PRDs/area/loose-opportunity.md", "# OPP-AREA-999: title\n\n## Evidence\n")
-    findings = check_orphan_opportunity(repo, {})
-    assert any("loose-opportunity.md" in f.file for f in findings)
+def test_unindexed_hypothesis_flags_unwired_file(repo: Path):
+    _write(repo / "product-development/product/PRDs/area/loose-hypothesis.md", "# HYP-AREA-999: title\n\n## Signals\n")
+    findings = check_unindexed_hypothesis(repo, {})
+    assert any("loose-hypothesis.md" in f.file for f in findings)
 
 
 def test_id_collisions_flags_duplicate_id(repo: Path):
-    _write(repo / "product-development/product/PRDs/area/dup-opportunity.md", "# OPP-AREA-001: duplicate\n\n## Evidence\n")
+    _write(repo / "product-development/product/PRDs/area/dup-hypothesis.md", "# HYP-AREA-001: duplicate\n\n## Signals\n")
     findings = check_id_collisions(repo, {})
-    assert any(f.key == "OPP-AREA-001" for f in findings)
+    assert any(f.key == "HYP-AREA-001" for f in findings)

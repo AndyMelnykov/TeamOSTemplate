@@ -213,7 +213,5 @@ deployment:
 
 extraction-quality:
   extraction-confidence-scoring:
-    opportunity: product/PRDs/extraction-quality/extraction-confidence-scoring-opportunity.md
     hypothesis: product/PRDs/extraction-quality/extraction-confidence-scoring-hypothesis.md
     read_first:
-      - product/PRDs/extraction-quality/extraction-confidence-scoring-opportunity.md

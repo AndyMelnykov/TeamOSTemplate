@@ -1,5 +1,7 @@
 # Opportunity and hypothesis files as a discovery layer before PRDs
 
+> Superseded by [ADR 0008](0008-hypothesis-is-the-discovery-artifact.md): the separate opportunity file was retired; a hypothesis is the one discovery artifact.
+
 Nothing between `product/Insights/insights.csv` (raw customer signal) and a PRD currently records why a PRD exists or what was actually being bet on. We add two lightweight artifact types — `{feature}-opportunity.md` and `{feature}-hypothesis.md` — defined in [`reference/discovery-artifact-types.md`](../../reference/discovery-artifact-types.md), living next to the PRD they feed rather than in a separate top-level tree, consistent with how decision files already live next to what they decided ([`reference/decision-types.md`](../../reference/decision-types.md)).
 
 ## Considered Options

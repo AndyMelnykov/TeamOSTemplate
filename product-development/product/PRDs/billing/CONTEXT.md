@@ -13,8 +13,8 @@ Canonical definitions live in [reference/metrics.md](../../../../reference/metri
 - Credit usage dashboard — `credit-usage-dashboard-prd.md`
 - SSO integration — [`../sso-prd.md`](../sso-prd.md)
 
-## Active opportunities
+## Active hypotheses
 
-None currently. Add a `{feature}-opportunity.md` here before the next billing PRD — see [reference/discovery-artifact-types.md](../../../../reference/discovery-artifact-types.md).
+None currently. Add a `{feature}-hypothesis.md` here before the next billing PRD — see [reference/discovery-artifact-types.md](../../../../reference/discovery-artifact-types.md).
 
 Read deeper only when required.
