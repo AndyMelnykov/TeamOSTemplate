@@ -40,7 +40,7 @@ The flow reads left to right along the top row, then right to left along the bot
 
 TeamOSTemplate is the integration layer and system of record for the loop.
 
-- Every source adds signals the same way (planned, Plan 1).
+- Every source adds signals the same way, through `scripts/signals/signals.py` ([`signal-contract.md`](signal-contract.md)).
 - Every external tool (issue tracker, support desk, CRM / call recorder, analytics warehouse, external intelligence, design tool) is a **capability** filled by a named adapter per install. See [../docs/agents/capabilities.md](../docs/agents/capabilities.md).
 - No prioritisation framework, roadmap method or vendor is assumed. The defaults are named in `reference/` and are swappable.
 
@@ -60,7 +60,7 @@ Machine-checked by `tests/docs/test_product_loop.py`: every `implemented` or `pa
 
 | Stage | Status | Delivered by | Notes |
 |---|---|---|---|
-| 1. Input signals | partial | `.claude/commands/customer-call.md`; `product-development/signals/signals.csv`; `scripts/signals/signals.py` | Manual call and Reddit-research intake only; Insights migrated into `signals.csv`. Analytics feed: Plan 4. |
+| 1. Input signals | partial | `.claude/commands/customer-call.md`; `product-development/signals/signals.csv`; `scripts/signals/signals.py`; `reference/signal-contract.md` | One store and one entry point. Intake is manual (`/customer-call`, `/log-signal`) and external agents calling the script; no adapters or analytics feed yet. Analytics feed: Plan 4. |
 | 2. Hypotheses | partial | `templates/hypothesis.md`; `reference/discovery-artifact-types.md` | Hypotheses exist today. Plan 2 adds derived reach and a validation recommendation. |
 | 3. Validation | partial | `product-development/analytics/experiments/` | Experiments are recorded. Results as signals: Plans 1 and 4. |
 | 4. Prototyping | partial | `.claude/skills/prototype/SKILL.md` | Throwaway by design. Linking prototypes to a shared design system is a Later roadmap item. |

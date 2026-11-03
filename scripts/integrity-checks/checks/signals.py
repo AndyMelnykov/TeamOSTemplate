@@ -29,7 +29,7 @@ def check_invalid_row(repo_root: Path, thresholds: dict) -> list[Finding]:
     seen: set[str] = set()
     for line, row in enumerate(signals.load(repo_root), start=2):
         key = row.signal_id or f"line {line}"
-        problems = signals.validate(row.__dict__)
+        problems = signals.validate(row.__dict__, repo_root)
         if not row.signal_id:
             problems.append("signal_id is required")
         elif row.signal_id in seen:

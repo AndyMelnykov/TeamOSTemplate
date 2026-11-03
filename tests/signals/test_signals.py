@@ -155,3 +155,38 @@ def test_cli_unassigned_filters_by_tag(tmp_path, capsys):
     assert main(["unassigned", "--tag", "trust", "--repo-root", str(repo)]) == 0
     out = capsys.readouterr().out
     assert "SIG-001" in out and "SIG-002" not in out
+
+
+def _account(repo: Path, slug: str) -> None:
+    (repo / "product-development/product/customers/accounts" / slug).mkdir(parents=True)
+
+
+def test_validate_checks_account_folder_when_given_a_repo(tmp_path):
+    repo = _repo(tmp_path)
+    _account(repo, "acme-corp")
+    assert validate(_row(account="acme-corp"), repo) == []
+    problems = validate(_row(account="nope"), repo)
+    assert len(problems) == 1 and "account" in problems[0]
+
+
+def test_validate_rejects_account_that_is_a_path(tmp_path):
+    repo = _repo(tmp_path)
+    _account(repo, "acme-corp")
+    assert validate(_row(account="../accounts/acme-corp"), repo)
+
+
+def test_validate_without_a_repo_skips_the_account_folder_check():
+    assert validate(_row(account="anything")) == []
+
+
+def test_add_rejects_unknown_account_and_keeps_valid_rows(tmp_path):
+    repo = _repo(tmp_path)
+    _account(repo, "acme-corp")
+    result = add(repo, [_row(account="nope"), _row(account="acme-corp", source_ref="B")])
+    assert result.written == ["SIG-001"] and list(result.invalid) == [0]
+
+
+def test_cli_check_flags_unknown_account(tmp_path, capsys):
+    repo = _repo(tmp_path, "SIG-001,2026-01-01,support,X,nope,s,,\n")
+    assert main(["check", "--repo-root", str(repo)]) == 1
+    assert "account" in capsys.readouterr().err

@@ -10,7 +10,7 @@ The canonical artifact for framing a problem before it becomes a PRD is the hypo
 
 `HYP-{AREA}-{NNN}` -- one per hypothesis. `{AREA}` is a short mnemonic for the feature-index area (doesn't have to match the `feature-index.yaml` key exactly -- e.g. `EXTRACT` for `extraction-quality`). `{NNN}` is sequential starting at 001 within that area.
 
-IDs are for cross-referencing only (in `feature-index.yaml`, PRDs, and `product/Insights/insights.csv` rows) -- they don't replace the dated-filename convention used elsewhere in this repo (`decision-types.md`).
+IDs are for cross-referencing only (in `feature-index.yaml`, PRDs, and `product-development/signals/signals.csv` rows) -- they don't replace the dated-filename convention used elsewhere in this repo (`decision-types.md`).
 
 ## Statuses
 
@@ -18,7 +18,7 @@ IDs are for cross-referencing only (in `feature-index.yaml`, PRDs, and `product/
 
 ## When to write one
 
-Write a hypothesis file when a pattern in `product/Insights/insights.csv` (or an analytics investigation, or competitive research) looks worth solving. Fill in `## Problem` and `## Signals` first; add the test and success criteria when a specific bet is chosen and needs a falsifiable test before a PRD gets written. Skip it for small, uncontested fixes -- it exists to make "why does this PRD exist" answerable, not to gate every change.
+Write a hypothesis file when a pattern in `product-development/signals/signals.csv` (or an analytics investigation, or competitive research) looks worth solving. Fill in `## Problem` and `## Signals` first; add the test and success criteria when a specific bet is chosen and needs a falsifiable test before a PRD gets written. Skip it for small, uncontested fixes -- it exists to make "why does this PRD exist" answerable, not to gate every change.
 
 ## Templates
 
@@ -30,4 +30,4 @@ Add a `hypothesis:` key to the feature's entry once the file exists, the same wa
 
 ## Promotion
 
-Once a hypothesis file cites an `insight_id`, bump that row's `status` in `insights.csv` to `validated`. Once a PRD is committed against the hypothesis, bump the same rows to `actioned`. If the resulting initiative surfaces a learning worth keeping beyond this one feature, promote it into the relevant `PRDs/{area}/CONTEXT.md` as a closed line, or into `product/CLAUDE.md` if it's broadly applicable -- don't leave durable learnings stranded only in a closed hypothesis file.
+Signals have no status to bump; a signal is picked up when a hypothesis cites its `SIG-###`. If the resulting initiative surfaces a learning worth keeping beyond this one feature, promote it into the relevant `PRDs/{area}/CONTEXT.md` as a closed line, or into `product/CLAUDE.md` if it's broadly applicable -- don't leave durable learnings stranded only in a closed hypothesis file.

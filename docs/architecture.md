@@ -75,7 +75,7 @@ There is no runtime service in this repo — no model calls to trace, no tool-ex
 
 ## Integration layer
 
-The read/write path above shows how an agent moves through the tree. This diagram shows how signals move through it: the repo is the system of record for the [product loop](../reference/product-loop.md), and everything outside it is a source adapter or a capability ([`docs/agents/capabilities.md`](agents/capabilities.md), [ADR 0007](adr/0007-teamos-is-the-integration-layer.md)). The signal store and the script that writes it are planned (Plan 1); today the first two boxes are filled by `/customer-call` and `Insights/insights.csv`.
+The read/write path above shows how an agent moves through the tree. This diagram shows how signals move through it: the repo is the system of record for the [product loop](../reference/product-loop.md), and everything outside it is a source adapter or a capability ([`docs/agents/capabilities.md`](agents/capabilities.md), [ADR 0007](adr/0007-teamos-is-the-integration-layer.md)). The signal store is [`signals.csv`](../product-development/signals/signals.csv) and `scripts/signals/signals.py` is its only writer; today the first two boxes are filled by `/customer-call` and `/log-signal`.
 
 ```
   Source adapters
@@ -83,7 +83,7 @@ The read/write path above shows how an agent moves through the tree. This diagra
   | product-intelligence-agent | /customer-call | analytics sweep |
   | MCP-backed adapters                                          |
   +------------------------------+-------------------------------+
-                                 | add signals (Plan 1)
+                                 | add signals (signals.py)
                                  v
                   +-----------------------------+
                   | Signals                      |
@@ -118,7 +118,7 @@ The read/write path above shows how an agent moves through the tree. This diagra
 | Tools | File read/search (`Read`, `Grep`, `Glob`), shell (`Bash`/`gh`), and the skills/commands under `.claude/` |
 | Data sources | The repo plus signals added by source adapters — `reference/` for canonical definitions, `product-development/` for raw + derived artifacts |
 | Policy layer | `scripts/check-references.ps1` (deterministic, always runs the same way) plus the human-approval requirement on canonical writes (judgment-based, documented in [ADR 0003](adr/0003-human-approval-for-canonical-writes.md)) |
-| Storage | Git text files; signals move to a single `signals.csv` (Plan 1) |
+| Storage | Git text files; signals in a single `signals.csv`, written only by `scripts/signals/signals.py` |
 | External APIs | The systems listed in the diagram above, referenced by link/path and purpose, never mirrored into the repo |
 
 ## Why this shape

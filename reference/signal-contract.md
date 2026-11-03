@@ -18,7 +18,7 @@ The store is `product-development/signals/signals.csv`, one row per signal, colu
 | `date` | `YYYY-MM-DD`, when it happened (not when it was logged). |
 | `source_type` | One of `customer-call`, `support`, `community`, `review`, `competitor`, `market`, `analytics`, `experiment`, `survey`, `prototype`, `other`. |
 | `source_ref` | Where to find the original: URL, ticket key, file path or call date. Never invented. |
-| `account` | Optional. The slug of a folder under `product-development/product/customers/accounts/`. |
+| `account` | Optional. The slug of a folder under `product-development/product/customers/accounts/`; the script rejects a slug with no such folder. |
 | `summary` | What happened, one sentence, max 300 characters. |
 | `detail` | Optional. A quote or longer note, max 2000 characters. |
 | `tags` | Optional. `;`-separated free words for grouping, for example `trust;security`. |

@@ -80,14 +80,6 @@
       "last_seen": "2026-11-03",
       "message": "team-workspaces-prd.md has been 'Draft' since 2026-03-19 (229d, threshold 21d)"
     },
-    "process-papercuts-digest::docs": {
-      "check_id": "process-papercuts-digest",
-      "file": "PAPERCUTS.md",
-      "first_detected": "2026-09-18",
-      "key": "docs",
-      "last_seen": "2026-11-03",
-      "message": "2 unresolved entries tagged [docs] in PAPERCUTS.md -- repeat offender"
-    },
     "process-stale-bug-investigations::product-development/engineering/bug-investigations/deployment/bug-03-19-2026-ssl-cert-not-renewing/investigation-plan.md": {
       "check_id": "process-stale-bug-investigations",
       "file": "product-development/engineering/bug-investigations/deployment/bug-03-19-2026-ssl-cert-not-renewing/investigation-plan.md",
