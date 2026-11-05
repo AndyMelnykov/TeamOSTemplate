@@ -1,5 +1,16 @@
 # HYP-EXTRACT-001: Users can't tell whether extracted data is trustworthy enough to publish
 
+| Field | Value |
+|-------|-------|
+| **Status** | proposed |
+| **Confidence** | ? |
+| **Effort** | ? |
+| **Validation path** | prototype |
+| **Target metric** | Extraction Success Rate (ESR) |
+| **Owner** | |
+| **Last Updated** | 2026-11-05 |
+| **PRD** | |
+
 If extracted fields show a plain-language confidence label (high confidence / needs review / not ready to publish) with a one-line reason, then non-technical users will correctly identify which fields need manual review before publishing, because they're currently guessing rather than being told.
 
 ## Problem
@@ -25,10 +36,6 @@ Prototype + usability study: show test users a workflow with mixed-confidence ex
 
 - 70%+ of test users correctly flag the deliberately-low-confidence fields
 - 0 high-confidence fields flagged as needing review (false positives undermine trust in the label itself)
-
-## Status
-
-`proposed`
 
 ## Result
 
