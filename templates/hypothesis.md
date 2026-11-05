@@ -1,5 +1,16 @@
 # HYP-{AREA}-{NNN}: {Hypothesis title}
 
+| Field | Value |
+|-------|-------|
+| **Status** | {proposed \| testing \| validated \| invalidated \| in-prd \| shipped} |
+| **Confidence** | {low \| medium \| high \| ?} -- how sure we are the target metric moves; `?` allowed only at `proposed` |
+| **Effort** | {cheap \| costly \| ?} -- cheap = about a week or less to build and test; `?` allowed only at `proposed` |
+| **Validation path** | {ab-test \| prototype \| survey \| interviews} -- blank at `proposed`; see `hypotheses.py list` for the recommendation |
+| **Target metric** | {metric name from `reference/metrics.md`, e.g. Extraction Success Rate (ESR)} |
+| **Owner** | {name} |
+| **Last Updated** | {YYYY-MM-DD} |
+| **PRD** | {path to the PRD once written, else blank} |
+
 If {change}, then {expected user behavior change}, because {underlying belief}.
 
 ## Problem
@@ -22,10 +33,6 @@ If {change}, then {expected user behavior change}, because {underlying belief}.
 
 - {Measurable threshold 1}
 - {Measurable threshold 2}
-
-## Status
-
-`{proposed | testing | validated | invalidated | in-prd | shipped}`
 
 ## Result
 

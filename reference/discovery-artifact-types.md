@@ -14,7 +14,27 @@ IDs are for cross-referencing only (in `feature-index.yaml`, PRDs, and `product-
 
 ## Statuses
 
-`proposed` (the problem and its signals are written down; no test chosen yet) -> `testing` -> `validated` | `invalidated` -> `in-prd` -> `shipped`. Recorded in the file's `## Status` section.
+`proposed` (the problem and its signals are written down; no test chosen yet) -> `testing` -> `validated` | `invalidated` -> `in-prd` -> `shipped`. Recorded in the `Status` row of the header table.
+
+## Header fields
+
+Every hypothesis opens with a table in the same `| **Field** | value |` form PRDs use:
+
+| Field | Values | Notes |
+|-------|--------|-------|
+| `Status` | the statuses above | |
+| `Confidence` | `low`, `medium`, `high` | How sure we are the target metric moves |
+| `Effort` | `cheap`, `costly` | `cheap` = about a week or less to build and test |
+| `Validation path` | `ab-test`, `prototype`, `survey`, `interviews` | Blank at `proposed`; required from `testing` |
+| `Target metric` | a metric name | Full name or abbreviation from `reference/metrics.md`, or a `###` heading in `product-development/analytics/metrics/**/*.md` |
+| `Owner`, `PRD` | free text / path | |
+| `Last Updated` | `YYYY-MM-DD` | Required from `testing`; `hyp-stale-testing` flags `testing` files untouched for 30 days |
+
+**The `?` rule.** `Confidence` and `Effort` may be `?` while the status is `proposed` -- an honest "not estimated yet" beats an invented number. Neither may be `?` from `testing` onward (`hyp-invalid-values`). At `proposed` only `## Problem` and `## Signals` are required; `## Test` and `## Success criteria` are required from `testing` (`hyp-missing-fields`).
+
+**Reach is derived, never typed.** It is the number of signals, and distinct accounts, the hypothesis cites under `## Signals`. `python scripts/signals/hypotheses.py list` computes it.
+
+**The recommendation rule.** `hypotheses.py list` recommends `ab-test` when `Effort` is `cheap` **and** the target metric is instrumented (named in `reference/metrics.md` or as a heading under `product-development/analytics/metrics/`); otherwise `prototype`, with `survey` and `interviews` as alternatives. The rule recommends; a human chooses the `Validation path`. It is never enforced. Results from prototypes, surveys and interviews are logged as signals (`/log-signal`) and cited under `## Signals`.
 
 ## When to write one
 
