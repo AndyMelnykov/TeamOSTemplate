@@ -34,4 +34,4 @@ Never edit `signals.csv` directly. Report the id written, the skipped duplicate,
 
 ## Step 4: Offer a home for it
 
-Run `python scripts/signals/signals.py unassigned --tag <one of the new row's tags>` and show the matches. Then offer to attach the new signal to an existing hypothesis that covers the same ground (add `SIG-###` under its `## Signals` section), or to start a new hypothesis (`/hypothesis`, Plan 2; until it exists, use `templates/hypothesis.md`). Do neither without the user's say-so.
+Run `python scripts/signals/signals.py unassigned --tag <one of the new row's tags>` and show the matches. Then offer to attach the new signal to an existing hypothesis that covers the same ground (add `SIG-###` under its `## Signals` section), or to start a new hypothesis (`/hypothesis`). Do neither without the user's say-so.

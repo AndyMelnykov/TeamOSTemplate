@@ -61,8 +61,8 @@ Machine-checked by `tests/docs/test_product_loop.py`: every `implemented` or `pa
 | Stage | Status | Delivered by | Notes |
 |---|---|---|---|
 | 1. Input signals | partial | `.claude/commands/customer-call.md`; `product-development/signals/signals.csv`; `scripts/signals/signals.py`; `reference/signal-contract.md` | One store and one entry point. Intake is manual (`/customer-call`, `/log-signal`) and external agents calling the script; no adapters or analytics feed yet. Analytics feed: Plan 4. |
-| 2. Hypotheses | partial | `templates/hypothesis.md`; `reference/discovery-artifact-types.md` | Hypotheses exist today. Plan 2 adds derived reach and a validation recommendation. |
-| 3. Validation | partial | `product-development/analytics/experiments/` | Experiments are recorded. Results as signals: Plans 1 and 4. |
+| 2. Hypotheses | implemented | `templates/hypothesis.md`; `scripts/signals/hypotheses.py`; `.claude/commands/hypothesis.md` | Header table; reach derived from cited signals; validation path recommended by a rule and chosen by a human; `hyp-*` integrity checks. |
+| 3. Validation | partial | `product-development/analytics/experiments/` | Experiments are recorded and the recommendation exists. Results arrive as signals (`/log-signal`); the experiment feed is Plan 4. |
 | 4. Prototyping | partial | `.claude/skills/prototype/SKILL.md` | Throwaway by design. Linking prototypes to a shared design system is a Later roadmap item. |
 | 5. PRDs | partial | `.claude/commands/prd.md`; `.claude/skills/to-prd/SKILL.md` | Acceptance criteria: Plan 3. |
 | 6. Engineering | out-of-scope | `docs/agents/issue-tracker.md` | Only the PRD → ticket hand-off is owned here. |
