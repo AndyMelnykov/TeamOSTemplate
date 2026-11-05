@@ -10,6 +10,7 @@ from common import Finding, days_open, load_config, load_status, merge_findings,
 
 CHECK_MODULES = [
     "checks.signals",
+    "checks.hypotheses",
     "checks.feature_index",
     "checks.prd_content",
     "checks.decisions_adr",

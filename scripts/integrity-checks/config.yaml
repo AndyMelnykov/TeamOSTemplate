@@ -5,6 +5,9 @@ checks:
   signals-unassigned-stale: true
   signals-unindexed-hypothesis: true
   signals-id-collisions: true
+  hyp-missing-fields: true
+  hyp-invalid-values: true
+  hyp-stale-testing: true
   feature-index-join-completeness: true
   feature-index-broken-tickets: false
   prd-missing-sections: true
@@ -19,6 +22,7 @@ checks:
 
 thresholds:
   unassigned-signal-days: 30
+  stale-testing-days: 30
   stale-prd-status-days: 21
   stale-bug-investigation-days: 14
 
