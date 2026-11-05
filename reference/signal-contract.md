@@ -52,4 +52,4 @@ Reading: `signals.py show SIG-###` (the row plus the hypotheses citing it), `sig
 
 ## What this contract does not cover
 
-Grouping signals into hypotheses, and deciding which signals support which hypothesis, is Plan 2 (see the [plans index](../docs/superpowers/plans/2026-11-03-product-loop-plans-index.md)), not this contract.
+Grouping signals into hypotheses, and deciding which signals support which hypothesis, is done by [`/hypothesis`](../.claude/commands/hypothesis.md) (see [discovery-artifact-types.md](discovery-artifact-types.md)), not this contract.

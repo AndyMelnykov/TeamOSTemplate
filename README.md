@@ -28,8 +28,8 @@ This table mirrors the machine-checked stage status table in [`reference/product
 | Stage | Status | Entry points |
 | --- | --- | --- |
 | 1. Input signals | partial | `/customer-call` ([`customer-call.md`](.claude/commands/customer-call.md)) and `/log-signal` ([`log-signal.md`](.claude/commands/log-signal.md)) add rows to [`signals.csv`](product-development/signals/signals.csv) through `scripts/signals/signals.py` ([contract](reference/signal-contract.md)); `/feature-request-intake` ([`feature-request-intake.md`](.claude/commands/feature-request-intake.md)) files the feature-request issue. Analytics feed: planned (Plan 4). |
-| 2. Hypotheses | partial | The [hypothesis](templates/hypothesis.md) template; [`discovery-artifact-types.md`](reference/discovery-artifact-types.md). Derived reach and validation recommendation: planned (Plan 2). |
-| 3. Validation | partial | [`analytics/experiments/`](product-development/analytics/experiments/). Results as signals: planned (Plans 1 and 4). |
+| 2. Hypotheses | implemented | `/hypothesis` ([`hypothesis.md`](.claude/commands/hypothesis.md)) drafts and promotes a hypothesis from the [template](templates/hypothesis.md); `scripts/signals/hypotheses.py list` shows each one's derived reach and recommended validation path ([`discovery-artifact-types.md`](reference/discovery-artifact-types.md)). |
+| 3. Validation | partial | [`analytics/experiments/`](product-development/analytics/experiments/). The recommendation exists; results arrive as signals (`/log-signal`), and the experiment feed is planned (Plan 4). |
 | 4. Prototyping | partial | The [`prototype` skill](.claude/skills/prototype/SKILL.md). Prototypes are throwaway by design; linking them to a shared design system is a Later roadmap item. |
 | 5. PRDs | partial | `/prd` ([`prd.md`](.claude/commands/prd.md)), then `/to-prd` → `/to-spec` → `/to-tickets` → `/implement`. Acceptance criteria: planned (Plan 3). |
 | 6. Engineering | out-of-scope | The repo owns only the PRD → ticket hand-off ([`issue-tracker.md`](docs/agents/issue-tracker.md)). |
@@ -74,12 +74,12 @@ Five file reads, no guessing what "Draft" means, no duplicated definitions. Run 
 
 ### Why does HYP-EXTRACT-001 exist?
 
-1. Start at the hypothesis: [`extraction-confidence-scoring-hypothesis.md`](product-development/product/PRDs/extraction-quality/extraction-confidence-scoring-hypothesis.md) → the bet is a plain-language confidence label on extracted fields; its Result is `pending`.
+1. Start at the hypothesis: [`extraction-confidence-scoring-hypothesis.md`](product-development/product/PRDs/extraction-quality/extraction-confidence-scoring-hypothesis.md) → the bet is a plain-language confidence label on extracted fields; its Result is `pending`, and `python scripts/signals/hypotheses.py list` shows its reach.
 2. Follow its supporting signals, `SIG-002` and `SIG-003`, in [`signals.csv`](product-development/signals/signals.csv) → trust is the top concern, and users ask whether extraction is "good enough" rather than how OCR works.
 3. Read each signal's `source_ref` → `SIG-002` and `SIG-003` both point to `r/PandaDoc` document-security threads from the Reddit customer research.
 4. Answer: *the hypothesis exists because Reddit research surfaced a trust gap in extraction output; it is untested.*
 
-`python scripts/signals/signals.py show SIG-002` returns the row and the hypotheses citing it. The hypothesis changes (Plan 2) are planned to make the rest of the chain one lookup.
+`python scripts/signals/signals.py show SIG-002` returns the row and the hypotheses citing it.
 
 ## AI design decisions
 
@@ -152,7 +152,7 @@ Two step-by-step guides, depending on where the team is starting from:
 
 ## Limitations
 
-- **The loop is open at both ends until Plans 1–4 land.** Signals have one store and entry point (Plan 1) but only manual and agent-driven intake, with no analytics feed (Plan 4), hypotheses show no derived reach or validation recommendation (Plan 2), PRDs lack acceptance criteria (Plan 3), and measurement doesn't flow back as signals (Plan 4).
+- **The loop is open at both ends until Plans 3–4 land.** Signals have one store and entry point (Plan 1) but only manual and agent-driven intake, with no analytics feed (Plan 4), PRDs lack acceptance criteria (Plan 3), and measurement doesn't flow back as signals (Plan 4).
 - **The evaluation has never been run.** The methodology exists and `evaluation/results/` is empty. Treat every claim here about the structure "helping" as a hypothesis with a defined test, not a measured result.
 - **Structured navigation degrades on unstructured collections.** `competitive-research/` is closer to a document pile than an addressable table (the customer `Insights/` folder, also flagged, is now the structured `signals.csv`; see [ADR 0001](docs/adr/0001-structured-navigation-over-embeddings.md)).
 - **Unwired artifacts are detected, not fixed.** The `feature-index-join-completeness` integrity check detects artifacts missing from `feature-index.yaml`, but nothing writes the entries automatically.
