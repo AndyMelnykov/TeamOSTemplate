@@ -62,6 +62,10 @@ When you hit friction — a dead-end tool call, broken link, misleading doc, foo
 
 When you catch yourself hand-executing a multi-step recipe that has no skill or command behind it — especially one that resembles something done before — log it immediately: append one line to the **Log** section of `SKILL-GAPS.md` at the repo root. Don't stop to build the skill on the spot, don't ask permission, just log and keep going. Full trigger conditions: `.claude/skills/skill-gap-detection/SKILL.md`.
 
+### PRD hand-off
+
+When a ticket or spec is derived from a PRD, follow the Hand-off section of `product-development/product/PRDs/CLAUDE.md`.
+
 ### Issue tracker
 
 Issues live in GitHub Issues for `AndyMelnykov/TeamOSTemplate`, managed via the `gh` CLI. See `docs/agents/issue-tracker.md`.
