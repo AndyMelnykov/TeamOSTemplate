@@ -64,7 +64,7 @@ Machine-checked by `tests/docs/test_product_loop.py`: every `implemented` or `pa
 | 2. Hypotheses | implemented | `templates/hypothesis.md`; `scripts/signals/hypotheses.py`; `.claude/commands/hypothesis.md` | Header table; reach derived from cited signals; validation path recommended by a rule and chosen by a human; `hyp-*` integrity checks. |
 | 3. Validation | partial | `product-development/analytics/experiments/` | Experiments are recorded and the recommendation exists. Results arrive as signals (`/log-signal`); the experiment feed is Plan 4. |
 | 4. Prototyping | partial | `.claude/skills/prototype/SKILL.md` | Throwaway by design. Linking prototypes to a shared design system is a Later roadmap item. |
-| 5. PRDs | partial | `.claude/commands/prd.md`; `.claude/skills/to-prd/SKILL.md` | Acceptance criteria: Plan 3. |
+| 5. PRDs | implemented | `product-development/product/PRDs/CLAUDE.md`; `.claude/skills/to-prd/SKILL.md`; `.claude/commands/prd.md` | One canonical template; ID'd requirements and acceptance criteria that cover every P0; Execution Path and hand-off rules; `prd-acceptance-criteria` and `prd-execution-path` integrity checks apply from `In Review`. |
 | 6. Engineering | out-of-scope | `docs/agents/issue-tracker.md` | Only the PRD → ticket hand-off is owned here. |
 | 7. Rollout and measurement | planned | Plan 4 | Metric and experiment results become signals. |
 | Loop closure | planned | Plan 1; Plan 4 | Outcomes flow back as signals once signals have a single store and analytics feeds it. |

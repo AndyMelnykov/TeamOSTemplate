@@ -31,7 +31,7 @@ This table mirrors the machine-checked stage status table in [`reference/product
 | 2. Hypotheses | implemented | `/hypothesis` ([`hypothesis.md`](.claude/commands/hypothesis.md)) drafts and promotes a hypothesis from the [template](templates/hypothesis.md); `scripts/signals/hypotheses.py list` shows each one's derived reach and recommended validation path ([`discovery-artifact-types.md`](reference/discovery-artifact-types.md)). |
 | 3. Validation | partial | [`analytics/experiments/`](product-development/analytics/experiments/). The recommendation exists; results arrive as signals (`/log-signal`), and the experiment feed is planned (Plan 4). |
 | 4. Prototyping | partial | The [`prototype` skill](.claude/skills/prototype/SKILL.md). Prototypes are throwaway by design; linking them to a shared design system is a Later roadmap item. |
-| 5. PRDs | partial | `/prd` ([`prd.md`](.claude/commands/prd.md)), then `/to-prd` → `/to-spec` → `/to-tickets` → `/implement`. Acceptance criteria: planned (Plan 3). |
+| 5. PRDs | implemented | `/prd` ([`prd.md`](.claude/commands/prd.md)) or `/to-prd` ([`SKILL.md`](.claude/skills/to-prd/SKILL.md)) write the one [canonical template](product-development/product/PRDs/CLAUDE.md), whose acceptance criteria are the source for tickets and tests; then `/to-spec` → `/to-tickets` → `/implement`. |
 | 6. Engineering | out-of-scope | The repo owns only the PRD → ticket hand-off ([`issue-tracker.md`](docs/agents/issue-tracker.md)). |
 | 7. Rollout and measurement | planned | Metric and experiment results become signals: Plan 4. |
 | Loop closure | planned | Plans 1 and 4. |
@@ -152,7 +152,7 @@ Two step-by-step guides, depending on where the team is starting from:
 
 ## Limitations
 
-- **The loop is open at both ends until Plans 3–4 land.** Signals have one store and entry point (Plan 1) but only manual and agent-driven intake, with no analytics feed (Plan 4), PRDs lack acceptance criteria (Plan 3), and measurement doesn't flow back as signals (Plan 4).
+- **The loop is open at both ends until Plan 4 lands.** Signals have one store and entry point (Plan 1) but only manual and agent-driven intake, with no analytics feed, and measurement doesn't flow back as signals (Plan 4).
 - **The evaluation has never been run.** The methodology exists and `evaluation/results/` is empty. Treat every claim here about the structure "helping" as a hypothesis with a defined test, not a measured result.
 - **Structured navigation degrades on unstructured collections.** `competitive-research/` is closer to a document pile than an addressable table (the customer `Insights/` folder, also flagged, is now the structured `signals.csv`; see [ADR 0001](docs/adr/0001-structured-navigation-over-embeddings.md)).
 - **Unwired artifacts are detected, not fixed.** The `feature-index-join-completeness` integrity check detects artifacts missing from `feature-index.yaml`, but nothing writes the entries automatically.
