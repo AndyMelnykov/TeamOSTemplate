@@ -176,7 +176,8 @@ Every PRD's header carries an `**Execution Path**` field saying who turns the PR
 Otherwise use `engineering-mediated`. When in doubt, use `engineering-mediated`.
 
 Examples:
-- `agent-direct` - "Export usage report as CSV": `Local`, billing only, reads existing tables, no new integration, every AC is `automated-test` or `manual-qa`.
+- `agent-direct` - a hypothetical "Rename a workflow from the workflow list": `Local`, one product area, no schema change, no new integration, every AC is `automated-test` or `manual-qa`.
+- Note: the CSV-export example above includes an `analytics` criterion (AC-3), so that PRD is `engineering-mediated`.
 - `engineering-mediated` - a hypothetical "SSO login" feature: needs a new external identity-provider integration and a schema change, so an engineer scopes it first.
 
 ---
