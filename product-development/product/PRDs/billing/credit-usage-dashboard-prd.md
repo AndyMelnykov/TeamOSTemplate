@@ -7,6 +7,8 @@
 | **Last Updated** | 2026-03-22 |
 | **Related RFC** | `engineering/rfcs/billing/credit-usage-dashboard-rfc.md` |
 | **Related Plan** | `engineering/plans/billing/credit-usage-dashboard.md` |
+| **Hypothesis** | none — shipped before the hypothesis stage existed; the case is the churn investigation and low-balance banner experiment cited in Sources |
+| **Execution Path** | engineering-mediated |
 
 ---
 
@@ -60,13 +62,13 @@ Conservative modeling suggests that reducing credit-related churn by 15% and inc
 
 ### Success Metrics
 
-| Metric | Current | Target | Timeline |
-|--------|---------|--------|----------|
-| Billing-related support tickets per week | 47 | <25 | 8 weeks post-launch |
-| Churn rate among users who deplete credits | 18% (14-day) | <12% | 12 weeks post-launch |
-| Credit-to-upgrade conversion rate (upgrade within 7d of <20% balance) | 8% | >12% | 12 weeks post-launch |
-| Dashboard weekly active usage | -- | >40% of Pro/Team users | 8 weeks post-launch |
-| Low-balance banner click-through rate | -- | >5% | 4 weeks post-launch |
+| Metric | Baseline | Target | Timeline | Source |
+|--------|----------|--------|----------|--------|
+| Billing-related support tickets per week | 47 | <25 | 8 weeks post-launch | Not yet documented (Open Question 6) |
+| Churn rate among users who deplete credits | 18% (14-day) | <12% | 12 weeks post-launch | Credit Usage Health dashboard (Sigma); method in the churn investigation (see Sources) |
+| Credit-to-upgrade conversion rate (upgrade within 7d of <20% balance) | 8% | >12% | 12 weeks post-launch | Billing Experiments dashboard (Amplitude), depletion-to-upgrade funnel |
+| Dashboard weekly active usage | -- | >40% of Pro/Team users | 8 weeks post-launch | Not yet documented (Open Question 6) |
+| Low-balance banner click-through rate | -- | >5% | 4 weeks post-launch | Billing Experiments dashboard (Amplitude), warning-seen to upgrade-page funnel step |
 
 ### Non-Goals
 
@@ -76,27 +78,27 @@ Conservative modeling suggests that reducing credit-related churn by 15% and inc
 
 ## User Stories
 
-### As a Pro user, I want to see how many credits I have used and how many remain so that I can pace my usage through the billing cycle.
+### Story 1: As a Pro user, I want to see how many credits I have used and how many remain so that I can pace my usage through the billing cycle.
 
 **Acceptance criteria:**
 - Dashboard shows total credits used this cycle, remaining balance, and cycle reset date.
 - Data refreshes within 60 seconds of a credit-consuming action.
 
-### As a Pro user, I want to see a daily breakdown of my credit usage by category so that I understand which activities consume the most credits.
+### Story 2: As a Pro user, I want to see a daily breakdown of my credit usage by category so that I understand which activities consume the most credits.
 
 **Acceptance criteria:**
 - Bar chart displays daily usage segmented by extraction, routing, and signature.
 - User can hover over any bar segment to see the exact credit count.
 - User can filter the chart by date range (7 days, 30 days, this cycle, custom).
 
-### As a user with multiple workflows, I want to see credit usage broken down by workflow so that I can identify which workflows are most expensive.
+### Story 3: As a user with multiple workflows, I want to see credit usage broken down by workflow so that I can identify which workflows are most expensive.
 
 **Acceptance criteria:**
 - Table lists each workflow with columns: pages extracted, routing steps, signatures, total credits, last activity.
 - Table is sortable by any column.
 - Clicking a workflow name navigates to the workflow detail page.
 
-### As a user approaching my credit limit, I want to receive a warning before I hit zero so that I can take action.
+### Story 4: As a user approaching my credit limit, I want to receive a warning before I hit zero so that I can take action.
 
 **Acceptance criteria:**
 - Warning banner appears when remaining credits fall below 20% of the cycle allocation.
@@ -105,7 +107,7 @@ Conservative modeling suggests that reducing credit-related churn by 15% and inc
 - Banner includes a CTA to upgrade the plan.
 - Banner can be dismissed for 24 hours.
 
-### As a user who ran out of credits, I want to understand what happened so that I can avoid it next time.
+### Story 5: As a user who ran out of credits, I want to understand what happened so that I can avoid it next time.
 
 **Acceptance criteria:**
 - Dashboard shows the projected depletion date based on the 7-day burn rate.
@@ -117,31 +119,62 @@ Conservative modeling suggests that reducing credit-related churn by 15% and inc
 
 | ID | Requirement |
 |----|-------------|
-| R1 | Display current credit balance, total used this cycle, and cycle reset date |
-| R2 | Show daily usage bar chart broken down by category (extraction, routing, signature) |
-| R3 | Calculate and display burn rate (7-day rolling average credits per day) |
-| R4 | Show projected depletion date based on current burn rate |
-| R5 | Show per-workflow credit breakdown in a sortable table |
-| R6 | Low-balance warning banner at <20% remaining credits |
-| R7 | Date range filter (7d, 30d, this cycle, custom) |
+| P0-1 | Display current credit balance, total used this cycle, and cycle reset date |
+| P0-2 | Show daily usage bar chart broken down by category (extraction, routing, signature) |
+| P0-3 | Calculate and display burn rate (7-day rolling average credits per day) |
+| P0-4 | Show projected depletion date based on current burn rate |
+| P0-5 | Show per-workflow credit breakdown in a sortable table |
+| P0-6 | Low-balance warning banner at <20% remaining credits |
+| P0-7 | Date range filter (7d, 30d, this cycle, custom) |
 
 ### Should Have (P1)
 
 | ID | Requirement |
 |----|-------------|
-| R8 | Category filter (multi-select: extraction, routing, signature) |
-| R9 | Workflow filter (searchable dropdown) |
-| R10 | Shareable/bookmarkable URLs with filter state in query parameters |
-| R11 | Comparison to previous cycle (% change on summary cards) |
-| R12 | Export usage data as CSV |
+| P1-1 | Category filter (multi-select: extraction, routing, signature) |
+| P1-2 | Workflow filter (searchable dropdown) |
+| P1-3 | Shareable/bookmarkable URLs with filter state in query parameters |
+| P1-4 | Comparison to previous cycle (% change on summary cards) |
+| P1-5 | Export usage data as CSV |
 
 ### Nice to Have (P2)
 
 | ID | Requirement |
 |----|-------------|
-| R13 | Email notification at 20% and 5% remaining credits |
-| R14 | Slack notification integration for low balance |
-| R15 | Budget alerts: user-defined credit threshold notifications |
+| P2-1 | Email notification at 20% and 5% remaining credits |
+| P2-2 | Slack notification integration for low balance |
+| P2-3 | Budget alerts: user-defined credit threshold notifications |
+
+## Acceptance Criteria
+
+| ID | Given | When | Then | Covers | Verify by |
+|----|-------|------|------|--------|-----------|
+| AC-1 | A user has used credits this cycle | They open the usage dashboard | It shows total credits used this cycle, the remaining balance and the cycle reset date | P0-1, Story 1 | automated-test |
+| AC-2 | A user is on the usage dashboard | They perform a credit-consuming action | The dashboard data reflects it within 60 seconds | P0-1, Story 1 | automated-test |
+| AC-3 | A user has usage in extraction, routing and signature | They open the usage dashboard | A daily bar chart shows usage segmented by extraction, routing and signature | P0-2, Story 2 | automated-test |
+| AC-4 | The daily bar chart is displayed | They hover over a bar segment | The exact credit count for that segment is shown | P0-2, Story 2 | manual-qa |
+| AC-5 | The daily bar chart is displayed | They choose 7 days, 30 days, this cycle or a custom range | The chart shows only usage in that range | P0-7, Story 2 | automated-test |
+| AC-6 | A user has usage across several workflows | They open the usage dashboard | A table lists each workflow with pages extracted, routing steps, signatures, total credits and last activity | P0-5, Story 3 | automated-test |
+| AC-7 | The workflow table is displayed | They select a column header | The table is sorted by that column | P0-5, Story 3 | automated-test |
+| AC-8 | The workflow table is displayed | They select a workflow name | They land on that workflow's detail page | P0-5, Story 3 | automated-test |
+| AC-9 | A user's remaining credits are below 20% of the cycle allocation | They open the home page or the usage dashboard | A warning banner shows the remaining credit count, the percentage, the cycle reset date and an upgrade CTA | P0-6, Story 4 | automated-test |
+| AC-10 | The low-balance banner is displayed | They dismiss it | It does not reappear for 24 hours | P0-6, Story 4 | automated-test |
+| AC-11 | A user's remaining credits are 20% or more of the cycle allocation | They open the home page or the usage dashboard | No low-balance banner is shown | P0-6, Story 4 | automated-test |
+| AC-12 | A user has at least 7 days of usage | They open the usage dashboard | It shows the 7-day rolling average burn rate and a projected depletion date based on it | P0-3, P0-4, Story 5 | automated-test |
+| AC-13 | A user has already depleted their credits | They open the usage dashboard | It shows when depletion occurred and which category drove the final consumption | P0-4, Story 5 | automated-test |
+| AC-14 | The dashboard has been live for 4 weeks | Banner click-throughs are counted against banner views | The low-balance banner click-through rate is above 5% (metric: "Low-balance banner click-through rate" in Goals & Success Metrics) | P0-6, Story 4 | analytics |
+| AC-15 | The dashboard has been live for 8 weeks | Weekly dashboard visitors are counted against Pro and Team users | Weekly active usage is above 40% of Pro and Team users (metric: "Dashboard weekly active usage" in Goals & Success Metrics) | P0-1, Story 1 | analytics |
+
+## Design
+
+- Figma file: `https://figma.com/file/example_product-credit-dashboard` (listed in `product-development/feature-index.yaml`).
+- The dashboard is a page at `/billing/usage` with summary cards, a filter bar, the daily usage chart and the per-workflow table; the low-balance banner also appears on the home page. Component-level detail is in the [RFC](../../../engineering/rfcs/billing/credit-usage-dashboard-rfc.md).
+
+## Technical Considerations
+
+- The credit transaction ledger lives in Supabase and is replicated to Snowflake via Fivetran; see the [credit_transactions schema](../../../analytics/schemas/billing/credit_transactions.md).
+- Architecture, API and rollout: [RFC](../../../engineering/rfcs/billing/credit-usage-dashboard-rfc.md) and [plan](../../../engineering/plans/billing/credit-usage-dashboard.md).
+- Rollout is gated by a LaunchDarkly feature flag (see Launch Plan).
 
 ## Launch Plan
 
@@ -167,6 +200,13 @@ Conservative modeling suggests that reducing credit-related churn by 15% and inc
 - Conduct qualitative interviews with 5 users at Week 4 and Week 8 post-launch.
 - Prioritize Phase 2 features (team admin view, email notifications) based on adoption data.
 
+## Sources
+
+- [Credit depletion churn investigation](../../../analytics/investigations/billing/2026-03-10-credit-depletion-churn-analysis.md) — the 3.2x churn claim in Business Opportunity and the 18% baseline in Success Metrics
+- [Low-balance warning banner experiment](../../../analytics/experiments/billing/low-balance-warning-03-05-2026-experiment-results.md) — the 22% churn-from-depletion reduction cited in Business Opportunity
+- [Credit usage dashboards](../../../analytics/dashboards/billing/credit-usage-dashboards.md) — where the Success Metrics `Source` entries are measured
+- [credit_transactions schema](../../../analytics/schemas/billing/credit_transactions.md) — the ledger cited in Why Now and Technical Considerations
+
 ## Open Questions
 
 | # | Question | Owner | Status |
@@ -176,3 +216,5 @@ Conservative modeling suggests that reducing credit-related churn by 15% and inc
 | 3 | What is the right default date range for the chart -- 7 days or 30 days? | Hannah Stulberg | Open -- pending analytics on typical billing cycle length |
 | 4 | Should we show cost in dollars alongside credits for users on usage-based plans? | Hannah Stulberg | Open -- requires pricing team input |
 | 5 | How do we handle users on legacy plans that do not have credit-based billing? | Riley Patel | Open |
+| 6 | Where are "billing-related support tickets per week" and "dashboard weekly active usage" measured? Neither has a documented dashboard, query or event. | Hannah Stulberg | Open |
+| 7 | The PRD names the categories extraction, routing and signature; the RFC names extraction, refinement and publish. Which is correct? | Hannah Stulberg | Open |
