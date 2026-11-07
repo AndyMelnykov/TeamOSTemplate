@@ -1,0 +1,44 @@
+# Metrics the analytics sweep watches (scripts/signals/analytics_sweep.py).
+#
+# id             ^[a-z0-9-]+$
+# cadence        weekly -> snapshot period YYYY-Www; monthly -> YYYY-MM
+# target_source  `reference` (target read from reference/metrics.md by name), or a path under
+#                analytics/metrics/ (then `target` is required, e.g. "> 12%")
+# snapshot       analytics/snapshots/<id>.csv (paths are relative to product-development/)
+# rules          - type: below-target                      fires when the latest value misses the target
+#                - type: change, threshold_pct, direction  fires when the latest period moved by at least
+#                                                          threshold_pct vs the previous one (down | up | any)
+metrics:
+  - id: esr
+    name: Extraction Success Rate (ESR)
+    unit: "%"
+    cadence: weekly
+    target_source: reference
+    snapshot: analytics/snapshots/esr.csv
+    rules:
+      - type: below-target
+      - type: change
+        threshold_pct: 5
+        direction: down
+
+  - id: ttp
+    name: Time-to-Publish (TTP)
+    unit: min
+    cadence: weekly
+    target_source: reference
+    snapshot: analytics/snapshots/ttp.csv
+    rules:
+      - type: below-target
+      - type: change
+        threshold_pct: 20
+        direction: up
+
+  - id: credit-to-upgrade
+    name: Credit-to-Upgrade Rate
+    unit: "%"
+    cadence: weekly
+    target_source: analytics/metrics/billing/credit-usage-metrics.md
+    target: "> 12%"
+    snapshot: analytics/snapshots/credit-to-upgrade.csv
+    rules:
+      - type: below-target
