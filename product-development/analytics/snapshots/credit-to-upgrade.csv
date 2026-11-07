@@ -1,0 +1,5 @@
+period,segment,value,captured_at,captured_by
+2026-W41,all,8,2026-10-12T09:00:00Z,example-data
+2026-W42,all,8.4,2026-10-19T09:00:00Z,example-data
+2026-W43,all,9.1,2026-10-26T09:00:00Z,example-data
+2026-W44,all,9.6,2026-11-02T09:00:00Z,example-data
