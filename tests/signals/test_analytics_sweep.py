@@ -247,3 +247,143 @@ def test_hit_to_signal_is_valid():
 def test_real_analyst_rows_are_not_labelled_example_data():
     hit = evaluate(_metric(), _rows(("2026-W44", 89.5), by="dana"))[0]
     assert "example-data" not in hit_to_signal(_metric(), hit)["detail"]
+
+
+# ---- Task 2: reports and the sweep -------------------------------------------------
+
+import shutil
+
+import analytics_sweep
+from analytics_sweep import header_field, main, report_summary, scan_reports, sweep
+from signals import load
+
+FIXTURES = Path(__file__).parent / "fixtures" / "analytics"
+REPORTS = {  # fixture -> where it lives in the analytics tree (one per header style)
+    "experiment-table-bold.md": "experiments/billing/low-balance.md",           # | **Status** | X |
+    "experiment-inline-bold.md": "experiments/deployment/one-click.md",          # **Status:** X
+    "investigation-table-plain.md": "investigations/home-page/search-zero.md",   # | Status | X |
+}
+SNAPSHOTS = (  # ESR falls 95 -> 89.5 (-5.8%): misses the 92% target and trips the 5% change rule
+    "2026-W43,all,95,2026-10-26T09:00:00Z,analyst\n"
+    "2026-W44,all,89.5,2026-11-02T09:00:00Z,analyst\n"
+)
+
+
+def _repo_with_reports(tmp_path: Path, snapshots: str = SNAPSHOTS) -> Path:
+    repo = _repo(tmp_path, snapshots={"esr.csv": snapshots} if snapshots else None)
+    for fixture, dest in REPORTS.items():
+        target = repo / "product-development/analytics" / dest
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy(FIXTURES / fixture, target)
+    return repo
+
+
+def _read(name: str) -> str:
+    return (FIXTURES / name).read_text(encoding="utf-8")
+
+
+def test_header_styles_and_status_filter(tmp_path):
+    assert header_field(_read("experiment-table-bold.md"), "Status") == "Complete"
+    assert header_field(_read("experiment-inline-bold.md"), "Status") == "Complete"
+    assert header_field(_read("investigation-table-plain.md"), "Status") == "Complete"
+    assert header_field(_read("experiment-table-bold.md"), "Experiment End") == "2026-03-19"
+    assert header_field(_read("experiment-inline-bold.md"), "Date") == "2026-03-15"
+    assert header_field(_read("investigation-table-plain.md"), "Run Date") == "2026-03-15"
+    assert header_field(_read("experiment-table-bold.md"), "Nope") is None
+
+    repo = _repo_with_reports(tmp_path)
+    assert len(scan_reports(repo)) == 3
+    path = repo / "product-development/analytics/experiments/billing/low-balance.md"
+    path.write_text(path.read_text(encoding="utf-8").replace("| **Status** | Complete |", "| **Status** | In Progress |"), encoding="utf-8")
+    refs = {r["source_ref"] for r in scan_reports(repo)}
+    assert len(refs) == 2 and not any("low-balance" in r for r in refs)
+
+
+def test_report_rows_are_valid_signals(tmp_path):
+    rows = {Path(r["source_ref"]).name: r for r in scan_reports(_repo_with_reports(tmp_path))}
+    experiment, investigation = rows["low-balance.md"], rows["search-zero.md"]
+    for row in rows.values():
+        assert validate(row) == [] and row["account"] == ""
+        assert row["source_ref"].startswith("product-development/analytics/")
+    assert experiment["source_type"] == "experiment" and experiment["tags"] == "billing"
+    assert experiment["date"] == "2026-03-19"  # Experiment End beats the other date fields
+    assert experiment["summary"].startswith("Showing a warning banner")
+    assert investigation["source_type"] == "analytics" and investigation["tags"] == "investigation;home-page"
+    assert investigation["date"] == "2026-03-15"
+
+
+def test_summary_prefers_tldr_then_findings_then_question():
+    tldr = "# T\n\n## Question\n\nQ text.\n\n## Findings\n\n**Bold finding.**\n\n## TL;DR\n\nFirst para line one\nline two.\n\nSecond para.\n"
+    assert report_summary(tldr) == "First para line one line two."
+    findings = "# T\n\n## Question\n\nQ text.\n\n## Key Findings\n\n| a | **b** |\n|---|---|\n| 1 | **2** |\n\n**Users churn 3x more.** More words.\n"
+    assert report_summary(findings) == "Users churn 3x more."
+    inline = "# T\n\n# Key Finding\n\n**35% drop off at DNS** (between steps).\n"
+    assert report_summary(inline) == "35% drop off at DNS"
+    question = "# T\n\n| Field | Value |\n|---|---|\n\n---\n\n## Question\n\nDo restorers abandon?\n\n## Findings\n\n| x | **y** |\n"
+    assert report_summary(question) == "Do restorers abandon?"
+    assert report_summary("# Investigation: Zero results\n\n## Method\n\nStuff.\n") == "Investigation: Zero results"
+
+
+def test_summary_is_capped_at_300_characters():
+    summary = report_summary("# T\n\n## TL;DR\n\n" + "word " * 200)
+    assert len(summary) <= 300
+
+
+def test_report_without_a_usable_date_is_reported_not_swept(tmp_path):
+    repo = _repo_with_reports(tmp_path)
+    path = repo / "product-development/analytics/experiments/billing/low-balance.md"
+    path.write_text(path.read_text(encoding="utf-8").replace("2026-03-19", "TBD").replace("2026-03-05", "TBD"), encoding="utf-8")
+    rows, problems = analytics_sweep.collect(repo)
+    assert not any("low-balance" in r["source_ref"] for r in rows)
+    assert any("low-balance" in p.file and "date" in p.message for p in problems)
+
+
+def test_sweep_adds_metric_and_report_signals(tmp_path):
+    repo = _repo_with_reports(tmp_path)
+    result = sweep(repo)
+    assert len(result.written) == 5 and result.skipped == 0 and result.invalid == {}
+    by_type: dict[str, int] = {}
+    for s in load(repo):
+        by_type[s.source_type] = by_type.get(s.source_type, 0) + 1
+    assert by_type == {"analytics": 3, "experiment": 2}  # 2 metric hits + 1 investigation; 2 experiments
+    metric_rows = [s for s in load(repo) if s.source_ref.endswith("snapshots/esr.csv")]
+    assert sorted(("fell" in s.summary, "missing target" in s.summary) for s in metric_rows) == [(False, True), (True, False)]
+
+
+def test_sweep_is_idempotent(tmp_path):
+    repo = _repo_with_reports(tmp_path)
+    sweep(repo)
+    before = (repo / "product-development/signals/signals.csv").read_text(encoding="utf-8")
+    again = sweep(repo)
+    assert again.written == [] and again.skipped == 5 and again.invalid == {}
+    assert (repo / "product-development/signals/signals.csv").read_text(encoding="utf-8") == before
+
+
+def test_dry_run_adds_nothing(tmp_path):
+    repo = _repo_with_reports(tmp_path)
+    result = sweep(repo, dry_run=True)
+    assert len(result.written) == 5 and result.skipped == 0
+    assert not (repo / "product-development/signals/signals.csv").exists()
+    sweep(repo)
+    assert sweep(repo, dry_run=True).written == []  # already-present rows count as existing
+
+
+def test_main_prints_counts_and_exit_code(tmp_path, capsys):
+    repo = _repo_with_reports(tmp_path)
+    assert main(["--repo-root", str(repo), "--dry-run"]) == 0
+    out = capsys.readouterr().out
+    assert out.strip().splitlines()[-1] == "5 new, 0 existing, 0 invalid, 0 problems"
+    assert "was 89.5%" in out  # dry run lists what it would add
+    assert not (repo / "product-development/signals/signals.csv").exists()
+    assert main(["--repo-root", str(repo)]) == 0
+    assert capsys.readouterr().out.strip().splitlines()[-1] == "5 new, 0 existing, 0 invalid, 0 problems"
+    assert main(["--repo-root", str(repo)]) == 0
+    assert capsys.readouterr().out.strip().splitlines()[-1] == "0 new, 5 existing, 0 invalid, 0 problems"
+
+
+def test_main_counts_problems_and_fails_on_invalid(tmp_path, capsys, monkeypatch):
+    repo = _repo_with_reports(tmp_path, snapshots=SNAPSHOTS + "2026-W45,all,n/a,2026-11-09T09:00:00Z,analyst\n")
+    assert main(["--repo-root", str(repo)]) == 0
+    assert capsys.readouterr().out.strip().splitlines()[-1] == "5 new, 0 existing, 0 invalid, 1 problems"
+    monkeypatch.setattr(analytics_sweep, "collect", lambda root: ([{"date": "bad", "source_type": "analytics", "source_ref": "x", "summary": "s"}], []))
+    assert main(["--repo-root", str(repo)]) == 1
