@@ -18,3 +18,92 @@ SIG-016,2026-08-12,community,r/PandaDoc - post-publish bug discovery thread,,Man
 SIG-017,2026-08-12,community,r/PandaDoc - final-day breakage thread,,Implicit in long iteration cycles and final-day changes,"Strong versioning is critical: checkpoints, side-by-side extraction diffs, one-click rollback, branch-like experiments, and ""restore last working version.""",iteration-feedback-recovery
 SIG-018,2026-08-12,community,r/PandaDoc - mobile signing request thread,,Non-technical users describe desired behavior rather than technical configuration,"The interface should remain intent-driven. The platform should translate ""make sure vendors can sign from their phone"" into the right mix of mobile-friendly forms, routing, notifications, and publish configuration.",platform-intelligence
 SIG-019,2026-08-12,community,r/PandaDoc - showcase and community feedback thread,,Showcase posts and community feedback,"Include lightweight public preview portals, feedback widgets, submission replay, annotation, and automatically summarized feedback.",iteration-feedback-recovery
+SIG-020,2026-11-02,analytics,product-development/analytics/snapshots/esr.csv,,"Extraction Success Rate (ESR) was 89.5% in 2026-W44 (all), missing target > 92%","Extraction Success Rate (ESR) (esr): latest 89.5% in 2026-W44 for segment all; target > 92%. Captured 2026-11-02T09:00:00Z by example-data. Seeded example data, not a real measurement.",esr
+SIG-021,2026-11-02,analytics,product-development/analytics/snapshots/ttp.csv,,"Time-to-Publish (TTP) was 16min in 2026-W44 (all), missing target < 15 min","Time-to-Publish (TTP) (ttp): latest 16min in 2026-W44 for segment all; target < 15 min. Captured 2026-11-02T09:00:00Z by example-data. Seeded example data, not a real measurement.",ttp
+SIG-022,2026-11-02,analytics,product-development/analytics/snapshots/ttp.csv,,Time-to-Publish (TTP) rose 23.1% to 16min in 2026-W44 vs 2026-W43 (all),"Time-to-Publish (TTP) (ttp): 13min in 2026-W43 -> 16min in 2026-W44 for segment all. Captured 2026-11-02T09:00:00Z by example-data. Seeded example data, not a real measurement.",ttp
+SIG-023,2026-11-02,analytics,product-development/analytics/snapshots/credit-to-upgrade.csv,,"Credit-to-Upgrade Rate was 9.6% in 2026-W44 (all), missing target > 12%","Credit-to-Upgrade Rate (credit-to-upgrade): latest 9.6% in 2026-W44 for segment all; target > 12%. Captured 2026-11-02T09:00:00Z by example-data. Seeded example data, not a real measurement.",credit-to-upgrade
+SIG-024,2026-03-19,experiment,product-development/analytics/experiments/billing/low-balance-warning-03-05-2026-experiment-results.md,,Showing a warning banner when users drop below 20% of their page/document-processing credit allocation reduced churn-from-depletion by 22% and increased the upgrade rate by 15%. The result is statistically significant and the recommendation is to ship the warning banner to all users.,Showing a warning banner when users drop below 20% of their page/document-processing credit allocation reduced churn-from-depletion by 22% and increased the upgrade rate by 15%. The result is statistically significant and the recommendation is to **ship the warning banner to all users**.,billing
+SIG-025,2026-03-15,experiment,product-development/analytics/experiments/deployment/one-click-deploy-cta-03-15-2026-experiment-results.md,,"Replacing the generic ""Publish"" button with a domain-specific ""Publish to your domain"" CTA increased custom domain setup initiation by 41% among Pro and Teams users. The variant also lifted overall publish clicks by 12%. Decision: Ship the variant to all eligible users.","Replacing the generic ""Publish"" button with a domain-specific ""Publish to your domain"" CTA increased custom domain setup initiation by **41%** among Pro and Teams users. The variant also lifted overall publish clicks by 12%. Decision: **Ship the variant to all eligible users.**",deployment
+SIG-026,2026-03-10,experiment,product-development/analytics/experiments/home-page/prompt-suggestions-03-10-2026-experiment-results.md,,Personalized smart field/clause suggestions on the example_product home page increased instruction submission rate by 18% (32.1% vs 27.2%) and reduced median time-to-first-action by 11 seconds. The treatment group also showed a 6% lift in Day 7 retention. Recommendation: Ship to 100% of users.,"Personalized smart field/clause suggestions on the example_product home page increased instruction submission rate by 18% (32.1% vs 27.2%) and reduced median time-to-first-action by 11 seconds. The treatment group also showed a 6% lift in Day 7 retention. Recommendation: **Ship to 100% of users.**
+
+---",home-page
+SIG-027,2026-03-12,experiment,product-development/analytics/experiments/prototyping/version-history-onboarding-03-12-2026-experiment-results.md,,"Showing a tooltip highlighting the version history panel after a user's first automation run increased version history adoption by 34% compared to no tooltip. The tooltip group had significantly higher panel open rates, first-week restore usage, and no negative impact on the extraction flow. Deci...","Showing a tooltip highlighting the version history panel after a user's first automation run increased version history adoption by 34% compared to no tooltip. The tooltip group had significantly higher panel open rates, first-week restore usage, and no negative impact on the extraction flow. Decision: ship the tooltip to all users at GA launch.",prototyping
+SIG-028,2026-03-08,experiment,product-development/analytics/experiments/starter-templates/template-recommendations-03-08-2026-experiment-results.md,,Personalized template recommendations increased the fork rate by 27% compared to the default category browse experience. Users who saw recommended templates were also more likely to publish their forked workflow (44% vs 39% fork-to-publish conversion). We recommend shipping the recommendations ex...,Personalized template recommendations increased the fork rate by **27%** compared to the default category browse experience. Users who saw recommended templates were also more likely to publish their forked workflow (44% vs 39% fork-to-publish conversion). We recommend shipping the recommendations experience to all users.,starter-templates
+SIG-029,2026-03-10,analytics,product-development/analytics/investigations/billing/2026-03-10-credit-depletion-churn-analysis.md,,Users who deplete their credits are 3.2x more likely to churn within 14 days than users who do not.,"### Overall
+
+| Metric | Depleted (N=1,987) | Not Depleted (N=12,845) | Relative Risk |
+|--------|-------------------|------------------------|---------------|
+| 14-day churn rate | 18.2% | 5.7% | **3.19x** |
+| p-value | -- | -- | < 0.001 |
+
+**Users who deplete their credits are 3.2x more likely to churn within 14 days than users who do not.**
+
+### By Subscription Tier
+
+| Tier | Depleted Churn Rate | Non-Depleted Churn Rate | Relative Risk | p-value |
+|------|-------------------|------------------------|---------------|---------|
+| Free | 24.1% | 9.8% | 2.46x | < 0.001 |
+| Pro | 15.6% | 4.2% | 3.71x | < 0.001 |
+| Team | 10.3% | 3.1% | 3.32x | < 0.01 |
+
+The effect is most pronounced for Pro users, who represent the highest revenue-per-user tier affected. Free users have a higher absolute churn rate in both groups but a lower relative risk, likely because Free users have higher baseline churn regardless of credit usage.
+
+### Time-to-Churn Analysis
+
+Among users who depleted and subsequently churned, the median time from depletion to last activity was **3 days**. This suggests the churn decision happens quickly after the depletion event, reinforcing the importance of pre-depletion warnings rather than post-depletion recovery.
+
+| Days from Depletion to Last Activity | % of Churned Users |
+|---------------------------------------|-------------------|
+| 0 (same day) | 28% |
+| 1-3 days | 35% |
+| 4-7 days | 22% |
+| 8-14 days | 15% |
+
+### Confounding Factors Considered
+
+- **Usage intensity**: Heavy users are both more likely to deplete and more likely to churn from frustration. We controlled for this by segmenting by usage quartile and found the depletion-churn relationship holds across all quartiles (RR range: 2.4x - 3.8x).
+- **Account age**: Newer users might deplete more and churn more. Controlling for cohort month did not meaningfully change the result.
+- **Plan fit**: Some users may be on plans that are too small for their usage. This is real, but it is also the mechan...",investigation;billing
+SIG-030,2026-03-18,analytics,product-development/analytics/investigations/deployment/2026-03-18-custom-domain-adoption-funnel.md,,35% of users drop off at the DNS configuration step,"**35% of users drop off at the DNS configuration step** (between viewing instructions and successfully verifying DNS). This is the single largest point of friction in the entire flow.
+
+Breakdown of DNS configuration drop-off:
+
+| Cause | Users affected | % of drop-offs |
+|-------|---------------|----------------|
+| User viewed instructions but never left example_product (abandoned) | 12 | 43% |
+| User left example_product but DNS record was misconfigured (wrong value, wrong record type) | 9 | 32% |
+| User configured DNS correctly but did not wait for propagation (assumed it failed) | 5 | 18% |
+| User hit registrar-specific confusion (could not find DNS settings page) | 2 | 7% |",investigation;deployment
+SIG-031,2026-03-15,analytics,product-development/analytics/investigations/home-page/2026-03-15-search-zero-results-rate.md,,Investigation: High Zero-Results Rate in Workflow & Template Search,Investigation: High Zero-Results Rate in Workflow & Template Search,investigation;home-page
+SIG-032,2026-03-12,analytics,product-development/analytics/investigations/prototyping/2026-03-12-version-restore-abandonment.md,,Key finding: 72% of users who restore a version continue working on the workflow within 30 minutes.,"| Metric | Value |
+|--------|-------|
+| Total restore events (beta period) | 312 |
+| Unique users who restored | 214 |
+| Unique workflows with restores | 187 |
+| **Continued working within 30 min** | **72%** |
+| Continued working within 60 min | 78% |
+| Returned within 24 hours (of those who did not continue in 30 min) | 41% |
+| True abandonment (no return in 24 hours) | 13% |
+
+**Key finding: 72% of users who restore a version continue working on the workflow within 30 minutes.** This is a strong positive signal. Version history is functioning as a recovery tool that keeps users engaged, not as a last-resort action before abandonment.
+
+### Breakdown by action after restore
+
+| Post-restore action (within 30 min) | % of restores |
+|--------------------------------------|---------------|
+| New automation run | 58% |
+| Manual field/routing edit | 9% |
+| Publish attempt | 5% |
+| No activity (within 30 min) | 28% |
+
+The dominant pattern is: restore, then immediately re-run extraction with a different instruction. This confirms the hypothesis that users restore to get back to a good state and then try a different approach.
+
+### Breakdown by user tier
+
+| Tier | Continue rate |
+|------|---------------|
+| Pro | 74% |
+| Teams | 69% |
+
+Teams users have a slightly lower continue rate, but the sample size for Teams is small (N = 38). Not statistically significant at this point.",investigation;prototyping
+SIG-033,2026-03-08,analytics,product-development/analytics/investigations/starter-templates/2026-03-08-template-fork-to-deploy-conversion.md,,"What percentage of forked templates reach publish? How does fork-to-publish conversion compare to blank-workflow publish conversion, and what factors influence whether a forked template gets published?","What percentage of forked templates reach publish? How does fork-to-publish conversion compare to blank-workflow publish conversion, and what factors influence whether a forked template gets published?",investigation;starter-templates
