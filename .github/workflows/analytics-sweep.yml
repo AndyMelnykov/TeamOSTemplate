@@ -1,0 +1,39 @@
+name: Analytics Sweep
+
+on:
+  schedule:
+    - cron: "0 7 * * 1"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  sweep:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r scripts/integrity-checks/requirements.txt
+
+      # A team with warehouse credentials would add a capture job here that appends the latest
+      # values to product-development/analytics/snapshots/*.csv (store the credentials as repo
+      # secrets; never commit them). Without one, snapshots are captured by /analytics-snapshot.
+
+      - name: Sweep analytics into signals
+        run: python scripts/signals/analytics_sweep.py --repo-root .
+
+      - name: Check signals
+        run: python scripts/signals/signals.py check
+
+      - name: Commit new signals
+        run: |
+          git config user.name "integrity-check-bot"
+          git config user.email "actions@github.com"
+          git add product-development/signals/signals.csv
+          git diff --cached --quiet || (git commit -m "chore: weekly analytics sweep" && git push)

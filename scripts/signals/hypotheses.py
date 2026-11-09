@@ -11,6 +11,8 @@ import sys
 from dataclasses import dataclass
 from pathlib import Path
 
+import yaml
+
 from signals import HYPOTHESES_ROOT, SIGNAL_ID_IN_TEXT, Signal, load
 
 STATUSES = ("proposed", "testing", "validated", "invalidated", "in-prd", "shipped")
@@ -20,6 +22,7 @@ VALIDATION_PATHS = ("ab-test", "prototype", "survey", "interviews")
 
 METRICS_REFERENCE = Path("reference/metrics.md")
 METRICS_DOCS = Path("product-development/analytics/metrics")
+METRIC_WATCH = Path("product-development/analytics/metric-watch.yaml")
 
 # Required at every status / from `testing` onward. "?" counts as present.
 ALWAYS_FIELDS = ("Status", "Confidence", "Effort", "Target metric")
@@ -109,7 +112,7 @@ def _names(label: str) -> set[str]:
 
 
 def instrumented_metrics(repo_root: Path) -> set[str]:
-    """Lower-cased metric names and abbreviations from reference/metrics.md and analytics/metrics/**."""
+    """Lower-cased metric names, abbreviations and ids from reference/metrics.md, analytics/metrics/** and metric-watch.yaml."""
     root = Path(repo_root)
     found: set[str] = set()
     reference = root / METRICS_REFERENCE
@@ -121,6 +124,22 @@ def instrumented_metrics(repo_root: Path) -> set[str]:
         for doc in docs.rglob("*.md"):
             for m in re.finditer(r"^###\s+(.+?)\s*$", doc.read_text(encoding="utf-8"), re.MULTILINE):
                 found |= _names(m.group(1))
+    found |= _watched_names(root / METRIC_WATCH)
+    return found
+
+
+def _watched_names(path: Path) -> set[str]:
+    """Names and ids of the metrics the analytics sweep watches; an unreadable file contributes nothing."""
+    try:
+        entries = yaml.safe_load(path.read_text(encoding="utf-8")).get("metrics") or []
+    except (OSError, yaml.YAMLError, AttributeError):
+        return set()
+    found: set[str] = set()
+    for entry in entries if isinstance(entries, list) else []:
+        if isinstance(entry, dict):
+            for key in ("id", "name"):
+                if isinstance(entry.get(key), str):
+                    found |= _names(entry[key])
     return found
 
 

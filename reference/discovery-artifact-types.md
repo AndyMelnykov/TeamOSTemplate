@@ -34,7 +34,7 @@ Every hypothesis opens with a table in the same `| **Field** | value |` form PRD
 
 **Reach is derived, never typed.** It is the number of signals, and distinct accounts, the hypothesis cites under `## Signals`. `python scripts/signals/hypotheses.py list` computes it.
 
-**The recommendation rule.** `hypotheses.py list` recommends `ab-test` when `Effort` is `cheap` **and** the target metric is instrumented (named in `reference/metrics.md` or as a heading under `product-development/analytics/metrics/`); otherwise `prototype`, with `survey` and `interviews` as alternatives. The rule recommends; a human chooses the `Validation path`. It is never enforced. Results from prototypes, surveys and interviews are logged as signals (`/log-signal`) and cited under `## Signals`.
+**The recommendation rule.** `hypotheses.py list` recommends `ab-test` when `Effort` is `cheap` **and** the target metric is instrumented (named in `reference/metrics.md` as a heading under `product-development/analytics/metrics/`, or in `product-development/analytics/metric-watch.yaml`); otherwise `prototype`, with `survey` and `interviews` as alternatives. The rule recommends; a human chooses the `Validation path`. It is never enforced. Results from prototypes, surveys and interviews are logged as signals (`/log-signal`) and cited under `## Signals`.
 
 ## When to write one
 
