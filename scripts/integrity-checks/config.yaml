@@ -21,6 +21,8 @@ checks:
   process-stale-bug-investigations: true
   process-papercuts-digest: true
   process-skillgaps-digest: true
+  analytics-watch-invalid: true
+  analytics-unswept-reports: true
 
 thresholds:
   unassigned-signal-days: 30

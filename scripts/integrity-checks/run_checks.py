@@ -15,6 +15,7 @@ CHECK_MODULES = [
     "checks.prd_content",
     "checks.decisions_adr",
     "checks.process_health",
+    "checks.analytics_watch",
 ]
 
 

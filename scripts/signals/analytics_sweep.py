@@ -492,6 +492,16 @@ def _scan_reports(repo_root: Path) -> tuple[list[dict], list[Problem]]:
     return rows, problems
 
 
+def complete_reports(repo_root: Path) -> list[str]:
+    """Repo-relative paths of every `Status: Complete` report, whether or not it can be swept."""
+    refs = []
+    for _, _, path in _report_files(repo_root):
+        status = header_field(path.read_text(encoding="utf-8"), "Status")
+        if status is not None and status.lower() == "complete":
+            refs.append(path.relative_to(repo_root).as_posix())
+    return refs
+
+
 def scan_reports(repo_root: Path) -> list[dict]:
     """Signal rows for `Complete` experiments and investigations."""
     return _scan_reports(repo_root)[0]

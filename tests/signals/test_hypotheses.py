@@ -104,6 +104,25 @@ def test_metric_abbreviation_counts_as_instrumented(tmp_path):
         assert recommend(h, instrumented)[0] == "ab-test"
 
 
+def test_watched_metrics_are_instrumented(tmp_path):
+    repo = _repo_with_metrics(tmp_path)
+    watch = repo / "product-development/analytics/metric-watch.yaml"
+    watch.write_text(
+        "metrics:\n"
+        "  - id: ttp\n    name: Time-to-Publish (TTP)\n"
+        "  - id: credit-to-upgrade\n    name: Credit-to-Upgrade Rate\n", encoding="utf-8")
+    instrumented = instrumented_metrics(repo)
+    assert {"ttp", "time-to-publish", "credit-to-upgrade", "credit-to-upgrade rate"} <= instrumented
+    h = _hyp(tmp_path, Effort="cheap", **{"Target metric": "Credit-to-Upgrade Rate"})
+    assert recommend(h, instrumented)[0] == "ab-test"
+
+
+def test_unreadable_watch_file_does_not_break_instrumented_metrics(tmp_path):
+    repo = _repo_with_metrics(tmp_path)
+    (repo / "product-development/analytics/metric-watch.yaml").write_text("metrics: [unclosed", encoding="utf-8")
+    assert "esr" in instrumented_metrics(repo)
+
+
 def test_cheap_and_instrumented_recommends_ab_test(tmp_path):
     instrumented = instrumented_metrics(_repo_with_metrics(tmp_path))
     path, reason = recommend(_hyp(tmp_path, Effort="cheap"), instrumented)

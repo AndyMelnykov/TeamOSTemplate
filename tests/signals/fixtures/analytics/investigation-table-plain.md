@@ -149,6 +149,6 @@ LIMIT 50;
 
 | Resource | Path |
 |----------|------|
-| Metrics definition | [project-search-metrics.md](../../metrics/home-page/project-search-metrics.md) |
-| SQL query | [search-usage.sql](../../queries/home-page/search-usage.sql) |
-| Schema | [search_events.md](../../schemas/home-page/search_events.md) |
+| Metrics definition | `../../metrics/home-page/project-search-metrics.md` |
+| SQL query | `../../queries/home-page/search-usage.sql` |
+| Schema | `../../schemas/home-page/search_events.md` |
