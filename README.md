@@ -19,7 +19,7 @@ signals → hypotheses → validation (A/B | prototype | survey | interviews)
 4. **PRDs** carry validated bets to engineering; this repo owns the PRD → ticket hand-off, not the build.
 5. **Rollout and measurement** write results back as new signals, closing the loop.
 
-Canonical definition, vocabulary and the status of every stage: [`reference/product-loop.md`](reference/product-loop.md). The loop is open at both ends until Plans 1–4 land (see [Limitations](#limitations)).
+Canonical definition, vocabulary and the status of every stage: [`reference/product-loop.md`](reference/product-loop.md). The loop is only partly closed (see [Limitations](#limitations)).
 
 ## How each stage is implemented
 
@@ -27,14 +27,14 @@ This table mirrors the machine-checked stage status table in [`reference/product
 
 | Stage | Status | Entry points |
 | --- | --- | --- |
-| 1. Input signals | partial | `/customer-call` ([`customer-call.md`](.claude/commands/customer-call.md)) and `/log-signal` ([`log-signal.md`](.claude/commands/log-signal.md)) add rows to [`signals.csv`](product-development/signals/signals.csv) through `scripts/signals/signals.py` ([contract](reference/signal-contract.md)); `/feature-request-intake` ([`feature-request-intake.md`](.claude/commands/feature-request-intake.md)) files the feature-request issue. Analytics feed: planned (Plan 4). |
+| 1. Input signals | partial | `/customer-call` ([`customer-call.md`](.claude/commands/customer-call.md)) and `/log-signal` ([`log-signal.md`](.claude/commands/log-signal.md)) add rows to [`signals.csv`](product-development/signals/signals.csv) through `scripts/signals/signals.py` ([contract](reference/signal-contract.md)); `/feature-request-intake` ([`feature-request-intake.md`](.claude/commands/feature-request-intake.md)) files the feature-request issue. The analytics sweep (`scripts/signals/analytics_sweep.py`, weekly workflow or `/analytics-sweep`) adds signals from [`metric-watch.yaml`](product-development/analytics/metric-watch.yaml), completed experiments and investigations. |
 | 2. Hypotheses | implemented | `/hypothesis` ([`hypothesis.md`](.claude/commands/hypothesis.md)) drafts and promotes a hypothesis from the [template](templates/hypothesis.md); `scripts/signals/hypotheses.py list` shows each one's derived reach and recommended validation path ([`discovery-artifact-types.md`](reference/discovery-artifact-types.md)). |
-| 3. Validation | partial | [`analytics/experiments/`](product-development/analytics/experiments/). The recommendation exists; results arrive as signals (`/log-signal`), and the experiment feed is planned (Plan 4). |
+| 3. Validation | implemented | [`analytics/experiments/`](product-development/analytics/experiments/). The recommendation exists; completed experiments become signals through the analytics sweep, and other results arrive through `/log-signal`. |
 | 4. Prototyping | partial | The [`prototype` skill](.claude/skills/prototype/SKILL.md). Prototypes are throwaway by design; linking them to a shared design system is a Later roadmap item. |
 | 5. PRDs | implemented | `/prd` ([`prd.md`](.claude/commands/prd.md)) or `/to-prd` ([`SKILL.md`](.claude/skills/to-prd/SKILL.md)) write the one [canonical template](product-development/product/PRDs/CLAUDE.md), whose acceptance criteria are the source for tickets and tests; then `/to-spec` → `/to-tickets` → `/implement`. |
 | 6. Engineering | out-of-scope | The repo owns only the PRD → ticket hand-off ([`issue-tracker.md`](docs/agents/issue-tracker.md)). |
-| 7. Rollout and measurement | planned | Metric and experiment results become signals: Plan 4. |
-| Loop closure | planned | Plans 1 and 4. |
+| 7. Rollout and measurement | partial | `/analytics-snapshot` ([`analytics-snapshot.md`](.claude/commands/analytics-snapshot.md)) captures metric values; the weekly [sweep](.github/workflows/analytics-sweep.yml) turns a missed target or sharp move into a signal. Rollout outcomes beyond watched metrics are logged by hand. |
+| Loop closure | partial | Analytics and experiment results feed back as signals (`/analytics-sweep`); linking them to hypotheses is a human step. |
 
 Across all stages, the [integrity checks](scripts/integrity-checks/README.md) detect missing or inconsistent artifacts (a hypothesis with no supporting signal, a PRD missing required sections, `feature-index.yaml` drift).
 
@@ -152,7 +152,7 @@ Two step-by-step guides, depending on where the team is starting from:
 
 ## Limitations
 
-- **The loop is open at both ends until Plan 4 lands.** Signals have one store and entry point (Plan 1) but only manual and agent-driven intake, with no analytics feed, and measurement doesn't flow back as signals (Plan 4).
+- **The loop is only partly closed.** Signals have one store and entry point, and the analytics sweep feeds metric shifts and experiment results back in. There is no support-desk adapter yet, rollout outcomes beyond watched metrics are logged by hand, and the seeded metric snapshots are example data until a team captures real values.
 - **The evaluation has never been run.** The methodology exists and `evaluation/results/` is empty. Treat every claim here about the structure "helping" as a hypothesis with a defined test, not a measured result.
 - **Structured navigation degrades on unstructured collections.** `competitive-research/` is closer to a document pile than an addressable table (the customer `Insights/` folder, also flagged, is now the structured `signals.csv`; see [ADR 0001](docs/adr/0001-structured-navigation-over-embeddings.md)).
 - **Unwired artifacts are detected, not fixed.** The `feature-index-join-completeness` integrity check detects artifacts missing from `feature-index.yaml`, but nothing writes the entries automatically.
